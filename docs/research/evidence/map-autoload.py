@@ -11,18 +11,23 @@ HOST = "127.0.0.1"
 DELIVERY_PORT = 29100
 RELAY_PORT = 29110
 PROVIDER_PORT = 29301
-GAME_DIRECTORY = Path("/root/pwserver/gamed")
+GAME_DIRECTORY = Path("/root/pwserver/gamed-map-autoload")
 DELIVERY_TRACE = Path("/root/pwserver/logs/world2.trace")
 LAB_DIRECTORY = Path(__file__).resolve().parent
 
 ROLE_DESTINATIONS = {1026: 161}
-MAPS = {161: ("is61", 101, 12)}
+MAPS = {161: ("is61", 101)}
 PLAYER_LOGIN = 65
 STATUS_ANNOUNCE = 6
+WAIT_QUEUE_STATE = 164
 CANCEL_WAIT_QUEUE = 165
+CANCEL_WAIT_QUEUE_REPLY = 166
 STATUS_OFFLINE = 0
 MAX_FRAME_SIZE = 4 * 1024 * 1024
 STARTUP_TIMEOUT = 90
+ESTIMATED_STARTUP_SECONDS = 20
+WAIT_UPDATE_SECONDS = 60
+WORLD_ALLOCATED = re.compile("分配了世界".encode() + rb"\d+ 0x[0-9a-fA-F]+\r?\n")
 
 
 def log(message):
@@ -53,6 +58,10 @@ async def read_frame(reader):
     return protocol, payload, protocol_bytes + size_bytes + payload
 
 
+def write_queue_message(writer, protocol, payload):
+    writer.write(struct.pack(">HB", 0x8000 | protocol, len(payload)) + payload)
+
+
 def gateway_connected(pid):
     output = subprocess.run(
         ["ss", "-Htnp", "state", "established", f"( dport = :{PROVIDER_PORT} )"],
@@ -65,27 +74,40 @@ class MapStartup:
     def __init__(self):
         self.tasks = {}
         self.processes = {}
+        self.estimated_ready_at = {}
 
-    async def ensure_ready(self, world_tag):
+    def request(self, world_tag):
         task = self.tasks.get(world_tag)
         process = self.processes.get(world_tag)
         if task is None or (task.done() and (process is None or process.poll() is not None)):
             task = self.tasks[world_tag] = asyncio.create_task(self.start_map(world_tag))
-        return await asyncio.shield(task)
+        return task
+
+    def seconds_remaining(self, world_tag):
+        return max(1, round(self.estimated_ready_at[world_tag] - monotonic()))
 
     async def start_map(self, world_tag):
-        alias, server_id, parallel_world_startup = MAPS[world_tag]
+        alias, server_id = MAPS[world_tag]
         started_at = monotonic()
         log(f"map request worldtag={world_tag} alias={alias}")
         try:
             delay = int((LAB_DIRECTORY / "delay-seconds").read_text().strip())
             if not 0 <= delay < STARTUP_TIMEOUT:
                 raise ValueError(f"delay must be between 0 and {STARTUP_TIMEOUT - 1} seconds")
-            await asyncio.sleep(delay)
-            with DELIVERY_TRACE.open("rb") as trace, (LAB_DIRECTORY / f"{alias}.log").open("ab") as output:
+            estimate = min(STARTUP_TIMEOUT, delay + ESTIMATED_STARTUP_SECONDS)
+            self.estimated_ready_at[world_tag] = started_at + estimate
+            if delay:
+                await asyncio.sleep(delay)
+            log_path = LAB_DIRECTORY / f"{alias}.log"
+            with (
+                DELIVERY_TRACE.open("rb") as trace,
+                log_path.open("ab") as output,
+                log_path.open("rb") as map_log,
+            ):
                 trace.seek(0, 2)
+                map_log.seek(0, 2)
                 process = self.processes[world_tag] = subprocess.Popen(
-                    ["./gs", alias, "gs.conf", "gmserver.conf", "gsalias.conf"],
+                    ["stdbuf", "-oL", "./gs", alias, "gs.conf", "gmserver.conf", "gsalias.conf"],
                     cwd=GAME_DIRECTORY, stdin=subprocess.DEVNULL,
                     stdout=output, stderr=subprocess.STDOUT, start_new_session=True,
                 )
@@ -94,7 +116,9 @@ class MapStartup:
                     rb"gameserver %d's region .*worldtag is %d\b" % (server_id, world_tag)
                 )
                 trace_buffer = b""
+                map_buffer = b""
                 registered_at = None
+                instance_allocated = False
                 while monotonic() - started_at < STARTUP_TIMEOUT:
                     if process.poll() is not None:
                         raise OSError(f"{alias} exited with status {process.returncode}")
@@ -105,8 +129,15 @@ class MapStartup:
                             log(f"map registered alias={alias} worldtag={world_tag} "
                                 f"elapsed={registered_at - started_at:.2f}s")
                         trace_buffer = trace_buffer[-512:]
+                    if not instance_allocated:
+                        map_buffer += map_log.read()
+                        instance_allocated = WORLD_ALLOCATED.search(map_buffer) is not None
+                        if instance_allocated:
+                            log(f"map instance allocated alias={alias} worldtag={world_tag} "
+                                f"elapsed={monotonic() - started_at:.2f}s")
+                        map_buffer = map_buffer[-512:]
                     if (registered_at is not None
-                            and monotonic() - registered_at >= parallel_world_startup
+                            and instance_allocated
                             and await asyncio.to_thread(gateway_connected, process.pid)):
                         log(f"map ready alias={alias} worldtag={world_tag} pid={process.pid} "
                             f"elapsed={monotonic() - started_at:.2f}s")
@@ -118,17 +149,11 @@ class MapStartup:
         return False
 
 
-async def copy_stream(reader, writer):
-    while data := await reader.read(65536):
-        writer.write(data)
+async def copy_frames(reader, writer):
+    while True:
+        _, _, frame = await read_frame(reader)
+        writer.write(frame)
         await writer.drain()
-
-
-async def continue_login(writer, maps, role_id, session_id, world_tag, frame):
-    ready = await maps.ensure_ready(world_tag)
-    log(f"forward login role={role_id} sid={session_id} worldtag={world_tag} ready={int(ready)}")
-    writer.write(frame)
-    await writer.drain()
 
 
 async def handle_gateway(gateway_reader, gateway_writer, maps):
@@ -140,6 +165,24 @@ async def handle_gateway(gateway_reader, gateway_writer, maps):
         delivery_reader, delivery_writer = await asyncio.open_connection(HOST, DELIVERY_PORT)
         log("gateway delivery channel connected")
 
+        async def continue_login(role_id, session_id, world_tag, frame):
+            startup = maps.request(world_tag)
+            interval = 0.2
+            while not startup.done():
+                ready, _ = await asyncio.wait((startup,), timeout=interval)
+                if ready:
+                    break
+                seconds = maps.seconds_remaining(world_tag)
+                notice = struct.pack(">IBhhi", session_id, 0, 0, 1, seconds)
+                write_queue_message(gateway_writer, WAIT_QUEUE_STATE, notice)
+                log(f"wait notice sid={session_id} worldtag={world_tag} eta={seconds}s")
+                await gateway_writer.drain()
+                interval = WAIT_UPDATE_SECONDS
+            log(f"forward login role={role_id} sid={session_id} worldtag={world_tag} "
+                f"ready={int(startup.result())}")
+            delivery_writer.write(frame)
+            pending.pop(session_id)
+
         async def forward_requests():
             while True:
                 protocol, payload, frame = await read_frame(gateway_reader)
@@ -150,7 +193,7 @@ async def handle_gateway(gateway_reader, gateway_writer, maps):
                         if session_id not in pending or pending[session_id].done():
                             log(f"received login role={role_id} sid={session_id}")
                             pending[session_id] = asyncio.create_task(
-                                continue_login(delivery_writer, maps, role_id, session_id, world_tag, frame)
+                                continue_login(role_id, session_id, world_tag, frame)
                             )
                         continue
                 cancel_wait = protocol == CANCEL_WAIT_QUEUE and len(payload) == 8
@@ -162,10 +205,15 @@ async def handle_gateway(gateway_reader, gateway_writer, maps):
                     if task is not None and not task.done():
                         log(f"cancel login sid={session_id}")
                         task.cancel()
+                        if cancel_wait:
+                            reply = struct.pack(">iI", 0, session_id)
+                            write_queue_message(gateway_writer, CANCEL_WAIT_QUEUE_REPLY, reply)
+                            await gateway_writer.drain()
+                            continue
                 delivery_writer.write(frame)
                 await delivery_writer.drain()
 
-        delivery_to_gateway = asyncio.create_task(copy_stream(delivery_reader, gateway_writer))
+        delivery_to_gateway = asyncio.create_task(copy_frames(delivery_reader, gateway_writer))
         gateway_to_delivery = asyncio.create_task(forward_requests())
         closed, _ = await asyncio.wait(
             (delivery_to_gateway, gateway_to_delivery), return_when=asyncio.FIRST_COMPLETED,
