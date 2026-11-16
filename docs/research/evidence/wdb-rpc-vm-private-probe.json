@@ -1,0 +1,44 @@
+{
+  "test": "Native WDB RPC across Linux namespaces",
+  "environment": "VirtualBox VM",
+  "storage_address": "198.18.81.1",
+  "game_address": "198.18.81.2",
+  "ports": [
+    29400,
+    29401
+  ],
+  "routes": {
+    "pw-store": [
+      "198.18.81.0/30 dev pw-store-net proto kernel scope link src 198.18.81.1 "
+    ],
+    "pw-game": [
+      "198.18.81.0/30 dev pw-game-net proto kernel scope link src 198.18.81.2 "
+    ]
+  },
+  "storage_listeners": [
+    "LISTEN 0      10     0.0.0.0:29401 0.0.0.0:* users:((\"uniquenamed\",pid=20,fd=13))"
+  ],
+  "gnet_connections": [],
+  "opened_wdb_files": {
+    "gamedbd": 0,
+    "uniquenamed": 7
+  },
+  "exit_before_cleanup": {
+    "gamedbd": -10,
+    "uniquenamed": null,
+    "gdeliveryd": -10
+  },
+  "startup_events": {
+    "uniquenamed": [
+      "info : logclient: OnAddSession",
+      "info : logclienttcp: OnAbortSession",
+      "info : logclienttcp: OnAbortSession",
+      "info : logclienttcp: OnAbortSession",
+      "info : logclienttcp: OnAbortSession"
+    ]
+  },
+  "namespace_cleanup": {
+    "pw-game": 0,
+    "pw-store": 0
+  }
+}

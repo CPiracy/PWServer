@@ -1,0 +1,45 @@
+{
+  "test": "Separate MariaDB network namespace",
+  "source": "VM-distributed SQL fixtures",
+  "network": {
+    "sql": "198.18.71.1:3306",
+    "game": "198.18.71.2",
+    "no_default_route": true
+  },
+  "data_medium": "tmpfs",
+  "mariadb_version": "11.8.1-MariaDB-4",
+  "routines_present": [
+    "acquireuserpasswd",
+    "addGM",
+    "adduser"
+  ],
+  "established_sql_sockets": [
+    "0      0      198.18.71.2:57234 198.18.71.1:3306 users:((\"gauthd\",pid=26220,fd=6))",
+    "0      0      198.18.71.2:57232 198.18.71.1:3306 users:((\"licenseservice\",pid=26218,fd=5))"
+  ],
+  "sql_sessions": [
+    "198.18.71.2:57232\tlicenseservice",
+    "198.18.71.2:57234\tpw176"
+  ],
+  "native_pids": {
+    "licenseservice": {
+      "pid": 26218,
+      "exit": null
+    },
+    "gauthd": {
+      "pid": 26220,
+      "exit": null
+    }
+  },
+  "both_native_sql_connections": true,
+  "namespace_cleanup": [
+    [
+      "pwgame-7NOpsy",
+      0
+    ],
+    [
+      "pwdb-7NOpsy",
+      0
+    ]
+  ]
+}

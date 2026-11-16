@@ -1,0 +1,613 @@
+{
+  "captured_utc": "2026-11-16T04:22:02.432935+00:00",
+  "kernel": "Linux 6.12.27-amd64 x86_64 GNU/Linux",
+  "glibc": "glibc 2.41",
+  "routes_ipv4": [
+    "192.168.56.0/24 dev enp0s3 proto kernel scope link src 192.168.56.101 "
+  ],
+  "processes": [
+    {
+      "name": "licenseservice",
+      "pid": 2675,
+      "exe": "/root/pwserver/licenseservice/licenseservice",
+      "cwd": "/root/pwserver/licenseservice",
+      "argv": [
+        "./licenseservice",
+        "gamesys.conf"
+      ],
+      "rss_kib": 9784,
+      "open_files": [
+        "/root/pwserver/logs/licenseservice.log"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libmariadb.so.3",
+        "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+        "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7"
+      ]
+    },
+    {
+      "name": "logservice",
+      "pid": 2687,
+      "exe": "/root/pwserver/logservice/logservice",
+      "cwd": "/root/pwserver/logservice",
+      "argv": [
+        "./logservice",
+        "logservice.conf"
+      ],
+      "rss_kib": 28916,
+      "open_files": [
+        "/root/pwserver/logs/logservice.log",
+        "/root/pwserver/logs/statinfod",
+        "/root/pwserver/logs/statinfoh",
+        "/root/pwserver/logs/statinfom",
+        "/root/pwserver/logs/world2.cash",
+        "/root/pwserver/logs/world2.chat",
+        "/root/pwserver/logs/world2.err",
+        "/root/pwserver/logs/world2.formatlog",
+        "/root/pwserver/logs/world2.log",
+        "/root/pwserver/logs/world2.trace"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33"
+      ]
+    },
+    {
+      "name": "uniquenamed",
+      "pid": 2698,
+      "exe": "/root/pwserver/uniquenamed/uniquenamed",
+      "cwd": "/root/pwserver/uniquenamed",
+      "argv": [
+        "./uniquenamed",
+        "gamesys.conf"
+      ],
+      "rss_kib": 17588,
+      "open_files": [
+        "/root/pwserver/logs/uniquename.log",
+        "/root/pwserver/uniquenamed/dbhome/dbdata/config",
+        "/root/pwserver/uniquenamed/dbhome/dbdata/logicuid",
+        "/root/pwserver/uniquenamed/dbhome/dbdata/uidrole",
+        "/root/pwserver/uniquenamed/dbhome/dbdata/unamearenateam",
+        "/root/pwserver/uniquenamed/dbhome/dbdata/unamefaction",
+        "/root/pwserver/uniquenamed/dbhome/dbdata/unamerole",
+        "/root/pwserver/uniquenamed/dbhome/dblogs/log.6afa582e"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/gconv/GBK.so",
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33"
+      ]
+    },
+    {
+      "name": "gauthd",
+      "pid": 2710,
+      "exe": "/root/pwserver/gauthd/gauthd",
+      "cwd": "/root/pwserver/gauthd",
+      "argv": [
+        "./gauthd",
+        "gamesys.conf"
+      ],
+      "rss_kib": 10608,
+      "open_files": [
+        "/root/pwserver/logs/gauthd.log"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libmariadb.so.3",
+        "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+        "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7"
+      ]
+    },
+    {
+      "name": "gamedbd",
+      "pid": 2724,
+      "exe": "/root/pwserver/gamedbd/gamedbd",
+      "cwd": "/root/pwserver/gamedbd",
+      "argv": [
+        "./gamedbd",
+        "gamesys.conf"
+      ],
+      "rss_kib": 34924,
+      "open_files": [
+        "/root/pwserver/gamedbd/dbhome/dbdata/arenaplayer",
+        "/root/pwserver/gamedbd/dbhome/dbdata/arenateam",
+        "/root/pwserver/gamedbd/dbhome/dbdata/auction",
+        "/root/pwserver/gamedbd/dbhome/dbdata/base",
+        "/root/pwserver/gamedbd/dbhome/dbdata/city",
+        "/root/pwserver/gamedbd/dbhome/dbdata/clsconfig",
+        "/root/pwserver/gamedbd/dbhome/dbdata/config",
+        "/root/pwserver/gamedbd/dbhome/dbdata/crslogicuid",
+        "/root/pwserver/gamedbd/dbhome/dbdata/equipment",
+        "/root/pwserver/gamedbd/dbhome/dbdata/factionfortress",
+        "/root/pwserver/gamedbd/dbhome/dbdata/factioninfo",
+        "/root/pwserver/gamedbd/dbhome/dbdata/factionname",
+        "/root/pwserver/gamedbd/dbhome/dbdata/factionrelation",
+        "/root/pwserver/gamedbd/dbhome/dbdata/force",
+        "/root/pwserver/gamedbd/dbhome/dbdata/foundryformulas",
+        "/root/pwserver/gamedbd/dbhome/dbdata/friendext",
+        "/root/pwserver/gamedbd/dbhome/dbdata/friends",
+        "/root/pwserver/gamedbd/dbhome/dbdata/globalcontrol",
+        "/root/pwserver/gamedbd/dbhome/dbdata/gtask",
+        "/root/pwserver/gamedbd/dbhome/dbdata/home",
+        "/root/pwserver/gamedbd/dbhome/dbdata/inventory",
+        "/root/pwserver/gamedbd/dbhome/dbdata/kingelection",
+        "/root/pwserver/gamedbd/dbhome/dbdata/luaother",
+        "/root/pwserver/gamedbd/dbhome/dbdata/luarole",
+        "/root/pwserver/gamedbd/dbhome/dbdata/luatag",
+        "/root/pwserver/gamedbd/dbhome/dbdata/luauser",
+        "/root/pwserver/gamedbd/dbhome/dbdata/mailbox",
+        "/root/pwserver/gamedbd/dbhome/dbdata/mappassword",
+        "/root/pwserver/gamedbd/dbhome/dbdata/messages",
+        "/root/pwserver/gamedbd/dbhome/dbdata/mndomainbonus",
+        "/root/pwserver/gamedbd/dbhome/dbdata/mndomaininfo",
+        "/root/pwserver/gamedbd/dbhome/dbdata/mnfactionapplyinfo",
+        "/root/pwserver/gamedbd/dbhome/dbdata/mnfactioninfo",
+        "/root/pwserver/gamedbd/dbhome/dbdata/newroleinfo",
+        "/root/pwserver/gamedbd/dbhome/dbdata/newtrashbox",
+        "/root/pwserver/gamedbd/dbhome/dbdata/order",
+        "/root/pwserver/gamedbd/dbhome/dbdata/playerprofile",
+        "/root/pwserver/gamedbd/dbhome/dbdata/playershop",
+        "/root/pwserver/gamedbd/dbhome/dbdata/recalluser",
+        "/root/pwserver/gamedbd/dbhome/dbdata/rolename",
+        "/root/pwserver/gamedbd/dbhome/dbdata/rolenamehis",
+        "/root/pwserver/gamedbd/dbhome/dbdata/sellpoint",
+        "/root/pwserver/gamedbd/dbhome/dbdata/serverdata",
+        "/root/pwserver/gamedbd/dbhome/dbdata/shoplog",
+        "/root/pwserver/gamedbd/dbhome/dbdata/solochallengerank",
+        "/root/pwserver/gamedbd/dbhome/dbdata/status",
+        "/root/pwserver/gamedbd/dbhome/dbdata/storehouse",
+        "/root/pwserver/gamedbd/dbhome/dbdata/syslog",
+        "/root/pwserver/gamedbd/dbhome/dbdata/task",
+        "/root/pwserver/gamedbd/dbhome/dbdata/translog",
+        "/root/pwserver/gamedbd/dbhome/dbdata/uniquedata",
+        "/root/pwserver/gamedbd/dbhome/dbdata/user",
+        "/root/pwserver/gamedbd/dbhome/dbdata/userfaction",
+        "/root/pwserver/gamedbd/dbhome/dbdata/userstore",
+        "/root/pwserver/gamedbd/dbhome/dbdata/waitdel",
+        "/root/pwserver/gamedbd/dbhome/dbdata/weborderitem",
+        "/root/pwserver/gamedbd/dbhome/dbdata/webtrade",
+        "/root/pwserver/gamedbd/dbhome/dbdata/webtradesold",
+        "/root/pwserver/gamedbd/dbhome/dblogs/log.6afa7b05",
+        "/root/pwserver/logs/gamedbd.log"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/gconv/GBK.so",
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33"
+      ]
+    },
+    {
+      "name": "gacd",
+      "pid": 2752,
+      "exe": "/root/pwserver/gacd/gacd",
+      "cwd": "/root/pwserver/gacd",
+      "argv": [
+        "./gacd",
+        "gamesys.conf"
+      ],
+      "rss_kib": 16856,
+      "open_files": [
+        "/root/pwserver/logs/gacd.log"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14",
+        "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1"
+      ]
+    },
+    {
+      "name": "gfactiond",
+      "pid": 2758,
+      "exe": "/root/pwserver/gfactiond/gfactiond",
+      "cwd": "/root/pwserver/gfactiond",
+      "argv": [
+        "./gfactiond",
+        "gamesys.conf"
+      ],
+      "rss_kib": 21420,
+      "open_files": [
+        "/root/pwserver/logs/gfactiond.log"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33"
+      ]
+    },
+    {
+      "name": "gdeliveryd",
+      "pid": 2765,
+      "exe": "/root/pwserver/gdeliveryd/gdeliveryd",
+      "cwd": "/root/pwserver/gdeliveryd",
+      "argv": [
+        "./gdeliveryd",
+        "gamesys.conf"
+      ],
+      "rss_kib": 35504,
+      "open_files": [
+        "/root/pwserver/logs/gdeliveryd.log"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33"
+      ]
+    },
+    {
+      "name": "glinkd",
+      "pid": 2773,
+      "exe": "/root/pwserver/glinkd/glinkd",
+      "cwd": "/root/pwserver/glinkd",
+      "argv": [
+        "./glinkd",
+        "gamesys.conf",
+        "1"
+      ],
+      "rss_kib": 19928,
+      "open_files": [
+        "/root/pwserver/logs/glinkd.log"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33"
+      ]
+    },
+    {
+      "name": "gs",
+      "pid": 3190,
+      "exe": "/root/pwserver/gamed/gs",
+      "cwd": "/root/pwserver/gamed",
+      "argv": [
+        "./gs",
+        "gs01",
+        "gs.conf",
+        "gmserver.conf",
+        "gsalias.conf"
+      ],
+      "rss_kib": 2108952,
+      "open_files": [
+        "/root/pwserver/logs/gs01-16-11-26-03-00.log"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libmariadb.so.3",
+        "/usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3",
+        "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+        "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7"
+      ]
+    },
+    {
+      "name": "gs",
+      "pid": 3193,
+      "exe": "/root/pwserver/gamed/gs",
+      "cwd": "/root/pwserver/gamed",
+      "argv": [
+        "./gs",
+        "is61",
+        "gs.conf",
+        "gmserver.conf",
+        "gsalias.conf"
+      ],
+      "rss_kib": 1244324,
+      "open_files": [
+        "/root/pwserver/logs/gs01-16-11-26-03-00.log"
+      ],
+      "shared_libraries": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libmariadb.so.3",
+        "/usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3",
+        "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+        "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7"
+      ]
+    }
+  ],
+  "elf": {
+    "/root/pwserver/gacd/gacd": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "d7d95a41a9418fc0265be6713833f97c270acc2e",
+      "needed": [
+        "libxml2.so.2",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": null
+    },
+    "/root/pwserver/gamed/gs": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "d4b1e56a7170f23509bfbbfb83cd09d403078d65",
+      "needed": [
+        "libpcre.so.3",
+        "libcrypto.so.3",
+        "libstdc++.so.6",
+        "libmariadb.so.3",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": "3.0.0"
+    },
+    "/root/pwserver/gamedbd/gamedbd": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "3fc8a6328344ff77d6c2cf25d9a72f0741975e22",
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": null
+    },
+    "/root/pwserver/gauthd/gauthd": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "397cec51958e9ef56f57458ef3b38c58b8633f5d",
+      "needed": [
+        "libmariadb.so.3",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": null
+    },
+    "/root/pwserver/gdeliveryd/gdeliveryd": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "80f724a52d7571801e05fcbf4c33b29337a48615",
+      "needed": [
+        "libpcre.so.3",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": null
+    },
+    "/root/pwserver/gfactiond/gfactiond": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "b1aa44f66e6e93ee80078db12a8f4f6b2103833c",
+      "needed": [
+        "libpcre.so.3",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": null
+    },
+    "/root/pwserver/glinkd/glinkd": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "1d85180dc4bdf14483f7e2cb67512dd3b043d85f",
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": null
+    },
+    "/root/pwserver/licenseservice/licenseservice": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "3b2ff60bce91577a02afe3ea120ceb49e9f52291",
+      "needed": [
+        "libmariadb.so.3",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": null
+    },
+    "/root/pwserver/logservice/logservice": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "d74872dc13413c8d4f6875267f8bd85acd83fd7f",
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": null
+    },
+    "/root/pwserver/uniquenamed/uniquenamed": {
+      "class": "ELF64",
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "build_id": "241d16577174fa08302c6eca7f9efe56510d1fb3",
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "glibc": "2.34",
+      "glibcxx": "3.4.29",
+      "openssl": null
+    }
+  },
+  "tcp": [
+    "LISTEN     0      1           127.0.0.1:8005       0.0.0.0:*     users:((\"java\",pid=16292,fd=51))                                                                                                                                                                                                                                                                    ",
+    "LISTEN     0      10            0.0.0.0:11101      0.0.0.0:*     users:((\"logservice\",pid=2687,fd=14))                                                                                                                                                                                                                                                               ",
+    "LISTEN     0      900         127.0.0.1:3306       0.0.0.0:*     users:((\"mariadbd\",pid=1092,fd=84))                                                                                                                                                                                                                                                                 ",
+    "LISTEN     0      10          127.0.0.1:10901      0.0.0.0:*     users:((\"gs\",pid=3190,fd=7))                                                                                                                                                                                                                                                                        ",
+    "LISTEN     0      10            0.0.0.0:11971      0.0.0.0:*     users:((\"gs\",pid=3193,fd=8))                                                                                                                                                                                                                                                                        ",
+    "LISTEN     0      100           0.0.0.0:8080       0.0.0.0:*     users:((\"java\",pid=16292,fd=48))                                                                                                                                                                                                                                                                    ",
+    "LISTEN     0      10            0.0.0.0:65000      0.0.0.0:*     users:((\"iwebx32\",pid=9436,fd=0))                                                                                                                                                                                                                                                                   ",
+    "LISTEN     0      4096          0.0.0.0:29300      0.0.0.0:*     users:((\"gdeliveryd\",pid=2765,fd=10))                                                                                                                                                                                                                                                               ",
+    "LISTEN     0      4096          0.0.0.0:29301      0.0.0.0:*     users:((\"glinkd\",pid=2773,fd=10))                                                                                                                                                                                                                                                                   ",
+    "LISTEN     0      10            0.0.0.0:29400      0.0.0.0:*     users:((\"gamedbd\",pid=2724,fd=67))                                                                                                                                                                                                                                                                  ",
+    "LISTEN     0      10            0.0.0.0:29401      0.0.0.0:*     users:((\"uniquenamed\",pid=2698,fd=13))                                                                                                                                                                                                                                                              ",
+    "LISTEN     0      10            0.0.0.0:29500      0.0.0.0:*     users:((\"gfactiond\",pid=2758,fd=7))                                                                                                                                                                                                                                                                 ",
+    "LISTEN     0      4096          0.0.0.0:29600      0.0.0.0:*     users:((\"gfactiond\",pid=2758,fd=8))                                                                                                                                                                                                                                                                 ",
+    "LISTEN     0      50            0.0.0.0:5001       0.0.0.0:*     users:((\"java\",pid=16292,fd=75))                                                                                                                                                                                                                                                                    ",
+    "LISTEN     0      511           0.0.0.0:80         0.0.0.0:*     users:((\"apache2\",pid=9524,fd=3),(\"apache2\",pid=9519,fd=3),(\"apache2\",pid=9326,fd=3),(\"apache2\",pid=9323,fd=3),(\"apache2\",pid=3880,fd=3),(\"apache2\",pid=3711,fd=3),(\"apache2\",pid=3710,fd=3),(\"apache2\",pid=3709,fd=3),(\"apache2\",pid=3708,fd=3),(\"apache2\",pid=3707,fd=3),(\"apache2\",pid=981,fd=3))",
+    "LISTEN     0      10            0.0.0.0:29000      0.0.0.0:*     users:((\"glinkd\",pid=2773,fd=7))                                                                                                                                                                                                                                                                    ",
+    "LISTEN     0      10            0.0.0.0:29100      0.0.0.0:*     users:((\"gdeliveryd\",pid=2765,fd=8))                                                                                                                                                                                                                                                                ",
+    "LISTEN     0      10          127.0.0.1:29200      0.0.0.0:*     users:((\"gauthd\",pid=2710,fd=5))                                                                                                                                                                                                                                                                    ",
+    "LISTEN     0      10            0.0.0.0:29712      0.0.0.0:*     users:((\"gacd\",pid=2752,fd=5))                                                                                                                                                                                                                                                                      ",
+    "LISTEN     0      10            0.0.0.0:29702      0.0.0.0:*     users:((\"gacd\",pid=2752,fd=4))                                                                                                                                                                                                                                                                      ",
+    "LISTEN     0      10          127.0.0.1:33000      0.0.0.0:*     users:((\"licenseservice\",pid=2675,fd=4))                                                                                                                                                                                                                                                            ",
+    "ESTAB      0      0           127.0.0.1:45222    127.0.0.1:29600 users:((\"gs\",pid=3193,fd=14))                                                                                                                                                                                                                                                                       ",
+    "CLOSE-WAIT 1      0           127.0.0.1:42546    127.0.0.1:33000 users:((\"gdeliveryd\",pid=2765,fd=4))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:29500    127.0.0.1:48322 users:((\"gfactiond\",pid=2758,fd=13))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:37882    127.0.0.1:29600 users:((\"gs\",pid=3190,fd=13))                                                                                                                                                                                                                                                                       ",
+    "ESTAB      0      0           127.0.0.1:11101    127.0.0.1:58432 users:((\"logservice\",pid=2687,fd=26))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:60546    127.0.0.1:29300 users:((\"gs\",pid=3190,fd=14))                                                                                                                                                                                                                                                                       ",
+    "CLOSE-WAIT 1      0           127.0.0.1:57444    127.0.0.1:33000 users:((\"gfactiond\",pid=2758,fd=4))                                                                                                                                                                                                                                                                 ",
+    "ESTAB      0      0           127.0.0.1:29400    127.0.0.1:51102 users:((\"gamedbd\",pid=2724,fd=6))                                                                                                                                                                                                                                                                   ",
+    "ESTAB      0      0           127.0.0.1:11101    127.0.0.1:47922 users:((\"logservice\",pid=2687,fd=24))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:49096    127.0.0.1:11101 users:((\"gs\",pid=3193,fd=18))                                                                                                                                                                                                                                                                       ",
+    "ESTAB      0      0           127.0.0.1:29401    127.0.0.1:39488 users:((\"uniquenamed\",pid=2698,fd=19))                                                                                                                                                                                                                                                              ",
+    "ESTAB      0      0           127.0.0.1:58414    127.0.0.1:29300 users:((\"gs\",pid=3193,fd=15))                                                                                                                                                                                                                                                                       ",
+    "ESTAB      0      0           127.0.0.1:54714    127.0.0.1:29401 users:((\"gfactiond\",pid=2758,fd=5))                                                                                                                                                                                                                                                                 ",
+    "ESTAB      0      0           127.0.0.1:29400    127.0.0.1:42814 users:((\"gamedbd\",pid=2724,fd=73))                                                                                                                                                                                                                                                                  ",
+    "ESTAB      0      0           127.0.0.1:39488    127.0.0.1:29401 users:((\"gdeliveryd\",pid=2765,fd=7))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:29301    127.0.0.1:42278 users:((\"glinkd\",pid=2773,fd=13))                                                                                                                                                                                                                                                                   ",
+    "ESTAB      0      0           127.0.0.1:29702    127.0.0.1:35100 users:((\"gacd\",pid=2752,fd=7))                                                                                                                                                                                                                                                                      ",
+    "ESTAB      0      0           127.0.0.1:58432    127.0.0.1:11101 users:((\"gs\",pid=3190,fd=17))                                                                                                                                                                                                                                                                       ",
+    "ESTAB      0      0           127.0.0.1:37020    127.0.0.1:29400 users:((\"gdeliveryd\",pid=2765,fd=11))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:48322    127.0.0.1:29500 users:((\"glinkd\",pid=2773,fd=5))                                                                                                                                                                                                                                                                    ",
+    "ESTAB      0      0           127.0.0.1:29301    127.0.0.1:60780 users:((\"glinkd\",pid=2773,fd=9))                                                                                                                                                                                                                                                                    ",
+    "ESTAB      0      0           127.0.0.1:3306     127.0.0.1:54028 users:((\"mariadbd\",pid=1092,fd=105))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:45056    127.0.0.1:29100 users:((\"glinkd\",pid=2773,fd=6))                                                                                                                                                                                                                                                                    ",
+    "ESTAB      0      0           127.0.0.1:29400    127.0.0.1:36342 users:((\"gamedbd\",pid=2724,fd=74))                                                                                                                                                                                                                                                                  ",
+    "ESTAB      0      0           127.0.0.1:51102    127.0.0.1:29400 users:((\"gfactiond\",pid=2758,fd=12))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:49600    127.0.0.1:3306  users:((\"gauthd\",pid=2710,fd=6))                                                                                                                                                                                                                                                                    ",
+    "ESTAB      0      0           127.0.0.1:3306     127.0.0.1:49600 users:((\"mariadbd\",pid=1092,fd=112))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:29401    127.0.0.1:54714 users:((\"uniquenamed\",pid=2698,fd=5))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:11101    127.0.0.1:32890 users:((\"logservice\",pid=2687,fd=18))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:60780    127.0.0.1:29301 users:((\"gs\",pid=3193,fd=13))                                                                                                                                                                                                                                                                       ",
+    "ESTAB      0      0           127.0.0.1:42814    127.0.0.1:29400 users:((\"gs\",pid=3193,fd=16))                                                                                                                                                                                                                                                                       ",
+    "ESTAB      0      0           127.0.0.1:49830    127.0.0.1:29200 users:((\"gdeliveryd\",pid=2765,fd=14))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:47922    127.0.0.1:11101 users:((\"glinkd\",pid=2773,fd=12))                                                                                                                                                                                                                                                                   ",
+    "ESTAB      0      0           127.0.0.1:54028    127.0.0.1:3306  users:((\"licenseservice\",pid=2675,fd=5))                                                                                                                                                                                                                                                            ",
+    "ESTAB      0      0           127.0.0.1:11101    127.0.0.1:47912 users:((\"logservice\",pid=2687,fd=23))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:35100    127.0.0.1:29702 users:((\"gdeliveryd\",pid=2765,fd=9))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:11101    127.0.0.1:54312 users:((\"logservice\",pid=2687,fd=20))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:29300    127.0.0.1:58414 users:((\"gdeliveryd\",pid=2765,fd=17))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:29300    127.0.0.1:60546 users:((\"gdeliveryd\",pid=2765,fd=18))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:29600    127.0.0.1:45222 users:((\"gfactiond\",pid=2758,fd=14))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:29100    127.0.0.1:45056 users:((\"gdeliveryd\",pid=2765,fd=13))                                                                                                                                                                                                                                                               ",
+    "CLOSE-WAIT 1      0           127.0.0.1:51584    127.0.0.1:33000 users:((\"gauthd\",pid=2710,fd=4))                                                                                                                                                                                                                                                                    ",
+    "ESTAB      0      0           127.0.0.1:29400    127.0.0.1:37020 users:((\"gamedbd\",pid=2724,fd=72))                                                                                                                                                                                                                                                                  ",
+    "ESTAB      0      0           127.0.0.1:11101    127.0.0.1:44752 users:((\"logservice\",pid=2687,fd=21))                                                                                                                                                                                                                                                               ",
+    "CLOSE-WAIT 1      0           127.0.0.1:51596    127.0.0.1:33000 users:((\"gamedbd\",pid=2724,fd=4))                                                                                                                                                                                                                                                                   ",
+    "ESTAB      0      0           127.0.0.1:29200    127.0.0.1:49830 users:((\"gauthd\",pid=2710,fd=10))                                                                                                                                                                                                                                                                   ",
+    "ESTAB      0      0           127.0.0.1:32890    127.0.0.1:11101 users:((\"uniquenamed\",pid=2698,fd=4))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:48318    127.0.0.1:29500 users:((\"gdeliveryd\",pid=2765,fd=12))                                                                                                                                                                                                                                                               ",
+    "CLOSE-WAIT 1      0           127.0.0.1:42548    127.0.0.1:33000 users:((\"glinkd\",pid=2773,fd=4))                                                                                                                                                                                                                                                                    ",
+    "ESTAB      0      0           127.0.0.1:29600    127.0.0.1:37882 users:((\"gfactiond\",pid=2758,fd=15))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:42278    127.0.0.1:29301 users:((\"gs\",pid=3190,fd=12))                                                                                                                                                                                                                                                                       ",
+    "ESTAB      0      0           127.0.0.1:54312    127.0.0.1:11101 users:((\"gamedbd\",pid=2724,fd=5))                                                                                                                                                                                                                                                                   ",
+    "ESTAB      0      0           127.0.0.1:36342    127.0.0.1:29400 users:((\"gs\",pid=3190,fd=15))                                                                                                                                                                                                                                                                       ",
+    "ESTAB      0      0           127.0.0.1:47912    127.0.0.1:11101 users:((\"gdeliveryd\",pid=2765,fd=6))                                                                                                                                                                                                                                                                ",
+    "ESTAB      0      0           127.0.0.1:11101    127.0.0.1:49096 users:((\"logservice\",pid=2687,fd=25))                                                                                                                                                                                                                                                               ",
+    "ESTAB      0      0           127.0.0.1:44752    127.0.0.1:11101 users:((\"gfactiond\",pid=2758,fd=9))                                                                                                                                                                                                                                                                 ",
+    "ESTAB      0      0           127.0.0.1:29500    127.0.0.1:48318 users:((\"gfactiond\",pid=2758,fd=10))                                                                                                                                                                                                                                                                "
+  ],
+  "udp": [
+    "ESTAB  0      0           127.0.0.1:37364 127.0.0.1:11100 users:((\"uniquenamed\",pid=2698,fd=17))                             ",
+    "ESTAB  0      0           127.0.0.1:38240 127.0.0.1:11100 users:((\"gs\",pid=3193,fd=17))                                      ",
+    "ESTAB  0      0           127.0.0.1:46879 127.0.0.1:11100 users:((\"gamedbd\",pid=2724,fd=71))                                 ",
+    "UNCONN 0      0             0.0.0.0:47296   0.0.0.0:*     users:((\"java\",pid=16292,fd=71))                                   ",
+    "UNCONN 0      0             0.0.0.0:39132   0.0.0.0:*     users:((\"java\",pid=16292,fd=78))                                   ",
+    "ESTAB  0      0           127.0.0.1:47630 127.0.0.1:11100 users:((\"gs\",pid=3190,fd=16))                                      ",
+    "ESTAB  0      0           127.0.0.1:39594 127.0.0.1:11100 users:((\"glinkd\",pid=2773,fd=8))                                   ",
+    "UNCONN 0      0             0.0.0.0:11100   0.0.0.0:*     users:((\"logservice\",pid=2687,fd=22),(\"logservice\",pid=2687,fd=13))",
+    "ESTAB  0      0           127.0.0.1:52171 127.0.0.1:11100 users:((\"gfactiond\",pid=2758,fd=6))                                ",
+    "ESTAB  0      0           127.0.0.1:48593 127.0.0.1:11100 users:((\"gdeliveryd\",pid=2765,fd=16))                              "
+  ],
+  "unix": [
+    "u_str ESTAB  0      0                                /tmp/gssock_world1 19423  * 20360  users:((\"gs\",pid=3190,fd=18))                                                                                                        ",
+    "u_str ESTAB  0      0                                                 * 20360  * 19423  users:((\"gs\",pid=3193,fd=20))                                                                                                        ",
+    "u_str ESTAB  0      0                                                 * 7987   * 7989   users:((\"mariadbd\",pid=1092,fd=2),(\"mariadbd\",pid=1092,fd=1))                                                                        ",
+    "u_dgr ESTAB  0      0                                                 * 26077  * 3301   users:((\"gacd\",pid=2752,fd=8))                                                                                                       ",
+    "u_dgr ESTAB  0      0                                                 * 26070  * 3301   users:((\"licenseservice\",pid=2675,fd=9))                                                                                             ",
+    "u_str LISTEN 0      10                                 /tmp/gssock_is61 20143  * 0      users:((\"gs\",pid=3193,fd=9))                                                                                                         ",
+    "u_str LISTEN 0      10                               /tmp/gssock_world1 19167  * 0      users:((\"gs\",pid=3190,fd=8))                                                                                                         ",
+    "u_dgr ESTAB  0      0                                                 * 26072  * 3301   users:((\"gauthd\",pid=2710,fd=11))                                                                                                    ",
+    "u_dgr ESTAB  0      0                                                 * 18166  * 3301   users:((\"gdeliveryd\",pid=2765,fd=5))                                                                                                 ",
+    "u_str ESTAB  0      0                                                 * 19252  * 20306  users:((\"gs\",pid=3190,fd=79))                                                                                                        ",
+    "u_str ESTAB  0      0                                  /tmp/gssock_is61 20306  * 19252  users:((\"gs\",pid=3193,fd=19))                                                                                                        ",
+    "u_dgr ESTAB  0      0                                                 * 19080  * 3301   users:((\"gs\",pid=3193,fd=4),(\"gs\",pid=3190,fd=4))                                                                                    ",
+    "u_str LISTEN 0      900                         /run/mysqld/mysqld.sock 8115   * 0      users:((\"mariadbd\",pid=1092,fd=85))                                                                                                  ",
+    "u_str ESTAB  0      0                                                 * 231969 * 0      users:((\"java\",pid=16292,fd=47))                                                                                                     ",
+    "u_dgr ESTAB  0      0                                                 * 18040  * 3301   users:((\"uniquenamed\",pid=2698,fd=18))                                                                                               ",
+    "u_dgr ESTAB  0      0                                                 * 18577  * 3301   users:((\"gamedbd\",pid=2724,fd=66))                                                                                                   ",
+    "u_dgr ESTAB  0      0                                                 * 18542  * 3301   users:((\"logservice\",pid=2687,fd=19))                                                                                                "
+  ]
+}

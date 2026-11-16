@@ -1,0 +1,24 @@
+{
+  "test": "Talolan iweb176.jar, standalone WSL HTTP",
+  "port": 19898,
+  "sha256": "232077bce35db58c76c530f089049e45ecdc21735d8cf66fe3f194649a61dcda",
+  "interfaces": [
+    "lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> "
+  ],
+  "ipv4_routes": [],
+  "java_version": "openjdk version \"21.0.12.1\" 2026-08-18",
+  "startup_mode": "direct jar",
+  "elapsed_seconds": 0.3,
+  "process_exit_before_cleanup": 1,
+  "process_exit_after_cleanup": 1,
+  "boot_events": [],
+  "exception_names": [
+    "java.lang.ClassFormatError"
+  ],
+  "class_format_errors": [
+    "Exception in thread \"main\" java.lang.ClassFormatError: Illegal local variable table length 95 in method 'void com.pwi.iweb.IwebApplication.main(java.lang.String[])'"
+  ],
+  "stop_events": [
+    "Exception in thread \"main\" java.lang.ClassFormatError: Illegal local variable table length 95 in method 'void com.pwi.iweb.IwebApplication.main(java.lang.String[])'"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "map": "is02",
+  "maps_before": {
+    "3190": "gs01",
+    "3193": "is61"
+  },
+  "memory_available_before_mib": 3996,
+  "command": [
+    "./gs",
+    "is02",
+    "gs.conf",
+    "gmserver.conf",
+    "gsalias.conf"
+  ],
+  "cwd": "/root/pwserver/gamed",
+  "pid": 26632,
+  "connected": true,
+  "last_tcp_peers": [
+    "0      0           127.0.0.1:56332    127.0.0.1:29300 users:((\"gs\",pid=26632,fd=15))                                         ",
+    "0      0           127.0.0.1:60680    127.0.0.1:29600 users:((\"gs\",pid=26632,fd=14))                                         ",
+    "0      0           127.0.0.1:42242    127.0.0.1:29301 users:((\"gs\",pid=26632,fd=13))                                         ",
+    "0      0           127.0.0.1:40616    127.0.0.1:11101 users:((\"gs\",pid=26632,fd=18))                                         ",
+    "0      0           127.0.0.1:44548    127.0.0.1:29400 users:((\"gs\",pid=26632,fd=16))                                         "
+  ],
+  "seconds_to_peers": 90.6,
+  "map_tcp_listeners": [
+    "LISTEN 0      10       0.0.0.0:10912 0.0.0.0:* users:((\"gs\",pid=26632,fd=7))                                                                                                                                                                                                                                                                       "
+  ],
+  "map_unix_sockets": [
+    "u_str ESTAB  0      0                                                 * 435095 * 435096 users:((\"gs\",pid=26632,fd=85))                                                                                 ",
+    "u_str ESTAB  0      0                                  /tmp/gssock_is02 435152 * 435151 users:((\"gs\",pid=26632,fd=19))                                                                                 ",
+    "u_dgr ESTAB  0      0                                                 * 433107 * 3301   users:((\"gs\",pid=26632,fd=4))                                                                                  ",
+    "u_str ESTAB  0      0                                                 * 435013 * 435912 users:((\"gs\",pid=26632,fd=9))                                                                                  ",
+    "u_str LISTEN 0      10                                 /tmp/gssock_is02 435012 * 0      users:((\"gs\",pid=26632,fd=8))                                                                                  "
+  ],
+  "max_rss_mib_during_probe": 967,
+  "map_startup_lines": [
+    "gamed:: start to connect GProviderClient5",
+    "gamed:: start to connect GProviderClient4",
+    "gamed:: start to connect GProviderClient3",
+    "gamed:: start to connect GProviderClient2",
+    "gamed:: start to connect GProviderClient1",
+    "gamed:: start to connect GProviderClient0"
+  ],
+  "delivery_lines": [
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::gameserver 32's region is ( -512.000,   512.000,  512.000, -512.000), worldtag is 102"
+  ],
+  "cleanup": "SIGTERM to the isolated test PID, exit -15",
+  "maps_after": {
+    "3190": "gs01",
+    "3193": "is61"
+  },
+  "same_maps_before_and_after": true
+}

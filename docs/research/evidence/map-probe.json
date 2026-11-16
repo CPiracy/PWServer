@@ -1,0 +1,32 @@
+{
+  "map": "is02",
+  "maps_before": {
+    "3190": "gs01",
+    "3193": "is61"
+  },
+  "memory_available_before_mib": 3968,
+  "command": [
+    "./gs",
+    "is02"
+  ],
+  "cwd": "/root/pwserver/gamed",
+  "pid": 25147,
+  "connected": false,
+  "last_tcp_peers": [],
+  "max_rss_mib_during_probe": 135,
+  "map_startup_lines": [],
+  "delivery_lines": [
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368",
+    "TRACE : gdeliveryserver::statusannounce,online=0,fakemax=8000,load=0,attr=-805306368"
+  ],
+  "cleanup": "SIGTERM to the isolated test PID, exit -15",
+  "maps_after": {
+    "3190": "gs01",
+    "3193": "is61"
+  },
+  "same_maps_before_and_after": true
+}

@@ -1,0 +1,32 @@
+{
+  "test": "Native WDB RPC across WSL namespaces",
+  "storage_address": "198.18.81.1",
+  "game_address": "198.18.81.2",
+  "ports": [
+    29400,
+    29401
+  ],
+  "routes": {
+    "pw-store": [
+      "198.18.81.0/30 dev pw-store-net proto kernel scope link src 198.18.81.1 "
+    ],
+    "pw-game": [
+      "198.18.81.0/30 dev pw-game-net proto kernel scope link src 198.18.81.2 "
+    ]
+  },
+  "storage_listeners": [],
+  "gnet_connections": [],
+  "opened_wdb_files": {
+    "gamedbd": 0,
+    "uniquenamed": 0
+  },
+  "exit_before_cleanup": {
+    "gamedbd": -10,
+    "uniquenamed": -10,
+    "gdeliveryd": 127
+  },
+  "namespace_cleanup": {
+    "pw-game": 0,
+    "pw-store": 0
+  }
+}

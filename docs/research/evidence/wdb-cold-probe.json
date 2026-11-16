@@ -1,0 +1,40 @@
+{
+  "test": "WDB collection open on archived copies",
+  "collections": {
+    "gamedbd": {
+      "data_files_before": 58,
+      "journal_files_before": 2,
+      "exit_code": 0,
+      "tables_loaded": "58",
+      "initialization": "OK",
+      "versions": 0,
+      "output_summary": [
+        "collection main",
+        "load tables = 58",
+        "init        = OK",
+        "Version:"
+      ],
+      "added": [],
+      "removed": [],
+      "content_changed": []
+    },
+    "uniquenamed": {
+      "data_files_before": 6,
+      "journal_files_before": 1,
+      "exit_code": 0,
+      "tables_loaded": "6",
+      "initialization": "OK",
+      "versions": 0,
+      "output_summary": [
+        "collection main",
+        "load tables = 6",
+        "init        = OK",
+        "Version:"
+      ],
+      "added": [],
+      "removed": [],
+      "content_changed": []
+    }
+  },
+  "dbtool_sha256": "f895763d9b30b4179f64877e810b56d874005caeb9210f491cfbfc05d3ea9555"
+}

@@ -1,0 +1,13 @@
+vm_path	archive	member	size_bytes	crc32	match_size_and_crc32
+/root/pwserver/gacd/gacd	Linear/PWServer176.7z	root/pwserver/gacd/gacd	17339912	E14C922B	true
+/root/pwserver/gamed/gs	Linear/PWServer176.7z	root/pwserver/gamed/gs	364506792	88D75112	true
+/root/pwserver/gamed/gs.conf	Linear/PWServer176.7z	root/pwserver/gamed/gs.conf	130295	C5F55AB6	true
+/root/pwserver/gamedbd/gamedbd	Linear/PWServer176.7z	root/pwserver/gamedbd/gamedbd	39409864	00B173D8	true
+/root/pwserver/gauthd/gauthd	Linear/PWServer176.7z	root/pwserver/gauthd/gauthd	16722848	EC70A68D	true
+/root/pwserver/gdeliveryd/gdeliveryd	Linear/PWServer176.7z	root/pwserver/gdeliveryd/gdeliveryd	86601976	BDD9193E	true
+/root/pwserver/gfactiond/gfactiond	Linear/PWServer176.7z	root/pwserver/gfactiond/gfactiond	10665112	57CA3192	true
+/root/pwserver/glinkd/glinkd	Linear/PWServer176.7z	root/pwserver/glinkd/glinkd	9649136	FDB096AA	true
+/root/pwserver/licenseservice/licenseservice	Linear/PWServer176.7z	root/pwserver/licenseservice/licenseservice	4317104	7D4EB1DF	true
+/root/pwserver/logservice/logservice	Linear/PWServer176.7z	root/pwserver/logservice/logservice	1162896	867C2DF2	true
+/root/pwserver/maps	Linear/PWServer176.7z	root/pwserver/maps	2847	C7C0B869	true
+/root/pwserver/uniquenamed/uniquenamed	Linear/PWServer176.7z	root/pwserver/uniquenamed/uniquenamed	9939592	3E7F4CD1	true

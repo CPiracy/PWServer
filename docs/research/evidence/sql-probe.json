@@ -1,0 +1,20 @@
+{
+  "test": "Separate MariaDB network namespace",
+  "source": "VM-distributed SQL fixtures",
+  "network": {
+    "sql": "198.18.71.1:3306",
+    "game": "198.18.71.2",
+    "no_default_route": true
+  },
+  "error": "TimeoutExpired: Command '['mariadb-install-db', '--no-defaults', '--datadir=/root/pw-research.7NOpsy/sql-lab/data', '--auth-root-authentication-method=socket', '--skip-test-db', '--user=root']' timed out after 110 seconds",
+  "namespace_cleanup": [
+    [
+      "pwgame-7NOpsy",
+      0
+    ],
+    [
+      "pwdb-7NOpsy",
+      0
+    ]
+  ]
+}

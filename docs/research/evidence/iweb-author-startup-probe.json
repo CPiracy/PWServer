@@ -1,0 +1,25 @@
+{
+  "test": "Talolan iweb176.jar, standalone WSL HTTP",
+  "port": 19898,
+  "sha256": "232077bce35db58c76c530f089049e45ecdc21735d8cf66fe3f194649a61dcda",
+  "interfaces": [
+    "lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> "
+  ],
+  "ipv4_routes": [],
+  "java_version": "java version \"1.8.0_301\"",
+  "startup_mode": "bundled agent and jar",
+  "elapsed_seconds": 4.1,
+  "process_exit_before_cleanup": 0,
+  "process_exit_after_cleanup": 0,
+  "boot_events": [
+    "2026-11-16 14:21:42.549 DEBUG 5351 --- [           main] c.p.i.IwebApplication                    : Running with Spring Boot v2.4.1, Spring v5.3.2",
+    "2026-11-16 14:21:43.779  INFO 5351 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 19898 (http)",
+    "2026-11-16 14:21:44.989  INFO 5351 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 19898 (http) with context path ''",
+    "2026-11-16 14:21:44.998  INFO 5351 --- [           main] c.p.i.IwebApplication                    : Started IwebApplication in 2.957 seconds (JVM running for 4.002)"
+  ],
+  "exception_names": [],
+  "class_format_errors": [],
+  "stop_events": [
+    "2026-11-16 14:21:45.021  INFO 5351 --- [extShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'"
+  ]
+}
