@@ -34,13 +34,15 @@ WDB использует `open`, `pread`, `pwrite`, `ftruncate` и `fsync`. У �
 
 ## Контракты MariaDB
 
+MySQL-интерфейс авторизации есть уже в доступном дереве `172source` (`1c425175`). Его `cnet/gauthd/Makefile:16` линкует `-lmysqlclient`, а `cnet/gauthd/gmysqlclient.cpp:104,147,361,395,420,450,501` показывает соединение через `mysql_real_connect`, проверку входа, учёт сессий и чтение прав. Оба дерева 1.7.6 сохраняют этот интерфейс. Извлечённые из `PWServer176.7z` `gauthd` и `licenseservice` совпали по SHA-256 с бинарниками VM. Оба требуют `libmariadb.so.3`, а отдельный сервер MariaDB 11.8.1 успешно принял обе сессии в сетевой пробе. Этого достаточно для подтверждения совместимости с раздачей. Официальный статус поддержки MariaDB разработчиками Perfect World остаётся открытым. [Отпечатки VM](evidence/fingerprints.tsv) · [Сетевая проба](evidence/sql-probe-ram.json) · [Документация MariaDB о совместимости с MySQL](https://mariadb.com/docs/release-notes/community-server/about/compatibility-and-differences/mariadb-vs-mysql-compatibility)
+
 ### `gauthd` → `pw176`
 
 В архиве `root/pwserver/gauthd/gamesys.conf:11–18` задаёт `[GMysqlClient]` с `address=127.0.0.1`, `port=3306`, `name=pw176`, полями `user`, `passwd` и `hash`. Оба дерева 1.7.6 передают эти настройки в `MysqlManager::Init`. После проверки лицензии менеджер сохраняет настройки, а `Connect` и `Reconnect` вызывают `mysql_real_connect` с адресом и портом. В просмотренных реализациях этих методов явной конфигурации TLS нет. `cnet/gauthd/gauthd.cpp:23–36,75–92` и `cnet/gauthd/gmysqlclient.cpp:60–79,104–169`.
 
 - Для входа `MatrixPasswd` вызывает `acquireuserpasswd`, затем в той же сессии читает возвращённые SQL-переменные. Схема должна сохранять числовые ID учёток и ожидаемый формат данных проверки входа. `cnet/gauthd/gmysqlclient.cpp:358–389`, `cnet/gauthd/matrixpasswd.hrp` и `root/sql/pw176.sql:28–31,997–1017`.
 - Служебные процедуры `clearonlinerecords`, `recordonline` и `recordoffline` обслуживают сессии и зону. Права GM читаются из `auth` по паре `userid`/`zoneid` с результатом `rid`. `cnet/gauthd/gmysqlclient.cpp:393–544` и `root/sql/pw176.sql:104–106,160–194,416–420`.
-- Код также содержит `usecashnow` и `usecashlog`, а обработчики арены обращаются к `arena_players` и `arena_teams`. В SQL есть таблицы ролей, индексов и веб-данных, в том числе `roles` и `listrolebrief`. Эти таблицы входят в SQL-дамп, а активное игровое сохранение ролей подтверждено открытыми WDB-файлами `gamedbd` и игровыми RPC. `cnet/gauthd/gmysqlclient.cpp:550–687,1011–1370` и `root/sql/pw176.sql:363–408,679–714,845–862,947–982`.
+- Код содержит обработку пополнений через `usecashnow` и `usecashlog` и операции арены через `arena_players` и `arena_teams`. Запросы к этим таблицам есть и в ELF Build 4311. Проба MariaDB подтвердила SQL-сессии. Фактическая обработка пополнений и арены требует отдельного игрового сценария. В дампе также есть `roles` и `listrolebrief`. Активное сохранение персонажей подтверждено для WDB `gamedbd`. `cnet/gauthd/gmysqlclient.cpp:550–687,1011–1370` и `root/sql/pw176.sql:363–408,679–714,845–862,947–982`.
 - Регистрация вызывает `adduser`, а PWAdmin использует также `addGM`. Их процедуры и права на выполнение нужны при выносе MariaDB, если эти интерфейсы входят в развёртывание. `root/sql/pw176.sql:43–73` и отчёт по VM.
 
 ### `licenseservice` → `licenseservice`
