@@ -5,7 +5,7 @@
   "entries": 4850,
   "files": 4276,
   "directories": 574,
-  "individual_files": 186,
+  "individual_files": 119,
   "deferred_groups": {
     "Журналы": {
       "files": 42,
@@ -23,7 +23,7 @@
   "original_uid_gid": "Not stored in this 7z; not inferred from VM",
   "groups_are_not_final_exclusions": true,
   "source_collection_modified": false,
-  "review_rows": 188,
+  "review_rows": 121,
   "config_directory_name_pattern": "^[A-Za-z0-9]+$",
   "config_directory_families": {
     "a": 96,
@@ -45,8 +45,8 @@
     "remaining individual files"
   ],
   "initial_individual_files": 308,
-  "pending_files": 4154,
-  "decided_files": 122,
+  "pending_files": 4087,
+  "decided_files": 189,
   "accepted_decisions": [
     {
       "id": "config_directory_non_latin_alphanumeric",
@@ -60,6 +60,20 @@
       "matched_files": 122,
       "matched_directory_entries": 5,
       "source_files_deleted": false
+    },
+    {
+      "id": "dbhome_archived_runtime_state",
+      "action": "exclude_from_package",
+      "mask": "*/dbhome/*",
+      "recursive": true,
+      "matched_roots": [
+        "gamedbd/dbhome",
+        "uniquenamed/dbhome"
+      ],
+      "matched_files": 67,
+      "matched_directory_entries": 4,
+      "source_files_deleted": false,
+      "startup_status": "Source code creates directories and database files; pristine startup of packaged 4311 not runtime-validated."
     }
   ]
 }

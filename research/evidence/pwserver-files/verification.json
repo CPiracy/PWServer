@@ -3,29 +3,30 @@
   "source_records": 4850,
   "original_metadata_preserved": true,
   "total_files": 4276,
-  "pending_rows": 188,
-  "pending_individual_files": 186,
+  "pending_rows": 121,
+  "pending_individual_files": 119,
   "map_files": 3926,
   "log_files": 42,
-  "excluded_files": 122,
+  "excluded_files": 189,
   "source_files_deleted": false,
   "every_file_covered_once": true,
   "all_evidence_links_exist": true,
   "structural_probe_files_rehashed": 65,
   "inventory_manifest_hashes_verified": 4,
   "permission_proposals_not_runtime_tested": true,
+  "pristine_wdb_startup_not_runtime_tested": true,
   "outputs": {
     "assessment.csv": {
-      "sha256": "b6f418801112ea3a6907e7dbce3f74bc7b7282e1d37b9e3befe7e876da26b027",
-      "bytes": 2932263
+      "sha256": "eb8d85787471c408a89aad68f3c6fc9814956e43d64125596edc9344ea97d308",
+      "bytes": 2935044
     },
     "deferred-files.csv": {
       "sha256": "f01a2cb6f42b84f94c35ff4ef70f9ed0d7d25e6ae4c80e9f78ea4178f2382201",
       "bytes": 2409906
     },
     "individual-files.csv": {
-      "sha256": "2d17e5497af5be5d967e3fb84758dcb590f5c50611b643c2409e9788ef7459b2",
-      "bytes": 168376
+      "sha256": "87610849297d68e83cdc090fc807ee65124a1dce95dc859dad4f61b5484abed9",
+      "bytes": 100961
     },
     "map-directories.csv": {
       "sha256": "f9978f11e62ea8f2c160bbbf324431d5b7f7bba7c9e1e98ad1fa71498a5804ce",
@@ -36,12 +37,12 @@
       "bytes": 22446
     },
     "review.csv": {
-      "sha256": "796eda32764667a5d49f2ce8813665d308a9b5d884013a52518fbdd3937c2031",
-      "bytes": 50133
+      "sha256": "43af815102cdbe3c54d20ae2119f468d7f090bd2aa4ecfe66cfe750ac55e1a11",
+      "bytes": 27893
     },
     "summary.json": {
-      "sha256": "791ab58745a0bb95744e190652a3d05a350f5f09971b618b9b61eae564258c00",
-      "bytes": 1741
+      "sha256": "2557df23ee1ccee95d1a8d54f7ab80b5ceeb761bc22bb1844c627436499e518e",
+      "bytes": 2218
     }
   }
 }
