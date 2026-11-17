@@ -1,6 +1,6 @@
 # Конфигурация Perfect World 1.7.6 Build 4311
 
-Настройки ниже относятся к Linux-комплекту `Linear/PWServer176.7z`. Пути в примерах рассчитаны на `/root/pwserver`. [Состав комплекта](image-files.ru.md) · [Проверка на VM](image-file-validation.ru.md)
+Настройки ниже относятся к Linux-комплекту `Linear/PWServer176.7z`. Пути в примерах рассчитаны на `/root/pwserver`. [Состав комплекта](image-files.ru.md) · [Проверка на VM](../experiments/image-file-validation/image-file-validation.ru.md)
 
 ## Основы использования
 
@@ -31,7 +31,7 @@ cd /root/pwserver/gamed
 ./gs gs01 gs.conf gmserver.conf gsalias.conf
 ```
 
-Для карты `is61` замените первый аргумент на `is61`. Проверьте `ss -ltnp` для порта `29000`. Готовая карта открывает свой UNIX-сокет, соединяется с `gdeliveryd` и `gamedbd` и появляется в журнале координатора с нужными `index` и `tag`. [Проверка запуска](image-file-validation.ru.md) · [Сетевые связи](runtime-contracts.ru.md)
+Для карты `is61` замените первый аргумент на `is61`. Проверьте `ss -ltnp` для порта `29000`. Готовая карта открывает свой UNIX-сокет, соединяется с `gdeliveryd` и `gamedbd` и появляется в журнале координатора с нужными `index` и `tag`. [Проверка запуска](../experiments/image-file-validation/image-file-validation.ru.md) · [Сетевые связи](runtime-contracts.ru.md)
 
 ## Файлы настроек
 
@@ -45,7 +45,7 @@ cd /root/pwserver/gamed
 
 ### Совместное использование `gamesys.conf`
 
-Передавайте каждому из восьми демонов абсолютный путь к своему файлу, например `./glinkd /etc/pw/glinkd.conf 1`. Такой запуск проверен без симлинков. Общие значения можно подставлять из одного шаблона. `[GMysqlClient]`, `[GProviderServer]`, `[storagewdb]` и `[ThreadPool]` держите отдельными для каждой службы, поскольку их значения различаются. [Контрольный запуск](image-file-validation.ru.md)
+Передавайте каждому из восьми демонов абсолютный путь к своему файлу, например `./glinkd /etc/pw/glinkd.conf 1`. Такой запуск проверен без симлинков. Общие значения можно подставлять из одного шаблона. `[GMysqlClient]`, `[GProviderServer]`, `[storagewdb]` и `[ThreadPool]` держите отдельными для каждой службы, поскольку их значения различаются. [Контрольный запуск](../experiments/image-file-validation/image-file-validation.ru.md)
 
 ### Настройки служб
 

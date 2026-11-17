@@ -2,7 +2,7 @@
 
 В комплекте `Linear/PWServer176.7z`, связанном с клиентом RU Build 4311, подтверждены языковые варианты **`aipolicy`** (реплики и правила ИИ) и **`tasks`** (тексты и параметры заданий). У части вариантов меняются также параметры или состав записей. Для `elements` и `gshop` языковое разбиение по файлам этого комплекта не подтверждено. [Происхождение комплекта и регион клиента](distribution-provenance.ru.md)
 
-Проверены файлы из `root/pwserver/gamed/config/`. В `gamed/gs.conf:61–80` секция `[Template]` задаёт `Root=./config/`, `PolicyData=aipolicy.data`, `QuestPackage=tasks.data`, `itemDataFile=elements.data` и имена ресурсов магазина. По SHA-256 `aipolicy.data` и `tasks.data` равны вариантам `5124-ru-pure` и `21606-v191-ru`. Работающая VM выбирает эти варианты символическими ссылками. [Снимок VM](../rutracker-1.7.6-4311-architecture.ru.md) · [Как подключаются данные](server-patching.ru.md)
+Проверены файлы из `root/pwserver/gamed/config/`. В `gamed/gs.conf:61–80` секция `[Template]` задаёт `Root=./config/`, `PolicyData=aipolicy.data`, `QuestPackage=tasks.data`, `itemDataFile=elements.data` и имена ресурсов магазина. По SHA-256 `aipolicy.data` и `tasks.data` равны вариантам `5124-ru-pure` и `21606-v191-ru`. Работающая VM выбирает эти варианты символическими ссылками. [Снимок VM](rutracker-1.7.6-4311-architecture.ru.md) · [Как подключаются данные](server-patching.ru.md)
 
 ## Реплики, параметры и состав `aipolicy.data`
 

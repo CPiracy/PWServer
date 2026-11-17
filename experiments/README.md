@@ -9,3 +9,10 @@
 | [Ходьба и полёт по основному миру](world-movement/plan.ru.md) | Использовать дорогу до «Тайной деревни» для контроля `gs01` и отсутствия смены игрового процесса. |
 
 Пеший контроль и проверку Сети можно провести одной сессией. Холодный телепорт у Лу Фэя требует отдельного прогона с выгруженной целью.
+
+## Завершённые прогоны
+
+- [Вход на выгруженную карту](map-login-autoload/map-autoload-experiment.ru.md).
+- [Переход на выгруженную карту через задание](cold-teleport/map-teleport-experiment.ru.md).
+- [Запуск сокращённого комплекта](image-file-validation/image-file-validation.ru.md).
+- [Серверные проверки в VM и WSL](server-validation/server-only-validation.ru.md).
