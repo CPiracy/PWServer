@@ -1,0 +1,154 @@
+{
+  "sha256": {
+    "logservice": "01cb71943424ab392fec1839d6923a88dbfcef11a0c63695a509f3108e2ff002",
+    "uniquenamed": "895e77176d7dbe003323822dfc797c4c056068ba4753ae815924870e3a1f9320",
+    "gamedbd": "46e091b1c817132f3a99b1b55c7dcd1dd4ad1bb0102de0b77b25654f32040661"
+  },
+  "tcp": {
+    "pid": {
+      "logservice": 8336,
+      "uniquenamed": 8343,
+      "gamedbd": 8353
+    },
+    "exit": {
+      "logservice": null,
+      "uniquenamed": null,
+      "gamedbd": -10
+    },
+    "connect": {
+      "logservice": true,
+      "uniquenamed": true,
+      "gamedbd": false
+    },
+    "sockets": {
+      "tcp_listeners": [
+        "LISTEN 0      10     127.0.0.1:11101 0.0.0.0:* users:((\"logservice\",pid=8336,fd=14))",
+        "LISTEN 0      10     127.0.0.1:29401 0.0.0.0:* users:((\"uniquenamed\",pid=8343,fd=13))"
+      ],
+      "unix_listeners": [],
+      "tcp_established": [
+        "ESTAB 0      0      127.0.0.1:57666 127.0.0.1:11101 users:((\"uniquenamed\",pid=8343,fd=4))",
+        "ESTAB 0      0      127.0.0.1:11101 127.0.0.1:57666 users:((\"logservice\",pid=8336,fd=18))"
+      ],
+      "unix_established": [
+        "u_dgr ESTAB 0      0      * 727993 * 693006 users:((\"uniquenamed\",pid=8343,fd=18))",
+        "u_dgr ESTAB 0      0      * 727992 * 693006 users:((\"logservice\",pid=8336,fd=19))"
+      ]
+    },
+    "native_log_bytes": {
+      "world2.formatlog": 0,
+      "statinfoh": 0,
+      "world2.err": 0,
+      "world2.log": 84,
+      "world2.chat": 0,
+      "statinfod": 0,
+      "world2.trace": 0,
+      "statinfom": 0,
+      "world2.cash": 0
+    },
+    "stdout": {
+      "logservice": [],
+      "uniquenamed": [],
+      "gamedbd": []
+    },
+    "shm_maps": {
+      "logservice": [],
+      "uniquenamed": []
+    }
+  },
+  "unix": {
+    "pid": {
+      "logservice": 8359,
+      "uniquenamed": 8366,
+      "gamedbd": 8376
+    },
+    "exit": {
+      "logservice": null,
+      "uniquenamed": null,
+      "gamedbd": -10
+    },
+    "connect": {
+      "logservice": true,
+      "uniquenamed": true,
+      "gamedbd": false
+    },
+    "sockets": {
+      "tcp_listeners": [],
+      "unix_listeners": [
+        "u_str LISTEN 0      10       /tmp/pw-gnet-ipc-gs_kugqt/unix/log.sock 728586 * 0 users:((\"logservice\",pid=8359,fd=14))",
+        "u_str LISTEN 0      10     /tmp/pw-gnet-ipc-gs_kugqt/unix/names.sock 732521 * 0 users:((\"uniquenamed\",pid=8366,fd=13))"
+      ],
+      "tcp_established": [],
+      "unix_established": [
+        "u_dgr ESTAB  0      0                                              * 731683 * 693006 users:((\"logservice\",pid=8359,fd=19))",
+        "u_str ESTAB  0      0                                              * 732520 * 733466 users:((\"uniquenamed\",pid=8366,fd=17))",
+        "u_str ESTAB  0      0        /tmp/pw-gnet-ipc-gs_kugqt/unix/log.sock 733466 * 732520 users:((\"logservice\",pid=8359,fd=18))"
+      ]
+    },
+    "native_log_bytes": {
+      "world2.formatlog": 0,
+      "statinfoh": 0,
+      "world2.err": 0,
+      "world2.log": 165,
+      "world2.chat": 0,
+      "statinfod": 0,
+      "world2.trace": 0,
+      "statinfom": 0,
+      "world2.cash": 0
+    },
+    "stdout": {
+      "logservice": [],
+      "uniquenamed": [],
+      "gamedbd": []
+    },
+    "shm_maps": {
+      "logservice": [],
+      "uniquenamed": []
+    }
+  },
+  "shm": {
+    "pid": {
+      "logservice": 8384,
+      "uniquenamed": 8391,
+      "gamedbd": 8401
+    },
+    "exit": {
+      "logservice": null,
+      "uniquenamed": null,
+      "gamedbd": -10
+    },
+    "connect": {
+      "logservice": null,
+      "uniquenamed": null,
+      "gamedbd": null
+    },
+    "sockets": {
+      "tcp_listeners": [],
+      "unix_listeners": [],
+      "tcp_established": [],
+      "unix_established": [
+        "u_dgr ESTAB 0      0      * 729596 * 693006 users:((\"uniquenamed\",pid=8391,fd=16))"
+      ]
+    },
+    "native_log_bytes": {
+      "world2.formatlog": 0,
+      "statinfoh": 0,
+      "world2.err": 0,
+      "world2.log": 0,
+      "world2.chat": 0,
+      "statinfod": 0,
+      "world2.trace": 0,
+      "statinfom": 0,
+      "world2.cash": 0
+    },
+    "stdout": {
+      "logservice": [],
+      "uniquenamed": [],
+      "gamedbd": []
+    },
+    "shm_maps": {
+      "logservice": [],
+      "uniquenamed": []
+    }
+  }
+}

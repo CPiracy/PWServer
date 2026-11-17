@@ -1,5 +1,6 @@
 # Эксперименты Perfect World 4311
 
+- [Взаимодействие компонентов](server-ipc/README.ru.md) — TCP, Unix-сокеты, SHM, чтение роли и запуск карты.
 - [Карты](maps/README.md) — вход, телепорт, перемещение и выгрузка.
 - [Сокращённый комплект](image-file-validation/image-file-validation.ru.md).
 - [Серверные проверки в VM и WSL](server-validation/server-only-validation.ru.md).

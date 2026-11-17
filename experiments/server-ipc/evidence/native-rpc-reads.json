@@ -1,0 +1,1121 @@
+{
+  "sql_pid": 16320,
+  "license_pid": 16338,
+  "modes": {
+    "tcp1": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10     127.0.0.1:29100 0.0.0.0:* users:((\"gdeliveryd\",pid=16385,fd=8))",
+          "LISTEN 0      4096   127.0.0.1:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=16385,fd=10))",
+          "LISTEN 0      4096   127.0.0.1:29301 0.0.0.0:* users:((\"glinkd\",pid=16386,fd=10))",
+          "LISTEN 0      10     127.0.0.1:29400 0.0.0.0:* users:((\"gamedbd\",pid=16362,fd=67))",
+          "LISTEN 0      10     127.0.0.1:29401 0.0.0.0:* users:((\"uniquenamed\",pid=16352,fd=13))",
+          "LISTEN 0      10     127.0.0.1:11101 0.0.0.0:* users:((\"logservice\",pid=16345,fd=14))",
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=16386,fd=7))"
+        ],
+        "unix_listeners": [],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:50574    127.0.0.1:29401 users:((\"gdeliveryd\",pid=16385,fd=6))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:41568 users:((\"logservice\",pid=16345,fd=22))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:41548 users:((\"logservice\",pid=16345,fd=18))",
+          "ESTAB 0      0         127.0.0.1:41548    127.0.0.1:11101 users:((\"uniquenamed\",pid=16352,fd=4))",
+          "ESTAB 0      0         127.0.0.1:41558    127.0.0.1:11101 users:((\"gamedbd\",pid=16362,fd=5))",
+          "ESTAB 0      0         127.0.0.1:41568    127.0.0.1:11101 users:((\"gdeliveryd\",pid=16385,fd=12))",
+          "ESTAB 0      0         127.0.0.1:41570    127.0.0.1:11101 users:((\"glinkd\",pid=16386,fd=8))",
+          "ESTAB 0      0         127.0.0.1:53262    127.0.0.1:29400 users:((\"gdeliveryd\",pid=16385,fd=9))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:41558 users:((\"logservice\",pid=16345,fd=21))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:41570 users:((\"logservice\",pid=16345,fd=23))",
+          "ESTAB 0      0         127.0.0.1:29401    127.0.0.1:50574 users:((\"uniquenamed\",pid=16352,fd=5))",
+          "ESTAB 0      0         127.0.0.1:58392    127.0.0.1:29100 users:((\"glinkd\",pid=16386,fd=12))",
+          "ESTAB 0      0         127.0.0.1:57698    127.0.0.1:33000 users:((\"gamedbd\",pid=16362,fd=4))",
+          "ESTAB 0      0         127.0.0.1:57708    127.0.0.1:33000 users:((\"gdeliveryd\",pid=16385,fd=4))",
+          "ESTAB 0      0         127.0.0.1:57716    127.0.0.1:33000 users:((\"glinkd\",pid=16386,fd=4))",
+          "ESTAB 0      0         127.0.0.1:29100    127.0.0.1:58392 users:((\"gdeliveryd\",pid=16385,fd=7))",
+          "ESTAB 0      0         127.0.0.1:29400    127.0.0.1:53262 users:((\"gamedbd\",pid=16362,fd=6))"
+        ],
+        "unix_established": [
+          "u_dgr ESTAB 0      0      * 769452 * 693006 users:((\"gdeliveryd\",pid=16385,fd=5))",
+          "u_dgr ESTAB 0      0      * 771405 * 693006 users:((\"gamedbd\",pid=16362,fd=66))",
+          "u_dgr ESTAB 0      0      * 774306 * 693006 users:((\"uniquenamed\",pid=16352,fd=18))",
+          "u_dgr ESTAB 0      0      * 773257 * 693006 users:((\"logservice\",pid=16345,fd=19))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 119.757,
+        "p95_us": 225.844,
+        "p99_us": 294.904,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "unix2": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=16436,fd=7))"
+        ],
+        "unix_listeners": [
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix2/wdb.sock 771427 * 0 users:((\"gamedbd\",pid=16410,fd=67))",
+          "u_str LISTEN 0      10     /tmp/pw-ipc-stack-4f1m0mnv/unix2/delivery.sock 770880 * 0 users:((\"gdeliveryd\",pid=16435,fd=8))",
+          "u_str LISTEN 0      4096   /tmp/pw-ipc-stack-4f1m0mnv/unix2/provider.sock 770882 * 0 users:((\"gdeliveryd\",pid=16435,fd=10))",
+          "u_str LISTEN 0      4096       /tmp/pw-ipc-stack-4f1m0mnv/unix2/link.sock 772303 * 0 users:((\"glinkd\",pid=16436,fd=10))",
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix2/log.sock 775411 * 0 users:((\"logservice\",pid=16393,fd=14))",
+          "u_str LISTEN 0      10        /tmp/pw-ipc-stack-4f1m0mnv/unix2/names.sock 774360 * 0 users:((\"uniquenamed\",pid=16400,fd=13))"
+        ],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:56050    127.0.0.1:33000 users:((\"gdeliveryd\",pid=16435,fd=4))",
+          "ESTAB 0      0         127.0.0.1:56054    127.0.0.1:33000 users:((\"glinkd\",pid=16436,fd=4))",
+          "ESTAB 0      0         127.0.0.1:57732    127.0.0.1:33000 users:((\"gamedbd\",pid=16410,fd=4))"
+        ],
+        "unix_established": [
+          "u_str ESTAB  0      0                                                   * 770884 * 775422 users:((\"gdeliveryd\",pid=16435,fd=9))",
+          "u_str ESTAB  0      0                                                   * 774359 * 775412 users:((\"uniquenamed\",pid=16400,fd=17))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix2/log.sock 763887 * 772299 users:((\"logservice\",pid=16393,fd=23))",
+          "u_str ESTAB  0      0                                                   * 770879 * 775421 users:((\"gdeliveryd\",pid=16435,fd=6))",
+          "u_dgr ESTAB  0      0                                                   * 772304 * 693006 users:((\"glinkd\",pid=16436,fd=13))",
+          "u_dgr ESTAB  0      0                                                   * 771424 * 693006 users:((\"gamedbd\",pid=16410,fd=66))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix2/log.sock 775421 * 770879 users:((\"logservice\",pid=16393,fd=22))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix2/log.sock 773295 * 771423 users:((\"logservice\",pid=16393,fd=21))",
+          "u_str ESTAB  0      0         /tmp/pw-ipc-stack-4f1m0mnv/unix2/names.sock 775422 * 770884 users:((\"uniquenamed\",pid=16400,fd=4))",
+          "u_str ESTAB  0      0                                                   * 770885 * 771430 users:((\"gdeliveryd\",pid=16435,fd=11))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix2/log.sock 775412 * 774359 users:((\"logservice\",pid=16393,fd=18))",
+          "u_str ESTAB  0      0                                                   * 772299 * 763887 users:((\"glinkd\",pid=16436,fd=5))",
+          "u_str ESTAB  0      0      /tmp/pw-ipc-stack-4f1m0mnv/unix2/delivery.sock 774377 * 772301 users:((\"gdeliveryd\",pid=16435,fd=7))",
+          "u_dgr ESTAB  0      0                                                   * 770877 * 693006 users:((\"gdeliveryd\",pid=16435,fd=5))",
+          "u_dgr ESTAB  0      0                                                   * 772291 * 693006 users:((\"logservice\",pid=16393,fd=19))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix2/wdb.sock 771430 * 770885 users:((\"gamedbd\",pid=16410,fd=6))",
+          "u_str ESTAB  0      0                                                   * 772301 * 774377 users:((\"glinkd\",pid=16436,fd=12))",
+          "u_str ESTAB  0      0                                                   * 771423 * 773295 users:((\"gamedbd\",pid=16410,fd=5))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 112.118,
+        "p95_us": 217.416,
+        "p99_us": 284.701,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "unix3": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=16483,fd=7))"
+        ],
+        "unix_listeners": [
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix3/log.sock 775424 * 0 users:((\"logservice\",pid=16442,fd=14))",
+          "u_str LISTEN 0      10        /tmp/pw-ipc-stack-4f1m0mnv/unix3/names.sock 772325 * 0 users:((\"uniquenamed\",pid=16449,fd=13))",
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix3/wdb.sock 771450 * 0 users:((\"gamedbd\",pid=16459,fd=67))",
+          "u_str LISTEN 0      10     /tmp/pw-ipc-stack-4f1m0mnv/unix3/delivery.sock 775431 * 0 users:((\"gdeliveryd\",pid=16482,fd=8))",
+          "u_str LISTEN 0      4096   /tmp/pw-ipc-stack-4f1m0mnv/unix3/provider.sock 775433 * 0 users:((\"gdeliveryd\",pid=16482,fd=10))",
+          "u_str LISTEN 0      4096       /tmp/pw-ipc-stack-4f1m0mnv/unix3/link.sock 776224 * 0 users:((\"glinkd\",pid=16483,fd=10))"
+        ],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:56070    127.0.0.1:33000 users:((\"gamedbd\",pid=16459,fd=4))",
+          "ESTAB 0      0         127.0.0.1:56086    127.0.0.1:33000 users:((\"gdeliveryd\",pid=16482,fd=4))",
+          "ESTAB 0      0         127.0.0.1:56092    127.0.0.1:33000 users:((\"glinkd\",pid=16483,fd=4))"
+        ],
+        "unix_established": [
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix3/log.sock 771436 * 772324 users:((\"logservice\",pid=16442,fd=18))",
+          "u_str ESTAB  0      0                                                   * 771446 * 770902 users:((\"gamedbd\",pid=16459,fd=5))",
+          "u_str ESTAB  0      0      /tmp/pw-ipc-stack-4f1m0mnv/unix3/delivery.sock 775440 * 776222 users:((\"gdeliveryd\",pid=16482,fd=9))",
+          "u_dgr ESTAB  0      0                                                   * 776225 * 693006 users:((\"glinkd\",pid=16483,fd=13))",
+          "u_str ESTAB  0      0                                                   * 775436 * 771455 users:((\"gdeliveryd\",pid=16482,fd=11))",
+          "u_dgr ESTAB  0      0                                                   * 771435 * 693006 users:((\"logservice\",pid=16442,fd=19))",
+          "u_str ESTAB  0      0                                                   * 775430 * 771454 users:((\"gdeliveryd\",pid=16482,fd=6))",
+          "u_dgr ESTAB  0      0                                                   * 771447 * 693006 users:((\"gamedbd\",pid=16459,fd=66))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix3/log.sock 771454 * 775430 users:((\"logservice\",pid=16442,fd=22))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix3/wdb.sock 771455 * 775436 users:((\"gamedbd\",pid=16459,fd=6))",
+          "u_str ESTAB  0      0                                                   * 772324 * 771436 users:((\"uniquenamed\",pid=16449,fd=17))",
+          "u_str ESTAB  0      0                                                   * 776220 * 769662 users:((\"glinkd\",pid=16483,fd=5))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix3/log.sock 769662 * 776220 users:((\"logservice\",pid=16442,fd=23))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix3/log.sock 770902 * 771446 users:((\"logservice\",pid=16442,fd=21))",
+          "u_dgr ESTAB  0      0                                                   * 775428 * 693006 users:((\"gdeliveryd\",pid=16482,fd=5))",
+          "u_str ESTAB  0      0                                                   * 775435 * 772326 users:((\"gdeliveryd\",pid=16482,fd=7))",
+          "u_str ESTAB  0      0         /tmp/pw-ipc-stack-4f1m0mnv/unix3/names.sock 772326 * 775435 users:((\"uniquenamed\",pid=16449,fd=4))",
+          "u_str ESTAB  0      0                                                   * 776222 * 775440 users:((\"glinkd\",pid=16483,fd=12))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 105.549,
+        "p95_us": 197.261,
+        "p99_us": 260.428,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "tcp4": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10     127.0.0.1:29100 0.0.0.0:* users:((\"gdeliveryd\",pid=16531,fd=8))",
+          "LISTEN 0      4096   127.0.0.1:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=16531,fd=10))",
+          "LISTEN 0      4096   127.0.0.1:29301 0.0.0.0:* users:((\"glinkd\",pid=16532,fd=10))",
+          "LISTEN 0      10     127.0.0.1:29400 0.0.0.0:* users:((\"gamedbd\",pid=16508,fd=67))",
+          "LISTEN 0      10     127.0.0.1:29401 0.0.0.0:* users:((\"uniquenamed\",pid=16496,fd=13))",
+          "LISTEN 0      10     127.0.0.1:11101 0.0.0.0:* users:((\"logservice\",pid=16489,fd=14))",
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=16532,fd=7))"
+        ],
+        "unix_listeners": [],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:29400    127.0.0.1:59970 users:((\"gamedbd\",pid=16508,fd=6))",
+          "ESTAB 0      0         127.0.0.1:57118    127.0.0.1:29401 users:((\"gdeliveryd\",pid=16531,fd=6))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:55492 users:((\"logservice\",pid=16489,fd=21))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:55506 users:((\"logservice\",pid=16489,fd=22))",
+          "ESTAB 0      0         127.0.0.1:29401    127.0.0.1:57118 users:((\"uniquenamed\",pid=16496,fd=5))",
+          "ESTAB 0      0         127.0.0.1:29100    127.0.0.1:48524 users:((\"gdeliveryd\",pid=16531,fd=9))",
+          "ESTAB 0      0         127.0.0.1:55482    127.0.0.1:11101 users:((\"uniquenamed\",pid=16496,fd=4))",
+          "ESTAB 0      0         127.0.0.1:55492    127.0.0.1:11101 users:((\"gamedbd\",pid=16508,fd=5))",
+          "ESTAB 0      0         127.0.0.1:55506    127.0.0.1:11101 users:((\"gdeliveryd\",pid=16531,fd=16))",
+          "ESTAB 0      0         127.0.0.1:55510    127.0.0.1:11101 users:((\"glinkd\",pid=16532,fd=8))",
+          "ESTAB 0      0         127.0.0.1:59970    127.0.0.1:29400 users:((\"gdeliveryd\",pid=16531,fd=7))",
+          "ESTAB 0      0         127.0.0.1:48524    127.0.0.1:29100 users:((\"glinkd\",pid=16532,fd=12))",
+          "ESTAB 0      0         127.0.0.1:56104    127.0.0.1:33000 users:((\"gamedbd\",pid=16508,fd=4))",
+          "ESTAB 0      0         127.0.0.1:56110    127.0.0.1:33000 users:((\"gdeliveryd\",pid=16531,fd=4))",
+          "ESTAB 0      0         127.0.0.1:56122    127.0.0.1:33000 users:((\"glinkd\",pid=16532,fd=4))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:55510 users:((\"logservice\",pid=16489,fd=23))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:55482 users:((\"logservice\",pid=16489,fd=18))"
+        ],
+        "unix_established": [
+          "u_dgr ESTAB 0      0      * 771469 * 693006 users:((\"gamedbd\",pid=16508,fd=66))",
+          "u_dgr ESTAB 0      0      * 775465 * 693006 users:((\"gdeliveryd\",pid=16531,fd=5))",
+          "u_dgr ESTAB 0      0      * 772339 * 693006 users:((\"uniquenamed\",pid=16496,fd=18))",
+          "u_dgr ESTAB 0      0      * 773341 * 693006 users:((\"logservice\",pid=16489,fd=19))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 122.076,
+        "p95_us": 226.274,
+        "p99_us": 301.765,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "unix5": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=16579,fd=7))"
+        ],
+        "unix_listeners": [
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix5/log.sock 775492 * 0 users:((\"logservice\",pid=16538,fd=14))",
+          "u_str LISTEN 0      10        /tmp/pw-ipc-stack-4f1m0mnv/unix5/names.sock 774473 * 0 users:((\"uniquenamed\",pid=16545,fd=13))",
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix5/wdb.sock 771498 * 0 users:((\"gamedbd\",pid=16555,fd=67))",
+          "u_str LISTEN 0      10     /tmp/pw-ipc-stack-4f1m0mnv/unix5/delivery.sock 769868 * 0 users:((\"gdeliveryd\",pid=16578,fd=8))",
+          "u_str LISTEN 0      4096   /tmp/pw-ipc-stack-4f1m0mnv/unix5/provider.sock 769870 * 0 users:((\"gdeliveryd\",pid=16578,fd=10))",
+          "u_str LISTEN 0      4096       /tmp/pw-ipc-stack-4f1m0mnv/unix5/link.sock 776304 * 0 users:((\"glinkd\",pid=16579,fd=10))"
+        ],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:44882    127.0.0.1:33000 users:((\"gamedbd\",pid=16555,fd=4))",
+          "ESTAB 0      0         127.0.0.1:44894    127.0.0.1:33000 users:((\"gdeliveryd\",pid=16578,fd=4))",
+          "ESTAB 0      0         127.0.0.1:44898    127.0.0.1:33000 users:((\"glinkd\",pid=16579,fd=4))"
+        ],
+        "unix_established": [
+          "u_str ESTAB  0      0                                                   * 769873 * 771501 users:((\"gdeliveryd\",pid=16578,fd=11))",
+          "u_dgr ESTAB  0      0                                                   * 769865 * 693006 users:((\"gdeliveryd\",pid=16578,fd=5))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix5/wdb.sock 771501 * 769873 users:((\"gamedbd\",pid=16555,fd=6))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix5/log.sock 774494 * 776300 users:((\"logservice\",pid=16538,fd=23))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix5/log.sock 775496 * 769867 users:((\"logservice\",pid=16538,fd=22))",
+          "u_str ESTAB  0      0                                                   * 776300 * 774494 users:((\"glinkd\",pid=16579,fd=5))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix5/log.sock 776289 * 774472 users:((\"logservice\",pid=16538,fd=18))",
+          "u_dgr ESTAB  0      0                                                   * 771495 * 693006 users:((\"gamedbd\",pid=16555,fd=66))",
+          "u_str ESTAB  0      0                                                   * 769872 * 773373 users:((\"gdeliveryd\",pid=16578,fd=16))",
+          "u_str ESTAB  0      0                                                   * 771494 * 775493 users:((\"gamedbd\",pid=16555,fd=5))",
+          "u_str ESTAB  0      0         /tmp/pw-ipc-stack-4f1m0mnv/unix5/names.sock 773373 * 769872 users:((\"uniquenamed\",pid=16545,fd=4))",
+          "u_dgr ESTAB  0      0                                                   * 773368 * 693006 users:((\"logservice\",pid=16538,fd=19))",
+          "u_str ESTAB  0      0      /tmp/pw-ipc-stack-4f1m0mnv/unix5/delivery.sock 769877 * 776302 users:((\"gdeliveryd\",pid=16578,fd=7))",
+          "u_dgr ESTAB  0      0                                                   * 776305 * 693006 users:((\"glinkd\",pid=16579,fd=13))",
+          "u_str ESTAB  0      0                                                   * 769867 * 775496 users:((\"gdeliveryd\",pid=16578,fd=6))",
+          "u_str ESTAB  0      0                                                   * 774472 * 776289 users:((\"uniquenamed\",pid=16545,fd=17))",
+          "u_str ESTAB  0      0                                                   * 776302 * 769877 users:((\"glinkd\",pid=16579,fd=12))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix5/log.sock 775493 * 771494 users:((\"logservice\",pid=16538,fd=21))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 105.364,
+        "p95_us": 210.791,
+        "p99_us": 272.918,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "tcp6": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10     127.0.0.1:29100 0.0.0.0:* users:((\"gdeliveryd\",pid=16814,fd=8))",
+          "LISTEN 0      4096   127.0.0.1:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=16814,fd=10))",
+          "LISTEN 0      4096   127.0.0.1:29301 0.0.0.0:* users:((\"glinkd\",pid=16815,fd=10))",
+          "LISTEN 0      10     127.0.0.1:29400 0.0.0.0:* users:((\"gamedbd\",pid=16607,fd=67))",
+          "LISTEN 0      10     127.0.0.1:29401 0.0.0.0:* users:((\"uniquenamed\",pid=16597,fd=13))",
+          "LISTEN 0      10     127.0.0.1:11101 0.0.0.0:* users:((\"logservice\",pid=16590,fd=14))",
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=16815,fd=7))"
+        ],
+        "unix_listeners": [],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:47994 users:((\"logservice\",pid=16590,fd=18))",
+          "ESTAB 0      0         127.0.0.1:36840    127.0.0.1:29401 users:((\"gdeliveryd\",pid=16814,fd=6))",
+          "ESTAB 0      0         127.0.0.1:34752    127.0.0.1:29400 users:((\"gdeliveryd\",pid=16814,fd=7))",
+          "ESTAB 0      0         127.0.0.1:29100    127.0.0.1:41372 users:((\"gdeliveryd\",pid=16814,fd=11))",
+          "ESTAB 0      0         127.0.0.1:47994    127.0.0.1:11101 users:((\"uniquenamed\",pid=16597,fd=4))",
+          "ESTAB 0      0         127.0.0.1:47998    127.0.0.1:11101 users:((\"gamedbd\",pid=16607,fd=5))",
+          "ESTAB 0      0         127.0.0.1:48002    127.0.0.1:11101 users:((\"gdeliveryd\",pid=16814,fd=16))",
+          "ESTAB 0      0         127.0.0.1:48004    127.0.0.1:11101 users:((\"glinkd\",pid=16815,fd=12))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:47998 users:((\"logservice\",pid=16590,fd=21))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:48002 users:((\"logservice\",pid=16590,fd=22))",
+          "ESTAB 0      0         127.0.0.1:41372    127.0.0.1:29100 users:((\"glinkd\",pid=16815,fd=5))",
+          "ESTAB 0      0         127.0.0.1:44900    127.0.0.1:33000 users:((\"gamedbd\",pid=16607,fd=4))",
+          "ESTAB 0      0         127.0.0.1:44914    127.0.0.1:33000 users:((\"gdeliveryd\",pid=16814,fd=4))",
+          "ESTAB 0      0         127.0.0.1:44922    127.0.0.1:33000 users:((\"glinkd\",pid=16815,fd=4))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:48004 users:((\"logservice\",pid=16590,fd=23))",
+          "ESTAB 0      0         127.0.0.1:29400    127.0.0.1:34752 users:((\"gamedbd\",pid=16607,fd=6))",
+          "ESTAB 0      0         127.0.0.1:29401    127.0.0.1:36840 users:((\"uniquenamed\",pid=16597,fd=5))"
+        ],
+        "unix_established": [
+          "u_dgr ESTAB 0      0      * 774520 * 693006 users:((\"uniquenamed\",pid=16597,fd=18))",
+          "u_dgr ESTAB 0      0      * 773557 * 693006 users:((\"gdeliveryd\",pid=16814,fd=5))",
+          "u_dgr ESTAB 0      0      * 771527 * 693006 users:((\"gamedbd\",pid=16607,fd=66))",
+          "u_dgr ESTAB 0      0      * 778243 * 693006 users:((\"logservice\",pid=16590,fd=19))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 119.889,
+        "p95_us": 217.718,
+        "p99_us": 280.435,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "tcp7": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10     127.0.0.1:29100 0.0.0.0:* users:((\"gdeliveryd\",pid=16861,fd=8))",
+          "LISTEN 0      4096   127.0.0.1:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=16861,fd=10))",
+          "LISTEN 0      4096   127.0.0.1:29301 0.0.0.0:* users:((\"glinkd\",pid=16862,fd=10))",
+          "LISTEN 0      10     127.0.0.1:29400 0.0.0.0:* users:((\"gamedbd\",pid=16838,fd=67))",
+          "LISTEN 0      10     127.0.0.1:29401 0.0.0.0:* users:((\"uniquenamed\",pid=16828,fd=13))",
+          "LISTEN 0      10     127.0.0.1:11101 0.0.0.0:* users:((\"logservice\",pid=16821,fd=14))",
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=16862,fd=7))"
+        ],
+        "unix_listeners": [],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:49038    127.0.0.1:29401 users:((\"gdeliveryd\",pid=16861,fd=16))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:32882 users:((\"logservice\",pid=16821,fd=18))",
+          "ESTAB 0      0         127.0.0.1:29401    127.0.0.1:49038 users:((\"uniquenamed\",pid=16828,fd=5))",
+          "ESTAB 0      0         127.0.0.1:32882    127.0.0.1:11101 users:((\"uniquenamed\",pid=16828,fd=4))",
+          "ESTAB 0      0         127.0.0.1:32894    127.0.0.1:11101 users:((\"gamedbd\",pid=16838,fd=5))",
+          "ESTAB 0      0         127.0.0.1:32910    127.0.0.1:11101 users:((\"gdeliveryd\",pid=16861,fd=12))",
+          "ESTAB 0      0         127.0.0.1:32914    127.0.0.1:11101 users:((\"glinkd\",pid=16862,fd=9))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:32894 users:((\"logservice\",pid=16821,fd=21))",
+          "ESTAB 0      0         127.0.0.1:53884    127.0.0.1:29400 users:((\"gdeliveryd\",pid=16861,fd=7))",
+          "ESTAB 0      0         127.0.0.1:33180    127.0.0.1:29100 users:((\"glinkd\",pid=16862,fd=5))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:32914 users:((\"logservice\",pid=16821,fd=23))",
+          "ESTAB 0      0         127.0.0.1:29100    127.0.0.1:33180 users:((\"gdeliveryd\",pid=16861,fd=6))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:32910 users:((\"logservice\",pid=16821,fd=22))",
+          "ESTAB 0      0         127.0.0.1:58342    127.0.0.1:33000 users:((\"gamedbd\",pid=16838,fd=4))",
+          "ESTAB 0      0         127.0.0.1:58344    127.0.0.1:33000 users:((\"gdeliveryd\",pid=16861,fd=4))",
+          "ESTAB 0      0         127.0.0.1:58360    127.0.0.1:33000 users:((\"glinkd\",pid=16862,fd=4))",
+          "ESTAB 0      0         127.0.0.1:29400    127.0.0.1:53884 users:((\"gamedbd\",pid=16838,fd=6))"
+        ],
+        "unix_established": [
+          "u_dgr ESTAB 0      0      * 775644 * 693006 users:((\"uniquenamed\",pid=16828,fd=18))",
+          "u_dgr ESTAB 0      0      * 773584 * 693006 users:((\"logservice\",pid=16821,fd=19))",
+          "u_dgr ESTAB 0      0      * 772479 * 693006 users:((\"gdeliveryd\",pid=16861,fd=5))",
+          "u_dgr ESTAB 0      0      * 771708 * 693006 users:((\"gamedbd\",pid=16838,fd=66))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 109.857,
+        "p95_us": 228.848,
+        "p99_us": 321.342,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "unix8": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=16913,fd=7))"
+        ],
+        "unix_listeners": [
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix8/wdb.sock 771748 * 0 users:((\"gamedbd\",pid=16885,fd=67))",
+          "u_str LISTEN 0      10     /tmp/pw-ipc-stack-4f1m0mnv/unix8/delivery.sock 775679 * 0 users:((\"gdeliveryd\",pid=16912,fd=8))",
+          "u_str LISTEN 0      4096   /tmp/pw-ipc-stack-4f1m0mnv/unix8/provider.sock 775681 * 0 users:((\"gdeliveryd\",pid=16912,fd=10))",
+          "u_str LISTEN 0      4096       /tmp/pw-ipc-stack-4f1m0mnv/unix8/link.sock 775699 * 0 users:((\"glinkd\",pid=16913,fd=10))",
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix8/log.sock 775660 * 0 users:((\"logservice\",pid=16868,fd=14))",
+          "u_str LISTEN 0      10        /tmp/pw-ipc-stack-4f1m0mnv/unix8/names.sock 773612 * 0 users:((\"uniquenamed\",pid=16875,fd=13))"
+        ],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:58366    127.0.0.1:33000 users:((\"gamedbd\",pid=16885,fd=4))",
+          "ESTAB 0      0         127.0.0.1:58382    127.0.0.1:33000 users:((\"gdeliveryd\",pid=16912,fd=4))",
+          "ESTAB 0      0         127.0.0.1:58388    127.0.0.1:33000 users:((\"glinkd\",pid=16913,fd=4))"
+        ],
+        "unix_established": [
+          "u_str ESTAB  0      0                                                   * 775678 * 773622 users:((\"gdeliveryd\",pid=16912,fd=6))",
+          "u_dgr ESTAB  0      0                                                   * 775040 * 693006 users:((\"logservice\",pid=16868,fd=19))",
+          "u_str ESTAB  0      0                                                   * 775697 * 778370 users:((\"glinkd\",pid=16913,fd=12))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix8/log.sock 776425 * 775695 users:((\"logservice\",pid=16868,fd=23))",
+          "u_str ESTAB  0      0                                                   * 773611 * 775661 users:((\"uniquenamed\",pid=16875,fd=17))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix8/wdb.sock 771753 * 775684 users:((\"gamedbd\",pid=16885,fd=6))",
+          "u_str ESTAB  0      0                                                   * 775695 * 776425 users:((\"glinkd\",pid=16913,fd=5))",
+          "u_dgr ESTAB  0      0                                                   * 771745 * 693006 users:((\"gamedbd\",pid=16885,fd=66))",
+          "u_str ESTAB  0      0                                                   * 775684 * 771753 users:((\"gdeliveryd\",pid=16912,fd=16))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix8/log.sock 778359 * 771744 users:((\"logservice\",pid=16868,fd=21))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix8/log.sock 773622 * 775678 users:((\"logservice\",pid=16868,fd=22))",
+          "u_dgr ESTAB  0      0                                                   * 775676 * 693006 users:((\"gdeliveryd\",pid=16912,fd=5))",
+          "u_str ESTAB  0      0                                                   * 771744 * 778359 users:((\"gamedbd\",pid=16885,fd=5))",
+          "u_str ESTAB  0      0         /tmp/pw-ipc-stack-4f1m0mnv/unix8/names.sock 773623 * 775683 users:((\"uniquenamed\",pid=16875,fd=4))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix8/log.sock 775661 * 773611 users:((\"logservice\",pid=16868,fd=18))",
+          "u_str ESTAB  0      0                                                   * 775683 * 773623 users:((\"gdeliveryd\",pid=16912,fd=7))",
+          "u_dgr ESTAB  0      0                                                   * 775700 * 693006 users:((\"glinkd\",pid=16913,fd=13))",
+          "u_str ESTAB  0      0      /tmp/pw-ipc-stack-4f1m0mnv/unix8/delivery.sock 778370 * 775697 users:((\"gdeliveryd\",pid=16912,fd=9))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 106.402,
+        "p95_us": 207.126,
+        "p99_us": 273.403,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "unix9": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=16960,fd=7))"
+        ],
+        "unix_listeners": [
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix9/log.sock 773641 * 0 users:((\"logservice\",pid=16919,fd=14))",
+          "u_str LISTEN 0      10        /tmp/pw-ipc-stack-4f1m0mnv/unix9/names.sock 777469 * 0 users:((\"uniquenamed\",pid=16926,fd=13))",
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix9/wdb.sock 771782 * 0 users:((\"gamedbd\",pid=16936,fd=67))",
+          "u_str LISTEN 0      10     /tmp/pw-ipc-stack-4f1m0mnv/unix9/delivery.sock 775735 * 0 users:((\"gdeliveryd\",pid=16959,fd=8))",
+          "u_str LISTEN 0      4096   /tmp/pw-ipc-stack-4f1m0mnv/unix9/provider.sock 775737 * 0 users:((\"gdeliveryd\",pid=16959,fd=10))",
+          "u_str LISTEN 0      4096       /tmp/pw-ipc-stack-4f1m0mnv/unix9/link.sock 775750 * 0 users:((\"glinkd\",pid=16960,fd=10))"
+        ],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:42722    127.0.0.1:33000 users:((\"gamedbd\",pid=16936,fd=4))",
+          "ESTAB 0      0         127.0.0.1:42730    127.0.0.1:33000 users:((\"gdeliveryd\",pid=16959,fd=4))",
+          "ESTAB 0      0         127.0.0.1:42744    127.0.0.1:33000 users:((\"glinkd\",pid=16960,fd=4))"
+        ],
+        "unix_established": [
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix9/log.sock 773642 * 777468 users:((\"logservice\",pid=16919,fd=18))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix9/log.sock 775055 * 775746 users:((\"logservice\",pid=16919,fd=23))",
+          "u_dgr ESTAB  0      0                                                   * 777466 * 693006 users:((\"logservice\",pid=16919,fd=19))",
+          "u_str ESTAB  0      0      /tmp/pw-ipc-stack-4f1m0mnv/unix9/delivery.sock 777486 * 775748 users:((\"gdeliveryd\",pid=16959,fd=6))",
+          "u_str ESTAB  0      0         /tmp/pw-ipc-stack-4f1m0mnv/unix9/names.sock 773647 * 775739 users:((\"uniquenamed\",pid=16926,fd=4))",
+          "u_dgr ESTAB  0      0                                                   * 775751 * 693006 users:((\"glinkd\",pid=16960,fd=13))",
+          "u_str ESTAB  0      0                                                   * 775734 * 773646 users:((\"gdeliveryd\",pid=16959,fd=16))",
+          "u_dgr ESTAB  0      0                                                   * 775732 * 693006 users:((\"gdeliveryd\",pid=16959,fd=5))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix9/log.sock 773646 * 775734 users:((\"logservice\",pid=16919,fd=22))",
+          "u_dgr ESTAB  0      0                                                   * 771779 * 693006 users:((\"gamedbd\",pid=16936,fd=66))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix9/wdb.sock 771788 * 775740 users:((\"gamedbd\",pid=16936,fd=6))",
+          "u_str ESTAB  0      0                                                   * 775740 * 771788 users:((\"gdeliveryd\",pid=16959,fd=9))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix9/log.sock 775054 * 771778 users:((\"logservice\",pid=16919,fd=21))",
+          "u_str ESTAB  0      0                                                   * 775739 * 773647 users:((\"gdeliveryd\",pid=16959,fd=7))",
+          "u_str ESTAB  0      0                                                   * 775748 * 777486 users:((\"glinkd\",pid=16960,fd=12))",
+          "u_str ESTAB  0      0                                                   * 775746 * 775055 users:((\"glinkd\",pid=16960,fd=5))",
+          "u_str ESTAB  0      0                                                   * 771778 * 775054 users:((\"gamedbd\",pid=16936,fd=5))",
+          "u_str ESTAB  0      0                                                   * 777468 * 773642 users:((\"uniquenamed\",pid=16926,fd=17))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 105.266,
+        "p95_us": 206.437,
+        "p99_us": 269.021,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "tcp10": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10     127.0.0.1:29100 0.0.0.0:* users:((\"gdeliveryd\",pid=17006,fd=8))",
+          "LISTEN 0      4096   127.0.0.1:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=17006,fd=10))",
+          "LISTEN 0      4096   127.0.0.1:29301 0.0.0.0:* users:((\"glinkd\",pid=17007,fd=10))",
+          "LISTEN 0      10     127.0.0.1:29400 0.0.0.0:* users:((\"gamedbd\",pid=16983,fd=67))",
+          "LISTEN 0      10     127.0.0.1:29401 0.0.0.0:* users:((\"uniquenamed\",pid=16973,fd=13))",
+          "LISTEN 0      10     127.0.0.1:11101 0.0.0.0:* users:((\"logservice\",pid=16966,fd=14))",
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=17007,fd=7))"
+        ],
+        "unix_listeners": [],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:35544    127.0.0.1:29401 users:((\"gdeliveryd\",pid=17006,fd=6))",
+          "ESTAB 0      0         127.0.0.1:29401    127.0.0.1:35544 users:((\"uniquenamed\",pid=16973,fd=5))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:53820 users:((\"logservice\",pid=16966,fd=22))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:53828 users:((\"logservice\",pid=16966,fd=23))",
+          "ESTAB 0      0         127.0.0.1:29400    127.0.0.1:56402 users:((\"gamedbd\",pid=16983,fd=6))",
+          "ESTAB 0      0         127.0.0.1:29100    127.0.0.1:51818 users:((\"gdeliveryd\",pid=17006,fd=9))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:53810 users:((\"logservice\",pid=16966,fd=21))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:53796 users:((\"logservice\",pid=16966,fd=18))",
+          "ESTAB 0      0         127.0.0.1:56402    127.0.0.1:29400 users:((\"gdeliveryd\",pid=17006,fd=7))",
+          "ESTAB 0      0         127.0.0.1:53796    127.0.0.1:11101 users:((\"uniquenamed\",pid=16973,fd=4))",
+          "ESTAB 0      0         127.0.0.1:53810    127.0.0.1:11101 users:((\"gamedbd\",pid=16983,fd=5))",
+          "ESTAB 0      0         127.0.0.1:53820    127.0.0.1:11101 users:((\"gdeliveryd\",pid=17006,fd=12))",
+          "ESTAB 0      0         127.0.0.1:53828    127.0.0.1:11101 users:((\"glinkd\",pid=17007,fd=8))",
+          "ESTAB 0      0         127.0.0.1:42754    127.0.0.1:33000 users:((\"gamedbd\",pid=16983,fd=4))",
+          "ESTAB 0      0         127.0.0.1:42756    127.0.0.1:33000 users:((\"gdeliveryd\",pid=17006,fd=4))",
+          "ESTAB 0      0         127.0.0.1:42768    127.0.0.1:33000 users:((\"glinkd\",pid=17007,fd=4))",
+          "ESTAB 0      0         127.0.0.1:51818    127.0.0.1:29100 users:((\"glinkd\",pid=17007,fd=12))"
+        ],
+        "unix_established": [
+          "u_dgr ESTAB 0      0      * 771819 * 693006 users:((\"gamedbd\",pid=16983,fd=66))",
+          "u_dgr ESTAB 0      0      * 777499 * 693006 users:((\"uniquenamed\",pid=16973,fd=18))",
+          "u_dgr ESTAB 0      0      * 775058 * 693006 users:((\"logservice\",pid=16966,fd=19))",
+          "u_dgr ESTAB 0      0      * 771826 * 693006 users:((\"gdeliveryd\",pid=17006,fd=5))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 119.986,
+        "p95_us": 226.102,
+        "p99_us": 319.189,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "tcp11": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10     127.0.0.1:29100 0.0.0.0:* users:((\"gdeliveryd\",pid=17053,fd=8))",
+          "LISTEN 0      4096   127.0.0.1:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=17053,fd=10))",
+          "LISTEN 0      4096   127.0.0.1:29301 0.0.0.0:* users:((\"glinkd\",pid=17054,fd=10))",
+          "LISTEN 0      10     127.0.0.1:29400 0.0.0.0:* users:((\"gamedbd\",pid=17030,fd=67))",
+          "LISTEN 0      10     127.0.0.1:29401 0.0.0.0:* users:((\"uniquenamed\",pid=17020,fd=13))",
+          "LISTEN 0      10     127.0.0.1:11101 0.0.0.0:* users:((\"logservice\",pid=17013,fd=14))",
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=17054,fd=7))"
+        ],
+        "unix_listeners": [],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:29400    127.0.0.1:33674 users:((\"gamedbd\",pid=17030,fd=6))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:60698 users:((\"logservice\",pid=17013,fd=22))",
+          "ESTAB 0      0         127.0.0.1:43564    127.0.0.1:29401 users:((\"gdeliveryd\",pid=17053,fd=6))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:53860 users:((\"logservice\",pid=17013,fd=18))",
+          "ESTAB 0      0         127.0.0.1:33674    127.0.0.1:29400 users:((\"gdeliveryd\",pid=17053,fd=7))",
+          "ESTAB 0      0         127.0.0.1:29100    127.0.0.1:52406 users:((\"gdeliveryd\",pid=17053,fd=9))",
+          "ESTAB 0      0         127.0.0.1:53860    127.0.0.1:11101 users:((\"uniquenamed\",pid=17020,fd=4))",
+          "ESTAB 0      0         127.0.0.1:53874    127.0.0.1:11101 users:((\"gamedbd\",pid=17030,fd=5))",
+          "ESTAB 0      0         127.0.0.1:60698    127.0.0.1:11101 users:((\"gdeliveryd\",pid=17053,fd=12))",
+          "ESTAB 0      0         127.0.0.1:60708    127.0.0.1:11101 users:((\"glinkd\",pid=17054,fd=8))",
+          "ESTAB 0      0         127.0.0.1:42780    127.0.0.1:33000 users:((\"gamedbd\",pid=17030,fd=4))",
+          "ESTAB 0      0         127.0.0.1:46284    127.0.0.1:33000 users:((\"gdeliveryd\",pid=17053,fd=4))",
+          "ESTAB 0      0         127.0.0.1:46298    127.0.0.1:33000 users:((\"glinkd\",pid=17054,fd=4))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:60708 users:((\"logservice\",pid=17013,fd=23))",
+          "ESTAB 0      0         127.0.0.1:52406    127.0.0.1:29100 users:((\"glinkd\",pid=17054,fd=12))",
+          "ESTAB 0      0         127.0.0.1:29401    127.0.0.1:43564 users:((\"uniquenamed\",pid=17020,fd=5))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:53874 users:((\"logservice\",pid=17013,fd=21))"
+        ],
+        "unix_established": [
+          "u_dgr ESTAB 0      0      * 775797 * 693006 users:((\"logservice\",pid=17013,fd=19))",
+          "u_dgr ESTAB 0      0      * 771875 * 693006 users:((\"gamedbd\",pid=17030,fd=66))",
+          "u_dgr ESTAB 0      0      * 776479 * 693006 users:((\"gdeliveryd\",pid=17053,fd=5))",
+          "u_dgr ESTAB 0      0      * 772542 * 693006 users:((\"uniquenamed\",pid=17020,fd=18))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 116.245,
+        "p95_us": 239.674,
+        "p99_us": 364.647,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "unix12": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=17103,fd=7))"
+        ],
+        "unix_listeners": [
+          "u_str LISTEN 0      10     /tmp/pw-ipc-stack-4f1m0mnv/unix12/delivery.sock 778796 * 0 users:((\"gdeliveryd\",pid=17102,fd=8))",
+          "u_str LISTEN 0      4096   /tmp/pw-ipc-stack-4f1m0mnv/unix12/provider.sock 778798 * 0 users:((\"gdeliveryd\",pid=17102,fd=10))",
+          "u_str LISTEN 0      4096       /tmp/pw-ipc-stack-4f1m0mnv/unix12/link.sock 772602 * 0 users:((\"glinkd\",pid=17103,fd=10))",
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix12/log.sock 773760 * 0 users:((\"logservice\",pid=17060,fd=14))",
+          "u_str LISTEN 0      10        /tmp/pw-ipc-stack-4f1m0mnv/unix12/names.sock 779529 * 0 users:((\"uniquenamed\",pid=17067,fd=13))",
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix12/wdb.sock 771904 * 0 users:((\"gamedbd\",pid=17077,fd=67))"
+        ],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:46314    127.0.0.1:33000 users:((\"gamedbd\",pid=17077,fd=4))",
+          "ESTAB 0      0         127.0.0.1:46316    127.0.0.1:33000 users:((\"gdeliveryd\",pid=17102,fd=4))",
+          "ESTAB 0      0         127.0.0.1:46320    127.0.0.1:33000 users:((\"glinkd\",pid=17103,fd=4))"
+        ],
+        "unix_established": [
+          "u_str ESTAB  0      0                                                    * 772598 * 779541 users:((\"glinkd\",pid=17103,fd=5))",
+          "u_str ESTAB  0      0                                                    * 779528 * 776499 users:((\"uniquenamed\",pid=17067,fd=17))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix12/log.sock 776499 * 779528 users:((\"logservice\",pid=17060,fd=18))",
+          "u_str ESTAB  0      0                                                    * 772600 * 778807 users:((\"glinkd\",pid=17103,fd=6))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix12/log.sock 779541 * 772598 users:((\"logservice\",pid=17060,fd=23))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix12/log.sock 778790 * 771900 users:((\"logservice\",pid=17060,fd=21))",
+          "u_dgr ESTAB  0      0                                                    * 772603 * 693006 users:((\"glinkd\",pid=17103,fd=13))",
+          "u_dgr ESTAB  0      0                                                    * 778793 * 693006 users:((\"gdeliveryd\",pid=17102,fd=5))",
+          "u_dgr ESTAB  0      0                                                    * 771885 * 693006 users:((\"logservice\",pid=17060,fd=19))",
+          "u_str ESTAB  0      0      /tmp/pw-ipc-stack-4f1m0mnv/unix12/delivery.sock 778807 * 772600 users:((\"gdeliveryd\",pid=17102,fd=6))",
+          "u_str ESTAB  0      0                                                    * 778800 * 776504 users:((\"gdeliveryd\",pid=17102,fd=7))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix12/log.sock 775827 * 778795 users:((\"logservice\",pid=17060,fd=22))",
+          "u_str ESTAB  0      0                                                    * 778801 * 771914 users:((\"gdeliveryd\",pid=17102,fd=9))",
+          "u_dgr ESTAB  0      0                                                    * 771901 * 693006 users:((\"gamedbd\",pid=17077,fd=66))",
+          "u_str ESTAB  0      0                                                    * 771900 * 778790 users:((\"gamedbd\",pid=17077,fd=5))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix12/wdb.sock 771914 * 778801 users:((\"gamedbd\",pid=17077,fd=6))",
+          "u_str ESTAB  0      0                                                    * 778795 * 775827 users:((\"gdeliveryd\",pid=17102,fd=16))",
+          "u_str ESTAB  0      0         /tmp/pw-ipc-stack-4f1m0mnv/unix12/names.sock 776504 * 778800 users:((\"uniquenamed\",pid=17067,fd=4))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 107.787,
+        "p95_us": 202.484,
+        "p99_us": 280.524,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "tcp13": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10     127.0.0.1:29100 0.0.0.0:* users:((\"gdeliveryd\",pid=17151,fd=8))",
+          "LISTEN 0      4096   127.0.0.1:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=17151,fd=10))",
+          "LISTEN 0      4096   127.0.0.1:29301 0.0.0.0:* users:((\"glinkd\",pid=17152,fd=10))",
+          "LISTEN 0      10     127.0.0.1:29400 0.0.0.0:* users:((\"gamedbd\",pid=17128,fd=67))",
+          "LISTEN 0      10     127.0.0.1:29401 0.0.0.0:* users:((\"uniquenamed\",pid=17116,fd=13))",
+          "LISTEN 0      10     127.0.0.1:11101 0.0.0.0:* users:((\"logservice\",pid=17109,fd=14))",
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=17152,fd=7))"
+        ],
+        "unix_listeners": [],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:43608    127.0.0.1:29401 users:((\"gdeliveryd\",pid=17151,fd=6))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:60744 users:((\"logservice\",pid=17109,fd=21))",
+          "ESTAB 0      0         127.0.0.1:29400    127.0.0.1:33820 users:((\"gamedbd\",pid=17128,fd=6))",
+          "ESTAB 0      0         127.0.0.1:33820    127.0.0.1:29400 users:((\"gdeliveryd\",pid=17151,fd=7))",
+          "ESTAB 0      0         127.0.0.1:29401    127.0.0.1:43608 users:((\"uniquenamed\",pid=17116,fd=5))",
+          "ESTAB 0      0         127.0.0.1:60738    127.0.0.1:11101 users:((\"uniquenamed\",pid=17116,fd=4))",
+          "ESTAB 0      0         127.0.0.1:60744    127.0.0.1:11101 users:((\"gamedbd\",pid=17128,fd=5))",
+          "ESTAB 0      0         127.0.0.1:60752    127.0.0.1:11101 users:((\"gdeliveryd\",pid=17151,fd=9))",
+          "ESTAB 0      0         127.0.0.1:60764    127.0.0.1:11101 users:((\"glinkd\",pid=17152,fd=8))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:60738 users:((\"logservice\",pid=17109,fd=18))",
+          "ESTAB 0      0         127.0.0.1:46322    127.0.0.1:33000 users:((\"gamedbd\",pid=17128,fd=4))",
+          "ESTAB 0      0         127.0.0.1:46324    127.0.0.1:33000 users:((\"gdeliveryd\",pid=17151,fd=4))",
+          "ESTAB 0      0         127.0.0.1:46326    127.0.0.1:33000 users:((\"glinkd\",pid=17152,fd=4))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:60752 users:((\"logservice\",pid=17109,fd=22))",
+          "ESTAB 0      0         127.0.0.1:52424    127.0.0.1:29100 users:((\"glinkd\",pid=17152,fd=12))",
+          "ESTAB 0      0         127.0.0.1:29100    127.0.0.1:52424 users:((\"gdeliveryd\",pid=17151,fd=12))",
+          "ESTAB 0      0         127.0.0.1:11101    127.0.0.1:60764 users:((\"logservice\",pid=17109,fd=23))"
+        ],
+        "unix_established": [
+          "u_dgr ESTAB 0      0      * 776510 * 693006 users:((\"uniquenamed\",pid=17116,fd=18))",
+          "u_dgr ESTAB 0      0      * 771932 * 693006 users:((\"gamedbd\",pid=17128,fd=66))",
+          "u_dgr ESTAB 0      0      * 772781 * 693006 users:((\"logservice\",pid=17109,fd=19))",
+          "u_dgr ESTAB 0      0      * 778842 * 693006 users:((\"gdeliveryd\",pid=17151,fd=5))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 120.438,
+        "p95_us": 217.281,
+        "p99_us": 292.328,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    },
+    "unix14": {
+      "exit": {
+        "logservice": null,
+        "uniquenamed": null,
+        "gamedbd": null,
+        "gdeliveryd": null,
+        "glinkd": null
+      },
+      "sockets": {
+        "tcp_listeners": [
+          "LISTEN 0      10       0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=17199,fd=7))"
+        ],
+        "unix_listeners": [
+          "u_str LISTEN 0      4096   /tmp/pw-ipc-stack-4f1m0mnv/unix14/provider.sock 776567 * 0 users:((\"gdeliveryd\",pid=17198,fd=10))",
+          "u_str LISTEN 0      4096       /tmp/pw-ipc-stack-4f1m0mnv/unix14/link.sock 776584 * 0 users:((\"glinkd\",pid=17199,fd=10))",
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix14/log.sock 776545 * 0 users:((\"logservice\",pid=17158,fd=14))",
+          "u_str LISTEN 0      10        /tmp/pw-ipc-stack-4f1m0mnv/unix14/names.sock 771956 * 0 users:((\"uniquenamed\",pid=17165,fd=13))",
+          "u_str LISTEN 0      10          /tmp/pw-ipc-stack-4f1m0mnv/unix14/wdb.sock 771970 * 0 users:((\"gamedbd\",pid=17175,fd=67))",
+          "u_str LISTEN 0      10     /tmp/pw-ipc-stack-4f1m0mnv/unix14/delivery.sock 776565 * 0 users:((\"gdeliveryd\",pid=17198,fd=8))"
+        ],
+        "tcp_established": [
+          "ESTAB 0      0         127.0.0.1:49460    127.0.0.1:33000 users:((\"gamedbd\",pid=17175,fd=4))",
+          "ESTAB 0      0         127.0.0.1:49462    127.0.0.1:33000 users:((\"gdeliveryd\",pid=17198,fd=4))",
+          "ESTAB 0      0         127.0.0.1:49474    127.0.0.1:33000 users:((\"glinkd\",pid=17199,fd=4))"
+        ],
+        "unix_established": [
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix14/wdb.sock 771973 * 776570 users:((\"gamedbd\",pid=17175,fd=6))",
+          "u_str ESTAB  0      0                                                    * 776570 * 771973 users:((\"gdeliveryd\",pid=17198,fd=9))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix14/log.sock 776546 * 771955 users:((\"logservice\",pid=17158,fd=18))",
+          "u_dgr ESTAB  0      0                                                    * 776562 * 693006 users:((\"gdeliveryd\",pid=17198,fd=5))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix14/log.sock 778866 * 776564 users:((\"logservice\",pid=17158,fd=22))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix14/log.sock 779587 * 776580 users:((\"logservice\",pid=17158,fd=23))",
+          "u_str ESTAB  0      0                                                    * 771955 * 776546 users:((\"uniquenamed\",pid=17165,fd=17))",
+          "u_str ESTAB  0      0                                                    * 776564 * 778866 users:((\"gdeliveryd\",pid=17198,fd=14))",
+          "u_str ESTAB  0      0                                                    * 771966 * 777722 users:((\"gamedbd\",pid=17175,fd=5))",
+          "u_dgr ESTAB  0      0                                                    * 779586 * 693006 users:((\"logservice\",pid=17158,fd=19))",
+          "u_str ESTAB  0      0                                                    * 776569 * 775873 users:((\"gdeliveryd\",pid=17198,fd=7))",
+          "u_str ESTAB  0      0                                                    * 776580 * 779587 users:((\"glinkd\",pid=17199,fd=12))",
+          "u_str ESTAB  0      0           /tmp/pw-ipc-stack-4f1m0mnv/unix14/log.sock 777722 * 771966 users:((\"logservice\",pid=17158,fd=21))",
+          "u_str ESTAB  0      0      /tmp/pw-ipc-stack-4f1m0mnv/unix14/delivery.sock 773842 * 776582 users:((\"gdeliveryd\",pid=17198,fd=6))",
+          "u_dgr ESTAB  0      0                                                    * 771967 * 693006 users:((\"gamedbd\",pid=17175,fd=66))",
+          "u_str ESTAB  0      0         /tmp/pw-ipc-stack-4f1m0mnv/unix14/names.sock 775873 * 776569 users:((\"uniquenamed\",pid=17165,fd=4))",
+          "u_str ESTAB  0      0                                                    * 776582 * 773842 users:((\"glinkd\",pid=17199,fd=6))"
+        ]
+      },
+      "diagnostics": {
+        "logservice": [],
+        "uniquenamed": [],
+        "gamedbd": [
+          "info : Init GameDB successfully."
+        ],
+        "gdeliveryd": [
+          "TRACE : AutoTeamMan Init Successfully!!",
+          "TRACE : WaitQueueManager Init Successfully!!",
+          "TRACE : gdelivery::gfactionclient: connect server failed. reconnecting...",
+          "err : gdelivery::connect to GAuth server failed. Reconnecting....",
+          "TRACE : ganticheatclient:: connect to GACD failed!",
+          "TRACE : CountryBattle Init Successfully!!"
+        ],
+        "glinkd": []
+      },
+      "rpc": {
+        "operation": "GetRoleBase",
+        "protocol": 3013,
+        "roleid": 16,
+        "retcode": 0,
+        "response_value_bytes": 835,
+        "response_sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413",
+        "requests": 5000,
+        "warmup": 300,
+        "p50_us": 118.341,
+        "p95_us": 223.773,
+        "p99_us": 270.684,
+        "cpus": [
+          2,
+          3
+        ]
+      }
+    }
+  },
+  "sql_sessions": [
+    "198.18.108.1:45510\tlicenseservice"
+  ]
+}

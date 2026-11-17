@@ -1,0 +1,30 @@
+{
+  "logservice": {
+    "sha256": "01cb71943424ab392fec1839d6923a88dbfcef11a0c63695a509f3108e2ff002",
+    "bytes": 1162896
+  },
+  "uniquenamed": {
+    "sha256": "895e77176d7dbe003323822dfc797c4c056068ba4753ae815924870e3a1f9320",
+    "bytes": 9939592
+  },
+  "gamedbd": {
+    "sha256": "46e091b1c817132f3a99b1b55c7dcd1dd4ad1bb0102de0b77b25654f32040661",
+    "bytes": 39409864
+  },
+  "gdeliveryd": {
+    "sha256": "a3ce70f5ca56753063807ed9ff95bd75edeb5216cd71c194c152c96d8d23ab5c",
+    "bytes": 86601976
+  },
+  "glinkd": {
+    "sha256": "cc8fb6c50833827c1b99d5621a499786c6e473f09978d411a1b8a69662edc69b",
+    "bytes": 9649136
+  },
+  "licenseservice": {
+    "sha256": "d0bd766311b829a88cb045d9ce6edd89829d9e3d005975822bdaf08bb32c7dce",
+    "bytes": 4317104
+  },
+  "gs": {
+    "sha256": "6a1886831f16c3f1f9a4ea3bff3b9bd422bf3938306f1946894776050d019b60",
+    "bytes": 364506792
+  }
+}

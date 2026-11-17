@@ -1,0 +1,854 @@
+{
+  "manifest.json": {
+    "logservice": [
+      {
+        "section": "[LogserviceTcpServer]",
+        "port": 11101,
+        "socket": "/run/pw-ipc-test/log.sock"
+      }
+    ],
+    "uniquenamed": [
+      {
+        "section": "[UniqueNameServer]",
+        "port": 29401,
+        "socket": "/run/pw-ipc-test/names.sock"
+      },
+      {
+        "section": "[LogclientTcpClient]",
+        "port": 11101,
+        "socket": "/run/pw-ipc-test/log.sock"
+      }
+    ],
+    "gamedbd": [
+      {
+        "section": "[GameDBServer]",
+        "port": 29400,
+        "socket": "/run/pw-ipc-test/gamedbd.sock"
+      },
+      {
+        "section": "[LogclientTcpClient]",
+        "port": 11101,
+        "socket": "/run/pw-ipc-test/log.sock"
+      }
+    ],
+    "gauthd": [
+      {
+        "section": "[GAuthServer]",
+        "port": 29200,
+        "socket": "/run/pw-ipc-test/auth.sock"
+      },
+      {
+        "section": "[GameDBClient]",
+        "port": 29400,
+        "socket": "/run/pw-ipc-test/gamedbd.sock"
+      }
+    ],
+    "gacd": [
+      {
+        "section": "[LogclientTcpClient]",
+        "port": 11101,
+        "socket": "/run/pw-ipc-test/log.sock"
+      },
+      {
+        "section": "[GAntiCheaterServer]",
+        "port": 29702,
+        "socket": "/run/pw-ipc-test/anticheat.sock"
+      }
+    ],
+    "gfactiond": [
+      {
+        "section": "[LogclientTcpClient]",
+        "port": 11101,
+        "socket": "/run/pw-ipc-test/log.sock"
+      },
+      {
+        "section": "[GFactionServer]",
+        "port": 29500,
+        "socket": "/run/pw-ipc-test/faction.sock"
+      },
+      {
+        "section": "[GProviderServer]",
+        "port": 29600,
+        "socket": "/run/pw-ipc-test/faction-provider.sock"
+      },
+      {
+        "section": "[UniqueNameClient]",
+        "port": 29401,
+        "socket": "/run/pw-ipc-test/names.sock"
+      },
+      {
+        "section": "[GFactionDBClient]",
+        "port": 29400,
+        "socket": "/run/pw-ipc-test/gamedbd.sock"
+      }
+    ],
+    "gdeliveryd": [
+      {
+        "section": "[LogclientTcpClient]",
+        "port": 11101,
+        "socket": "/run/pw-ipc-test/log.sock"
+      },
+      {
+        "section": "[GDeliveryServer]",
+        "port": 29100,
+        "socket": "/run/pw-ipc-test/delivery.sock"
+      },
+      {
+        "section": "[GAuthClient]",
+        "port": 29200,
+        "socket": "/run/pw-ipc-test/auth.sock"
+      },
+      {
+        "section": "[GProviderServer]",
+        "port": 29300,
+        "socket": "/run/pw-ipc-test/provider.sock"
+      },
+      {
+        "section": "[UniqueNameClient]",
+        "port": 29401,
+        "socket": "/run/pw-ipc-test/names.sock"
+      },
+      {
+        "section": "[GameDBClient]",
+        "port": 29400,
+        "socket": "/run/pw-ipc-test/gamedbd.sock"
+      },
+      {
+        "section": "[GAntiCheatClient]",
+        "port": 29702,
+        "socket": "/run/pw-ipc-test/anticheat.sock"
+      },
+      {
+        "section": "[GFactionClient]",
+        "port": 29500,
+        "socket": "/run/pw-ipc-test/faction.sock"
+      }
+    ],
+    "glinkd": [
+      {
+        "section": "[GDeliveryClient]",
+        "port": 29100,
+        "socket": "/run/pw-ipc-test/delivery.sock"
+      },
+      {
+        "section": "[GProviderServer1]",
+        "port": 29301,
+        "socket": "/run/pw-ipc-test/link1.sock"
+      },
+      {
+        "section": "[GProviderServer2]",
+        "port": 29302,
+        "socket": "/run/pw-ipc-test/link2.sock"
+      },
+      {
+        "section": "[GProviderServer3]",
+        "port": 29303,
+        "socket": "/run/pw-ipc-test/link3.sock"
+      },
+      {
+        "section": "[GProviderServer4]",
+        "port": 29304,
+        "socket": "/run/pw-ipc-test/link4.sock"
+      },
+      {
+        "section": "[GProviderServer5]",
+        "port": 29305,
+        "socket": "/run/pw-ipc-test/link5.sock"
+      },
+      {
+        "section": "[GProviderServer6]",
+        "port": 29306,
+        "socket": "/run/pw-ipc-test/link6.sock"
+      },
+      {
+        "section": "[GProviderServer7]",
+        "port": 29307,
+        "socket": "/run/pw-ipc-test/link7.sock"
+      },
+      {
+        "section": "[GFactionClient]",
+        "port": 29500,
+        "socket": "/run/pw-ipc-test/faction.sock"
+      },
+      {
+        "section": "[LogclientTcpClient]",
+        "port": 11101,
+        "socket": "/run/pw-ipc-test/log.sock"
+      }
+    ],
+    "gs": [
+      {
+        "section": "[GProviderClient0]",
+        "port": 29300,
+        "socket": "/run/pw-ipc-test/provider.sock"
+      },
+      {
+        "section": "[GProviderClient1]",
+        "port": 29600,
+        "socket": "/run/pw-ipc-test/faction-provider.sock"
+      },
+      {
+        "section": "[GProviderClient2]",
+        "port": 29301,
+        "socket": "/run/pw-ipc-test/link1.sock"
+      },
+      {
+        "section": "[GProviderClient3]",
+        "port": 29302,
+        "socket": "/run/pw-ipc-test/link2.sock"
+      },
+      {
+        "section": "[GProviderClient4]",
+        "port": 29303,
+        "socket": "/run/pw-ipc-test/link3.sock"
+      },
+      {
+        "section": "[GProviderClient5]",
+        "port": 29304,
+        "socket": "/run/pw-ipc-test/link4.sock"
+      },
+      {
+        "section": "[GProviderClient6]",
+        "port": 29305,
+        "socket": "/run/pw-ipc-test/link5.sock"
+      },
+      {
+        "section": "[GProviderClient7]",
+        "port": 29306,
+        "socket": "/run/pw-ipc-test/link6.sock"
+      },
+      {
+        "section": "[GProviderClient8]",
+        "port": 29307,
+        "socket": "/run/pw-ipc-test/link7.sock"
+      },
+      {
+        "section": "[GProviderClient9]",
+        "port": 29308,
+        "socket": "/run/pw-ipc-test/link8.sock"
+      },
+      {
+        "section": "[GamedbClient]",
+        "port": 29400,
+        "socket": "/run/pw-ipc-test/gamedbd.sock"
+      },
+      {
+        "section": "[LogclientTcpClient]",
+        "port": 11101,
+        "socket": "/run/pw-ipc-test/log.sock"
+      }
+    ]
+  },
+  "ready.json": {
+    "phase": "waiting_for_maps",
+    "time": 1794930651.5496309,
+    "pids": {
+      "logservice": 26388,
+      "uniquenamed": 26395,
+      "gamedbd": 26405,
+      "gauthd": 26408,
+      "gacd": 26434,
+      "gfactiond": 26437,
+      "gdeliveryd": 26439,
+      "glinkd": 26441,
+      "gs01": 26442,
+      "is61": 26443
+    },
+    "processes": [
+      {
+        "name": "logservice",
+        "pid": 26388,
+        "pgid": 26388,
+        "args": [
+          "/root/pwserver/logservice/logservice",
+          "/root/pw-ipc-client-lab/configs/logservice.conf"
+        ],
+        "cwd": "/root/pwserver/logservice",
+        "alive": true
+      },
+      {
+        "name": "uniquenamed",
+        "pid": 26395,
+        "pgid": 26395,
+        "args": [
+          "/root/pwserver/uniquenamed/uniquenamed",
+          "/root/pw-ipc-client-lab/configs/uniquenamed.conf"
+        ],
+        "cwd": "/root/pwserver/uniquenamed",
+        "alive": true
+      },
+      {
+        "name": "gamedbd",
+        "pid": 26405,
+        "pgid": 26405,
+        "args": [
+          "/root/pwserver/gamedbd/gamedbd",
+          "/root/pw-ipc-client-lab/configs/gamedbd.conf"
+        ],
+        "cwd": "/root/pwserver/gamedbd",
+        "alive": true
+      },
+      {
+        "name": "gauthd",
+        "pid": 26408,
+        "pgid": 26408,
+        "args": [
+          "/root/pwserver/gauthd/gauthd",
+          "/root/pw-ipc-client-lab/configs/gauthd.conf"
+        ],
+        "cwd": "/root/pwserver/gauthd",
+        "alive": true
+      },
+      {
+        "name": "gacd",
+        "pid": 26434,
+        "pgid": 26434,
+        "args": [
+          "/root/pwserver/gacd/gacd",
+          "/root/pw-ipc-client-lab/configs/gacd.conf"
+        ],
+        "cwd": "/root/pwserver/gacd",
+        "alive": true
+      },
+      {
+        "name": "gfactiond",
+        "pid": 26437,
+        "pgid": 26437,
+        "args": [
+          "/root/pwserver/gfactiond/gfactiond",
+          "/root/pw-ipc-client-lab/configs/gfactiond.conf"
+        ],
+        "cwd": "/root/pwserver/gfactiond",
+        "alive": true
+      },
+      {
+        "name": "gdeliveryd",
+        "pid": 26439,
+        "pgid": 26439,
+        "args": [
+          "/root/pwserver/gdeliveryd/gdeliveryd",
+          "/root/pw-ipc-client-lab/configs/gdeliveryd.conf"
+        ],
+        "cwd": "/root/pwserver/gdeliveryd",
+        "alive": true
+      },
+      {
+        "name": "glinkd",
+        "pid": 26441,
+        "pgid": 26441,
+        "args": [
+          "/root/pwserver/glinkd/glinkd",
+          "/root/pw-ipc-client-lab/configs/glinkd.conf",
+          "1"
+        ],
+        "cwd": "/root/pwserver/glinkd",
+        "alive": true
+      },
+      {
+        "name": "gs01",
+        "pid": 26442,
+        "pgid": 26442,
+        "args": [
+          "/root/pwserver/gamed/gs",
+          "gs01",
+          "gs.conf",
+          "/root/pw-ipc-client-lab/configs/gmserver.conf",
+          "gsalias.conf"
+        ],
+        "cwd": "/root/pwserver/gamed",
+        "alive": true
+      },
+      {
+        "name": "is61",
+        "pid": 26443,
+        "pgid": 26443,
+        "args": [
+          "/root/pwserver/gamed/gs",
+          "is61",
+          "gs.conf",
+          "/root/pw-ipc-client-lab/configs/gmserver.conf",
+          "gsalias.conf"
+        ],
+        "cwd": "/root/pwserver/gamed",
+        "alive": true
+      }
+    ],
+    "unix": [
+      "u_str ESTAB  0      0                                                 * 606540 * 606542 users:((\"gdeliveryd\",pid=26439,fd=6))",
+      "u_dgr ESTAB  0      0                                                 * 606134 * 1609   users:((\"uniquenamed\",pid=26395,fd=18))",
+      "u_str ESTAB  0      0                        /run/pw-ipc-test/auth.sock 606162 * 606529 users:((\"gauthd\",pid=26408,fd=10))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/gamedbd.sock 606163 * 606543 users:((\"gamedbd\",pid=26405,fd=72))",
+      "u_str ESTAB  0      0            /run/pw-ipc-test/faction-provider.sock 607332 * 607331 users:((\"gfactiond\",pid=26437,fd=14))",
+      "u_str ESTAB  0      0                       /run/pw-ipc-test/link1.sock 606604 * 607330 users:((\"glinkd\",pid=26441,fd=6))",
+      "u_str ESTAB  0      0                                                 * 606543 * 606163 users:((\"gdeliveryd\",pid=26439,fd=9))",
+      "u_dgr ESTAB  0      0                                                 * 606171 * 1609   users:((\"gs\",pid=26443,fd=4))",
+      "u_str ESTAB  0      0                    /run/pw-ipc-test/delivery.sock 606557 * 606556 users:((\"gdeliveryd\",pid=26439,fd=14))",
+      "u_str ESTAB  0      0                                                 * 606554 * 606166 users:((\"glinkd\",pid=26441,fd=8))",
+      "u_str LISTEN 0      10                        /run/pw-ipc-test/log.sock 606448 * 0      users:((\"logservice\",pid=26388,fd=14))",
+      "u_str ESTAB  0      0                                                 * 607331 * 607332 users:((\"gs\",pid=26442,fd=16))",
+      "u_str ESTAB  0      0                       /run/pw-ipc-test/names.sock 606542 * 606540 users:((\"uniquenamed\",pid=26395,fd=19))",
+      "u_str ESTAB  0      0                                                 * 606529 * 606162 users:((\"gdeliveryd\",pid=26439,fd=7))",
+      "u_str LISTEN 0      10                      /run/pw-ipc-test/names.sock 606460 * 0      users:((\"uniquenamed\",pid=26395,fd=13))",
+      "u_str LISTEN 0      10                       /run/pw-ipc-test/auth.sock 606496 * 0      users:((\"gauthd\",pid=26408,fd=5))",
+      "u_str LISTEN 0      10                    /run/pw-ipc-test/gamedbd.sock 606143 * 0      users:((\"gamedbd\",pid=26405,fd=67))",
+      "u_str LISTEN 0      10                  /run/pw-ipc-test/anticheat.sock 606503 * 0      users:((\"gacd\",pid=26434,fd=4))",
+      "u_str LISTEN 0      10                    /run/pw-ipc-test/faction.sock 606514 * 0      users:((\"gfactiond\",pid=26437,fd=7))",
+      "u_str LISTEN 0      4096         /run/pw-ipc-test/faction-provider.sock 606515 * 0      users:((\"gfactiond\",pid=26437,fd=8))",
+      "u_str LISTEN 0      10                   /run/pw-ipc-test/delivery.sock 606528 * 0      users:((\"gdeliveryd\",pid=26439,fd=8))",
+      "u_str LISTEN 0      4096                 /run/pw-ipc-test/provider.sock 606538 * 0      users:((\"gdeliveryd\",pid=26439,fd=10))",
+      "u_str LISTEN 0      4096                    /run/pw-ipc-test/link1.sock 606559 * 0      users:((\"glinkd\",pid=26441,fd=10))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 606166 * 606554 users:((\"logservice\",pid=26388,fd=24))",
+      "u_str ESTAB  0      0                                                 * 606556 * 606557 users:((\"glinkd\",pid=26441,fd=9))",
+      "u_dgr ESTAB  0      0                                                 * 606132 * 1609   users:((\"logservice\",pid=26388,fd=19))",
+      "u_str ESTAB  0      0                                                 * 607333 * 606605 users:((\"gs\",pid=26442,fd=17))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/faction.sock 606545 * 606544 users:((\"gfactiond\",pid=26437,fd=5))",
+      "u_str ESTAB  0      0                                                 * 606539 * 606541 users:((\"gdeliveryd\",pid=26439,fd=13))",
+      "u_str ESTAB  0      0                   /run/pw-ipc-test/anticheat.sock 606541 * 606539 users:((\"gacd\",pid=26434,fd=7))",
+      "u_str ESTAB  0      0                                                 * 606544 * 606545 users:((\"gdeliveryd\",pid=26439,fd=11))",
+      "u_str ESTAB  0      0                                                 * 607330 * 606604 users:((\"gs\",pid=26442,fd=15))",
+      "u_str ESTAB  0      0                                                 * 606741 * 607343 users:((\"gs\",pid=26443,fd=18))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 606150 * 606513 users:((\"logservice\",pid=26388,fd=21))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 607344 * 606743 users:((\"logservice\",pid=26388,fd=26))",
+      "u_dgr ESTAB  0      0                                                 * 606560 * 1609   users:((\"glinkd\",pid=26441,fd=13))",
+      "u_str ESTAB  0      0                       /run/pw-ipc-test/names.sock 606152 * 606517 users:((\"uniquenamed\",pid=26395,fd=5))",
+      "u_str ESTAB  0      0                    /run/pw-ipc-test/provider.sock 606740 * 606739 users:((\"gdeliveryd\",pid=26439,fd=18))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 606161 * 606527 users:((\"logservice\",pid=26388,fd=23))",
+      "u_str ESTAB  0      0                                                 * 606737 * 607341 users:((\"gs\",pid=26443,fd=15))",
+      "u_str ESTAB  0      0                                                 * 606516 * 606151 users:((\"gfactiond\",pid=26437,fd=10))",
+      "u_dgr ESTAB  0      0                                                 * 606581 * 1609   users:((\"gs\",pid=26442,fd=4))",
+      "u_str ESTAB  0      0                                                 * 606739 * 606740 users:((\"gs\",pid=26443,fd=17))",
+      "u_str ESTAB  0      0                                                 * 606613 * 606614 users:((\"gs\",pid=26443,fd=10))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/gamedbd.sock 607343 * 606741 users:((\"gamedbd\",pid=26405,fd=74))",
+      "u_str ESTAB  0      0                                                 * 606527 * 606161 users:((\"gdeliveryd\",pid=26439,fd=12))",
+      "u_dgr ESTAB  0      0                                                 * 606525 * 1609   users:((\"gdeliveryd\",pid=26439,fd=5))",
+      "u_str ESTAB  0      0                                                 * 606743 * 607344 users:((\"gs\",pid=26443,fd=20))",
+      "u_str ESTAB  0      0            /run/pw-ipc-test/faction-provider.sock 607342 * 606738 users:((\"gfactiond\",pid=26437,fd=15))",
+      "u_str ESTAB  0      0                                /tmp/gssock_world1 606614 * 606613 users:((\"gs\",pid=26442,fd=12))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/gamedbd.sock 606151 * 606516 users:((\"gamedbd\",pid=26405,fd=6))",
+      "u_str ESTAB  0      0                       /run/pw-ipc-test/link1.sock 607341 * 606737 users:((\"glinkd\",pid=26441,fd=14))",
+      "u_str ESTAB  0      0                                                 * 606738 * 607342 users:((\"gs\",pid=26443,fd=16))",
+      "u_str ESTAB  0      0                                                 * 606517 * 606152 users:((\"gfactiond\",pid=26437,fd=12))",
+      "u_str ESTAB  0      0                                                 * 606558 * 606167 users:((\"glinkd\",pid=26441,fd=5))",
+      "u_str ESTAB  0      0                                                 * 606480 * 606138 users:((\"gamedbd\",pid=26405,fd=5))",
+      "u_str ESTAB  0      0                                                 * 606451 * 606131 users:((\"uniquenamed\",pid=26395,fd=4))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/faction.sock 606167 * 606558 users:((\"gfactiond\",pid=26437,fd=13))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 606138 * 606480 users:((\"logservice\",pid=26388,fd=20))",
+      "u_dgr ESTAB  0      0                                                 * 606481 * 1609   users:((\"gamedbd\",pid=26405,fd=66))",
+      "u_str LISTEN 0      10                               /tmp/gssock_world1 606180 * 0      users:((\"gs\",pid=26442,fd=8))",
+      "u_str LISTEN 0      10                                 /tmp/gssock_is61 606612 * 0      users:((\"gs\",pid=26443,fd=9))",
+      "u_str ESTAB  0      0                                                 * 606513 * 606150 users:((\"gfactiond\",pid=26437,fd=9))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 606131 * 606451 users:((\"logservice\",pid=26388,fd=18))",
+      "u_str ESTAB  0      0                                                 * 607336 * 607337 users:((\"gs\",pid=26442,fd=20))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 607337 * 607336 users:((\"logservice\",pid=26388,fd=25))",
+      "u_str ESTAB  0      0                                  /tmp/gssock_is61 606914 * 606908 users:((\"gs\",pid=26443,fd=12))",
+      "u_str ESTAB  0      0                                                 * 606908 * 606914 users:((\"gs\",pid=26442,fd=24))",
+      "u_str ESTAB  0      0                                                 * 607334 * 606606 users:((\"gs\",pid=26442,fd=18))",
+      "u_str ESTAB  0      0                    /run/pw-ipc-test/provider.sock 606605 * 607333 users:((\"gdeliveryd\",pid=26439,fd=17))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/gamedbd.sock 606606 * 607334 users:((\"gamedbd\",pid=26405,fd=73))"
+    ],
+    "tcp": [
+      "LISTEN     0      10            0.0.0.0:29000      0.0.0.0:*     users:((\"glinkd\",pid=26441,fd=7))",
+      "LISTEN     0      10            0.0.0.0:29712      0.0.0.0:*     users:((\"gacd\",pid=26434,fd=5))",
+      "LISTEN     0      10          127.0.0.1:10901      0.0.0.0:*     users:((\"gs\",pid=26442,fd=7))",
+      "LISTEN     0      10            0.0.0.0:11971      0.0.0.0:*     users:((\"gs\",pid=26443,fd=8))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43704    127.0.0.1:33000 users:((\"glinkd\",pid=26441,fd=4))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43676    127.0.0.1:33000 users:((\"gfactiond\",pid=26437,fd=4))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43668    127.0.0.1:33000 users:((\"gauthd\",pid=26408,fd=4))",
+      "ESTAB      0      0           127.0.0.1:50578    127.0.0.1:3306  users:((\"gauthd\",pid=26408,fd=6))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43690    127.0.0.1:33000 users:((\"gdeliveryd\",pid=26439,fd=4))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43662    127.0.0.1:33000 users:((\"gamedbd\",pid=26405,fd=4))"
+    ]
+  },
+  "client-entered.json": {
+    "alive": {
+      "logservice": true,
+      "uniquenamed": true,
+      "gamedbd": true,
+      "gauthd": true,
+      "gacd": true,
+      "gfactiond": true,
+      "gdeliveryd": true,
+      "glinkd": true,
+      "gs01": true,
+      "is61": true
+    },
+    "clients": [
+      "0      0      192.168.56.101:29000 192.168.56.1:61824 users:((\"glinkd\",pid=26441,fd=15)) timer:(keepalive,118min,0) ino:610422 sk:107b cgroup:/user.slice/user-0.slice/session-38.scope <->"
+    ],
+    "events": {
+      "world2.trace": [
+        "2026-11-17 18:53:35 debianpw176 gdeliveryd: debug : gdelivery::userlogin.received.userid=1024,proxy_sid=19,localsid=16,retcode=0,blIsGM=1,func=0,funcparam=0,creatime=0",
+        "2026-11-17 18:53:37 debianpw176 gdeliveryd: debug : gdelivery::receive playerlogin from link,roleid=1027,linkid=1,localsid=16",
+        "2026-11-17 18:53:37 debianpw176 gdeliveryd: debug : PlayerLogin userid 1024 roleid 1027 usbbind 0 gs_id 1",
+        "2026-11-17 18:53:37 debianpw176 gdeliveryd: debug : gdelivery::PlayerLogin_Re from gs,roleid=1027,result=0"
+      ],
+      "world2.log": [],
+      "world2.err": [
+        "2026-11-17 18:53:42 debianpw176 gdeliveryd: err : OnPlayerLogin, arena player 1027 not found! SEND DB PACKET"
+      ]
+    },
+    "unix_stream_endpoints": 52
+  },
+  "role-live-before.json": {
+    "roleid": 1027,
+    "version": 1,
+    "level": 20,
+    "position": [
+      972.1340942382812,
+      225.0242919921875,
+      3193.95263671875
+    ],
+    "worldtag": 1,
+    "waypoints_bytes": "3508f12357233708"
+  },
+  "role-after-logout.json": {
+    "roleid": 1027,
+    "version": 1,
+    "level": 20,
+    "position": [
+      513.4924926757812,
+      216.57037353515625,
+      3186.244140625
+    ],
+    "worldtag": 1,
+    "waypoints_bytes": "3508f12357233708"
+  },
+  "role-after-second-logout.json": {
+    "roleid": 1027,
+    "version": 1,
+    "level": 20,
+    "position": [
+      509.066162109375,
+      219.02049255371094,
+      3165.272216796875
+    ],
+    "worldtag": 1,
+    "waypoints_bytes": "3508f12357233708"
+  },
+  "log-reconnect.json": {
+    "before_logger_pid": 26388,
+    "after_logger_pid": 26994,
+    "before_peers": [
+      "gamedbd",
+      "gdeliveryd",
+      "gfactiond",
+      "glinkd",
+      "gs01",
+      "is61",
+      "uniquenamed"
+    ],
+    "after_peers": [
+      "gamedbd",
+      "gdeliveryd",
+      "gfactiond",
+      "glinkd",
+      "gs01",
+      "is61",
+      "uniquenamed"
+    ],
+    "elapsed_s": 2.391,
+    "same_client": true,
+    "before_client": "0      0      192.168.56.101:29000 192.168.56.1:60145 users:((\"glinkd\",pid=26441,fd=15)) timer:(keepalive,119min,0) ino:617579 sk:107d cgroup:/user.slice/user-0.slice/session-38.scope <->",
+    "after_client": "0      0      192.168.56.101:29000 192.168.56.1:60145 users:((\"glinkd\",pid=26441,fd=15)) timer:(keepalive,119min,0) ino:617579 sk:107d cgroup:/user.slice/user-0.slice/session-38.scope <->",
+    "all_processes_alive": true,
+    "events": [
+      {
+        "elapsed_s": 0.231,
+        "peers": [],
+        "same_client": true
+      },
+      {
+        "elapsed_s": 0.508,
+        "peers": [],
+        "same_client": true
+      },
+      {
+        "elapsed_s": 0.775,
+        "peers": [],
+        "same_client": true
+      },
+      {
+        "elapsed_s": 1.046,
+        "peers": [],
+        "same_client": true
+      },
+      {
+        "elapsed_s": 1.315,
+        "peers": [],
+        "same_client": true
+      },
+      {
+        "elapsed_s": 1.591,
+        "peers": [],
+        "same_client": true
+      },
+      {
+        "elapsed_s": 1.858,
+        "peers": [
+          "gamedbd",
+          "gs01",
+          "is61",
+          "uniquenamed"
+        ],
+        "same_client": true
+      },
+      {
+        "elapsed_s": 2.123,
+        "peers": [
+          "gamedbd",
+          "gdeliveryd",
+          "glinkd",
+          "gs01",
+          "is61",
+          "uniquenamed"
+        ],
+        "same_client": true
+      },
+      {
+        "elapsed_s": 2.391,
+        "peers": [
+          "gamedbd",
+          "gdeliveryd",
+          "gfactiond",
+          "glinkd",
+          "gs01",
+          "is61",
+          "uniquenamed"
+        ],
+        "same_client": true
+      }
+    ]
+  },
+  "final": {
+    "clients": [],
+    "processes": [
+      {
+        "name": "logservice",
+        "pid": 26994,
+        "pgid": 26994,
+        "args": [
+          "/root/pwserver/logservice/logservice",
+          "/root/pw-ipc-client-lab/configs/logservice.conf"
+        ],
+        "cwd": "/root/pwserver/logservice",
+        "alive": true
+      },
+      {
+        "name": "uniquenamed",
+        "pid": 26395,
+        "pgid": 26395,
+        "args": [
+          "/root/pwserver/uniquenamed/uniquenamed",
+          "/root/pw-ipc-client-lab/configs/uniquenamed.conf"
+        ],
+        "cwd": "/root/pwserver/uniquenamed",
+        "alive": true
+      },
+      {
+        "name": "gamedbd",
+        "pid": 26405,
+        "pgid": 26405,
+        "args": [
+          "/root/pwserver/gamedbd/gamedbd",
+          "/root/pw-ipc-client-lab/configs/gamedbd.conf"
+        ],
+        "cwd": "/root/pwserver/gamedbd",
+        "alive": true
+      },
+      {
+        "name": "gauthd",
+        "pid": 26408,
+        "pgid": 26408,
+        "args": [
+          "/root/pwserver/gauthd/gauthd",
+          "/root/pw-ipc-client-lab/configs/gauthd.conf"
+        ],
+        "cwd": "/root/pwserver/gauthd",
+        "alive": true
+      },
+      {
+        "name": "gacd",
+        "pid": 26434,
+        "pgid": 26434,
+        "args": [
+          "/root/pwserver/gacd/gacd",
+          "/root/pw-ipc-client-lab/configs/gacd.conf"
+        ],
+        "cwd": "/root/pwserver/gacd",
+        "alive": true
+      },
+      {
+        "name": "gfactiond",
+        "pid": 26437,
+        "pgid": 26437,
+        "args": [
+          "/root/pwserver/gfactiond/gfactiond",
+          "/root/pw-ipc-client-lab/configs/gfactiond.conf"
+        ],
+        "cwd": "/root/pwserver/gfactiond",
+        "alive": true
+      },
+      {
+        "name": "gdeliveryd",
+        "pid": 26439,
+        "pgid": 26439,
+        "args": [
+          "/root/pwserver/gdeliveryd/gdeliveryd",
+          "/root/pw-ipc-client-lab/configs/gdeliveryd.conf"
+        ],
+        "cwd": "/root/pwserver/gdeliveryd",
+        "alive": true
+      },
+      {
+        "name": "glinkd",
+        "pid": 26441,
+        "pgid": 26441,
+        "args": [
+          "/root/pwserver/glinkd/glinkd",
+          "/root/pw-ipc-client-lab/configs/glinkd.conf",
+          "1"
+        ],
+        "cwd": "/root/pwserver/glinkd",
+        "alive": true
+      },
+      {
+        "name": "gs01",
+        "pid": 26442,
+        "pgid": 26442,
+        "args": [
+          "/root/pwserver/gamed/gs",
+          "gs01",
+          "gs.conf",
+          "/root/pw-ipc-client-lab/configs/gmserver.conf",
+          "gsalias.conf"
+        ],
+        "cwd": "/root/pwserver/gamed",
+        "alive": true
+      },
+      {
+        "name": "is61",
+        "pid": 26443,
+        "pgid": 26443,
+        "args": [
+          "/root/pwserver/gamed/gs",
+          "is61",
+          "gs.conf",
+          "/root/pw-ipc-client-lab/configs/gmserver.conf",
+          "gsalias.conf"
+        ],
+        "cwd": "/root/pwserver/gamed",
+        "alive": true
+      }
+    ],
+    "unix": [
+      "u_str ESTAB  0      0                                                 * 606540 * 606542 users:((\"gdeliveryd\",pid=26439,fd=6))",
+      "u_dgr ESTAB  0      0                                                 * 606134 * 1609   users:((\"uniquenamed\",pid=26395,fd=18))",
+      "u_str ESTAB  0      0                        /run/pw-ipc-test/auth.sock 606162 * 606529 users:((\"gauthd\",pid=26408,fd=10))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/gamedbd.sock 606163 * 606543 users:((\"gamedbd\",pid=26405,fd=72))",
+      "u_str ESTAB  0      0            /run/pw-ipc-test/faction-provider.sock 607332 * 607331 users:((\"gfactiond\",pid=26437,fd=14))",
+      "u_str ESTAB  0      0                       /run/pw-ipc-test/link1.sock 606604 * 607330 users:((\"glinkd\",pid=26441,fd=6))",
+      "u_str ESTAB  0      0                                                 * 606543 * 606163 users:((\"gdeliveryd\",pid=26439,fd=9))",
+      "u_dgr ESTAB  0      0                                                 * 606171 * 1609   users:((\"gs\",pid=26443,fd=4))",
+      "u_str ESTAB  0      0                    /run/pw-ipc-test/delivery.sock 606557 * 606556 users:((\"gdeliveryd\",pid=26439,fd=14))",
+      "u_str ESTAB  0      0                                                 * 607331 * 607332 users:((\"gs\",pid=26442,fd=16))",
+      "u_str ESTAB  0      0                       /run/pw-ipc-test/names.sock 606542 * 606540 users:((\"uniquenamed\",pid=26395,fd=19))",
+      "u_str ESTAB  0      0                                                 * 606529 * 606162 users:((\"gdeliveryd\",pid=26439,fd=7))",
+      "u_str LISTEN 0      10                      /run/pw-ipc-test/names.sock 606460 * 0      users:((\"uniquenamed\",pid=26395,fd=13))",
+      "u_str LISTEN 0      10                       /run/pw-ipc-test/auth.sock 606496 * 0      users:((\"gauthd\",pid=26408,fd=5))",
+      "u_str LISTEN 0      10                    /run/pw-ipc-test/gamedbd.sock 606143 * 0      users:((\"gamedbd\",pid=26405,fd=67))",
+      "u_str LISTEN 0      10                  /run/pw-ipc-test/anticheat.sock 606503 * 0      users:((\"gacd\",pid=26434,fd=4))",
+      "u_str LISTEN 0      10                    /run/pw-ipc-test/faction.sock 606514 * 0      users:((\"gfactiond\",pid=26437,fd=7))",
+      "u_str LISTEN 0      4096         /run/pw-ipc-test/faction-provider.sock 606515 * 0      users:((\"gfactiond\",pid=26437,fd=8))",
+      "u_str LISTEN 0      10                   /run/pw-ipc-test/delivery.sock 606528 * 0      users:((\"gdeliveryd\",pid=26439,fd=8))",
+      "u_str LISTEN 0      4096                 /run/pw-ipc-test/provider.sock 606538 * 0      users:((\"gdeliveryd\",pid=26439,fd=10))",
+      "u_str LISTEN 0      4096                    /run/pw-ipc-test/link1.sock 606559 * 0      users:((\"glinkd\",pid=26441,fd=10))",
+      "u_str ESTAB  0      0                                                 * 606556 * 606557 users:((\"glinkd\",pid=26441,fd=9))",
+      "u_str ESTAB  0      0                                                 * 607333 * 606605 users:((\"gs\",pid=26442,fd=17))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/faction.sock 606545 * 606544 users:((\"gfactiond\",pid=26437,fd=5))",
+      "u_str ESTAB  0      0                                                 * 606539 * 606541 users:((\"gdeliveryd\",pid=26439,fd=13))",
+      "u_str ESTAB  0      0                   /run/pw-ipc-test/anticheat.sock 606541 * 606539 users:((\"gacd\",pid=26434,fd=7))",
+      "u_str ESTAB  0      0                                                 * 606544 * 606545 users:((\"gdeliveryd\",pid=26439,fd=11))",
+      "u_str ESTAB  0      0                                                 * 607330 * 606604 users:((\"gs\",pid=26442,fd=15))",
+      "u_str ESTAB  0      0                                                 * 606741 * 607343 users:((\"gs\",pid=26443,fd=18))",
+      "u_str ESTAB  0      0                                                 * 618233 * 618234 users:((\"glinkd\",pid=26441,fd=16))",
+      "u_str ESTAB  0      0                                                 * 618222 * 617003 users:((\"gs\",pid=26442,fd=14))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 617061 * 618243 users:((\"logservice\",pid=26994,fd=25))",
+      "u_dgr ESTAB  0      0                                                 * 606560 * 1609   users:((\"glinkd\",pid=26441,fd=13))",
+      "u_str ESTAB  0      0                                                 * 618212 * 618213 users:((\"uniquenamed\",pid=26395,fd=20))",
+      "u_str ESTAB  0      0                       /run/pw-ipc-test/names.sock 606152 * 606517 users:((\"uniquenamed\",pid=26395,fd=5))",
+      "u_str ESTAB  0      0                                                 * 618226 * 617005 users:((\"gamedbd\",pid=26405,fd=75))",
+      "u_str ESTAB  0      0                    /run/pw-ipc-test/provider.sock 606740 * 606739 users:((\"gdeliveryd\",pid=26439,fd=18))",
+      "u_str ESTAB  0      0                                                 * 606737 * 607341 users:((\"gs\",pid=26443,fd=15))",
+      "u_str ESTAB  0      0                                                 * 618223 * 617004 users:((\"gs\",pid=26443,fd=14))",
+      "u_str ESTAB  0      0                                                 * 606516 * 606151 users:((\"gfactiond\",pid=26437,fd=10))",
+      "u_dgr ESTAB  0      0                                                 * 618214 * 1609   users:((\"logservice\",pid=26994,fd=19))",
+      "u_dgr ESTAB  0      0                                                 * 606581 * 1609   users:((\"gs\",pid=26442,fd=4))",
+      "u_str ESTAB  0      0                                                 * 606739 * 606740 users:((\"gs\",pid=26443,fd=17))",
+      "u_str ESTAB  0      0                                                 * 606613 * 606614 users:((\"gs\",pid=26443,fd=10))",
+      "u_str ESTAB  0      0                                                 * 618243 * 617061 users:((\"gfactiond\",pid=26437,fd=17))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 618213 * 618212 users:((\"logservice\",pid=26994,fd=18))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/gamedbd.sock 607343 * 606741 users:((\"gamedbd\",pid=26405,fd=74))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 618234 * 618233 users:((\"logservice\",pid=26994,fd=23))",
+      "u_dgr ESTAB  0      0                                                 * 606525 * 1609   users:((\"gdeliveryd\",pid=26439,fd=5))",
+      "u_dgr ESTAB  0      0                                                 * 615773 * 1609   users:((\"gauthd\",pid=26408,fd=11))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 617004 * 618223 users:((\"logservice\",pid=26994,fd=21))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 617003 * 618222 users:((\"logservice\",pid=26994,fd=20))",
+      "u_str ESTAB  0      0            /run/pw-ipc-test/faction-provider.sock 607342 * 606738 users:((\"gfactiond\",pid=26437,fd=15))",
+      "u_str ESTAB  0      0                                /tmp/gssock_world1 606614 * 606613 users:((\"gs\",pid=26442,fd=12))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/gamedbd.sock 606151 * 606516 users:((\"gamedbd\",pid=26405,fd=6))",
+      "u_str ESTAB  0      0                       /run/pw-ipc-test/link1.sock 607341 * 606737 users:((\"glinkd\",pid=26441,fd=14))",
+      "u_str ESTAB  0      0                                                 * 606738 * 607342 users:((\"gs\",pid=26443,fd=16))",
+      "u_str ESTAB  0      0                                                 * 606517 * 606152 users:((\"gfactiond\",pid=26437,fd=12))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 617005 * 618226 users:((\"logservice\",pid=26994,fd=22))",
+      "u_str ESTAB  0      0                                                 * 606558 * 606167 users:((\"glinkd\",pid=26441,fd=5))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/faction.sock 606167 * 606558 users:((\"gfactiond\",pid=26437,fd=13))",
+      "u_dgr ESTAB  0      0                                                 * 606481 * 1609   users:((\"gamedbd\",pid=26405,fd=66))",
+      "u_str LISTEN 0      10                        /run/pw-ipc-test/log.sock 618138 * 0      users:((\"logservice\",pid=26994,fd=14))",
+      "u_str LISTEN 0      10                               /tmp/gssock_world1 606180 * 0      users:((\"gs\",pid=26442,fd=8))",
+      "u_str LISTEN 0      10                                 /tmp/gssock_is61 606612 * 0      users:((\"gs\",pid=26443,fd=9))",
+      "u_str ESTAB  0      0                         /run/pw-ipc-test/log.sock 618235 * 617035 users:((\"logservice\",pid=26994,fd=24))",
+      "u_dgr ESTAB  0      0                                                 * 616856 * 1609   users:((\"gfactiond\",pid=26437,fd=16))",
+      "u_str ESTAB  0      0                                  /tmp/gssock_is61 606914 * 606908 users:((\"gs\",pid=26443,fd=12))",
+      "u_str ESTAB  0      0                                                 * 617035 * 618235 users:((\"gdeliveryd\",pid=26439,fd=19))",
+      "u_str ESTAB  0      0                                                 * 606908 * 606914 users:((\"gs\",pid=26442,fd=24))",
+      "u_dgr ESTAB  0      0                                                 * 615196 * 1609   users:((\"gacd\",pid=26434,fd=8))",
+      "u_str ESTAB  0      0                                                 * 607334 * 606606 users:((\"gs\",pid=26442,fd=18))",
+      "u_str ESTAB  0      0                    /run/pw-ipc-test/provider.sock 606605 * 607333 users:((\"gdeliveryd\",pid=26439,fd=17))",
+      "u_str ESTAB  0      0                     /run/pw-ipc-test/gamedbd.sock 606606 * 607334 users:((\"gamedbd\",pid=26405,fd=73))"
+    ],
+    "tcp": [
+      "LISTEN     0      10            0.0.0.0:29000      0.0.0.0:*     users:((\"glinkd\",pid=26441,fd=7))",
+      "LISTEN     0      10            0.0.0.0:29712      0.0.0.0:*     users:((\"gacd\",pid=26434,fd=5))",
+      "LISTEN     0      10          127.0.0.1:10901      0.0.0.0:*     users:((\"gs\",pid=26442,fd=7))",
+      "LISTEN     0      10            0.0.0.0:11971      0.0.0.0:*     users:((\"gs\",pid=26443,fd=8))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43704    127.0.0.1:33000 users:((\"glinkd\",pid=26441,fd=4))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43676    127.0.0.1:33000 users:((\"gfactiond\",pid=26437,fd=4))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43668    127.0.0.1:33000 users:((\"gauthd\",pid=26408,fd=4))",
+      "ESTAB      0      0           127.0.0.1:50578    127.0.0.1:3306  users:((\"gauthd\",pid=26408,fd=6))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43690    127.0.0.1:33000 users:((\"gdeliveryd\",pid=26439,fd=4))",
+      "CLOSE-WAIT 1      0           127.0.0.1:43662    127.0.0.1:33000 users:((\"gamedbd\",pid=26405,fd=4))"
+    ],
+    "events": {
+      "world2.trace": [
+        "2026-11-17 18:53:35 debianpw176 gdeliveryd: debug : gdelivery::userlogin.received.userid=1024,proxy_sid=19,localsid=16,retcode=0,blIsGM=1,func=0,funcparam=0,creatime=0",
+        "2026-11-17 18:53:37 debianpw176 gdeliveryd: debug : gdelivery::receive playerlogin from link,roleid=1027,linkid=1,localsid=16",
+        "2026-11-17 18:53:37 debianpw176 gdeliveryd: debug : PlayerLogin userid 1024 roleid 1027 usbbind 0 gs_id 1",
+        "2026-11-17 18:53:37 debianpw176 gdeliveryd: debug : gdelivery::PlayerLogin_Re from gs,roleid=1027,result=0",
+        "2026-11-17 18:57:17 debianpw176 gdeliveryd: debug : GameTalkManager: GTRoleOffline(1027)",
+        "2026-11-17 18:57:17 debianpw176 gdeliveryd: debug : RoleStatusManager: RoleOffline(1027)",
+        "2026-11-17 18:58:48 debianpw176 gdeliveryd: debug : gdelivery::userlogin.received.userid=1024,proxy_sid=19,localsid=18,retcode=0,blIsGM=1,func=0,funcparam=0,creatime=0",
+        "2026-11-17 18:58:49 debianpw176 gdeliveryd: debug : gdelivery::receive playerlogin from link,roleid=1027,linkid=1,localsid=18",
+        "2026-11-17 18:58:49 debianpw176 gdeliveryd: debug : PlayerLogin userid 1024 roleid 1027 usbbind 0 gs_id 1",
+        "2026-11-17 18:58:49 debianpw176 gdeliveryd: debug : gdelivery::PlayerLogin_Re from gs,roleid=1027,result=0",
+        "2026-11-17 19:00:49 debianpw176 gdeliveryd: debug : GameTalkManager: GTRoleOffline(1027)",
+        "2026-11-17 19:00:49 debianpw176 gdeliveryd: debug : RoleStatusManager: RoleOffline(1027)"
+      ],
+      "world2.log": [],
+      "world2.err": [
+        "2026-11-17 18:53:42 debianpw176 gdeliveryd: err : OnPlayerLogin, arena player 1027 not found! SEND DB PACKET",
+        "2026-11-17 18:58:54 debianpw176 gdeliveryd: err : OnPlayerLogin, arena player 1027 not found! SEND DB PACKET"
+      ]
+    },
+    "user_confirmed_movement_after_log_restart": true
+  }
+}
