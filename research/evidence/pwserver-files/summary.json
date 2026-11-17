@@ -5,7 +5,7 @@
   "entries": 4850,
   "files": 4276,
   "directories": 574,
-  "individual_files": 119,
+  "individual_files": 111,
   "deferred_groups": {
     "Журналы": {
       "files": 42,
@@ -23,7 +23,7 @@
   "original_uid_gid": "Not stored in this 7z; not inferred from VM",
   "groups_are_not_final_exclusions": true,
   "source_collection_modified": false,
-  "review_rows": 121,
+  "review_rows": 113,
   "config_directory_name_pattern": "^[A-Za-z0-9]+$",
   "config_directory_families": {
     "a": 96,
@@ -45,8 +45,8 @@
     "remaining individual files"
   ],
   "initial_individual_files": 308,
-  "pending_files": 4087,
-  "decided_files": 189,
+  "pending_files": 4079,
+  "decided_files": 197,
   "accepted_decisions": [
     {
       "id": "config_directory_non_latin_alphanumeric",
@@ -74,6 +74,36 @@
       "matched_directory_entries": 4,
       "source_files_deleted": false,
       "startup_status": "Source code creates directories and database files; pristine startup of packaged 4311 not runtime-validated."
+    },
+    {
+      "id": "legacy_shell_scripts",
+      "action": "exclude_from_package",
+      "mask": "*.sh",
+      "scope": "files with .sh suffix at any depth",
+      "matched_paths": [
+        "gamedbd/batch_anlz.sh",
+        "gamedbd/fix.sh",
+        "licenseservice/start.sh",
+        "licenseservice/stop.sh"
+      ],
+      "matched_files": 4,
+      "matched_directory_entries": 0,
+      "source_files_deleted": false
+    },
+    {
+      "id": "root_level_wrapper_files",
+      "action": "exclude_from_package",
+      "mask": "*",
+      "scope": "files directly in pwserver only, not directories or descendants",
+      "matched_paths": [
+        "maps",
+        "server",
+        "start",
+        "stop"
+      ],
+      "matched_files": 4,
+      "matched_directory_entries": 0,
+      "source_files_deleted": false
     }
   ]
 }
