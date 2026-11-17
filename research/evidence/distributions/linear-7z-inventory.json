@@ -1,0 +1,70 @@
+{
+  "source": "linear-7z",
+  "archive": "Linear/PWServer176.7z",
+  "archive_sha256": "61ce86b5734c10d2727d8629dc06dd9c1812640a16c2881f8f1155cc4872d78d",
+  "archive_aliases": [],
+  "nested_archive": null,
+  "vmdk": null,
+  "csv": "linear-7z-archive.csv",
+  "rows": 130173,
+  "bytes": 19805926,
+  "sha256": "7295d01fe47616cef947d724eddc18724eb9dfb13259b426b8a988303a64a978",
+  "types": {
+    "directory": 1889,
+    "file": 128284
+  },
+  "absent_metadata_fields": {
+    "uid": 130173,
+    "gid": 130173,
+    "mode_octal": 0,
+    "owner": 130173,
+    "group": 130173
+  },
+  "provenance": {
+    "metadataProvenance": {
+      "mode": "Unix permission/type bits stored in 7z Attributes and shown by original 7-Zip l -slt. These are packaged metadata, not proof of permissions before packaging.",
+      "timestamps": "Strings retained verbatim from 7-Zip listing; timezone not inferred.",
+      "crc32": "Per-member CRC32 from original 7z header; blank for entries where the format/listing has none.",
+      "unavailable": [
+        "UID/GID and owner/group names not supplied by this 7z listing.",
+        "No inode/hardlink counts, btime/atime or link-target fields supplied."
+      ],
+      "hashes": "Previously selected fingerprints attached only by same member path and stored size, without rehashing all members."
+    },
+    "unknownPolicy": "Blank means not supplied by the original format/listing or not previously measured, never zero.",
+    "pathPolicy": "Archive member paths retained as relative paths; Windows display separators normalized to /. No extraction filesystem metadata used.",
+    "nonemptyFields": {
+      "source": 130173,
+      "path": 130173,
+      "type": 130173,
+      "size": 130173,
+      "mode_symbolic": 130173,
+      "mode_octal": 130173,
+      "mode_full_octal": 130173,
+      "uid": 0,
+      "gid": 0,
+      "owner": 0,
+      "group": 0,
+      "mtime": 130173,
+      "btime": 0,
+      "atime": 0,
+      "inode": 0,
+      "hardlink_count": 0,
+      "link_target": 0,
+      "link_target_kind": 0,
+      "hardlink_reference": 0,
+      "crc32": 128229,
+      "packed_size": 1947,
+      "characteristics": 0
+    },
+    "topLevelCounts": {
+      "etc": 2,
+      "home": 2,
+      "root": 124452,
+      "usr": 5260,
+      "var": 457
+    }
+  },
+  "original_csv_sha256": "c46534d368432154bfb671206fbf7fdb673d3334d72421f060cc15b427ec3642",
+  "serialization": "UTF-8 CSV, LF record separators; original parsed field values preserved"
+}

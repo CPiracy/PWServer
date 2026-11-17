@@ -1,0 +1,64 @@
+{
+  "source": "sranus-2025-tar",
+  "archive": "RageZone/pw_server_1.7.6_2025.gz",
+  "archive_sha256": "3f89bcf5ee4e724770e0b18eb9732377d58d30584fb6980ea4148609c627a3b5",
+  "archive_aliases": [],
+  "nested_archive": null,
+  "vmdk": null,
+  "csv": "sranus-2025-tar-archive.csv",
+  "rows": 4924,
+  "bytes": 670653,
+  "sha256": "d7a9efc4586e016843937c6ca80c5040dec83f595304e3e91c583e59f37fe59a",
+  "types": {
+    "directory": 686,
+    "file": 4238
+  },
+  "absent_metadata_fields": {
+    "uid": 0,
+    "gid": 0,
+    "mode_octal": 0,
+    "owner": 0,
+    "group": 0
+  },
+  "provenance": {
+    "metadataProvenance": {
+      "mode_uid_gid_names": "Original TAR headers read by Python tarfile; enriched original 4924-row tar-inventory.tsv with UID/GID/uname/gname.",
+      "mtime": "Original TAR Unix epoch, rendered as UTC ISO8601; no extracted Windows timestamp used.",
+      "unavailable": [
+        "TAR has no per-member CRC32, inode, link count or independent packed size.",
+        "No btime/atime in these TAR headers."
+      ]
+    },
+    "unknownPolicy": "Blank means not supplied by the original format/listing or not previously measured, never zero.",
+    "pathPolicy": "Archive member paths retained as relative paths; Windows display separators normalized to /. No extraction filesystem metadata used.",
+    "nonemptyFields": {
+      "source": 4924,
+      "path": 4924,
+      "type": 4924,
+      "size": 4924,
+      "mode_symbolic": 4924,
+      "mode_octal": 4924,
+      "mode_full_octal": 4924,
+      "uid": 4924,
+      "gid": 4924,
+      "owner": 4924,
+      "group": 4924,
+      "mtime": 4924,
+      "btime": 0,
+      "atime": 0,
+      "inode": 0,
+      "hardlink_count": 0,
+      "link_target": 0,
+      "link_target_kind": 0,
+      "hardlink_reference": 0,
+      "crc32": 0,
+      "packed_size": 0,
+      "characteristics": 0
+    },
+    "topLevelCounts": {
+      "pwserver": 4924
+    }
+  },
+  "original_csv_sha256": "4d3ef6859ecaf7638db31d30bea9a77f8f69a18fe2ea5a4a2eed7a0c59ceb426",
+  "serialization": "UTF-8 CSV, LF record separators; original parsed field values preserved"
+}

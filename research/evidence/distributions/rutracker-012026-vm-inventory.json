@@ -1,0 +1,304 @@
+{
+  "source": "rutracker-012026-vm",
+  "archive": "RageZone/PWSERVER-1.7.6-01.2026-VM.7z",
+  "archive_sha256": "77ddbec10716e1b712fbe76db85511ad5d93a6860f7e644b2b739d8d3527bfe4",
+  "archive_aliases": [
+    "RuTracker/Perfect World v1.7.6 Build 4311/PWSERVER-1.7.6.7z"
+  ],
+  "nested_archive": null,
+  "vmdk": {
+    "size": 20927152128,
+    "crc32": "105F4175",
+    "sha256": "909a0076440bed33ab0b5babe61d1109d309602bf256a565f6d8331b9ca6b86e"
+  },
+  "csv": "rutracker-012026-vm-filesystem.csv",
+  "rows": 290606,
+  "bytes": 70182420,
+  "sha256": "adf08307f6b6092199aa2a723e0ef039b95d6880c5208b008b9d33366013236e",
+  "types": {
+    "directory": 14287,
+    "symlink": 9184,
+    "file": 267127,
+    "char_device": 8
+  },
+  "absent_metadata_fields": {
+    "uid": 0,
+    "gid": 0,
+    "mode_octal": 0,
+    "owner": 625,
+    "group": 625
+  },
+  "provenance": {
+    "metadataSource": "Original Ext inode fields reported by installed 7-Zip; no Windows ownership metadata used",
+    "identitySource": "Names resolved from passwd/group in the same offline image; password fields discarded",
+    "unknownPolicy": "Blank means not supplied or unresolved, not zero. CRC is unavailable for Ext entries unless explicitly present.",
+    "timestampPolicy": "Strings retained exactly as reported by 7-Zip; timezone is not inferred.",
+    "hardlinkPolicy": "Original inode and link count retained. hardlink_reference is the lexicographically first listed same-inode alias, not a stored path pointer.",
+    "rootEntryPolicy": "7-Zip does not emit the filesystem root inode as a path row; no synthetic root metadata was added.",
+    "originalIdentities": {
+      "uids": {
+        "0": [
+          "root"
+        ],
+        "1": [
+          "daemon"
+        ],
+        "2": [
+          "bin"
+        ],
+        "3": [
+          "sys"
+        ],
+        "4": [
+          "sync"
+        ],
+        "5": [
+          "games"
+        ],
+        "6": [
+          "man"
+        ],
+        "7": [
+          "lp"
+        ],
+        "8": [
+          "mail"
+        ],
+        "9": [
+          "news"
+        ],
+        "10": [
+          "uucp"
+        ],
+        "13": [
+          "proxy"
+        ],
+        "33": [
+          "www-data"
+        ],
+        "34": [
+          "backup"
+        ],
+        "38": [
+          "list"
+        ],
+        "39": [
+          "irc"
+        ],
+        "42": [
+          "_apt"
+        ],
+        "100": [
+          "messagebus"
+        ],
+        "101": [
+          "sshd"
+        ],
+        "102": [
+          "mysql"
+        ],
+        "103": [
+          "Debian-exim"
+        ],
+        "104": [
+          "ntpsec"
+        ],
+        "996": [
+          "polkitd"
+        ],
+        "997": [
+          "systemd-timesync"
+        ],
+        "998": [
+          "systemd-network"
+        ],
+        "999": [
+          "dnsmasq"
+        ],
+        "65534": [
+          "nobody"
+        ]
+      },
+      "gids": {
+        "0": [
+          "root"
+        ],
+        "1": [
+          "daemon"
+        ],
+        "2": [
+          "bin"
+        ],
+        "3": [
+          "sys"
+        ],
+        "4": [
+          "adm"
+        ],
+        "5": [
+          "tty"
+        ],
+        "6": [
+          "disk"
+        ],
+        "7": [
+          "lp"
+        ],
+        "8": [
+          "mail"
+        ],
+        "9": [
+          "news"
+        ],
+        "10": [
+          "uucp"
+        ],
+        "12": [
+          "man"
+        ],
+        "13": [
+          "proxy"
+        ],
+        "15": [
+          "kmem"
+        ],
+        "20": [
+          "dialout"
+        ],
+        "21": [
+          "fax"
+        ],
+        "22": [
+          "voice"
+        ],
+        "24": [
+          "cdrom"
+        ],
+        "25": [
+          "floppy"
+        ],
+        "26": [
+          "tape"
+        ],
+        "27": [
+          "sudo"
+        ],
+        "29": [
+          "audio"
+        ],
+        "30": [
+          "dip"
+        ],
+        "33": [
+          "www-data"
+        ],
+        "34": [
+          "backup"
+        ],
+        "37": [
+          "operator"
+        ],
+        "38": [
+          "list"
+        ],
+        "39": [
+          "irc"
+        ],
+        "40": [
+          "src"
+        ],
+        "42": [
+          "shadow"
+        ],
+        "43": [
+          "utmp"
+        ],
+        "44": [
+          "video"
+        ],
+        "45": [
+          "sasl"
+        ],
+        "46": [
+          "plugdev"
+        ],
+        "50": [
+          "staff"
+        ],
+        "60": [
+          "games"
+        ],
+        "100": [
+          "users"
+        ],
+        "101": [
+          "crontab"
+        ],
+        "102": [
+          "input"
+        ],
+        "103": [
+          "sgx"
+        ],
+        "104": [
+          "kvm"
+        ],
+        "105": [
+          "render"
+        ],
+        "106": [
+          "netdev"
+        ],
+        "107": [
+          "messagebus"
+        ],
+        "108": [
+          "_ssh"
+        ],
+        "109": [
+          "mysql"
+        ],
+        "110": [
+          "Debian-exim"
+        ],
+        "111": [
+          "ssl-cert"
+        ],
+        "112": [
+          "ntpsec"
+        ],
+        "996": [
+          "polkitd"
+        ],
+        "997": [
+          "systemd-timesync"
+        ],
+        "998": [
+          "systemd-network"
+        ],
+        "999": [
+          "systemd-journal"
+        ],
+        "65534": [
+          "nogroup"
+        ]
+      },
+      "sources": [
+        {
+          "imagePath": "/etc/passwd",
+          "exitCode": 0
+        },
+        {
+          "imagePath": "/etc/group",
+          "exitCode": 0
+        }
+      ]
+    },
+    "hardlinkInodeGroups": 5,
+    "hardlinkAliases": 7,
+    "unresolvedOwnerNames": 625,
+    "unresolvedGroupNames": 625,
+    "listingBytes": 102701337,
+    "listingSha256": "bf627ae2eed90dbce91fbf4a30affdccad295a652347701fdf5d8a43233a767e"
+  }
+}

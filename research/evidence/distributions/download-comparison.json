@@ -1,0 +1,87 @@
+{
+  "checked_on": "2026-11-18",
+  "downloaded_archives": [
+    {
+      "Name": "1.7.6.zip",
+      "Size": 5647709808,
+      "SHA256": "8d8737d01a64cf2d28a45752f131efd5c55049efe8e1bd0fbe9f5670b4e15732"
+    },
+    {
+      "Name": "PWSERVER-1.7.6-01.2026-VM.7z",
+      "Size": 4905151972,
+      "SHA256": "77ddbec10716e1b712fbe76db85511ad5d93a6860f7e644b2b739d8d3527bfe4"
+    }
+  ],
+  "zip_payloads": [
+    {
+      "Archive": "talolan 1.7.6.zip",
+      "Entries": [
+        {
+          "Name": "1.7.6/gs variants.7z",
+          "Size": 273914246,
+          "SHA256": "7a1cc0d6e524532d62fc9a2c537cd46b35eae1a0d88995c90a0b3d39a4a082e4"
+        },
+        {
+          "Name": "1.7.6/PWSERVER-1.7.6-Debian-13-052025.7z",
+          "Size": 4830111789,
+          "SHA256": "acc691a941268562dede4398fb576d772b42417d83dffdead1565e179a6f33a2"
+        },
+        {
+          "Name": "1.7.6/工具包 - Tools - 20250527.7z",
+          "Size": 273299874,
+          "SHA256": "249ac6c2c4f58a340fa515cf5b7e84be49895ad40796c08cdda4365e51ce04ac"
+        },
+        {
+          "Name": "1.7.6/Patch-client-1.7.6-ru.7z",
+          "Size": 17559187,
+          "SHA256": "ee1cbfee0778e13474c6de6a77d865cdcb4398329d3dc67a24676dbc5fe0816f"
+        },
+        {
+          "Name": "1.7.6/176-iweb.7z",
+          "Size": 252823550,
+          "SHA256": "a7740f0c21d4bdceef5d15acebd79f0a4c93e3c92c2f9b3d9901ffe3bfeaf95b"
+        }
+      ]
+    },
+    {
+      "Archive": "1.7.6.zip",
+      "Entries": [
+        {
+          "Name": "1.7.6/gs variants.7z",
+          "Size": 273914246,
+          "SHA256": "7a1cc0d6e524532d62fc9a2c537cd46b35eae1a0d88995c90a0b3d39a4a082e4"
+        },
+        {
+          "Name": "1.7.6/PWSERVER-1.7.6-Debian-13-052025.7z",
+          "Size": 4830111789,
+          "SHA256": "acc691a941268562dede4398fb576d772b42417d83dffdead1565e179a6f33a2"
+        },
+        {
+          "Name": "1.7.6/工具包 - Tools - 20250527.7z",
+          "Size": 273299874,
+          "SHA256": "249ac6c2c4f58a340fa515cf5b7e84be49895ad40796c08cdda4365e51ce04ac"
+        },
+        {
+          "Name": "1.7.6/Patch-client-1.7.6-ru.7z",
+          "Size": 17559187,
+          "SHA256": "ee1cbfee0778e13474c6de6a77d865cdcb4398329d3dc67a24676dbc5fe0816f"
+        },
+        {
+          "Name": "1.7.6/176-iweb.7z",
+          "Size": 252823550,
+          "SHA256": "a7740f0c21d4bdceef5d15acebd79f0a4c93e3c92c2f9b3d9901ffe3bfeaf95b"
+        }
+      ]
+    }
+  ],
+  "comparison_method": "SHA-256 of complete archives and complete decompressed ZIP entries",
+  "initial_incomplete_tgz": {
+    "size": 723255296,
+    "sha256": "772a30f53862932135035a081a13a0f123ee7ff9c14730b075db3d638a9e9a68",
+    "gzip_test_exit_code": 1,
+    "tar_headers_read": 44621,
+    "complete": false,
+    "interpretation": "Truncated readable prefix; full server contents and truncation cause unknown"
+  },
+  "hash_comparison_scope": "selected-files.csv compares against the recorded reference files only; a missing match does not prove a file differs from every file in a distribution"
+}

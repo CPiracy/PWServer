@@ -1,0 +1,125 @@
+{
+  "status": "verified",
+  "inventories": [
+    {
+      "source": "talolan-052025-vm",
+      "rows": 290710,
+      "types": {
+        "directory": 14385,
+        "symlink": 9184,
+        "file": 267133,
+        "char_device": 8
+      },
+      "absent": {
+        "uid": 0,
+        "gid": 0,
+        "mode_octal": 0,
+        "owner": 625,
+        "group": 625
+      },
+      "sha256": "5e421e5bc3b7c213988f2b27582ce09f7cd3507d7c560c529bcb9f38ea263752",
+      "bytes": 69620676
+    },
+    {
+      "source": "rutracker-012026-vm",
+      "rows": 290606,
+      "types": {
+        "directory": 14287,
+        "symlink": 9184,
+        "file": 267127,
+        "char_device": 8
+      },
+      "absent": {
+        "uid": 0,
+        "gid": 0,
+        "mode_octal": 0,
+        "owner": 625,
+        "group": 625
+      },
+      "sha256": "adf08307f6b6092199aa2a723e0ef039b95d6880c5208b008b9d33366013236e",
+      "bytes": 70182420
+    },
+    {
+      "source": "linear-7z",
+      "rows": 130173,
+      "types": {
+        "directory": 1889,
+        "file": 128284
+      },
+      "absent": {
+        "uid": 130173,
+        "gid": 130173,
+        "mode_octal": 0,
+        "owner": 130173,
+        "group": 130173
+      },
+      "sha256": "7295d01fe47616cef947d724eddc18724eb9dfb13259b426b8a988303a64a978",
+      "bytes": 19805926,
+      "original_export_sha256": "c46534d368432154bfb671206fbf7fdb673d3334d72421f060cc15b427ec3642"
+    },
+    {
+      "source": "sranus-2025-tar",
+      "rows": 4924,
+      "types": {
+        "directory": 686,
+        "file": 4238
+      },
+      "absent": {
+        "uid": 0,
+        "gid": 0,
+        "mode_octal": 0,
+        "owner": 0,
+        "group": 0
+      },
+      "sha256": "d7a9efc4586e016843937c6ca80c5040dec83f595304e3e91c583e59f37fe59a",
+      "bytes": 670653,
+      "original_export_sha256": "4d3ef6859ecaf7638db31d30bea9a77f8f69a18fe2ea5a4a2eed7a0c59ceb426"
+    }
+  ],
+  "comparisons": [
+    {
+      "name": "talolan-vs-rutracker-filesystem",
+      "left": "talolan-052025-vm:filesystem",
+      "right": "rutracker-012026-vm:filesystem",
+      "counts": {
+        "comparable_metadata_equal": 290482,
+        "metadata_different": 94,
+        "right_only": 30,
+        "left_only": 134
+      },
+      "file": "talolan-vs-rutracker-filesystem-metadata-differences.csv"
+    },
+    {
+      "name": "talolan-vs-sranus-server",
+      "left": "talolan-052025-vm:server",
+      "right": "sranus-2025-tar:server",
+      "counts": {
+        "left_only": 192,
+        "metadata_different": 4769,
+        "right_only": 154
+      },
+      "file": "talolan-vs-sranus-server-metadata-differences.csv"
+    },
+    {
+      "name": "talolan-vs-linear-server",
+      "left": "talolan-052025-vm:server",
+      "right": "linear-7z:server",
+      "counts": {
+        "left_only": 115,
+        "metadata_different": 4846,
+        "right_only": 3
+      },
+      "file": "talolan-vs-linear-server-metadata-differences.csv"
+    }
+  ],
+  "comparison_fields": [
+    "type",
+    "size",
+    "mode_octal",
+    "uid",
+    "gid",
+    "link_target"
+  ],
+  "limitation": "Equal metadata is not proof of equal file content. Blank unmatched fields are unknown. Timestamps and inode identity are preserved in inventories but excluded from this comparison.",
+  "serialization": "UTF-8 with LF. CSV field values are compared against the original exports after newline normalization."
+}

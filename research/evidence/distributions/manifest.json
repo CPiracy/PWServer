@@ -1,0 +1,186 @@
+{
+  "checked_on": "2026-11-18",
+  "scope": "All path records in the examined complete PW 1.7.6 server trees and both VM filesystems",
+  "collection_used_read_only": true,
+  "obtained_code_or_vm_executed": false,
+  "inventories": [
+    {
+      "source": "talolan-052025-vm",
+      "csv": "talolan-052025-vm-filesystem.csv",
+      "metadata": "talolan-052025-vm-inventory.json",
+      "rows": 290710,
+      "sha256": "5e421e5bc3b7c213988f2b27582ce09f7cd3507d7c560c529bcb9f38ea263752"
+    },
+    {
+      "source": "rutracker-012026-vm",
+      "csv": "rutracker-012026-vm-filesystem.csv",
+      "metadata": "rutracker-012026-vm-inventory.json",
+      "rows": 290606,
+      "sha256": "adf08307f6b6092199aa2a723e0ef039b95d6880c5208b008b9d33366013236e"
+    },
+    {
+      "source": "linear-7z",
+      "csv": "linear-7z-archive.csv",
+      "metadata": "linear-7z-inventory.json",
+      "rows": 130173,
+      "sha256": "7295d01fe47616cef947d724eddc18724eb9dfb13259b426b8a988303a64a978",
+      "original_csv_sha256": "c46534d368432154bfb671206fbf7fdb673d3334d72421f060cc15b427ec3642"
+    },
+    {
+      "source": "sranus-2025-tar",
+      "csv": "sranus-2025-tar-archive.csv",
+      "metadata": "sranus-2025-tar-inventory.json",
+      "rows": 4924,
+      "sha256": "d7a9efc4586e016843937c6ca80c5040dec83f595304e3e91c583e59f37fe59a",
+      "original_csv_sha256": "4d3ef6859ecaf7638db31d30bea9a77f8f69a18fe2ea5a4a2eed7a0c59ceb426"
+    }
+  ],
+  "csv_fields": [
+    "source",
+    "path",
+    "type",
+    "size",
+    "mode_symbolic",
+    "mode_octal",
+    "mode_full_octal",
+    "uid",
+    "gid",
+    "owner",
+    "group",
+    "mtime",
+    "btime",
+    "atime",
+    "inode",
+    "hardlink_count",
+    "link_target",
+    "link_target_kind",
+    "hardlink_reference",
+    "crc32",
+    "packed_size",
+    "characteristics"
+  ],
+  "aliases": [
+    {
+      "archive": "RageZone/1.7.6.zip",
+      "equivalent_payload_of": "RageZone/talolan 1.7.6.zip",
+      "proof": "All five nested archives have identical SHA-256; outer ZIP SHA differs"
+    },
+    {
+      "archive": "RuTracker/Perfect World v1.7.6 Build 4311/PWSERVER-1.7.6.7z",
+      "inventory_source": "rutracker-012026-vm",
+      "proof": "Identical whole-archive SHA-256 to Jan2026"
+    }
+  ],
+  "selected_hashes": "selected-files.csv",
+  "selected_hash_rows": 105,
+  "selected_source_mapping": {
+    "reference-linear": "linear-7z",
+    "talolan-vm": "talolan-052025-vm",
+    "sranus-2025": "sranus-2025-tar",
+    "talolan-client-patch": "Nested client patch; separate from server inventories"
+  },
+  "metadata_comparisons": [
+    {
+      "name": "talolan-vs-rutracker-filesystem",
+      "left": "talolan-052025-vm:filesystem",
+      "right": "rutracker-012026-vm:filesystem",
+      "counts": {
+        "comparable_metadata_equal": 290482,
+        "metadata_different": 94,
+        "right_only": 30,
+        "left_only": 134
+      },
+      "file": "talolan-vs-rutracker-filesystem-metadata-differences.csv"
+    },
+    {
+      "name": "talolan-vs-sranus-server",
+      "left": "talolan-052025-vm:server",
+      "right": "sranus-2025-tar:server",
+      "counts": {
+        "left_only": 192,
+        "metadata_different": 4769,
+        "right_only": 154
+      },
+      "file": "talolan-vs-sranus-server-metadata-differences.csv"
+    },
+    {
+      "name": "talolan-vs-linear-server",
+      "left": "talolan-052025-vm:server",
+      "right": "linear-7z:server",
+      "counts": {
+        "left_only": 115,
+        "metadata_different": 4846,
+        "right_only": 3
+      },
+      "file": "talolan-vs-linear-server-metadata-differences.csv"
+    }
+  ],
+  "container_listing": "rutracker-vm-archive-archive.csv",
+  "comparison_fields": [
+    "type",
+    "size",
+    "mode_octal",
+    "uid",
+    "gid",
+    "link_target"
+  ],
+  "comparison_limit": "Equal metadata is not proof of equal file content. Blank unmatched fields are unknown. Timestamps and inode identity are preserved in inventories but excluded from this comparison.",
+  "archive_and_payload_comparison": "download-comparison.json",
+  "equality_rule": "Only identical complete SHA-256 is labelled byte equality. CRC, size, names, and equal metadata alone are not labelled byte equality.",
+  "unknown_rule": "Empty fields mean absent from source metadata or unresolved; they do not mean numeric zero.",
+  "filesystem_root_limit": "Installed 7-Zip lists descendants but does not provide a separate row for filesystem root inode /. Its metadata is not fabricated.",
+  "selection_rule": "SHA-256 covers selected files only. Complete inventories preserve original metadata for all listed paths.",
+  "boundaries": "Other game versions and source-only variants were not added to this 1.7.6 distribution inventory; the truncated initial TGZ is excluded from complete inventories.",
+  "hypothesis": "Server binaries are treated as potentially common between language data sets of the same game version. GS and glinkd build differences are recorded; they are not established as locale differences.",
+  "validation": "inventory-verification.json",
+  "source_pages": [
+    {
+      "source": "Sranus",
+      "page": "https://forum.ragezone.com/threads/perfect-world-servers-and-clients-long-time-support.1239382/",
+      "files": "https://www.dropbox.com/scl/fo/pw2wnmi9ki1thg9wtmcdl/AABLyCLCO6rtrCGE6PrwT0g/1.7.6?rlkey=5smdf2c0y9v9mbttizqv0m7uo&dl=0"
+    },
+    {
+      "source": "Talolan",
+      "page": "https://forum.ragezone.com/threads/1-7-6-server-client.1246869/#post-9361699"
+    }
+  ],
+  "csv_serialization": "UTF-8 with LF. CSV field values are compared against the original exports after newline normalization.",
+  "normalized_exports": {
+    "linear-7z-archive.csv": {
+      "original_sha256": "c46534d368432154bfb671206fbf7fdb673d3334d72421f060cc15b427ec3642",
+      "sha256": "7295d01fe47616cef947d724eddc18724eb9dfb13259b426b8a988303a64a978",
+      "bytes": 19805926
+    },
+    "rutracker-vm-archive-archive.csv": {
+      "original_sha256": "d6e46060de164c09719f999a699fa88ecaeda2c2e53de912a69acf14106e2b5f",
+      "sha256": "ef954f0fdd8d5d85a4c4e53126ac1adc0333b576bcc3142b89d45bce1861b065",
+      "bytes": 1496
+    },
+    "sranus-2025-tar-archive.csv": {
+      "original_sha256": "4d3ef6859ecaf7638db31d30bea9a77f8f69a18fe2ea5a4a2eed7a0c59ceb426",
+      "sha256": "d7a9efc4586e016843937c6ca80c5040dec83f595304e3e91c583e59f37fe59a",
+      "bytes": 670653
+    },
+    "sranus-2025-data.csv": {
+      "original_source_format": "TSV",
+      "original_sha256": "6eef9b47b9618b99b83d7bc56b954dd6a1126943d01fd899a6023c05f2965e96",
+      "sha256": "153e40d74b02885ff9056319c2ebb6c9c2c09e39a846c8c1268f58066bddd2b5",
+      "bytes": 1979,
+      "field_values_preserved": true
+    },
+    "sranus-2025-elf.csv": {
+      "original_source_format": "TSV",
+      "original_sha256": "5756f5be59c6a5ea6a36d947a69d0b9f33ae78e19877c695d6e59ed76d01239f",
+      "sha256": "733afa1bb1d636b3b119362a9d242028826d720a31289120ddb25ebba1686b75",
+      "bytes": 6146,
+      "field_values_preserved": true
+    },
+    "sranus-2025-task-languages.csv": {
+      "original_source_format": "TSV",
+      "original_sha256": "825a87320f66634781b34d14306d61ab065023f860d6b3e3cd2f69ff3623672e",
+      "sha256": "12cc6b46892fa202130ebbe3c6824d16db807be26050af26e4d94f39abb1d610",
+      "bytes": 1016,
+      "field_values_preserved": true
+    }
+  }
+}

@@ -1,0 +1,10 @@
+source,path,type,size,mode_symbolic,mode_octal,mode_full_octal,uid,gid,owner,group,mtime,btime,atime,inode,hardlink_count,link_target,link_target_kind,hardlink_reference,crc32,packed_size,characteristics
+rutracker-vm-archive,PWSERVER-1.7.6,directory,0,drwxr-xr-x,0755,0040755,,,,,2026-01-18 20:20:11.0000000,,,,,,,,,0,
+rutracker-vm-archive,PWSERVER-1.7.6/Logs,directory,0,drwx------,0700,0040700,,,,,2026-01-18 20:04:34.0000000,,,,,,,,,0,
+rutracker-vm-archive,PWSERVER-1.7.6/Logs/VBox.log,file,191699,-rw-------,0600,0100600,,,,,2026-01-18 20:20:12.0000000,,,,,,,,386C9851,27467,
+rutracker-vm-archive,PWSERVER-1.7.6/PWSERVER-1.7.6-Debian-13-052025.vmdk,file,20927152128,-rw-r--r--,0644,0100644,,,,,2026-01-18 20:20:11.0000000,,,,,,,,105F4175,4905120069,
+rutracker-vm-archive,PWSERVER-1.7.6/PWSERVER-1.7.6-Debian-13-052025.vmx,file,2854,-rw-r--r--,0644,0100644,,,,,2025-05-25 03:10:25.0000000,,,,,,,,D7348C2A,4069,
+rutracker-vm-archive,PWSERVER-1.7.6/PWSERVER-1.7.6-Debian-13-052025.vmxf,file,286,-rw-r--r--,0644,0100644,,,,,2025-05-20 00:21:48.0000000,,,,,,,,A389CAC0,,
+rutracker-vm-archive,PWSERVER-1.7.6/PWSERVER-1.7.6.nvram,file,8684,-rw-r--r--,0644,0100644,,,,,2025-05-25 02:29:22.0000000,,,,,,,,E6AA784F,,
+rutracker-vm-archive,PWSERVER-1.7.6/PWSERVER-1.7.6.vbox,file,3290,-rw-------,0600,0100600,,,,,2026-01-18 20:20:11.0000000,,,,,,,,61B44CC5,,
+rutracker-vm-archive,PWSERVER-1.7.6/PWSERVER-1.7.6.vbox-prev,file,3848,-rw-------,0600,0100600,,,,,2026-01-18 20:20:07.0000000,,,,,,,,7BEA7219,,
