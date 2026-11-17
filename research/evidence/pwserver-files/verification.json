@@ -14,6 +14,8 @@
   "source_files_deleted": false,
   "new_gamed_extensionless_exclusions": 9,
   "pending_extensionless_files": 12,
+  "cupon_reference_search_recorded": true,
+  "generic_empty_file_rule_present": false,
   "exact_paths_preserved": 11,
   "main_executables_preserved": 10,
   "spare_executables_excluded": 8,
@@ -27,8 +29,12 @@
   "pristine_wdb_startup_not_runtime_tested": true,
   "outputs": {
     "assessment.csv": {
-      "sha256": "8fd7169c9bdaa6eb0a350170ac2aaaacf7c586656978f2c3e0ea4023959e9877",
-      "bytes": 2937576
+      "sha256": "b10651508c2b2e4128e2c6e0525213760cb1b38a0bdb06c18bd7cadb424669a9",
+      "bytes": 2937971
+    },
+    "cupon-investigation.json": {
+      "sha256": "345e71a660fbc665e99cdd896a3cd657644cf4d0ccd6887840c5b20bb2a852bb",
+      "bytes": 2679
     },
     "deferred-files.csv": {
       "sha256": "61425f3a3798ade4032b617aad21089b5cb5ab7e022c6148c5021d0cef1b9dd1",
@@ -39,8 +45,8 @@
       "bytes": 987
     },
     "individual-files.csv": {
-      "sha256": "0b55cb54c5bab9c668bd48b6f65c960dd4c80186096313c62bee4899eabfc3a1",
-      "bytes": 57858
+      "sha256": "5e544a9b86e65a21a4887ebdcd7dcdc3eac2bf536b6e190eb3494f8786b4a1e1",
+      "bytes": 58253
     },
     "map-directories.csv": {
       "sha256": "f9978f11e62ea8f2c160bbbf324431d5b7f7bba7c9e1e98ad1fa71498a5804ce",
@@ -51,8 +57,8 @@
       "bytes": 22446
     },
     "review.csv": {
-      "sha256": "29395e947e46c69bb92e5577add9c41fb1336c5bc1d5134d0b79bee57dbdf0c1",
-      "bytes": 17522
+      "sha256": "438febdc9a08b067654ef36e4de50cda4f0128313442e9af64c0d43be31835b2",
+      "bytes": 17604
     },
     "summary.json": {
       "sha256": "e294bc1e098f4e0f08138492e606c10a179eb8059f904ccfc5672fb8b76237da",

@@ -1,0 +1,78 @@
+{
+  "path": "gamedbd/cupon",
+  "size_bytes": 0,
+  "binary_scanned": "Linear selected gamedbd; static byte search, not execution",
+  "binary_sha256": "46e091b1c817132f3a99b1b55c7dcd1dd4ad1bb0102de0b77b25654f32040661",
+  "literal_cupon_occurrences": 0,
+  "coupon_occurrences": 0,
+  "matching_identifiers": [],
+  "inventories": [
+    {
+      "source": "linear-7z",
+      "path": "root/pwserver/gamedbd/cupon",
+      "type": "file",
+      "size": "0",
+      "mode_octal": "0755",
+      "uid": "",
+      "gid": "",
+      "mtime": "2026-01-15 22:02:36.0000000"
+    },
+    {
+      "source": "talolan-052025-vm",
+      "path": "/root/pwserver/gamedbd/cupon",
+      "type": "file",
+      "size": "0",
+      "mode_octal": "0777",
+      "uid": "0",
+      "gid": "0",
+      "mtime": "2023-10-08 19:13:18.000000000"
+    },
+    {
+      "source": "rutracker-012026-vm",
+      "path": "/root/pwserver/gamedbd/cupon",
+      "type": "file",
+      "size": "0",
+      "mode_octal": "0777",
+      "uid": "0",
+      "gid": "0",
+      "mtime": "2023-10-08 19:13:18.000000000"
+    },
+    {
+      "source": "sranus-2025-tar",
+      "path": "pwserver/gamedbd/cupon",
+      "type": "file",
+      "size": "0",
+      "mode_octal": "0755",
+      "uid": "0",
+      "gid": "0",
+      "mtime": "2023-10-08T16:13:18Z"
+    }
+  ],
+  "limit": "A missing literal reference does not identify the file creator or exclude indirect use through a supplied filename.",
+  "exact_filename": "cupon",
+  "source_search": {
+    "query": "case-insensitive whole word cupon",
+    "matches": 0,
+    "roots": [
+      "huzeming-176source",
+      "code-bynary-176source",
+      "172source",
+      "174source"
+    ]
+  },
+  "wrapper_search": {
+    "scope": "selected extracted Linear pwserver files in the auxiliary inspection",
+    "matches": 0
+  },
+  "source_coverage_limit": "The checked 1.7.6 source copies do not contain the complete gamedbd implementation.",
+  "conclusion": "Empty file in all four distributions. No consumer or producer found in the selected ELF, checked source trees or selected wrappers. Creator remains unknown; indirect filename-based use is not ruled out.",
+  "empty_file_policy": "No generic empty-file deletion rule is adopted. Configured empty filters can be valid inputs.",
+  "configured_empty_filter": {
+    "path": "gfactiond/filters",
+    "startup_source": "huzeming-176source/cnet/gfaction/gfaction.cpp:69-76",
+    "loader_source": "huzeming-176source/share/common/matcher.h:Load",
+    "empty_exists": "Load succeeds and disables sensitive-word checking.",
+    "missing": "Load fails; gfactiond startup exits with error.",
+    "decision": "No new keep/exclude decision in this investigation."
+  }
+}
