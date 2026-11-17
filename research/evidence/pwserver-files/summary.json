@@ -214,5 +214,14 @@
   "excluded_files": 241,
   "preserved_files": 17,
   "pending_map_files": 3925,
-  "decision_evaluation": "ascending priority; stop at first matched rule"
+  "decision_evaluation": "ascending priority; stop at first matched rule",
+  "queue_sort": {
+    "individual_files": [
+      "proposal",
+      "path"
+    ],
+    "case_sensitive": false,
+    "deferred_groups": "after individual files",
+    "decision_priority_changed": false
+  }
 }

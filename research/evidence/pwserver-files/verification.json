@@ -12,6 +12,7 @@
   "ordered_rule_priorities_verified": 8,
   "game_text_inputs_preserved": 4,
   "source_files_deleted": false,
+  "review_sorted_by_proposal_and_path": true,
   "every_file_covered_once": true,
   "all_evidence_links_exist": true,
   "structural_probe_files_rehashed": 65,
@@ -28,7 +29,7 @@
       "bytes": 2366749
     },
     "individual-files.csv": {
-      "sha256": "ba795b12f4c70976a9f738534feb9ca066620ede8d1973c491a8bef8ea2c8668",
+      "sha256": "4e04f489aa93fea9833681e1f518112b907fb63809534b47a456afc3e80db52a",
       "bytes": 78078
     },
     "map-directories.csv": {
@@ -40,12 +41,12 @@
       "bytes": 22446
     },
     "review.csv": {
-      "sha256": "f90445ba7ac4a3e4d8fb3b10ae4455580bc8870fa3bedf2d75adde5f4d90570d",
+      "sha256": "78d98b08e4b395bef1d858e2b9103f52f8583391da9a747fbc28976886dfbf2b",
       "bytes": 21798
     },
     "summary.json": {
-      "sha256": "30f1a765f708ddfbd1e3938463bd91f60a24d3677f415c70142e1e2a23c12e0b",
-      "bytes": 6677
+      "sha256": "55c3fff2a01f68ff52a0f8e100395d8f2ea66b22a436542a85fcbbd39f72ba19",
+      "bytes": 6881
     }
   }
 }
