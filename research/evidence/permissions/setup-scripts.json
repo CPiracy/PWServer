@@ -1,0 +1,120 @@
+{
+  "checked_on": "2026-11-18",
+  "executed": false,
+  "method": "Static extraction and reading; script sizes and SHA-256 verified",
+  "instruction": {
+    "file": "Linear/Установка PW v1.7.6 Build 4311 сервера, IWEB, PWAdmin.md",
+    "lines": [
+      60,
+      61
+    ],
+    "action": "cd /root followed by ./chmod.sh"
+  },
+  "scripts": [
+    {
+      "source": "linear-7z",
+      "member": "root/chmod.sh",
+      "size": 651,
+      "sha256": "4186984095fa231c081fcce07959b16d99c74048fdfc8617b4bd19a255c0f328",
+      "chmod": [
+        {
+          "mode": "0777",
+          "recursive": true,
+          "paths": [
+            "/root/iweb",
+            "/root/phpiweb",
+            "/root/pwadmin",
+            "/root/pwserver/",
+            "/usr/share/phpmyadmin",
+            "/var/www/html"
+          ]
+        },
+        {
+          "mode": "0755",
+          "recursive": false,
+          "paths": [
+            "/usr/share/phpmyadmin/config.inc.php"
+          ]
+        }
+      ],
+      "other_actions": [
+        "Creates /var/www/html/phpmyadmin symlink to /usr/share/phpmyadmin",
+        "Creates a symlink to /usr/share/phpmyadmin/locale inside /var/lib/mysql when the destination is a directory",
+        "Appends a 127.0.0.1 line with database and game service aliases to /etc/hosts"
+      ]
+    },
+    {
+      "source": "talolan-052025-vm",
+      "member": "root/pwserver/chmod.sh",
+      "size": 422,
+      "sha256": "3d23e46f888f50a5d6872253383f4ad6edf59526c1a812241a7578b841a0039a",
+      "chmod": [
+        {
+          "mode": "0777",
+          "recursive": true,
+          "paths": [
+            "/root/pwserver/"
+          ]
+        },
+        {
+          "mode": "0777",
+          "recursive": true,
+          "paths": [
+            "/usr/local/jakarta/"
+          ],
+          "condition": "Only when the directory exists"
+        },
+        {
+          "mode": "0777",
+          "recursive": false,
+          "paths": [
+            "/var/spool/rolexml/outcoming/",
+            "/var/spool/rolexml/incoming/"
+          ]
+        }
+      ],
+      "other_actions": [
+        "Creates the two rolexml directories with mkdir -p",
+        "Waits five seconds and prints completion"
+      ]
+    },
+    {
+      "source": "rutracker-012026-vm",
+      "member": "root/pwserver/chmod.sh",
+      "size": 422,
+      "sha256": "3d23e46f888f50a5d6872253383f4ad6edf59526c1a812241a7578b841a0039a",
+      "chmod": [
+        {
+          "mode": "0777",
+          "recursive": true,
+          "paths": [
+            "/root/pwserver/"
+          ]
+        },
+        {
+          "mode": "0777",
+          "recursive": true,
+          "paths": [
+            "/usr/local/jakarta/"
+          ],
+          "condition": "Only when the directory exists"
+        },
+        {
+          "mode": "0777",
+          "recursive": false,
+          "paths": [
+            "/var/spool/rolexml/outcoming/",
+            "/var/spool/rolexml/incoming/"
+          ]
+        }
+      ],
+      "other_actions": [
+        "Creates the two rolexml directories with mkdir -p",
+        "Waits five seconds and prints completion"
+      ]
+    }
+  ],
+  "ownership": "No chown or chgrp in either variant; existing owners are not changed. Directories created by mkdir use the executing identity.",
+  "purpose_limit": "Scripts grant broad access; their modes are not evidence of minimum required server permissions.",
+  "source_collection_used_read_only": true
+}
