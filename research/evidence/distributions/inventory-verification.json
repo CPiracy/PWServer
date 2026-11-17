@@ -17,8 +17,8 @@
         "owner": 625,
         "group": 625
       },
-      "sha256": "5e421e5bc3b7c213988f2b27582ce09f7cd3507d7c560c529bcb9f38ea263752",
-      "bytes": 69620676
+      "sha256": "fc0018afc5fa233252fece7f3ad62c2301eaf296c4051f8b02983af444c7d319",
+      "bytes": 69620457
     },
     {
       "source": "rutracker-012026-vm",
@@ -36,8 +36,8 @@
         "owner": 625,
         "group": 625
       },
-      "sha256": "adf08307f6b6092199aa2a723e0ef039b95d6880c5208b008b9d33366013236e",
-      "bytes": 70182420
+      "sha256": "7f8de3ca5ac99928d07cc0721ad5c5fece391d3f290a59c5d5a9cdf5490140cb",
+      "bytes": 70182201
     },
     {
       "source": "linear-7z",
@@ -53,9 +53,8 @@
         "owner": 130173,
         "group": 130173
       },
-      "sha256": "7295d01fe47616cef947d724eddc18724eb9dfb13259b426b8a988303a64a978",
-      "bytes": 19805926,
-      "original_export_sha256": "c46534d368432154bfb671206fbf7fdb673d3334d72421f060cc15b427ec3642"
+      "sha256": "36f0a0e7c019c3fde9a5714f40cc6b1491aabc0c8ea2a1ec7a29ea66ec41edea",
+      "bytes": 19805707
     },
     {
       "source": "sranus-2025-tar",
@@ -72,8 +71,7 @@
         "group": 0
       },
       "sha256": "d7a9efc4586e016843937c6ca80c5040dec83f595304e3e91c583e59f37fe59a",
-      "bytes": 670653,
-      "original_export_sha256": "4d3ef6859ecaf7638db31d30bea9a77f8f69a18fe2ea5a4a2eed7a0c59ceb426"
+      "bytes": 670653
     }
   ],
   "comparisons": [
@@ -94,9 +92,9 @@
       "left": "talolan-052025-vm:server",
       "right": "sranus-2025-tar:server",
       "counts": {
-        "left_only": 192,
-        "metadata_different": 4769,
-        "right_only": 154
+        "left_only": 184,
+        "metadata_different": 4777,
+        "right_only": 146
       },
       "file": "talolan-vs-sranus-server-metadata-differences.csv"
     },
@@ -120,6 +118,5 @@
     "gid",
     "link_target"
   ],
-  "limitation": "Equal metadata is not proof of equal file content. Blank unmatched fields are unknown. Timestamps and inode identity are preserved in inventories but excluded from this comparison.",
-  "serialization": "UTF-8 with LF. CSV field values are compared against the original exports after newline normalization."
+  "limitation": "Equal metadata is not proof of equal file content. Blank unmatched fields are unknown. Timestamps and inode identity are preserved in inventories but excluded from this comparison."
 }

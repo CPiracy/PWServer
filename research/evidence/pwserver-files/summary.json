@@ -1,0 +1,65 @@
+{
+  "source_archive": "Linear/PWServer176.7z",
+  "archive_sha256": "61ce86b5734c10d2727d8629dc06dd9c1812640a16c2881f8f1155cc4872d78d",
+  "scope": "root/pwserver only",
+  "entries": 4850,
+  "files": 4276,
+  "directories": 574,
+  "individual_files": 186,
+  "deferred_groups": {
+    "Журналы": {
+      "files": 42,
+      "bytes": 38056953
+    },
+    "Каталоги карт": {
+      "files": 3926,
+      "bytes": 4799186571
+    }
+  },
+  "map_directories": 113,
+  "map_tree_files": 3926,
+  "configured_base_paths": 101,
+  "rights_status": "Proposed, not runtime-validated",
+  "original_uid_gid": "Not stored in this 7z; not inferred from VM",
+  "groups_are_not_final_exclusions": true,
+  "source_collection_modified": false,
+  "review_rows": 188,
+  "config_directory_name_pattern": "^[A-Za-z0-9]+$",
+  "config_directory_families": {
+    "a": 96,
+    "b": 12,
+    "m": 1,
+    "random": 3,
+    "world": 1,
+    "мусор": 1
+  },
+  "individual_exceptions": {
+    "other_config": 38,
+    "text_inputs_outside_config": 5
+  },
+  "ordered_review_masks": [
+    "accepted decisions",
+    "individual exceptions",
+    "gamed/config/**",
+    "logs/**; **/*.{txt,log}",
+    "remaining individual files"
+  ],
+  "initial_individual_files": 308,
+  "pending_files": 4154,
+  "decided_files": 122,
+  "accepted_decisions": [
+    {
+      "id": "config_directory_non_latin_alphanumeric",
+      "action": "exclude_from_package",
+      "scope": "immediate child directories of gamed/config only",
+      "name_contains_regex": "[^A-Za-z0-9]",
+      "recursive": true,
+      "matched_directories": [
+        "gamed/config/мусор"
+      ],
+      "matched_files": 122,
+      "matched_directory_entries": 5,
+      "source_files_deleted": false
+    }
+  ]
+}

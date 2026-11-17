@@ -1,0 +1,685 @@
+{
+  "source": "Linear/PWServer176.7z:root/pwserver",
+  "scope": "Static structural facts only; file contents, configuration values, account exports and log bodies are not published. No archived executable or script was run.",
+  "files": {
+    "root/pwserver/gamed/foo": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "crc32": "00000000",
+      "kind": "empty_file"
+    },
+    "root/pwserver/gamedbd/cupon": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "crc32": "00000000",
+      "kind": "empty_file"
+    },
+    "root/pwserver/gdeliveryd/filters": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "crc32": "00000000",
+      "kind": "empty_file"
+    },
+    "root/pwserver/gfactiond/filters": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "crc32": "00000000",
+      "kind": "empty_file"
+    },
+    "root/pwserver/gacd/charfont.dat": {
+      "size_bytes": 175995,
+      "sha256": "0c4dfbba880147d0ff6bb533f8f16e1a2ae65f85197699f399ba49768d6df89e",
+      "crc32": "FE30BF44",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 47716,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gacd/charlib.dat": {
+      "size_bytes": 237124,
+      "sha256": "8df0b171040b91302d2b3a86d769e5958d3ed00080d01c3f02727a5a630aadb8",
+      "crc32": "AC566A2B",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 37046,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gacd/gacd.xml": {
+      "size_bytes": 75351,
+      "sha256": "ef751f9698185af4cfa266675895415d24109c4b970d98c287ab7b8fced7ad6a",
+      "crc32": "DB83CCE0",
+      "kind": "XML",
+      "parse_status": "complete",
+      "root_tag": "application",
+      "tag_counts": {
+        "application": 1,
+        "punishmanager": 1,
+        "kickrule": 1,
+        "statmanager": 1,
+        "forbidstat": 1,
+        "forbidcheck": 1,
+        "code": 222,
+        "mempattern": 1,
+        "forbid": 1,
+        "questionmanager": 1,
+        "codemanager": 1,
+        "dllcode": 1,
+        "asmcode": 1,
+        "piece": 11,
+        "rubbish": 9,
+        "precodes": 36,
+        "debugcodes2": 12,
+        "debugcodes": 1,
+        "debugcodevip": 1,
+        "timeoutcode": 1,
+        "NetDLL": 1,
+        "string": 99,
+        "dllapi": 37,
+        "run": 45,
+        "objfile": 37,
+        "Compile": 1
+      },
+      "attribute_names": [
+        "accpunish",
+        "acctimes",
+        "accwindow",
+        "code",
+        "codeid",
+        "data",
+        "delay_max",
+        "delay_min",
+        "delta_gamedatasend",
+        "delta_publicchat",
+        "disasminfo",
+        "enable",
+        "fid",
+        "first",
+        "firstround_code",
+        "firstround_time",
+        "flash_inter",
+        "flash_times",
+        "forbid_new",
+        "forbidipminroleid",
+        "forbidipreason",
+        "from",
+        "game_c",
+        "game_n",
+        "game_n_m",
+        "id",
+        "info_inter_max",
+        "info_inter_min",
+        "intimeround",
+        "kickround",
+        "lib",
+        "max",
+        "max_inter",
+        "max_size",
+        "maxinter",
+        "maxsize",
+        "min_inter",
+        "mininter",
+        "mouse_c",
+        "mouse_n",
+        "name",
+        "param",
+        "param0",
+        "param1",
+        "param2",
+        "precodename",
+        "qtype",
+        "rawdata",
+        "ref",
+        "reference",
+        "refid",
+        "reload",
+        "res",
+        "reward",
+        "round",
+        "second",
+        "session_pos",
+        "shuffle",
+        "sid",
+        "std_info",
+        "symbol",
+        "timeout",
+        "updateinterval",
+        "value",
+        "version",
+        "waiting_every_code"
+      ],
+      "attribute_values_and_text_not_exported": true
+    },
+    "root/pwserver/gacd/gamesys.conf": {
+      "size_bytes": 1291,
+      "sha256": "6d8eeac3a89dae58ac910af0122d5dfcaa84e71bf446132e23044fbff0b34a81",
+      "crc32": "C7EAE0CE",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamed/gmserver.conf": {
+      "size_bytes": 3149,
+      "sha256": "3fb70af033f3ad12c74b57a0b00c6ed96557ad9416236f6b9582262068ce0c78",
+      "crc32": "0BE51641",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamed/gs.conf": {
+      "size_bytes": 130295,
+      "sha256": "9aacca5611c3b7dc03b9773098095d5f1ea20c5d843b1143360da5cfc6d6b729",
+      "crc32": "C5F55AB6",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamed/gsalias.conf": {
+      "size_bytes": 3480,
+      "sha256": "f3769bf76e787b673726072f4478682b0de8e569bffae2425f40ef0225c67197",
+      "crc32": "F532EAB3",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamed/ptemplate.conf": {
+      "size_bytes": 5941,
+      "sha256": "cafbe120feee3da77979caff854808f68a4a5a3815c76d7515366df084177637",
+      "crc32": "04AF4628",
+      "kind": "configuration_text",
+      "encoding": "cp1251",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamed/ranking.conf": {
+      "size_bytes": 2264,
+      "sha256": "3c579fea403a971b3429cfec6cfbcb58a4c18cdb3319017eaddd8f0cbdd46b7b",
+      "crc32": "CDD671E3",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamed/script.lua": {
+      "size_bytes": 40390,
+      "sha256": "51545e24295fbed58e7e1befd56b2cdd84f5ee8e9690378229e40482960ef29b",
+      "crc32": "346F57C7",
+      "kind": "text",
+      "encoding": "utf-8-sig",
+      "nonempty_lines": 966,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gamed/settings.conf": {
+      "size_bytes": 2686,
+      "sha256": "e5f8a32cd1820fd1850c830a5331281d07b86c3719f365ab9469914203ad5177",
+      "crc32": "552A89FA",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamed/skill.lua": {
+      "size_bytes": 41273,
+      "sha256": "38ebd3b190793ca29f1b20dc9e4a77e6ad6d9da23d24d9e937b97e78ddc445fd",
+      "crc32": "3D092F97",
+      "kind": "text",
+      "encoding": "utf-8-sig",
+      "nonempty_lines": 743,
+      "xml_tag_names": [],
+      "numeric_only_lines": 4,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gamedbd/1.txt": {
+      "size_bytes": 5825,
+      "sha256": "5c175ef9282c59f9488443f90cace76957570e3653af24ad745bffcea56b1d5c",
+      "crc32": "EB054AB5",
+      "kind": "text",
+      "encoding": "cp1251",
+      "nonempty_lines": 18,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gamedbd/1024.xml": {
+      "size_bytes": 23227,
+      "sha256": "6a1162564e2e901df5d88cf3afa5ed3aee8ed1c850d66ef88d848418b6eabcb2",
+      "crc32": "18B67EC7",
+      "kind": "XML",
+      "parse_status": "syntax error: line 1, column 0"
+    },
+    "root/pwserver/gamedbd/base_util.conf": {
+      "size_bytes": 3018,
+      "sha256": "52f6479afc1926c26da62c0dc591a2763d4046d912efa835ab07298f9a2a7314",
+      "crc32": "7931966C",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamedbd/batch_anlz.sh": {
+      "size_bytes": 276,
+      "sha256": "34656de30cd8bc1ac919024148628b6288cdbef6f3a1f9ec3e65a9debc851971",
+      "crc32": "15AE7BF3",
+      "kind": "shell_or_control_text",
+      "encoding": "utf-8-sig",
+      "lines": 12,
+      "interpreter": "/bin/bash",
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/gamedbd/cashstat.conf": {
+      "size_bytes": 30725,
+      "sha256": "875933c904885d5872bb4c78340d0f1f554e5d9e8bce6b2a7431634a49e16814",
+      "crc32": "FF4B71B7",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamedbd/clsconfig": {
+      "size_bytes": 102400,
+      "sha256": "9a7a0c6e258a8e328f9f9e89b57c37c3861ec8d937c84355c0ef853bba51b45b",
+      "crc32": "CEED0FFD",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 74401,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gamedbd/clsconfig-o": {
+      "size_bytes": 94208,
+      "sha256": "8ad9a4cf00d5ced3a56a41019fcbf4401f47ad9a7e1647f6c5124cd4e4df833b",
+      "crc32": "E48F6B5C",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 71721,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gamedbd/clsconfig_176_pure": {
+      "size_bytes": 102400,
+      "sha256": "85749f8c5b1f1c9618910a2a1e85983e6468130d8d58c90c035445a153a725e2",
+      "crc32": "1502D67D",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 74401,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gamedbd/dc": {
+      "size_bytes": 674,
+      "sha256": "18bc992d327c36cf2f5e16fba95da1bb5c7187679f97165cddd8c5952198aa60",
+      "crc32": "C31A9817",
+      "kind": "shell_or_control_text",
+      "encoding": "utf-8-sig",
+      "lines": 15,
+      "interpreter": null,
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/gamedbd/dr": {
+      "size_bytes": 663,
+      "sha256": "aaa244520c59967bf62e6d9e2ad1ba67db53de2cd0c048547dfa36ee6e75ee6a",
+      "crc32": "AA4833B3",
+      "kind": "shell_or_control_text",
+      "encoding": "utf-8-sig",
+      "lines": 17,
+      "interpreter": null,
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/gamedbd/fix.sh": {
+      "size_bytes": 369,
+      "sha256": "749404bdbebed30931791e8960ace2a8337aa239e52a44c755dfd833de2c4711",
+      "crc32": "7D1C896A",
+      "kind": "shell_or_control_text",
+      "encoding": "cp1251",
+      "lines": 12,
+      "interpreter": null,
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/gamedbd/gamedata": {
+      "size_bytes": 178,
+      "sha256": "4ac1493cdefe5a4c656913eaac4a92f12ff58471cf6256090452f1f7f5744639",
+      "crc32": "9B95B8B4",
+      "kind": "opaque_text",
+      "content_not_exported": true
+    },
+    "root/pwserver/gamedbd/gamesys.conf": {
+      "size_bytes": 8629,
+      "sha256": "3d900fe0096c5164d85d74d193c4a5e5557ca4128619a4e69bd124ff2d8cb3ca",
+      "crc32": "E40F1052",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamedbd/listrole.txt": {
+      "size_bytes": 6596,
+      "sha256": "f64f23c9f2a84669e3e59be861e2a19a4d74c15b4771a249e0126ca960f1a788",
+      "crc32": "42FC4B04",
+      "kind": "text",
+      "encoding": "cp1251",
+      "nonempty_lines": 21,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gamedbd/mergereport": {
+      "size_bytes": 366,
+      "sha256": "639a7e10707cda794f6dbe8831d6d4f5d17e02d6063ba1cd9edabd7c0fb9dfef",
+      "crc32": "A3DF7195",
+      "kind": "text",
+      "encoding": "cp1251",
+      "nonempty_lines": 24,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gamedbd/script.lua": {
+      "size_bytes": 3089,
+      "sha256": "55852abdc45d4737b02aa899dc600784dbf1c062d79e7949fe4c32dbc52b0107",
+      "crc32": "95C21D07",
+      "kind": "text",
+      "encoding": "utf-8-sig",
+      "nonempty_lines": 99,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gamedbd/serverlist.sev": {
+      "size_bytes": 36,
+      "sha256": "afb2e20cfbb8958e61966200a60b82a46d2ef01ea565edffc2c91d271eaec1a4",
+      "crc32": "1D3DBAD6",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 18,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gauthd/gamesys.conf": {
+      "size_bytes": 955,
+      "sha256": "937d6c4ec5b16323a83d1b47968d37ae828451d5808599c15f42e09b5c8d3b6b",
+      "crc32": "7564DA14",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gauthd/script.lua": {
+      "size_bytes": 8587,
+      "sha256": "ba8a52a1a983056f997570f89cff061f376f94d615eabdd32b4c2147c2ea8922",
+      "crc32": "CE0FCFA6",
+      "kind": "text",
+      "encoding": "utf-8-sig",
+      "nonempty_lines": 213,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gdeliveryd/auctionid.txt": {
+      "size_bytes": 193824,
+      "sha256": "135199ae0a5d51cf311cba821ebb837d6a59a785ba7dc95483b39c945ac56098",
+      "crc32": "6DA1F869",
+      "kind": "text",
+      "encoding": "cp1251",
+      "nonempty_lines": 8157,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gdeliveryd/domain.data": {
+      "size_bytes": 30888,
+      "sha256": "e6d0418871a44ba8d509a4244db77c92fcefe2ca064f2fa36758796125858910",
+      "crc32": "AE68366F",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 19718,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gdeliveryd/domain.sev": {
+      "size_bytes": 1648,
+      "sha256": "e1245027839e8eac6cdbb237360329585dcf2dbbc18cb124e51426da8779d738",
+      "crc32": "7C08B94F",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 1154,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gdeliveryd/domain2.data": {
+      "size_bytes": 29072,
+      "sha256": "e72c3ec502573b8ea730e8d8804e130c88fc67f8c349965d296128c7d8aab06c",
+      "crc32": "FACC266F",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 19336,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gdeliveryd/domain2.sev": {
+      "size_bytes": 4616,
+      "sha256": "b16815b11f4bcaa1ec52519537c36f7a747deaec02066c6d439d6c1fe9fcd059",
+      "crc32": "849079A4",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 2521,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gdeliveryd/domain2_cross.sev": {
+      "size_bytes": 33684,
+      "sha256": "bee7eb46d71882c2ae0d3c962a920c42f260c58a80742aa9aa97a7894219e65d",
+      "crc32": "5E22C9E4",
+      "kind": "binary_or_fixed_width_data",
+      "null_bytes": 18507,
+      "purpose_not_inferred_from_format": true
+    },
+    "root/pwserver/gdeliveryd/gamesys.conf": {
+      "size_bytes": 6920,
+      "sha256": "afbe2f2f4f1abe978bc59f4481295cd5422879d0e00644463e02f5ff5f58fd0c",
+      "crc32": "38D05EE7",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gdeliveryd/script.lua": {
+      "size_bytes": 11827,
+      "sha256": "720988e0c035da7213721fe9eafe6fb7eb5a1d85378cd23abf42f4dd96249b31",
+      "crc32": "170D507D",
+      "kind": "text",
+      "encoding": "utf-8-sig",
+      "nonempty_lines": 300,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gdeliveryd/sysauctionlist.txt": {
+      "size_bytes": 2421,
+      "sha256": "6d78e08db7452cbe42a47d76ae3e4fd3f23d92e95f3931b9941fb05fd0a61c1a",
+      "crc32": "7FAE0792",
+      "kind": "text",
+      "encoding": "cp1251",
+      "nonempty_lines": 75,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gdeliveryd/webtradeid.txt": {
+      "size_bytes": 206490,
+      "sha256": "e5a4933c276281053c31755773c6501e0c1872ea70e9f9c3097f8e83151e9592",
+      "crc32": "059FACC4",
+      "kind": "text",
+      "encoding": "cp1251",
+      "nonempty_lines": 8460,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/gfactiond/gamesys.conf": {
+      "size_bytes": 1579,
+      "sha256": "5955497d49e326785d308530c17350c7945821ac825dbab244c9bd936bd06598",
+      "crc32": "CE14CC83",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gfactiond/script.lua": {
+      "size_bytes": 7488,
+      "sha256": "ff692d4f297a5a5e0ac292b43644367e2fdb92a3c24deb92a4eb6f3ef400de63",
+      "crc32": "F5FD53E0",
+      "kind": "text",
+      "encoding": "utf-8-sig",
+      "nonempty_lines": 198,
+      "xml_tag_names": [],
+      "numeric_only_lines": 0,
+      "contents_not_exported": true
+    },
+    "root/pwserver/glinkd/gamesys.conf": {
+      "size_bytes": 3895,
+      "sha256": "eff98a5b4b05a0e838fecd60baee01b40c0fa514eafdde47cd985ce9d45781ac",
+      "crc32": "1E93087D",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/licenseservice/gamesys.conf": {
+      "size_bytes": 376,
+      "sha256": "9a0c5b67fe0ac4696f0bd32ada5e042a6411ae609f69d29e441ec7033b6076de",
+      "crc32": "B1023099",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/licenseservice/start.sh": {
+      "size_bytes": 123,
+      "sha256": "ad5b44ba90c9685d6ed25539990c3348a69c231a2ffb0a69b1b91e87be714dfc",
+      "crc32": "8267B980",
+      "kind": "shell_or_control_text",
+      "encoding": "utf-8-sig",
+      "lines": 5,
+      "interpreter": "/bin/sh",
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/licenseservice/stop.sh": {
+      "size_bytes": 93,
+      "sha256": "09c46d260bb9311891149f3ea6ed5494f8bd34e2977f604733475c7c5e641d5b",
+      "crc32": "CE737A66",
+      "kind": "shell_or_control_text",
+      "encoding": "utf-8-sig",
+      "lines": 4,
+      "interpreter": "/bin/sh",
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/logservice/logservice.conf": {
+      "size_bytes": 7289,
+      "sha256": "f91b35539b8791e81a1144553129134aca408264cbbbea5b64fb80bd1111e2fa",
+      "crc32": "C777422C",
+      "kind": "configuration_text",
+      "encoding": "cp1251",
+      "values_not_exported": true
+    },
+    "root/pwserver/maps": {
+      "size_bytes": 2847,
+      "sha256": "21bbadedb8a8ae0c6d16546f548bf07d72487df26adac169c988e96effbd53a7",
+      "crc32": "C7C0B869",
+      "kind": "shell_or_control_text",
+      "encoding": "utf-8-sig",
+      "lines": 113,
+      "interpreter": null,
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/server": {
+      "size_bytes": 17238,
+      "sha256": "2c7b18e5d22a00b2b566839289eaf022ed380cb83677de1aaeddc3fa5cb1eba9",
+      "crc32": "0AAA20DD",
+      "kind": "shell_or_control_text",
+      "encoding": "utf-8-sig",
+      "lines": 659,
+      "interpreter": "/bin/bash",
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/start": {
+      "size_bytes": 2985,
+      "sha256": "6d3ac26d127e6a4856455b1168540cf952570ffa99241d2b595568a762ce2c7c",
+      "crc32": "198D80C0",
+      "kind": "shell_or_control_text",
+      "encoding": "utf-8-sig",
+      "lines": 85,
+      "interpreter": "/bin/bash",
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/stop": {
+      "size_bytes": 969,
+      "sha256": "3b38e110257c7f10cf34c0746692f3d69a23983cf6c42d871108eae282718e5e",
+      "crc32": "AA989CBC",
+      "kind": "shell_or_control_text",
+      "encoding": "utf-8-sig",
+      "lines": 55,
+      "interpreter": "/bin/sh",
+      "contents_and_arguments_not_exported": true
+    },
+    "root/pwserver/uniquenamed/gamesys.conf": {
+      "size_bytes": 1260,
+      "sha256": "f3829dc59311ed58ae1c393053760356f5da8150a6ed2f4ba71d139a17f11ff1",
+      "crc32": "E7295BA7",
+      "kind": "configuration_text",
+      "encoding": "utf-8-sig",
+      "values_not_exported": true
+    },
+    "root/pwserver/gamedbd/base_util": {
+      "size_bytes": 8628060,
+      "sha256": "333423ae7615b0f308497d9da781d5b3655887bb33764695083bc5bff4e59805",
+      "crc32": "53AE329A",
+      "kind": "ELF",
+      "bits": 32,
+      "machine": 3,
+      "elf_type": 2,
+      "interpreter": null
+    },
+    "root/pwserver/gamedbd/dbanlz": {
+      "size_bytes": 45390,
+      "sha256": "243f109d635c6dcd093ee00a3c474b4ff7135d2ef207b903f298791b57477ff8",
+      "crc32": "63C5FEE1",
+      "kind": "ELF",
+      "bits": 32,
+      "machine": 3,
+      "elf_type": 2,
+      "interpreter": "/lib/ld-linux.so.2"
+    },
+    "root/pwserver/gamedbd/dbtool": {
+      "size_bytes": 1288687,
+      "sha256": "f895763d9b30b4179f64877e810b56d874005caeb9210f491cfbfc05d3ea9555",
+      "crc32": "45109200",
+      "kind": "ELF",
+      "bits": 32,
+      "machine": 3,
+      "elf_type": 2,
+      "interpreter": null
+    },
+    "root/pwserver/gamedbd/gamedbd1": {
+      "size_bytes": 6166452,
+      "sha256": "00ad45c19f89536fa6cdc928f56b3d57b64fbee719d218dc8513bbc9ac68261d",
+      "crc32": "1BF79E7D",
+      "kind": "ELF",
+      "bits": 64,
+      "machine": 62,
+      "elf_type": 3,
+      "interpreter": null
+    },
+    "root/pwserver/gdeliveryd/gdeliveryd1": {
+      "size_bytes": 7775028,
+      "sha256": "51d09cb1ea52f55d25d8df9e8af6d1b75ca9e00197a0a801acc80600433b6479",
+      "crc32": "998A46B0",
+      "kind": "ELF",
+      "bits": 64,
+      "machine": 62,
+      "elf_type": 3,
+      "interpreter": null
+    },
+    "root/pwserver/gfactiond/gfactiond1": {
+      "size_bytes": 4761696,
+      "sha256": "58b735a46f3bf23f6064f7b1dde88abb86c5c6b18b48b0d4bc5fa6b44c9d8038",
+      "crc32": "2ADC39A3",
+      "kind": "ELF",
+      "bits": 64,
+      "machine": 62,
+      "elf_type": 3,
+      "interpreter": null
+    },
+    "root/pwserver/glinkd/glinkd!!!": {
+      "size_bytes": 9645040,
+      "sha256": "000c47e5209e5055f7af7679d0e61bb572d61308b5d1e91921c791d0a67125c1",
+      "crc32": "8F7102B7",
+      "kind": "ELF",
+      "bits": 64,
+      "machine": 62,
+      "elf_type": 3,
+      "interpreter": "/lib64/ld-linux-x86-64.so.2"
+    },
+    "root/pwserver/uniquenamed/uniquenamed1": {
+      "size_bytes": 502848,
+      "sha256": "d4723fddb8b4aeebfa22ec9f6b4a194aa799f4372f6cf2c3e9c9d08e4560a298",
+      "crc32": "9CD6F53C",
+      "kind": "ELF",
+      "bits": 64,
+      "machine": 62,
+      "elf_type": 3,
+      "interpreter": null
+    }
+  }
+}

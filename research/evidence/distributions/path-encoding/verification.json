@@ -1,0 +1,23 @@
+[
+  {
+    "source": "linear",
+    "rows": 130173,
+    "corrected_paths": 149,
+    "other_fields_unchanged": true,
+    "outside_pwserver_unchanged": true
+  },
+  {
+    "source": "talolan",
+    "rows": 290710,
+    "corrected_paths": 149,
+    "other_fields_unchanged": true,
+    "outside_pwserver_unchanged": true
+  },
+  {
+    "source": "rutracker",
+    "rows": 290606,
+    "corrected_paths": 149,
+    "other_fields_unchanged": true,
+    "outside_pwserver_unchanged": true
+  }
+]

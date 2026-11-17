@@ -7,8 +7,8 @@
   "vmdk": null,
   "csv": "linear-7z-archive.csv",
   "rows": 130173,
-  "bytes": 19805926,
-  "sha256": "7295d01fe47616cef947d724eddc18724eb9dfb13259b426b8a988303a64a978",
+  "bytes": 19805707,
+  "sha256": "36f0a0e7c019c3fde9a5714f40cc6b1491aabc0c8ea2a1ec7a29ea66ec41edea",
   "types": {
     "directory": 1889,
     "file": 128284
@@ -66,5 +66,13 @@
     }
   },
   "original_csv_sha256": "c46534d368432154bfb671206fbf7fdb673d3334d72421f060cc15b427ec3642",
-  "serialization": "UTF-8 CSV, LF record separators; original parsed field values preserved"
+  "serialization": "UTF-8 CSV, LF record separators; only the documented pwserver path decoding errors were corrected.",
+  "path_encoding_correction": {
+    "scope": "root/pwserver descendants only",
+    "previous_csv_sha256": "7295d01fe47616cef947d724eddc18724eb9dfb13259b426b8a988303a64a978",
+    "corrected_paths": 149,
+    "mapping": "path-encoding/linear-path-corrections.csv",
+    "verification": "path-encoding/verification.json",
+    "method": "Fresh 7-Zip UTF-8 listing decoded from binary stdout; all non-path fields and records outside pwserver preserved."
+  }
 }

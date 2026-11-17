@@ -13,8 +13,8 @@
   },
   "csv": "rutracker-012026-vm-filesystem.csv",
   "rows": 290606,
-  "bytes": 70182420,
-  "sha256": "adf08307f6b6092199aa2a723e0ef039b95d6880c5208b008b9d33366013236e",
+  "bytes": 70182201,
+  "sha256": "7f8de3ca5ac99928d07cc0721ad5c5fece391d3f290a59c5d5a9cdf5490140cb",
   "types": {
     "directory": 14287,
     "symlink": 9184,
@@ -300,5 +300,13 @@
     "unresolvedGroupNames": 625,
     "listingBytes": 102701337,
     "listingSha256": "bf627ae2eed90dbce91fbf4a30affdccad295a652347701fdf5d8a43233a767e"
+  },
+  "path_encoding_correction": {
+    "scope": "root/pwserver descendants only",
+    "previous_csv_sha256": "adf08307f6b6092199aa2a723e0ef039b95d6880c5208b008b9d33366013236e",
+    "corrected_paths": 149,
+    "mapping": "path-encoding/rutracker-path-corrections.csv",
+    "verification": "path-encoding/verification.json",
+    "method": "Fresh 7-Zip UTF-8 listing decoded from binary stdout; all non-path fields and records outside pwserver preserved."
   }
 }
