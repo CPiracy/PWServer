@@ -1,0 +1,43 @@
+{
+  "changed_file": "gamed/script.lua",
+  "significant_tokens_equal": true,
+  "token_comparison_method": "Static lexer skips line/long comments and whitespace, preserves quoted/long strings, operators, numbers and names. Original scripts are not evaluated.",
+  "executable_token_differences": 0,
+  "changed_line_ranges": [
+    {
+      "kind": "replace",
+      "sranus_start": 21,
+      "sranus_lines": 4,
+      "reference_start": 21,
+      "reference_lines": 4
+    },
+    {
+      "kind": "replace",
+      "sranus_start": 217,
+      "sranus_lines": 6,
+      "reference_start": 217,
+      "reference_lines": 6
+    },
+    {
+      "kind": "replace",
+      "sranus_start": 225,
+      "sranus_lines": 1,
+      "reference_start": 225,
+      "reference_lines": 1
+    },
+    {
+      "kind": "replace",
+      "sranus_start": 227,
+      "sranus_lines": 3,
+      "reference_start": 227,
+      "reference_lines": 3
+    },
+    {
+      "kind": "replace",
+      "sranus_start": 231,
+      "sranus_lines": 8,
+      "reference_start": 231,
+      "reference_lines": 8
+    }
+  ]
+}

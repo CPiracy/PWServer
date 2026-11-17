@@ -1,0 +1,151 @@
+{
+  "checked_on": "2026-11-18",
+  "scope": "All Lua files inside the four examined pwserver trees",
+  "sources": [
+    "linear-7z",
+    "talolan-052025-vm",
+    "rutracker-012026-vm",
+    "sranus-2025-tar"
+  ],
+  "files_checked": 28,
+  "files_per_tree": 7,
+  "completely_identical_paths": 6,
+  "groups": [
+    {
+      "path": "gamed/config/global_api.lua",
+      "all_equal": true,
+      "hash_groups": {
+        "3a12ea9e35070cda032a6f0b4c3c8eda2c5425f516906173e1b3de9d11d6b032": [
+          "linear-7z",
+          "talolan-052025-vm",
+          "rutracker-012026-vm",
+          "sranus-2025-tar"
+        ]
+      }
+    },
+    {
+      "path": "gamed/script.lua",
+      "all_equal": false,
+      "hash_groups": {
+        "51545e24295fbed58e7e1befd56b2cdd84f5ee8e9690378229e40482960ef29b": [
+          "linear-7z",
+          "talolan-052025-vm",
+          "rutracker-012026-vm"
+        ],
+        "093a30bcb3467a7af42d5b961aedeecf61c270933b62b7ff4202cf5859025eff": [
+          "sranus-2025-tar"
+        ]
+      }
+    },
+    {
+      "path": "gamed/skill.lua",
+      "all_equal": true,
+      "hash_groups": {
+        "38ebd3b190793ca29f1b20dc9e4a77e6ad6d9da23d24d9e937b97e78ddc445fd": [
+          "linear-7z",
+          "talolan-052025-vm",
+          "rutracker-012026-vm",
+          "sranus-2025-tar"
+        ]
+      }
+    },
+    {
+      "path": "gamedbd/script.lua",
+      "all_equal": true,
+      "hash_groups": {
+        "55852abdc45d4737b02aa899dc600784dbf1c062d79e7949fe4c32dbc52b0107": [
+          "linear-7z",
+          "talolan-052025-vm",
+          "rutracker-012026-vm",
+          "sranus-2025-tar"
+        ]
+      }
+    },
+    {
+      "path": "gauthd/script.lua",
+      "all_equal": true,
+      "hash_groups": {
+        "ba8a52a1a983056f997570f89cff061f376f94d615eabdd32b4c2147c2ea8922": [
+          "linear-7z",
+          "talolan-052025-vm",
+          "rutracker-012026-vm",
+          "sranus-2025-tar"
+        ]
+      }
+    },
+    {
+      "path": "gdeliveryd/script.lua",
+      "all_equal": true,
+      "hash_groups": {
+        "720988e0c035da7213721fe9eafe6fb7eb5a1d85378cd23abf42f4dd96249b31": [
+          "linear-7z",
+          "talolan-052025-vm",
+          "rutracker-012026-vm",
+          "sranus-2025-tar"
+        ]
+      }
+    },
+    {
+      "path": "gfactiond/script.lua",
+      "all_equal": true,
+      "hash_groups": {
+        "ff692d4f297a5a5e0ac292b43644367e2fdb92a3c24deb92a4eb6f3ef400de63": [
+          "linear-7z",
+          "talolan-052025-vm",
+          "rutracker-012026-vm",
+          "sranus-2025-tar"
+        ]
+      }
+    }
+  ],
+  "changed_file": "gamed/script.lua",
+  "functions_added": [],
+  "functions_removed": [],
+  "sha256_method": "Complete original bytes, including comments and line endings",
+  "obtained_code_executed": false,
+  "source_collection_modified": false,
+  "validation": "All extracted sizes match complete inventories; CRC matches where stored by source archive",
+  "significant_tokens_equal": true,
+  "token_comparison_method": "Static lexer skips line/long comments and whitespace, preserves quoted/long strings, operators, numbers and names. Original scripts are not evaluated.",
+  "token_comparison_scope": "Only the byte-different gamed/script.lua; the other six paths are already identical complete bytes. global_api.lua is not inferred to be evaluated by Lua: the confirmed server loader reads its version header.",
+  "executable_token_differences": 0,
+  "changed_line_ranges": [
+    {
+      "kind": "replace",
+      "sranus_start": 21,
+      "sranus_lines": 4,
+      "reference_start": 21,
+      "reference_lines": 4
+    },
+    {
+      "kind": "replace",
+      "sranus_start": 217,
+      "sranus_lines": 6,
+      "reference_start": 217,
+      "reference_lines": 6
+    },
+    {
+      "kind": "replace",
+      "sranus_start": 225,
+      "sranus_lines": 1,
+      "reference_start": 225,
+      "reference_lines": 1
+    },
+    {
+      "kind": "replace",
+      "sranus_start": 227,
+      "sranus_lines": 3,
+      "reference_start": 227,
+      "reference_lines": 3
+    },
+    {
+      "kind": "replace",
+      "sranus_start": 231,
+      "sranus_lines": 8,
+      "reference_start": 231,
+      "reference_lines": 8
+    }
+  ],
+  "files": "files.csv",
+  "raw_diff": "Retained in temporary workspace only; not published because code lines may contain deployment/debug configuration values"
+}

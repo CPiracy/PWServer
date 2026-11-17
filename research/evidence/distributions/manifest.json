@@ -182,5 +182,11 @@
       "bytes": 1016,
       "field_values_preserved": true
     }
+  },
+  "lua_comparison": {
+    "files": "../lua/files.csv",
+    "summary": "../lua/summary.json",
+    "code_comparison": "../lua/code-comparison.json",
+    "server_package_component": true
   }
 }
