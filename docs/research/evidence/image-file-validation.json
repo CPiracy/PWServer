@@ -1,0 +1,799 @@
+{
+  "files": {
+    "files": 3974,
+    "bytes": 5594565795,
+    "maps": [
+      "a01",
+      "a02",
+      "a03",
+      "a04",
+      "a05",
+      "a06",
+      "a07",
+      "a08",
+      "a09",
+      "a10",
+      "a101",
+      "a102",
+      "a103",
+      "a105",
+      "a106",
+      "a107",
+      "a108",
+      "a109",
+      "a11",
+      "a110",
+      "a111",
+      "a112",
+      "a113",
+      "a12",
+      "a13",
+      "a14",
+      "a15",
+      "a16",
+      "a17",
+      "a18",
+      "a19",
+      "a20",
+      "a21",
+      "a22",
+      "a23",
+      "a24",
+      "a25",
+      "a26",
+      "a27",
+      "a28",
+      "a29",
+      "a31",
+      "a32",
+      "a33",
+      "a34",
+      "a35",
+      "a37",
+      "a38",
+      "a39",
+      "a40",
+      "a41",
+      "a42",
+      "a43",
+      "a44",
+      "a45",
+      "a46",
+      "a47",
+      "a48",
+      "a49",
+      "a50",
+      "a61",
+      "a62",
+      "a63",
+      "a64",
+      "a66",
+      "a67",
+      "a68",
+      "a69",
+      "a70",
+      "a71",
+      "a72",
+      "a76",
+      "a77",
+      "a78",
+      "a79",
+      "a80",
+      "a81",
+      "a82",
+      "a83",
+      "a84",
+      "a85",
+      "a86",
+      "a87",
+      "a88",
+      "a89",
+      "a90",
+      "a91",
+      "a92",
+      "a93",
+      "a94",
+      "a95",
+      "a96",
+      "a97",
+      "a973",
+      "a98",
+      "a99",
+      "b01",
+      "b02",
+      "b03",
+      "b04",
+      "b05",
+      "b06",
+      "b30",
+      "b31",
+      "b32",
+      "b33",
+      "b34",
+      "b35",
+      "m01",
+      "random03",
+      "random04",
+      "random05",
+      "world"
+    ],
+    "removed_restart_hooks": [
+      "gamed/config/a01/restart_zhang",
+      "gamed/config/a02/restart_zhang",
+      "gamed/config/b01/restart_zhang",
+      "gamed/config/b02/restart_zhang",
+      "gamed/config/b03/restart_zhang",
+      "gamed/config/b04/restart_zhang",
+      "gamed/config/world/restart2"
+    ],
+    "target_sha256": {
+      "elements.data": "2411fd3a3ab02579ddfb7d784b4f3fc70b3aefd567cbde5fa3107cdc1726955e",
+      "tasks.data": "4fc9e68410cc305029f0cbc6e1df06da2b660522317b855461b38cf1a2a45c5b",
+      "dyn_tasks.data": "1d26ccdbbda2cf6a6abc0c12c528b7dffc09ec7f8bbf399b2d4debb668ac0ce0",
+      "aipolicy.data": "8730e59e01a66fb4a466f3138d19526dbef3b01f6ab645e8b9748dbf829af8c2"
+    },
+    "elf_sha256": {
+      "licenseservice": "d0bd766311b829a88cb045d9ce6edd89829d9e3d005975822bdaf08bb32c7dce",
+      "logservice": "01cb71943424ab392fec1839d6923a88dbfcef11a0c63695a509f3108e2ff002",
+      "uniquenamed": "895e77176d7dbe003323822dfc797c4c056068ba4753ae815924870e3a1f9320",
+      "gauthd": "573c0198dee480b892413df0a9c9fa9b5c57900f59b0f0e4da89a18668e015bd",
+      "gamedbd": "46e091b1c817132f3a99b1b55c7dcd1dd4ad1bb0102de0b77b25654f32040661",
+      "gacd": "40f8d38e6b658117e5ee02e9272b83c15af0c360345783acab7fb11b585a06e5",
+      "gfactiond": "11a6f78e2b66717437ea202b1434750c6d8eeb580eff8cddf48a677d1a6daa3e",
+      "gdeliveryd": "a3ce70f5ca56753063807ed9ff95bd75edeb5216cd71c194c152c96d8d23ab5c",
+      "glinkd": "cc8fb6c50833827c1b99d5621a499786c6e473f09978d411a1b8a69662edc69b",
+      "gamed": "6a1886831f16c3f1f9a4ea3bff3b9bd422bf3938306f1946894776050d019b60"
+    }
+  },
+  "trial-result": {
+    "started": "2026-11-16T07:42:25+00:00",
+    "resource_opens": [
+      "gacd/gacd.xml",
+      "gamed/config/aipolicy.data",
+      "gamed/config/dyn_tasks.data",
+      "gamed/config/elements.data",
+      "gamed/config/global_api.lua",
+      "gamed/config/gshop.data",
+      "gamed/config/gshop1.data",
+      "gamed/config/gshop2.data",
+      "gamed/config/tasks.data",
+      "gamed/config/world_targets.sev",
+      "gamed/ranking.conf",
+      "gamed/script.lua",
+      "gamed/settings.conf",
+      "gamedbd/clsconfig",
+      "gamedbd/serverlist.sev",
+      "gdeliveryd/auctionid.txt",
+      "gdeliveryd/domain.sev",
+      "gdeliveryd/domain2.sev",
+      "gdeliveryd/sysauctionlist.txt"
+    ],
+    "omissions": {
+      "glinkd/glinkd!!!": true,
+      "maps": true,
+      "gamed/libtask.so": true,
+      "gamed/libskill.so": true,
+      "gamed/skill.lua": true,
+      "gamed/config/gshop3.data": true,
+      "gamedbd/gamedata": true,
+      "gdeliveryd/domain.data": true,
+      "gdeliveryd/domain2.data": true,
+      "gacd/charfont.dat": true,
+      "gacd/charlib.dat": true,
+      "gacd/hzfont.dat": true,
+      "gamed/config/domain.data": true,
+      "gamed/config/domain2.data": true,
+      "gamed/config/domain.sev": true,
+      "gamed/config/domain2.sev": true,
+      "gamed/config/DynamicObjects.data": true,
+      "gamed/config/task_npc.data": true,
+      "gamed/config/serverlist.sev": true,
+      "gamed/config/world_targets.txt": true,
+      "gamed/config/rare_item2.conf": true,
+      "gamed/config/special_item.conf": true,
+      "gamed/config/sysauctionlist.txt": true,
+      "gamed/config/webtradeid.txt": true
+    },
+    "hidden_library_paths": [
+      "/usr/lib/libtask.so",
+      "/usr/lib/libtask.so.2"
+    ],
+    "network_interfaces": [
+      "lo               UNKNOWN        127.0.0.1/8 "
+    ],
+    "absolute_gamesys_arguments": 8,
+    "listeners": {
+      "licenseservice": "LISTEN 0      10     127.0.0.1:33000 0.0.0.0:* users:((\"licenseservice\",pid=31,fd=4))",
+      "uniquenamed": "LISTEN 0      10     0.0.0.0:29401 0.0.0.0:* users:((\"uniquenamed\",pid=46,fd=13))",
+      "gauthd": "LISTEN 0      10     127.0.0.1:29200 0.0.0.0:* users:((\"gauthd\",pid=55,fd=5))",
+      "gamedbd": "LISTEN 0      10     0.0.0.0:29400 0.0.0.0:* users:((\"gamedbd\",pid=69,fd=67))",
+      "gacd": "LISTEN 0      10     0.0.0.0:29702 0.0.0.0:* users:((\"gacd\",pid=101,fd=4))",
+      "gfactiond": "LISTEN 0      10     0.0.0.0:29500 0.0.0.0:* users:((\"gfactiond\",pid=103,fd=7))",
+      "gdeliveryd": "LISTEN 0      4096   0.0.0.0:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=107,fd=10))",
+      "glinkd": "LISTEN 0      10     0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=110,fd=7))"
+    },
+    "sql_databases": [
+      "licenseservice",
+      "pw176"
+    ],
+    "gateway_upstream_ports": [
+      11101,
+      29100,
+      29500
+    ],
+    "maps": {
+      "gs01": {
+        "pid": 124,
+        "established_peer_ports": [],
+        "unix_listening": "",
+        "registration": "",
+        "ready": false
+      }
+    },
+    "error": "Timed out waiting for map gs01 registration after 630s",
+    "processes_at_stop": {
+      "licenseservice": {
+        "pid": 31,
+        "exit": null
+      },
+      "logservice": {
+        "pid": 33,
+        "exit": null
+      },
+      "uniquenamed": {
+        "pid": 46,
+        "exit": null
+      },
+      "gauthd": {
+        "pid": 55,
+        "exit": null
+      },
+      "gamedbd": {
+        "pid": 69,
+        "exit": null
+      },
+      "gacd": {
+        "pid": 101,
+        "exit": null
+      },
+      "gfactiond": {
+        "pid": 103,
+        "exit": null
+      },
+      "gdeliveryd": {
+        "pid": 107,
+        "exit": null
+      },
+      "glinkd": {
+        "pid": 110,
+        "exit": null
+      },
+      "gs01": {
+        "pid": 124,
+        "exit": null
+      }
+    },
+    "exit_codes": {
+      "gs01": -15,
+      "glinkd": 0,
+      "gdeliveryd": 0,
+      "gfactiond": 0,
+      "gacd": 0,
+      "gamedbd": 0,
+      "gauthd": 0,
+      "uniquenamed": 0,
+      "logservice": 0,
+      "licenseservice": 0
+    },
+    "mariadb_exit": 0,
+    "finished": "2026-11-16T07:54:48+00:00"
+  },
+  "is02-test-result": {
+    "started": "2026-11-16T08:10:53+00:00",
+    "resource_opens": [
+      "gacd/gacd.xml",
+      "gamed/config/aipolicy.data",
+      "gamed/config/dyn_tasks.data",
+      "gamed/config/elements.data",
+      "gamed/config/global_api.lua",
+      "gamed/config/gshop.data",
+      "gamed/config/gshop1.data",
+      "gamed/config/gshop2.data",
+      "gamed/config/tasks.data",
+      "gamed/config/world_targets.sev",
+      "gamed/ptemplate.conf",
+      "gamed/ranking.conf",
+      "gamed/script.lua",
+      "gamed/settings.conf",
+      "gamedbd/clsconfig",
+      "gamedbd/serverlist.sev",
+      "gdeliveryd/auctionid.txt",
+      "gdeliveryd/domain.sev",
+      "gdeliveryd/domain2.sev",
+      "gdeliveryd/sysauctionlist.txt"
+    ],
+    "omissions": {
+      "glinkd/glinkd!!!": true,
+      "maps": true,
+      "gamed/libtask.so": true,
+      "gamed/libskill.so": true,
+      "gamed/skill.lua": true,
+      "gamed/config/gshop3.data": true,
+      "gamedbd/gamedata": true,
+      "gdeliveryd/domain.data": true,
+      "gdeliveryd/domain2.data": true,
+      "gacd/charfont.dat": true,
+      "gacd/charlib.dat": true,
+      "gacd/hzfont.dat": true,
+      "gamed/config/domain.data": true,
+      "gamed/config/domain2.data": true,
+      "gamed/config/domain.sev": true,
+      "gamed/config/domain2.sev": true,
+      "gamed/config/DynamicObjects.data": true,
+      "gamed/config/task_npc.data": true,
+      "gamed/config/serverlist.sev": true,
+      "gamed/config/world_targets.txt": true,
+      "gamed/config/rare_item2.conf": true,
+      "gamed/config/special_item.conf": true,
+      "gamed/config/sysauctionlist.txt": true,
+      "gamed/config/webtradeid.txt": true
+    },
+    "hidden_library_paths": [
+      "/usr/lib/libtask.so",
+      "/usr/lib/libtask.so.2"
+    ],
+    "network_interfaces": [
+      "lo               UNKNOWN        127.0.0.1/8 "
+    ],
+    "absolute_gamesys_arguments": 8,
+    "listeners": {
+      "licenseservice": "LISTEN 0      10     127.0.0.1:33000 0.0.0.0:* users:((\"licenseservice\",pid=26,fd=4))",
+      "uniquenamed": "LISTEN 0      10     0.0.0.0:29401 0.0.0.0:* users:((\"uniquenamed\",pid=42,fd=13))",
+      "gauthd": "LISTEN 0      10     127.0.0.1:29200 0.0.0.0:* users:((\"gauthd\",pid=48,fd=5))",
+      "gamedbd": "LISTEN 0      10     0.0.0.0:29400 0.0.0.0:* users:((\"gamedbd\",pid=63,fd=67))",
+      "gacd": "LISTEN 0      10     0.0.0.0:29702 0.0.0.0:* users:((\"gacd\",pid=88,fd=4))",
+      "gfactiond": "LISTEN 0      10     0.0.0.0:29500 0.0.0.0:* users:((\"gfactiond\",pid=91,fd=7))",
+      "gdeliveryd": "LISTEN 0      4096   0.0.0.0:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=94,fd=10))",
+      "glinkd": "LISTEN 0      10     0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=97,fd=7))"
+    },
+    "sql_databases": [
+      "licenseservice",
+      "pw176"
+    ],
+    "gateway_upstream_ports": [
+      11101,
+      29100,
+      29500,
+      33000
+    ],
+    "maps": {
+      "is02": {
+        "pid": 111,
+        "established_peer_ports": [
+          11101,
+          29300,
+          29301,
+          29400,
+          29600
+        ],
+        "unix_listening": "/tmp/gssock_is02",
+        "registration": "gameserver 32's region is ( -512.000,   512.000,  512.000, -512.000), worldtag is 102",
+        "ready": true,
+        "after_seconds": 49.8
+      }
+    },
+    "processes": {
+      "licenseservice": {
+        "pid": 26,
+        "exit": null
+      },
+      "logservice": {
+        "pid": 35,
+        "exit": null
+      },
+      "uniquenamed": {
+        "pid": 42,
+        "exit": null
+      },
+      "gauthd": {
+        "pid": 48,
+        "exit": null
+      },
+      "gamedbd": {
+        "pid": 63,
+        "exit": null
+      },
+      "gacd": {
+        "pid": 88,
+        "exit": null
+      },
+      "gfactiond": {
+        "pid": 91,
+        "exit": null
+      },
+      "gdeliveryd": {
+        "pid": 94,
+        "exit": null
+      },
+      "glinkd": {
+        "pid": 97,
+        "exit": null
+      },
+      "is02": {
+        "pid": 111,
+        "exit": null
+      }
+    },
+    "baseline_survived": true,
+    "processes_at_stop": {
+      "licenseservice": {
+        "pid": 26,
+        "exit": null
+      },
+      "logservice": {
+        "pid": 35,
+        "exit": null
+      },
+      "uniquenamed": {
+        "pid": 42,
+        "exit": null
+      },
+      "gauthd": {
+        "pid": 48,
+        "exit": null
+      },
+      "gamedbd": {
+        "pid": 63,
+        "exit": null
+      },
+      "gacd": {
+        "pid": 88,
+        "exit": null
+      },
+      "gfactiond": {
+        "pid": 91,
+        "exit": null
+      },
+      "gdeliveryd": {
+        "pid": 94,
+        "exit": null
+      },
+      "glinkd": {
+        "pid": 97,
+        "exit": null
+      },
+      "is02": {
+        "pid": 111,
+        "exit": null
+      }
+    },
+    "exit_codes": {
+      "is02": -15,
+      "glinkd": 0,
+      "gdeliveryd": 0,
+      "gfactiond": 0,
+      "gacd": 0,
+      "gamedbd": 0,
+      "gauthd": 0,
+      "uniquenamed": 0,
+      "logservice": 0,
+      "licenseservice": 0
+    },
+    "mariadb_exit": 0,
+    "finished": "2026-11-16T08:12:24+00:00"
+  },
+  "baseline-maps-test-result": {
+    "started": "2026-11-16T08:14:02+00:00",
+    "resource_opens": [
+      "gacd/gacd.xml",
+      "gamed/config/aipolicy.data",
+      "gamed/config/dyn_tasks.data",
+      "gamed/config/elements.data",
+      "gamed/config/global_api.lua",
+      "gamed/config/gshop.data",
+      "gamed/config/gshop1.data",
+      "gamed/config/gshop2.data",
+      "gamed/config/tasks.data",
+      "gamed/config/world_targets.sev",
+      "gamed/ptemplate.conf",
+      "gamed/ranking.conf",
+      "gamed/script.lua",
+      "gamed/settings.conf",
+      "gamedbd/clsconfig",
+      "gamedbd/serverlist.sev",
+      "gdeliveryd/auctionid.txt",
+      "gdeliveryd/domain.sev",
+      "gdeliveryd/domain2.sev",
+      "gdeliveryd/sysauctionlist.txt"
+    ],
+    "omissions": {
+      "glinkd/glinkd!!!": true,
+      "maps": true,
+      "gamed/libtask.so": true,
+      "gamed/libskill.so": true,
+      "gamed/skill.lua": true,
+      "gamed/config/gshop3.data": true,
+      "gamedbd/gamedata": true,
+      "gdeliveryd/domain.data": true,
+      "gdeliveryd/domain2.data": true,
+      "gacd/charfont.dat": true,
+      "gacd/charlib.dat": true,
+      "gacd/hzfont.dat": true,
+      "gamed/config/domain.data": true,
+      "gamed/config/domain2.data": true,
+      "gamed/config/domain.sev": true,
+      "gamed/config/domain2.sev": true,
+      "gamed/config/DynamicObjects.data": true,
+      "gamed/config/task_npc.data": true,
+      "gamed/config/serverlist.sev": true,
+      "gamed/config/world_targets.txt": true,
+      "gamed/config/rare_item2.conf": true,
+      "gamed/config/special_item.conf": true,
+      "gamed/config/sysauctionlist.txt": true,
+      "gamed/config/webtradeid.txt": true
+    },
+    "hidden_library_paths": [
+      "/usr/lib/libtask.so",
+      "/usr/lib/libtask.so.2"
+    ],
+    "network_interfaces": [
+      "lo               UNKNOWN        127.0.0.1/8 "
+    ],
+    "absolute_gamesys_arguments": 8,
+    "listeners": {
+      "licenseservice": "LISTEN 0      10     127.0.0.1:33000 0.0.0.0:* users:((\"licenseservice\",pid=28,fd=4))",
+      "uniquenamed": "LISTEN 0      10     0.0.0.0:29401 0.0.0.0:* users:((\"uniquenamed\",pid=43,fd=13))",
+      "gauthd": "LISTEN 0      10     127.0.0.1:29200 0.0.0.0:* users:((\"gauthd\",pid=55,fd=5))",
+      "gamedbd": "LISTEN 0      10     0.0.0.0:29400 0.0.0.0:* users:((\"gamedbd\",pid=64,fd=67))",
+      "gacd": "LISTEN 0      10     0.0.0.0:29702 0.0.0.0:* users:((\"gacd\",pid=89,fd=4))",
+      "gfactiond": "LISTEN 0      10     0.0.0.0:29500 0.0.0.0:* users:((\"gfactiond\",pid=92,fd=7))",
+      "gdeliveryd": "LISTEN 0      4096   0.0.0.0:29300 0.0.0.0:* users:((\"gdeliveryd\",pid=95,fd=10))",
+      "glinkd": "LISTEN 0      10     0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=98,fd=7))"
+    },
+    "sql_databases": [
+      "licenseservice",
+      "pw176"
+    ],
+    "gateway_upstream_ports": [
+      11101,
+      29100,
+      29500,
+      33000
+    ],
+    "maps": {
+      "is61": {
+        "pid": 112,
+        "established_peer_ports": [
+          11101,
+          29300,
+          29301,
+          29400,
+          29600
+        ],
+        "unix_listening": "/tmp/gssock_is61",
+        "registration": "gameserver 101's region is (-2000.000,  2000.000, 1500.000,-1500.000), worldtag is 161",
+        "ready": true,
+        "after_seconds": 15.7,
+        "held_15_seconds": true,
+        "stop_exit": -15
+      },
+      "gs01": {
+        "pid": 158,
+        "established_peer_ports": [
+          11101,
+          29300,
+          29301,
+          29400,
+          29600
+        ],
+        "unix_listening": "/tmp/gssock_world1",
+        "registration": "gameserver 1's region is (-4096.000,  4096.000, 5632.000,-5632.000), worldtag is 1",
+        "ready": true,
+        "after_seconds": 18.8,
+        "held_15_seconds": true,
+        "stop_exit": -15
+      }
+    },
+    "processes": {
+      "licenseservice": {
+        "pid": 28,
+        "exit": null
+      },
+      "logservice": {
+        "pid": 36,
+        "exit": null
+      },
+      "uniquenamed": {
+        "pid": 43,
+        "exit": null
+      },
+      "gauthd": {
+        "pid": 55,
+        "exit": null
+      },
+      "gamedbd": {
+        "pid": 64,
+        "exit": null
+      },
+      "gacd": {
+        "pid": 89,
+        "exit": null
+      },
+      "gfactiond": {
+        "pid": 92,
+        "exit": null
+      },
+      "gdeliveryd": {
+        "pid": 95,
+        "exit": null
+      },
+      "glinkd": {
+        "pid": 98,
+        "exit": null
+      }
+    },
+    "baseline_survived": true,
+    "processes_at_stop": {
+      "licenseservice": {
+        "pid": 28,
+        "exit": null
+      },
+      "logservice": {
+        "pid": 36,
+        "exit": null
+      },
+      "uniquenamed": {
+        "pid": 43,
+        "exit": null
+      },
+      "gauthd": {
+        "pid": 55,
+        "exit": null
+      },
+      "gamedbd": {
+        "pid": 64,
+        "exit": null
+      },
+      "gacd": {
+        "pid": 89,
+        "exit": null
+      },
+      "gfactiond": {
+        "pid": 92,
+        "exit": null
+      },
+      "gdeliveryd": {
+        "pid": 95,
+        "exit": null
+      },
+      "glinkd": {
+        "pid": 98,
+        "exit": null
+      }
+    },
+    "exit_codes": {
+      "glinkd": 0,
+      "gdeliveryd": 0,
+      "gfactiond": 0,
+      "gacd": 0,
+      "gamedbd": 0,
+      "gauthd": 0,
+      "uniquenamed": 0,
+      "logservice": 0,
+      "licenseservice": 0
+    },
+    "mariadb_exit": 0,
+    "finished": "2026-11-16T08:15:44+00:00"
+  },
+  "supervisor-result": {
+    "started": "2026-11-16T07:42:25+00:00",
+    "original": {
+      "licenseservice": 2675,
+      "logservice": 2687,
+      "uniquenamed": 2698,
+      "gauthd": 2710,
+      "gamedbd": 2724,
+      "gacd": 2752,
+      "gfactiond": 2758,
+      "gdeliveryd": 2765,
+      "glinkd": 2773,
+      "gs01": 3190,
+      "is61": 3193
+    },
+    "stop_order": [
+      [
+        "glinkd",
+        "SIGUSR1"
+      ],
+      [
+        "gs01",
+        "SIGTERM"
+      ],
+      [
+        "is61",
+        "SIGTERM"
+      ],
+      [
+        "gdeliveryd",
+        "SIGUSR1"
+      ],
+      [
+        "gfactiond",
+        "SIGUSR1"
+      ],
+      [
+        "gacd",
+        "SIGUSR1"
+      ],
+      [
+        "gamedbd",
+        "SIGUSR1"
+      ],
+      [
+        "gauthd",
+        "SIGUSR1"
+      ],
+      [
+        "uniquenamed",
+        "SIGUSR1"
+      ],
+      [
+        "logservice",
+        "SIGUSR1"
+      ],
+      [
+        "licenseservice",
+        "SIGUSR1"
+      ]
+    ],
+    "restored": {
+      "licenseservice": 35547,
+      "logservice": 35557,
+      "uniquenamed": 35566,
+      "gauthd": 35578,
+      "gamedbd": 35590,
+      "gacd": 35617,
+      "gfactiond": 35620,
+      "gdeliveryd": 35626,
+      "glinkd": 35630,
+      "gs01": 35636,
+      "is61": 35637
+    },
+    "duplicate_license_processes": [
+      30827
+    ],
+    "original_stop_started": "2026-11-16T07:42:37+00:00",
+    "original_stopped": "2026-11-16T07:43:23+00:00",
+    "trial_exit": 1,
+    "restored_maps": {
+      "gs01": {
+        "pid": 35636,
+        "established_peer_ports": [
+          11101,
+          29300,
+          29301,
+          29400,
+          29600
+        ],
+        "unix_listening": "/tmp/gssock_world1",
+        "registration": "gameserver 1's region is (-4096.000,  4096.000, 5632.000,-5632.000), worldtag is 1",
+        "ready": true
+      },
+      "is61": {
+        "pid": 35637,
+        "established_peer_ports": [
+          11101,
+          29300,
+          29301,
+          29400,
+          29600
+        ],
+        "unix_listening": "/tmp/gssock_is61",
+        "registration": "gameserver 101's region is (-2000.000,  2000.000, 1500.000,-1500.000), worldtag is 161",
+        "ready": true
+      }
+    },
+    "restored_gateway": "LISTEN 0      10     0.0.0.0:29000 0.0.0.0:* users:((\"glinkd\",pid=35630,fd=7))",
+    "finished": "2026-11-16T08:10:48+00:00"
+  }
+}

@@ -1,6 +1,11 @@
 # Файлы игрового образа PW 1.7.6 Build 4311
 
-Источник для первого образа — `Linear/PWServer176.7z`, дерево `root/pwserver/`. У всех десяти штатных ELF совпал SHA-256 со снимком работающей VM. Текущая VM подтвердила совпадение `gs.conf`, `gmserver.conf`, `gsalias.conf`, `maps`, `elements.data` и выбранных RU-данных `tasks.data` и `aipolicy.data`. Деревья различаются, например в VM два последних файла представлены ссылками. Происхождение комплекта как официальной поставки остаётся открытым. [Отпечатки VM](evidence/fingerprints.tsv) · [Происхождение сборок](distribution-provenance.ru.md)
+Источник для первого образа — `Linear/PWServer176.7z`, дерево `root/pwserver/`. У всех десяти штатных ELF совпал SHA-256 со снимком работающей VM. В VM также подтвердилось совпадение `gs.conf`, `gmserver.conf`, `gsalias.conf`, `maps` и `elements.data`. Цели двух символических ссылок совпали по SHA-256 с обычными файлами под соответствующими штатными именами в архиве. Происхождение комплекта как официальной поставки остаётся открытым. [Отпечатки VM](evidence/fingerprints.tsv) · [Происхождение сборок](distribution-provenance.ru.md)
+
+| Ссылка в `gamed/config/` VM | Цель | SHA-256 содержимого |
+|---|---|---|
+| `tasks.data` | `tasks-176-(21606)-v191-ru.data` | `4fc9e68410cc305029f0cbc6e1df06da2b660522317b855461b38cf1a2a45c5b` |
+| `aipolicy.data` | `aipolicy-176-(5124)-ru-pure.data` | `8730e59e01a66fb4a466f3138d19526dbef3b01f6ab645e8b9748dbf829af8c2` |
 
 ## Программы и их рабочие каталоги
 
@@ -16,12 +21,16 @@
 | `gamedbd/gamedbd` | `gamesys.conf` | `gamesys.conf`, `script.lua`, `serverlist.sev`, `clsconfig` и том `dbhome`. |
 | `gacd/gacd` | `gamesys.conf` | `gamesys.conf`, `gacd.xml`. Имя XML задано в `main`. |
 | `gfactiond/gfactiond` | `gamesys.conf` | `gamesys.conf`, `script.lua`, `filters`. Имя фильтра задаёт `[GFactionServer] table_name`. |
-| `gdeliveryd/gdeliveryd` | `gamesys.conf` | `gamesys.conf`, `script.lua`, `filters`, `domain.sev`, `domain2.sev`, `auctionid.txt`, `sysauctionlist.txt`. Имя фильтра задаёт `[GDeliveryServer] table_name`. `domain2_cross.sev` нужен межсерверному режиму, `webtradeid.txt` — веб-торгам. |
+| `gdeliveryd/gdeliveryd` | `gamesys.conf` | `gamesys.conf`, `script.lua`, `filters`, `domain.sev`, `auctionid.txt`, `sysauctionlist.txt`. Имя фильтра задаёт `[GDeliveryServer] table_name`. `domain2.sev` и `domain2_cross.sev` сохраняем для режимов с объявлением группы зон, `webtradeid.txt` — для веб-торгов. |
 | `glinkd/glinkd` | `gamesys.conf 1` | `gamesys.conf`. `1` — номер шлюза в наблюдавшемся запуске. |
 
 `script.lua` в таблице — входы игрового Lua, их сохраняем. У `gauthd`, `gamedbd`, `gfactiond`, `gdeliveryd` и `glinkd` в ELF подтверждён абсолютный путь `/home/license.conf`. Файл подаётся по этому пути при развёртывании. Реквизиты MariaDB в конфигурациях `gauthd` и `licenseservice` задаются в `[GMysqlClient]`. [Аргументы и рабочие каталоги VM](evidence/runtime.json) · [Описание служб](README.ru.md#отчёты-по-службам)
 
 У `gs` относительное имя `ptemplate.conf` читают менеджеры мира и инстансов. `EmulateSettings::Init` и `InstanceSettings::Init` используют `settings.conf`, `RankingManager::Init` — `ranking.conf`, `LuaBase::Init` — `script.lua`. Ссылки проверены в ELF 4311.
+
+У `glinkd/glinkd` два канала, клиентский TCP `29000` и внутренний TCP `29301` для карт. В комплект входит этот бинарник. Вариант `glinkd/glinkd!!!` относится к запасным файлам раздачи. [Шлюз](services/glinkd.ru.md)
+
+Восемь служб с `gamesys.conf` принимают путь к своему конфигу в командной строке. Прямой абсолютный путь сохраняет рабочий каталог службы и позволяет хранить конфиги в одном каталоге, по одному файлу на процесс. Секции `[GMysqlClient]`, `[GProviderServer]`, `[storagewdb]`, `[ThreadPool]` у разных служб содержат разные настройки. Общие значения удобнее подставлять при формировании отдельных конфигов. [Справочник по конфигурации](server-configuration.ru.md#совместное-использование-gamesysconf)
 
 ## Общие ресурсы и карты `gs`
 
@@ -37,11 +46,16 @@
 - `root/sql/{pw176,licenseservice}.sql` — входы инициализации отдельной MariaDB. Оставить доступные для записи `logs/` и `/tmp`. Пути UNIX-сокетов карт задают `listen_addr` и `address` в секциях `[MsgReceiverUNIX_<алиас>]` файла `gs.conf`. Обычные журналы и диагностические файлы создаются при работе.
 - Системный слой — amd64 с glibc, загрузчиком `/lib64/ld-linux-x86-64.so.2` и библиотеками `libstdc++.so.6`, `libgcc_s.so.1`, `libpcre.so.3`, `libmariadb.so.3`, `libcrypto.so.3`. [ABI `gs`](services/gs.ru.md) · [WDB и MariaDB](storage-and-recovery.ru.md)
 
-## Что оставить за пределами стартового списка
+## Как классифицировать файлы вне базового набора
 
-- Панели, `iwebx32`, `start`, `stop`, `server`, `maps`, файлы обслуживания `dc`, `dr`, `*.sh`, запасные `gs_v*`, `*d1`, `glinkd!!!`, локальные журналы и выгрузки. В раздаче `maps` читает сценарий `/root/server`. Наш запуск будет передавать выбранные алиасы как аргументы `gs`.
-- `dbtool`, `dbanlz`, `base_util` — инструменты обслуживания WDB. `exportrole` и `importrole` уже находятся внутри `gamedbd`. Запасные варианты `clsconfig*`, `elements*`, `tasks-176-*` и `aipolicy-176-*` держать рядом с исходным архивом, если в образ копируются текущие файлы под штатными именами.
-- Кандидаты на исключение с проверкой чистого запуска — `gamed/{libtask.so,libskill.so,skill.lua}`, `gamed/config/gshop3.data`, `gamedbd/gamedata`, `gdeliveryd/domain{,2}.data` и `gacd/{charfont,charlib,hzfont}.dat`. У двух `*.so` нет записей `DT_NEEDED` и отображений в обоих работающих `gs`. В проверенном ELF отсутствуют строки `skill.lua` и `Mall4Data`. Для остальных файлов потребитель в проверенных путях не найден. Режимы, до которых запуск не дошёл, требуют отдельной проверки.
-- В стартовый набор также не входят `gamed/config/{domain*,DynamicObjects.data,task_npc.data,serverlist.sev,world_targets.txt,rare_item2.conf,special_item.conf,sysauctionlist.txt,webtradeid.txt}`. Их чтение штатным `gs` пока не подтверждено. У `gamedbd` есть путь к `forbidpolicy.conf`, которого нет в Linear. Этот вызов не блокирует штатный старт при отсутствии файла.
+| Группа | Примеры и решение |
+|---|---|
+| Артефакты упаковки | Запасные `gs_v*`, `*d1`, `glinkd!!!`, локальные журналы, выгрузки и варианты `clsconfig*`, `elements*`, `tasks-176-*`, `aipolicy-176-*`. В образе оставляем выбранные версии под штатными именами. |
+| Обвязка раздачи и обслуживание | `start`, `stop`, `server`, `maps`, `dc`, `dr`, сценарии обслуживания и панели. В раздаче `maps` читает `/root/server`, а при прямом запуске алиас передаётся как аргумент `gs`. `dbtool`, `dbanlz`, `base_util` принадлежат комплекту обслуживания WDB. `exportrole` и `importrole` встроены в `gamedbd`. |
+| Условные ресурсы с известным потребителем | `domain2.sev`, `domain2_cross.sev`, `webtradeid.txt`, наборы карт за пределами стартовых алиасов. Сохраняем их для соответствующих режимов. `restart2` и `restart_zhang` связаны с крюком перезапуска карты, который при прямом управлении жизненным циклом заменяет обвязка. |
+| Ресурсы других версий и клиента | `gamed/libtask.so` и `gamed/libskill.so` нужны некоторым другим ELF, код 4311 содержит задачи и навыки в `gs`. `skill.lua` загружался в S172. `gshop3.data` нужен для воспроизведения клиентского патча, в `gs` 4311 найден потребитель только для `MallData`–`Mall3Data`. |
+| Потребитель пока не установлен | `gamedbd/gamedata`, `gdeliveryd/domain{,2}.data`, `gacd/{charfont,charlib,hzfont}.dat` и `gamed/config/{domain*,DynamicObjects.data,task_npc.data,serverlist.sev,world_targets.txt,rare_item2.conf,special_item.conf,sysauctionlist.txt,webtradeid.txt}`. Решение об их исключении относится к проверенному профилю запуска. |
 
-Список составлен по оглавлению архива, чтению конфигов, срезу работающей VM и ссылкам из функций ELF. Холодный запуск с этим точным набором файлов остаётся следующей проверкой образа.
+У `gamedbd` есть ветка чтения `forbidpolicy.conf`. В архиве Linear этот файл отсутствует, инициализация переносит такое отсутствие. Расширение файла само по себе ничего не говорит о потребителе. Например, `domain.sev` читает `gdeliveryd` при старте территориальной подсистемы, а вложенный `domain.data` имеет неизвестное назначение для 4311. [Подтверждённые загрузчики и условия](dynamic-resources.ru.md)
+
+На VM с этим сокращённым деревом запустились все девять демонов и по отдельности зарегистрировались карты `gs01`, `is61`, `is02`. Потребность в ресурсах условных режимов оценивается по их загрузчикам и профилям. [Протокол проверки исключений](image-file-validation.ru.md)
