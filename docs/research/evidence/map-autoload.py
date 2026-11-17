@@ -1,4 +1,6 @@
+import argparse
 import asyncio
+from contextlib import nullcontext
 from datetime import datetime
 from pathlib import Path
 import re
@@ -16,7 +18,7 @@ DELIVERY_TRACE = Path("/root/pwserver/logs/world2.trace")
 LAB_DIRECTORY = Path(__file__).resolve().parent
 
 ROLE_DESTINATIONS = {1026: 161}
-MAPS = {161: ("is61", 101)}
+MAPS = {1: ("gs01", 1), 161: ("is61", 101)}
 PLAYER_LOGIN = 65
 STATUS_ANNOUNCE = 6
 WAIT_QUEUE_STATE = 164
@@ -70,8 +72,21 @@ def gateway_connected(pid):
     return f"pid={pid}," in output
 
 
+def map_running(alias):
+    for command_line in Path("/proc").glob("[0-9]*/cmdline"):
+        try:
+            arguments = command_line.read_bytes().split(b"\0", 2)
+        except (FileNotFoundError, PermissionError, ProcessLookupError):
+            continue
+        if (len(arguments) == 3 and arguments[0].split(b"/")[-1] == b"gs"
+                and arguments[1] == alias.encode("ascii")):
+            return True
+    return False
+
+
 class MapStartup:
-    def __init__(self):
+    def __init__(self, source_log=None):
+        self.source_log = source_log
         self.tasks = {}
         self.processes = {}
         self.estimated_ready_at = {}
@@ -99,13 +114,17 @@ class MapStartup:
             if delay:
                 await asyncio.sleep(delay)
             log_path = LAB_DIRECTORY / f"{alias}.log"
+            source_log = nullcontext() if self.source_log is None else self.source_log.open("rb")
             with (
+                source_log as source,
                 DELIVERY_TRACE.open("rb") as trace,
                 log_path.open("ab") as output,
                 log_path.open("rb") as map_log,
             ):
                 trace.seek(0, 2)
                 map_log.seek(0, 2)
+                if source is not None:
+                    source.seek(0, 2)
                 process = self.processes[world_tag] = subprocess.Popen(
                     ["stdbuf", "-oL", "./gs", alias, "gs.conf", "gmserver.conf", "gsalias.conf"],
                     cwd=GAME_DIRECTORY, stdin=subprocess.DEVNULL,
@@ -115,10 +134,13 @@ class MapStartup:
                 registration = re.compile(
                     rb"gameserver %d's region .*worldtag is %d\b" % (server_id, world_tag)
                 )
+                dispatcher = re.compile(rb"^Add dispatcher %d\r?\n" % server_id, re.MULTILINE)
                 trace_buffer = b""
                 map_buffer = b""
+                source_buffer = b""
                 registered_at = None
-                instance_allocated = False
+                instance_allocated = world_tag == 1
+                source_route_ready = source is None
                 while monotonic() - started_at < STARTUP_TIMEOUT:
                     if process.poll() is not None:
                         raise OSError(f"{alias} exited with status {process.returncode}")
@@ -136,8 +158,16 @@ class MapStartup:
                             log(f"map instance allocated alias={alias} worldtag={world_tag} "
                                 f"elapsed={monotonic() - started_at:.2f}s")
                         map_buffer = map_buffer[-512:]
+                    if not source_route_ready:
+                        source_buffer += source.read()
+                        source_route_ready = dispatcher.search(source_buffer) is not None
+                        if source_route_ready:
+                            log(f"map route available alias={alias} "
+                                f"elapsed={monotonic() - started_at:.2f}s")
+                        source_buffer = source_buffer[-512:]
                     if (registered_at is not None
                             and instance_allocated
+                            and source_route_ready
                             and await asyncio.to_thread(gateway_connected, process.pid)):
                         log(f"map ready alias={alias} worldtag={world_tag} pid={process.pid} "
                             f"elapsed={monotonic() - started_at:.2f}s")
@@ -147,6 +177,49 @@ class MapStartup:
         except (OSError, subprocess.SubprocessError, ValueError) as error:
             log(f"map start failed worldtag={world_tag}: {error}")
         return False
+
+
+def read_session(directory):
+    try:
+        return (directory / "session").read_text(encoding="ascii").strip()
+    except FileNotFoundError:
+        return ""
+
+
+async def watch_teleport(maps, journal, directory, role_id, quest_id, world_tag):
+    alias, _ = MAPS[world_tag]
+    if map_running(alias):
+        log(f"teleport probe requires a stopped destination alias={alias}")
+        return False
+    accepted = (f"task:roleid={role_id}:taskid={quest_id}:type=1:"
+                "msg=DeliverByAwardData: success = 1,").encode("ascii")
+    with journal.open("rb") as messages:
+        messages.seek(0, 2)
+        log(f"teleport watch armed role={role_id} quest={quest_id} worldtag={world_tag}")
+        while True:
+            offset = messages.tell()
+            line = messages.readline()
+            if not line.endswith(b"\n"):
+                messages.seek(offset)
+                await asyncio.sleep(0.2)
+                continue
+            if accepted in line and (session := read_session(directory)):
+                break
+
+    if map_running(alias):
+        log(f"teleport destination was started before the request alias={alias}")
+        return False
+    log(f"teleport quest accepted role={role_id} quest={quest_id} worldtag={world_tag}")
+    if not await maps.request(world_tag):
+        return False
+    if read_session(directory) != session:
+        log(f"teleport session ended while loading role={role_id}")
+        return False
+    pending = directory / "ready.tmp"
+    pending.write_text(f"{session}\n", encoding="ascii")
+    pending.replace(directory / "ready")
+    log(f"teleport continuation queued role={role_id} worldtag={world_tag}")
+    return True
 
 
 async def copy_frames(reader, writer):
@@ -247,4 +320,26 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--teleport-probe", type=Path, metavar="SESSION_DIR")
+    parser.add_argument("--role-id", type=int)
+    parser.add_argument("--quest-id", type=int)
+    parser.add_argument("--world-tag", type=int, choices=MAPS)
+    options = parser.parse_args()
+    if options.teleport_probe is None:
+        if any(value is not None for value in (options.role_id, options.quest_id, options.world_tag)):
+            parser.error("--role-id, --quest-id and --world-tag require --teleport-probe")
+        asyncio.run(main())
+    else:
+        if not (options.role_id and options.quest_id and options.world_tag):
+            parser.error("--teleport-probe requires --role-id, --quest-id and --world-tag")
+        try:
+            complete = asyncio.run(asyncio.wait_for(watch_teleport(
+                MapStartup(options.teleport_probe / "source.log"),
+                DELIVERY_TRACE.with_name("world2.log"), options.teleport_probe,
+                options.role_id, options.quest_id, options.world_tag,
+            ), timeout=900))
+        except TimeoutError:
+            log("teleport watch timed out")
+            complete = False
+        raise SystemExit(0 if complete else 1)
