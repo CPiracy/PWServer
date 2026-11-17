@@ -1,0 +1,18 @@
+[watch.log]
+2026-11-17T14:24:42.078+03:00 teleport quest accepted role=1027 quest=32339 worldtag=1
+2026-11-17T14:24:42.078+03:00 map request worldtag=1 alias=gs01
+2026-11-17T14:25:22.119+03:00 map started alias=gs01 pid=14085 delay=40s
+2026-11-17T14:25:27.836+03:00 map registered alias=gs01 worldtag=1 elapsed=45.76s
+2026-11-17T14:25:43.910+03:00 map route available alias=gs01 elapsed=61.83s
+2026-11-17T14:25:43.929+03:00 map ready alias=gs01 worldtag=1 pid=14085 elapsed=61.85s
+2026-11-17T14:25:43.930+03:00 teleport continuation queued role=1027 worldtag=1
+
+[source.log]
+2026-11-17T14:22:25+0300 teleport UX screen on role 1027
+2026-11-17T14:22:45+0300 teleport UX screen off role 1027
+2026-11-17T14:24:45+0300 teleport UX screen on role 1027
+2026-11-17T14:25:45+0300 teleport UX screen off role 1027
+
+[world2.trace]
+2026-11-17 14:25:45 debianpw176 gdeliveryd: debug : gdeliveryserver:: receive SwitchServerStart. roleid(1027),linkid(1),src_gsid(101),dst_gsid(1)
+2026-11-17 14:25:45 debianpw176 gdeliveryd: debug : gdelivery::switchserversuccess: switch user(r:1027) from gameserver 101 to gameserver 1.
