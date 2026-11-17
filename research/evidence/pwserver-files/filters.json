@@ -1,0 +1,17 @@
+{
+  "path": "gamed/config/filters",
+  "size_bytes": 3322,
+  "sha256": "00a75cc75e20b1348ffcf3b5cff0bd64b1d65936cc63051b8d403585fd179554",
+  "archive_crc32": "2CF905DC",
+  "size_and_crc_match_archive": true,
+  "encoding": "not established; no UTF-16 BOM and not valid UTF-8",
+  "nonempty_lines": 533,
+  "contents_not_published": true,
+  "configured_input": "[Template] Root + table_name; table_name=filters",
+  "source_tree": "huzeming-176source, c0992a29",
+  "loader": "cgame/gs/worldmanager.cpp:1331-1337 -> cnet/gamed/gsp_if.cpp:950-961 -> share/common/matcher.h:Load",
+  "matching": "Each nonempty line is joined as an alternative in a PCRE pattern; PCRE_CASELESS and PCRE_UTF8.",
+  "confirmed_source_caller": "cgame/gs/serviceprovider.cpp:6178; equipment signature validation",
+  "missing_file_behavior": "Matcher::Load returns failure; FirstStepInit returns -34.",
+  "scope_limit": "Static source and configured input verified; rejection of specific text was not exercised here."
+}

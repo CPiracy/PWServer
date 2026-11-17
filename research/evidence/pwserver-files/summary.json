@@ -5,7 +5,7 @@
   "entries": 4850,
   "files": 4276,
   "directories": 574,
-  "individual_files": 93,
+  "individual_files": 70,
   "deferred_groups": {
     "Каталоги карт": {
       "files": 3925,
@@ -19,7 +19,7 @@
   "original_uid_gid": "Not stored in this 7z; not inferred from VM",
   "groups_are_not_final_exclusions": true,
   "source_collection_modified": false,
-  "review_rows": 94,
+  "review_rows": 71,
   "config_directory_name_pattern": "^[A-Za-z0-9]+$",
   "config_directory_families": {
     "a": 96,
@@ -30,19 +30,116 @@
     "мусор": 1
   },
   "individual_exceptions": {
-    "other_config": 35,
+    "other_config": 33,
     "text_inputs_outside_config": 0
   },
   "ordered_review_masks": [
     "accepted decisions by priority, first match wins",
-    "individual config exceptions",
-    "gamed/config/**",
-    "remaining individual files"
+    "remaining individual files sorted by proposal and path",
+    "gamed/config/**"
   ],
   "initial_individual_files": 308,
-  "pending_files": 4018,
-  "decided_files": 258,
+  "pending_files": 3995,
+  "decided_files": 281,
   "accepted_decisions": [
+    {
+      "id": "required_exact_paths",
+      "action": "keep_for_packaging",
+      "exact_paths": [
+        "licenseservice/licenseservice",
+        "logservice/logservice",
+        "uniquenamed/uniquenamed",
+        "gauthd/gauthd",
+        "gamedbd/gamedbd",
+        "gacd/gacd",
+        "gfactiond/gfactiond",
+        "gdeliveryd/gdeliveryd",
+        "glinkd/glinkd",
+        "gamed/gs",
+        "gamed/config/filters"
+      ],
+      "matched_paths": [
+        "gacd/gacd",
+        "gamed/config/filters",
+        "gamed/gs",
+        "gamedbd/gamedbd",
+        "gauthd/gauthd",
+        "gdeliveryd/gdeliveryd",
+        "gfactiond/gfactiond",
+        "glinkd/glinkd",
+        "licenseservice/licenseservice",
+        "logservice/logservice",
+        "uniquenamed/uniquenamed"
+      ],
+      "matched_files": 11,
+      "scope": "exact paths only",
+      "packaging_method": "Preserve bytes of explicitly selected files; executable and data roles remain separate.",
+      "priority": 1,
+      "main_executable_paths": [
+        "gacd/gacd",
+        "gamed/gs",
+        "gamedbd/gamedbd",
+        "gauthd/gauthd",
+        "gdeliveryd/gdeliveryd",
+        "gfactiond/gfactiond",
+        "glinkd/glinkd",
+        "licenseservice/licenseservice",
+        "logservice/logservice",
+        "uniquenamed/uniquenamed"
+      ]
+    },
+    {
+      "id": "spare_server_executables",
+      "action": "exclude_from_package",
+      "path_pattern": "^<escaped required path>[^./\\\\]+$",
+      "scope": "same directory and exact main basename plus a nonempty suffix without dot or path separator",
+      "matched_paths": [
+        "gamed/gs_v1",
+        "gamed/gs_v2",
+        "gamed/gs_v3",
+        "gamedbd/gamedbd1",
+        "gdeliveryd/gdeliveryd1",
+        "gfactiond/gfactiond1",
+        "glinkd/glinkd!!!",
+        "uniquenamed/uniquenamed1"
+      ],
+      "matched_files": 8,
+      "source_files_deleted": false,
+      "batch_default": "exclude spare variants without prompting",
+      "interactive_idea": "A future package-building utility may offer a selection dialog for spare variants.",
+      "priority": 2,
+      "base_executable_paths": [
+        "gacd/gacd",
+        "gamed/gs",
+        "gamedbd/gamedbd",
+        "gauthd/gauthd",
+        "gdeliveryd/gdeliveryd",
+        "gfactiond/gfactiond",
+        "glinkd/glinkd",
+        "licenseservice/licenseservice",
+        "logservice/logservice",
+        "uniquenamed/uniquenamed"
+      ]
+    },
+    {
+      "id": "all_server_lua",
+      "action": "keep_for_packaging",
+      "mask": "*.lua",
+      "scope": "files at any depth",
+      "matched_files": 7,
+      "matched_paths": [
+        "gamed/config/global_api.lua",
+        "gamed/script.lua",
+        "gamed/skill.lua",
+        "gamedbd/script.lua",
+        "gauthd/script.lua",
+        "gdeliveryd/script.lua",
+        "gfactiond/script.lua"
+      ],
+      "package": "server",
+      "packaging_method": "Copy Lua server logic without changing file contents.",
+      "priority": 3
+    },
     {
       "id": "config_directory_non_latin_alphanumeric",
       "action": "exclude_from_package",
@@ -55,7 +152,7 @@
       "matched_files": 122,
       "matched_directory_entries": 5,
       "source_files_deleted": false,
-      "priority": 1
+      "priority": 4
     },
     {
       "id": "dbhome_archived_runtime_state",
@@ -70,7 +167,7 @@
       "matched_directory_entries": 4,
       "source_files_deleted": false,
       "startup_status": "Source code creates directories and database files; pristine startup of packaged 4311 not runtime-validated.",
-      "priority": 2
+      "priority": 5
     },
     {
       "id": "legacy_shell_scripts",
@@ -86,7 +183,7 @@
       "matched_files": 4,
       "matched_directory_entries": 0,
       "source_files_deleted": false,
-      "priority": 3
+      "priority": 6
     },
     {
       "id": "root_level_wrapper_files",
@@ -102,10 +199,10 @@
       "matched_files": 4,
       "matched_directory_entries": 0,
       "source_files_deleted": false,
-      "priority": 4
+      "priority": 7
     },
     {
-      "priority": 5,
+      "priority": 8,
       "id": "runtime_logs",
       "action": "exclude_from_package",
       "mask": "logs/**; *.log; *log.txt",
@@ -158,12 +255,12 @@
       "source_files_deleted": false
     },
     {
-      "priority": 6,
+      "priority": 9,
       "id": "keep_gdeliveryd_directory",
       "action": "keep_for_packaging",
       "mask": "gdeliveryd/**",
       "scope": "unmatched files after higher-priority exclusions",
-      "matched_files": 13,
+      "matched_files": 10,
       "matched_paths": [
         "gdeliveryd/auctionid.txt",
         "gdeliveryd/domain.data",
@@ -173,16 +270,13 @@
         "gdeliveryd/domain2_cross.sev",
         "gdeliveryd/filters",
         "gdeliveryd/gamesys.conf",
-        "gdeliveryd/gdeliveryd",
-        "gdeliveryd/gdeliveryd1",
-        "gdeliveryd/script.lua",
         "gdeliveryd/sysauctionlist.txt",
         "gdeliveryd/webtradeid.txt"
       ],
       "packaging_method": "Keep source inputs; choose package destinations and generated configuration later."
     },
     {
-      "priority": 7,
+      "priority": 10,
       "id": "keep_gamed_config_texts",
       "action": "keep_for_packaging",
       "mask": "gamed/config/**/*.txt",
@@ -197,7 +291,7 @@
       "packaging_method": "Preserve the original game-data inputs."
     },
     {
-      "priority": 8,
+      "priority": 11,
       "id": "remaining_text_files",
       "action": "exclude_from_package",
       "mask": "*.txt",
@@ -211,8 +305,8 @@
       "runtime_validation": "Startup after this text-data exclusion has not been tested."
     }
   ],
-  "excluded_files": 241,
-  "preserved_files": 17,
+  "excluded_files": 249,
+  "preserved_files": 32,
   "pending_map_files": 3925,
   "decision_evaluation": "ascending priority; stop at first matched rule",
   "queue_sort": {

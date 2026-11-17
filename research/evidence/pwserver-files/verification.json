@@ -3,15 +3,19 @@
   "source_records": 4850,
   "original_metadata_preserved": true,
   "total_files": 4276,
-  "pending_rows": 94,
-  "pending_individual_files": 93,
+  "pending_rows": 71,
+  "pending_individual_files": 70,
   "map_files": 3925,
   "log_files": 42,
-  "excluded_files": 241,
-  "preserved_files": 17,
-  "ordered_rule_priorities_verified": 8,
+  "excluded_files": 249,
+  "preserved_files": 32,
+  "ordered_rule_priorities_verified": 11,
   "game_text_inputs_preserved": 4,
   "source_files_deleted": false,
+  "exact_paths_preserved": 11,
+  "main_executables_preserved": 10,
+  "spare_executables_excluded": 8,
+  "lua_files_preserved": 7,
   "review_sorted_by_proposal_and_path": true,
   "every_file_covered_once": true,
   "all_evidence_links_exist": true,
@@ -21,16 +25,20 @@
   "pristine_wdb_startup_not_runtime_tested": true,
   "outputs": {
     "assessment.csv": {
-      "sha256": "973bdd670dc13668dd7f4d63fde5e1d6a7d54c4e29498ebf847ff603d33f75e3",
-      "bytes": 2936052
+      "sha256": "90d51ec360851c6cb5c1913f8cfdb8b6a28a7d60ab8046496c657b90e2f3c53f",
+      "bytes": 2937113
     },
     "deferred-files.csv": {
       "sha256": "8576363a6e5ac168a62defab87a4c6bc1f665d90949062d125c20bcb73fab99e",
       "bytes": 2366749
     },
+    "filters.json": {
+      "sha256": "aa6b3580847c1a4bbabc78d794179e4be44e57c9a8a8b9c2e529e8e474b8930c",
+      "bytes": 987
+    },
     "individual-files.csv": {
-      "sha256": "4e04f489aa93fea9833681e1f518112b907fb63809534b47a456afc3e80db52a",
-      "bytes": 78078
+      "sha256": "b93c2940213d5ed94caaa6ba56f361e900167d10c4dca2bdeac18f0af4cd47f4",
+      "bytes": 58838
     },
     "map-directories.csv": {
       "sha256": "f9978f11e62ea8f2c160bbbf324431d5b7f7bba7c9e1e98ad1fa71498a5804ce",
@@ -41,12 +49,12 @@
       "bytes": 22446
     },
     "review.csv": {
-      "sha256": "78d98b08e4b395bef1d858e2b9103f52f8583391da9a747fbc28976886dfbf2b",
-      "bytes": 21798
+      "sha256": "97983cf5ad7a73ee835015bdb34ca5635d1013e15ab7a72366efd783b0f18e74",
+      "bytes": 17704
     },
     "summary.json": {
-      "sha256": "55c3fff2a01f68ff52a0f8e100395d8f2ea66b22a436542a85fcbbd39f72ba19",
-      "bytes": 6881
+      "sha256": "aec3fb3da9d4be6ccecd5f7aa5d5eb5a209ab269bbcb16ca7caeef800d0d6a75",
+      "bytes": 9769
     }
   }
 }
