@@ -3,15 +3,17 @@
   "source_records": 4850,
   "original_metadata_preserved": true,
   "total_files": 4276,
-  "pending_rows": 71,
-  "pending_individual_files": 70,
-  "map_files": 3925,
+  "pending_rows": 70,
+  "pending_individual_files": 69,
+  "map_files": 3917,
   "log_files": 42,
-  "excluded_files": 249,
+  "excluded_files": 258,
   "preserved_files": 32,
-  "ordered_rule_priorities_verified": 11,
+  "ordered_rule_priorities_verified": 12,
   "game_text_inputs_preserved": 4,
   "source_files_deleted": false,
+  "new_gamed_extensionless_exclusions": 9,
+  "pending_extensionless_files": 12,
   "exact_paths_preserved": 11,
   "main_executables_preserved": 10,
   "spare_executables_excluded": 8,
@@ -25,20 +27,20 @@
   "pristine_wdb_startup_not_runtime_tested": true,
   "outputs": {
     "assessment.csv": {
-      "sha256": "90d51ec360851c6cb5c1913f8cfdb8b6a28a7d60ab8046496c657b90e2f3c53f",
-      "bytes": 2937113
+      "sha256": "8fd7169c9bdaa6eb0a350170ac2aaaacf7c586656978f2c3e0ea4023959e9877",
+      "bytes": 2937576
     },
     "deferred-files.csv": {
-      "sha256": "8576363a6e5ac168a62defab87a4c6bc1f665d90949062d125c20bcb73fab99e",
-      "bytes": 2366749
+      "sha256": "61425f3a3798ade4032b617aad21089b5cb5ab7e022c6148c5021d0cef1b9dd1",
+      "bytes": 2362101
     },
     "filters.json": {
       "sha256": "aa6b3580847c1a4bbabc78d794179e4be44e57c9a8a8b9c2e529e8e474b8930c",
       "bytes": 987
     },
     "individual-files.csv": {
-      "sha256": "b93c2940213d5ed94caaa6ba56f361e900167d10c4dca2bdeac18f0af4cd47f4",
-      "bytes": 58838
+      "sha256": "0b55cb54c5bab9c668bd48b6f65c960dd4c80186096313c62bee4899eabfc3a1",
+      "bytes": 57858
     },
     "map-directories.csv": {
       "sha256": "f9978f11e62ea8f2c160bbbf324431d5b7f7bba7c9e1e98ad1fa71498a5804ce",
@@ -49,12 +51,16 @@
       "bytes": 22446
     },
     "review.csv": {
-      "sha256": "97983cf5ad7a73ee835015bdb34ca5635d1013e15ab7a72366efd783b0f18e74",
-      "bytes": 17704
+      "sha256": "29395e947e46c69bb92e5577add9c41fb1336c5bc1d5134d0b79bee57dbdf0c1",
+      "bytes": 17522
     },
     "summary.json": {
-      "sha256": "aec3fb3da9d4be6ccecd5f7aa5d5eb5a209ab269bbcb16ca7caeef800d0d6a75",
-      "bytes": 9769
+      "sha256": "e294bc1e098f4e0f08138492e606c10a179eb8059f904ccfc5672fb8b76237da",
+      "bytes": 10589
+    },
+    "world-movemap-manifest.json": {
+      "sha256": "32ffb7a2f383b5de8571c067ae83bc282acf71eff8301d9f690304fd26ca89f4",
+      "bytes": 1070
     }
   }
 }

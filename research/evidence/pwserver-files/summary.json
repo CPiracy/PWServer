@@ -5,11 +5,11 @@
   "entries": 4850,
   "files": 4276,
   "directories": 574,
-  "individual_files": 70,
+  "individual_files": 69,
   "deferred_groups": {
     "Каталоги карт": {
-      "files": 3925,
-      "bytes": 4799170211
+      "files": 3917,
+      "bytes": 4799166336
     }
   },
   "map_directories": 113,
@@ -19,7 +19,7 @@
   "original_uid_gid": "Not stored in this 7z; not inferred from VM",
   "groups_are_not_final_exclusions": true,
   "source_collection_modified": false,
-  "review_rows": 71,
+  "review_rows": 70,
   "config_directory_name_pattern": "^[A-Za-z0-9]+$",
   "config_directory_families": {
     "a": 96,
@@ -39,8 +39,8 @@
     "gamed/config/**"
   ],
   "initial_individual_files": 308,
-  "pending_files": 3995,
-  "decided_files": 281,
+  "pending_files": 3986,
+  "decided_files": 290,
   "accepted_decisions": [
     {
       "id": "required_exact_paths",
@@ -141,6 +141,29 @@
       "priority": 3
     },
     {
+      "id": "gamed_extensionless_files",
+      "action": "exclude_from_package",
+      "mask": "gamed/**",
+      "scope": "files recursively under gamed whose basename has no dot; after exact preservation and spare-ELF rules",
+      "raw_matches": 14,
+      "exact_paths_already_preserved": 2,
+      "spare_variants_already_excluded": 3,
+      "matched_files": 9,
+      "matched_paths": [
+        "gamed/config/a01/restart_zhang",
+        "gamed/config/a02/restart_zhang",
+        "gamed/config/b01/restart_zhang",
+        "gamed/config/b02/restart_zhang",
+        "gamed/config/b03/restart_zhang",
+        "gamed/config/b04/restart_zhang",
+        "gamed/config/world/movemap/1",
+        "gamed/config/world/restart2",
+        "gamed/foo"
+      ],
+      "source_files_deleted": false,
+      "priority": 4
+    },
+    {
       "id": "config_directory_non_latin_alphanumeric",
       "action": "exclude_from_package",
       "scope": "immediate child directories of gamed/config only",
@@ -152,7 +175,7 @@
       "matched_files": 122,
       "matched_directory_entries": 5,
       "source_files_deleted": false,
-      "priority": 4
+      "priority": 5
     },
     {
       "id": "dbhome_archived_runtime_state",
@@ -167,7 +190,7 @@
       "matched_directory_entries": 4,
       "source_files_deleted": false,
       "startup_status": "Source code creates directories and database files; pristine startup of packaged 4311 not runtime-validated.",
-      "priority": 5
+      "priority": 6
     },
     {
       "id": "legacy_shell_scripts",
@@ -183,7 +206,7 @@
       "matched_files": 4,
       "matched_directory_entries": 0,
       "source_files_deleted": false,
-      "priority": 6
+      "priority": 7
     },
     {
       "id": "root_level_wrapper_files",
@@ -199,10 +222,10 @@
       "matched_files": 4,
       "matched_directory_entries": 0,
       "source_files_deleted": false,
-      "priority": 7
+      "priority": 8
     },
     {
-      "priority": 8,
+      "priority": 9,
       "id": "runtime_logs",
       "action": "exclude_from_package",
       "mask": "logs/**; *.log; *log.txt",
@@ -255,7 +278,7 @@
       "source_files_deleted": false
     },
     {
-      "priority": 9,
+      "priority": 10,
       "id": "keep_gdeliveryd_directory",
       "action": "keep_for_packaging",
       "mask": "gdeliveryd/**",
@@ -276,7 +299,7 @@
       "packaging_method": "Keep source inputs; choose package destinations and generated configuration later."
     },
     {
-      "priority": 10,
+      "priority": 11,
       "id": "keep_gamed_config_texts",
       "action": "keep_for_packaging",
       "mask": "gamed/config/**/*.txt",
@@ -291,7 +314,7 @@
       "packaging_method": "Preserve the original game-data inputs."
     },
     {
-      "priority": 11,
+      "priority": 12,
       "id": "remaining_text_files",
       "action": "exclude_from_package",
       "mask": "*.txt",
@@ -305,9 +328,9 @@
       "runtime_validation": "Startup after this text-data exclusion has not been tested."
     }
   ],
-  "excluded_files": 249,
+  "excluded_files": 258,
   "preserved_files": 32,
-  "pending_map_files": 3925,
+  "pending_map_files": 3917,
   "decision_evaluation": "ascending priority; stop at first matched rule",
   "queue_sort": {
     "individual_files": [
