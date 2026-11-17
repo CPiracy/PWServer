@@ -5,15 +5,11 @@
   "entries": 4850,
   "files": 4276,
   "directories": 574,
-  "individual_files": 111,
+  "individual_files": 93,
   "deferred_groups": {
-    "Журналы": {
-      "files": 42,
-      "bytes": 38056953
-    },
     "Каталоги карт": {
-      "files": 3926,
-      "bytes": 4799186571
+      "files": 3925,
+      "bytes": 4799170211
     }
   },
   "map_directories": 113,
@@ -23,7 +19,7 @@
   "original_uid_gid": "Not stored in this 7z; not inferred from VM",
   "groups_are_not_final_exclusions": true,
   "source_collection_modified": false,
-  "review_rows": 113,
+  "review_rows": 94,
   "config_directory_name_pattern": "^[A-Za-z0-9]+$",
   "config_directory_families": {
     "a": 96,
@@ -34,19 +30,18 @@
     "мусор": 1
   },
   "individual_exceptions": {
-    "other_config": 38,
-    "text_inputs_outside_config": 5
+    "other_config": 35,
+    "text_inputs_outside_config": 0
   },
   "ordered_review_masks": [
-    "accepted decisions",
-    "individual exceptions",
+    "accepted decisions by priority, first match wins",
+    "individual config exceptions",
     "gamed/config/**",
-    "logs/**; **/*.{txt,log}",
     "remaining individual files"
   ],
   "initial_individual_files": 308,
-  "pending_files": 4079,
-  "decided_files": 197,
+  "pending_files": 4018,
+  "decided_files": 258,
   "accepted_decisions": [
     {
       "id": "config_directory_non_latin_alphanumeric",
@@ -59,7 +54,8 @@
       ],
       "matched_files": 122,
       "matched_directory_entries": 5,
-      "source_files_deleted": false
+      "source_files_deleted": false,
+      "priority": 1
     },
     {
       "id": "dbhome_archived_runtime_state",
@@ -73,7 +69,8 @@
       "matched_files": 67,
       "matched_directory_entries": 4,
       "source_files_deleted": false,
-      "startup_status": "Source code creates directories and database files; pristine startup of packaged 4311 not runtime-validated."
+      "startup_status": "Source code creates directories and database files; pristine startup of packaged 4311 not runtime-validated.",
+      "priority": 2
     },
     {
       "id": "legacy_shell_scripts",
@@ -88,7 +85,8 @@
       ],
       "matched_files": 4,
       "matched_directory_entries": 0,
-      "source_files_deleted": false
+      "source_files_deleted": false,
+      "priority": 3
     },
     {
       "id": "root_level_wrapper_files",
@@ -103,7 +101,118 @@
       ],
       "matched_files": 4,
       "matched_directory_entries": 0,
+      "source_files_deleted": false,
+      "priority": 4
+    },
+    {
+      "priority": 5,
+      "id": "runtime_logs",
+      "action": "exclude_from_package",
+      "mask": "logs/**; *.log; *log.txt",
+      "scope": "file-name masks at any depth; all files within logs",
+      "matched_files": 42,
+      "matched_paths": [
+        "gamed/skilllog.txt",
+        "gamedbd/lualog.txt",
+        "gauthd/lualog.txt",
+        "gdeliveryd/lualog.txt",
+        "licenseservice/licenseservice.log",
+        "logs/Locations_1_iweb.log",
+        "logs/authd.log",
+        "logs/gacd.log",
+        "logs/gamedbd.log",
+        "logs/gauthd.log",
+        "logs/gdeliveryd.log",
+        "logs/gfactiond.log",
+        "logs/glink1.log",
+        "logs/glinkd.log",
+        "logs/glinkd1.log",
+        "logs/gs.log",
+        "logs/gs01-20-05-25-02-54.log",
+        "logs/gs01-20-05-25-03-01.log",
+        "logs/gs01-20-05-25-03-03.log",
+        "logs/gs01-20-05-25-03-29.log",
+        "logs/gs01-20-05-25-20-03.log",
+        "logs/gs01-23-05-25-18-36.log",
+        "logs/gs01-23-05-25-22-27.log",
+        "logs/gs01-25-05-25-01-07.log",
+        "logs/gs01-25-05-25-01-54.log",
+        "logs/gs01-31-01-26-22-51.log",
+        "logs/gs01.log",
+        "logs/gs_iweb.log",
+        "logs/is61.log",
+        "logs/licenseservice.log",
+        "logs/logservice.log",
+        "logs/statinfod",
+        "logs/statinfoh",
+        "logs/statinfom",
+        "logs/uniquename.log",
+        "logs/uniquenamed.log",
+        "logs/world2.cash",
+        "logs/world2.chat",
+        "logs/world2.err",
+        "logs/world2.formatlog",
+        "logs/world2.log",
+        "logs/world2.trace"
+      ],
       "source_files_deleted": false
+    },
+    {
+      "priority": 6,
+      "id": "keep_gdeliveryd_directory",
+      "action": "keep_for_packaging",
+      "mask": "gdeliveryd/**",
+      "scope": "unmatched files after higher-priority exclusions",
+      "matched_files": 13,
+      "matched_paths": [
+        "gdeliveryd/auctionid.txt",
+        "gdeliveryd/domain.data",
+        "gdeliveryd/domain.sev",
+        "gdeliveryd/domain2.data",
+        "gdeliveryd/domain2.sev",
+        "gdeliveryd/domain2_cross.sev",
+        "gdeliveryd/filters",
+        "gdeliveryd/gamesys.conf",
+        "gdeliveryd/gdeliveryd",
+        "gdeliveryd/gdeliveryd1",
+        "gdeliveryd/script.lua",
+        "gdeliveryd/sysauctionlist.txt",
+        "gdeliveryd/webtradeid.txt"
+      ],
+      "packaging_method": "Keep source inputs; choose package destinations and generated configuration later."
+    },
+    {
+      "priority": 7,
+      "id": "keep_gamed_config_texts",
+      "action": "keep_for_packaging",
+      "mask": "gamed/config/**/*.txt",
+      "scope": "config itself and all subdirectories, after earlier exclusions",
+      "matched_files": 4,
+      "matched_paths": [
+        "gamed/config/sysauctionlist.txt",
+        "gamed/config/webtradeid.txt",
+        "gamed/config/world/world_targets.txt",
+        "gamed/config/world_targets.txt"
+      ],
+      "packaging_method": "Preserve the original game-data inputs."
+    },
+    {
+      "priority": 8,
+      "id": "remaining_text_files",
+      "action": "exclude_from_package",
+      "mask": "*.txt",
+      "scope": "file-name suffix at any depth, after earlier keep and exclude rules",
+      "matched_files": 2,
+      "matched_paths": [
+        "gamedbd/1.txt",
+        "gamedbd/listrole.txt"
+      ],
+      "source_files_deleted": false,
+      "runtime_validation": "Startup after this text-data exclusion has not been tested."
     }
-  ]
+  ],
+  "excluded_files": 241,
+  "preserved_files": 17,
+  "pending_map_files": 3925,
+  "decision_evaluation": "ascending priority; stop at first matched rule"
 }
