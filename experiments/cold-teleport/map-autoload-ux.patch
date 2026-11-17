@@ -1,0 +1,33 @@
+--- a/map-autoload.py
++++ b/map-autoload.py
+@@ -9 +9 @@
+-from time import monotonic
++from time import monotonic, time
+@@ -213,10 +213,17 @@
+-    if not await maps.request(world_tag):
+-        return False
+-    if read_session(directory) != session:
+-        log(f"teleport session ended while loading role={role_id}")
+-        return False
+-    pending = directory / "ready.tmp"
+-    pending.write_text(f"{session}\n", encoding="ascii")
+-    pending.replace(directory / "ready")
+-    log(f"teleport continuation queued role={role_id} worldtag={world_tag}")
+-    return True
++    screen = directory / "screen.pending"
++    screen_temp = directory / "screen.pending.tmp"
++    screen_temp.write_text(f"{session} {int(time()) + STARTUP_TIMEOUT + 5}\n", encoding="ascii")
++    screen_temp.replace(screen)
++    try:
++        if not await maps.request(world_tag):
++            return False
++        if read_session(directory) != session:
++            log(f"teleport session ended while loading role={role_id}")
++            return False
++        pending = directory / "ready.tmp"
++        pending.write_text(f"{session}\n", encoding="ascii")
++        pending.replace(directory / "ready")
++        log(f"teleport continuation queued role={role_id} worldtag={world_tag}")
++        return True
++    finally:
++        screen.unlink(missing_ok=True)
