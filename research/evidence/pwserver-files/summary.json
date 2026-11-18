@@ -15,7 +15,7 @@
   "map_directories": 113,
   "map_tree_files": 3926,
   "configured_base_paths": 101,
-  "rights_status": "Proposed, not runtime-validated",
+  "rights_status": "Package modes 0755 and 0644 validated on the selected 4311 layout in WSL. Per-file runtime state proposals remain for review.",
   "original_uid_gid": "Not stored in this 7z; not inferred from VM",
   "groups_are_not_final_exclusions": true,
   "source_collection_modified": false,
