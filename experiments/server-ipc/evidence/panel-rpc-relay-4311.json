@@ -1,0 +1,53 @@
+{
+  "build": "1.7.6 Build 4311",
+  "read_only_rpc": {
+    "3013": "GetRoleBase",
+    "8003": "GetRoleData"
+  },
+  "role_id": 16,
+  "gamedbd_sha256": "46e091b1c817132f3a99b1b55c7dcd1dd4ad1bb0102de0b77b25654f32040661",
+  "proxy": "systemd-socket-proxyd",
+  "separate_network_namespaces": true,
+  "default_routes": false,
+  "panel_tcp_before_proxy": {
+    "3013": {
+      "connect": "refused"
+    },
+    "8003": {
+      "connect": "refused"
+    }
+  },
+  "game_direct_unix": {
+    "3013": {
+      "retcode": 0,
+      "bytes": 835,
+      "sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413"
+    },
+    "8003": {
+      "retcode": 0,
+      "bytes": 5402,
+      "sha256": "9ffa5def8b6e75bcc970b79b469f1d7370016922a2f614d46a1adf4cdf574046"
+    }
+  },
+  "panel_tcp_forwarded_to_unix": {
+    "3013": {
+      "retcode": 0,
+      "bytes": 835,
+      "sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413"
+    },
+    "8003": {
+      "retcode": 0,
+      "bytes": 5402,
+      "sha256": "9ffa5def8b6e75bcc970b79b469f1d7370016922a2f614d46a1adf4cdf574046"
+    }
+  },
+  "panel_tcp_after_stopping_proxy": {
+    "3013": {
+      "connect": "refused"
+    },
+    "8003": {
+      "connect": "refused"
+    }
+  },
+  "native_unix_unchanged_after_stopping_proxy": true
+}
