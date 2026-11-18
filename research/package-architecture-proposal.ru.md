@@ -104,7 +104,7 @@ binary/uniquenamed/dbhome -> ../../database/uniquenamed/dbhome
 
 В каждом целевом каталоге вместе хранятся `dbdata` и `dblogs` его службы. После подключения тома `database` подготовка создаёт отсутствующие `database/gamedbd/dbhome` и `database/uniquenamed/dbhome` с правом записи для службы. Обе службы создают `dbdata` и `dblogs` в пустых целях. При обновлении сохраняется содержимое обоих каталогов. Висячие ссылки блокируют запуск. В WSL подтверждена готовность служб и двух карт на вновь созданных WDB. [Чистый запуск](../experiments/package-layout/clean-start-experiment.ru.md#wdb) [Устройство и инициализация WDB](storage-and-recovery.ru.md#создание-пустой-wdb)
 
-При установке на новую MariaDB отдельно инициализируются схемы `licenseservice` и `pw176`, затем импортируются штатные SQL-дампы с таблицами и процедурами. Для лицензирования нужна действующая запись для штатного клиента лицензий. [Проверка пустых схем](../experiments/package-layout/clean-start-experiment.ru.md#mariadb)
+При чистой установке MariaDB отдельно инициализируются схемы `licenseservice` и `pw176`. Штатные SQL-дампы служат источником DDL и процедур, при этом содержат также записи раздачи. Состав начальных данных чистой поставки определяется отдельно. Для лицензирования нужна действующая запись для штатного клиента лицензий. [Проверка пустых схем](../experiments/package-layout/clean-start-experiment.ru.md#mariadb) · [Содержимое дампов](../experiments/package-layout/clean-start-experiment.ru.md#содержимое-дампов)
 
 ## Хост и контейнер
 

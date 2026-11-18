@@ -313,5 +313,32 @@
     "mariadb": 0
   },
   "archive": "Linear/PWServer176.7z",
-  "build": 4311
+  "build": 4311,
+  "sql_dump_rows_after_fresh_import": {
+    "pw176": {
+      "sha256": "18d9207232091b7efdbe5bdf12260f8ecb6e470fa044f4376a6489ce42fdff33",
+      "tables": 39,
+      "empty_tables": 33,
+      "nonempty_tables": {
+        "admin_users": 1,
+        "auth": 52,
+        "point": 2,
+        "usecashlog": 2,
+        "usecashnow": 1,
+        "viptable": 2
+      }
+    },
+    "licenseservice": {
+      "sha256": "dbfa9789b976c992ba9c48423b02a6e0476da636c2e51b7d2479bbe3cb81ddc0",
+      "tables": 2,
+      "empty_tables": 1,
+      "nonempty_tables": {
+        "users": 1
+      }
+    }
+  },
+  "sql_dump_archive_crc32": {
+    "pw176": "A19C9268",
+    "licenseservice": "0A241412"
+  }
 }

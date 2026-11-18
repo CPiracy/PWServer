@@ -35,6 +35,20 @@
 
 H176 вызывает `FirstStepInit` до выбора менеджера конкретной карты и перед ответвлением процессов при запуске нескольких алиасов одним вызовом. Затем `global_world_manager::Init` или `instance_world_manager::Init` рассчитывает `base_path` и читает ресурсы своего шаблона. Создание очередной копии внутри уже работающего instance GS на показанном пути берёт объект из `_planes_pool`. Оно отличается от холодного запуска нового GS, для которого снова нужны общие и локальные входы. В ELF 4311 есть ссылки на `base_path` из обоих менеджеров и на `NPCGenFile`, `CollisionFile`, `MapDespFile` из `MapResManager::Init`. Готовность маршрута карты определяется отдельно от удачного открытия этих файлов. Точки H176 — `cgame/gs/start.cpp:241–304`, `cgame/gs/mapresman.cpp:28–42,63–112,130–232` и `cgame/gs/instance/instance_manager.cpp:778–815`. [Наблюдения по картам 4311](maps.ru.md) · [Ревизии исходников](source-coverage.ru.md)
 
+### Выбор варианта одного ресурса
+
+В архиве Linear есть несколько редакций для одного входного файла. Для каждого такого входа выбирается один файл, который будет доступен загрузчику по штатному ключу или пути.
+
+| Штатный файл | Вход загрузчика | Варианты в архиве |
+| --- | --- | --- |
+| `aipolicy.data` | `PolicyData` | Шесть редакций RU, EN и CN с метками 5124 и 5385. Штатный файл совпадает с `5124-ru-pure`. |
+| `tasks.data` | `QuestPackage` | Три редакции формата 191. RU и BR содержат по 21 606 корневых заданий, CN — 21 630. Штатный файл совпадает с RU 21 606. |
+| `elements.data` | `itemDataFile` | `elements-orig.data` и `elements-bug list 302.data` имеют тот же номер формата, что штатный файл. Это кандидаты на выбор после проверки с соответствующим клиентом. |
+| `rare_item.conf` | `RareItem` | `rare_item.conf` содержит 833 ID, `rare_item2.conf` — 17 ID и комментарий. Обе записи соответствуют формату списка, который читает `LoadRareItemList`. |
+| `gamedbd/clsconfig` | Импорт из `./clsconfig` | `clsconfig-o` и `clsconfig_176_pure` — разные архивные кандидаты на вход импорта. Для них проверен состав архива, а чистый запуск выполнен со штатным `clsconfig`. |
+
+Для заданий `QuestPackage2` отдельно подключает `dyn_tasks.data`. В одном запуске открываются выбранный основной пакет и пакет динамических заданий. `GlobalData` выбирает `world_targets.sev` в двоичном формате, а одноимённый `world_targets.txt` записан в UTF-16LE. [Загрузчик заданий](https://github.com/huzeming/176source/blob/c0992a29/cgame/gs/task/TaskServer.cpp#L18-L25) · [Сверка вариантов](server-locales.ru.md) · [Инвентарь Linear](evidence/distributions/linear-7z-archive.csv)
+
 ### Магазины и составные наборы
 
 `gs` 4311 последовательно открывает три настроенных каталога магазина за один запуск. В ELF `globaldata_loadserver` вызывается по `0x115618e`, а три вызова `load_malldata` по `0x151df03`, `0x151df4d` и `0x151df97` заполняют разные коллекции. Во всех трёх холодных прогонах зарегистрированы открытия `gshop.data`, `gshop1.data` и `gshop2.data`. [Загрузчик H176](https://github.com/huzeming/176source/blob/c0992a29/cgame/gs/template/globaldataman.cpp#L228-L256) · [Контроль открытий](../experiments/image-file-validation/evidence/image-file-validation.json)
@@ -46,12 +60,9 @@ H176 вызывает `FirstStepInit` до выбора менеджера ко�
 | `gshop2.data` | 5 | Магазин за баллы Cash VIP. `PlayerDoCashVipShopping` вызывает `GetPlayerMall3` и `SpendCashVipScore`. |
 | `gshop3.data` | 18 | Клиентский каталог костюмов. В `elementclient_64.exe` функция `GlobalData_Load` передаёт все четыре пути одному загрузчику, обращение к `Data\gshop3.data` находится по RVA `0x29221f`. Штатный серверный профиль 4311 запущен без этого файла. |
 
-Числа записей получены разбором файлов проверенного RU-клиента, которые совпадают с комплектом сервера по SHA-256. При отборе серверной поставки используем три точных пути из `MallData`, `Mall2Data`, `Mall3Data`. При сборке совместимого клиентского патча сохраняем и `gshop3.data`. `gshop*.data` из `gamed/config/мусор` находятся вне этих путей. [Хэши комплектов](server-patching.ru.md#что-меняется-в-build-4311) · [Клиентский набор](client-server-sync.ru.md)
+Числа записей получены разбором файлов проверенного RU-клиента, которые совпадают с комплектом сервера по SHA-256. Сохраняем все четыре используемых каталога. `MallData`, `Mall2Data` и `Mall3Data` образуют комплект входов сервера. `gshop3.data` сохраняем в наборе клиента. `gshop*.data` из `gamed/config/мусор` находятся вне этих путей. [Хэши комплектов](server-patching.ru.md#что-меняется-в-build-4311) · [Клиентский набор](client-server-sync.ru.md)
 
-Та же схема встречается у заданий и составных карт.
-
-- `tasks.data` и `dyn_tasks.data` через `QuestPackage` и `QuestPackage2`. В ELF `LoadTasksFromPack` вызывает оба загрузчика по `0x1560231` и `0x156027f`. Открытия обоих файлов видны в тех же холодных прогонах. Перевод базовых заданий выбирается отдельным путём `QuestPackage`.
-- Для составной карты `rand04` конфиг задаёт `base_path=random04/`, `mapres_type=maze` и `nPiece=64`. `MapResManager::Init` читает основной `npcgen.data`, затем загружает `npcgen/npcgen_1.data` … `npcgen/npcgen_64.data` в цикле. Основной вызов `CNPCGenMan::Load` в ELF 4311 находится по `0x11e88cf`, вызов для фрагментов по `0x11e89a2`. Состав из 65 файлов подтверждён архивом и кодом загрузчика для этой карты.
+Составные карты тоже используют несколько входов. Для карты `rand04` конфиг задаёт `base_path=random04/`, `mapres_type=maze` и `nPiece=64`. `MapResManager::Init` читает основной `npcgen.data`, затем загружает `npcgen/npcgen_1.data` … `npcgen/npcgen_64.data` в цикле. Основной вызов `CNPCGenMan::Load` в ELF 4311 находится по `0x11e88cf`, вызов для фрагментов по `0x11e89a2`. Состав из 65 файлов подтверждён архивом и кодом загрузчика для этой карты.
 
 ## Домены, WDB и античит
 
@@ -78,7 +89,7 @@ H176 вызывает `FirstStepInit` до выбора менеджера ко�
 
 В проверенном RU-клиенте соответствующие файлы содержат 52, 132 и 292 области. В `domain.data` совпали геометрия и соседи, а имена и расписание расходятся. В `domain2_cross.data` обнаружены различия только в полях имён. При подготовке клиента используем данные из согласованного клиентского набора. [Сверка доменов клиента и сервера](client-server-sync.ru.md#одноимённые-файлы-вне-патча)
 
-Для серверного локального профиля 4311 можно исключить три `gamed/config/domain*.data` и отдельный `gamed/config/domain2.sev`. Все четыре отсутствовали в контрольном чистом запуске с двумя зарегистрированными картами. В `gs` и его конфигах чтение этих путей не обнаружено. Для территориальных механик координатор открывает свои `gdeliveryd/domain.sev` и `gdeliveryd/domain2.sev`. `gdeliveryd/domain2_cross.sev` выбирается межсерверной веткой и сохраняется для поддержки этого профиля. [Чистый запуск](../experiments/package-layout/clean-start-experiment.ru.md#входные-файлы) · [Открытия файлов координатора](../experiments/image-file-validation/evidence/image-file-validation.json)
+Три `gamed/config/domain*.data` сохраняем как варианты клиентских ресурсов территорий. Все три и отдельный `gamed/config/domain2.sev` отсутствовали на контрольном чистом серверном запуске с двумя зарегистрированными картами. В `gs` и его конфигах чтение этих путей не обнаружено. Для территориальных механик координатор открывает свои `gdeliveryd/domain.sev` и `gdeliveryd/domain2.sev`. `gdeliveryd/domain2_cross.sev` выбирается межсерверной веткой и сохраняется для поддержки этого профиля. [Чистый запуск](../experiments/package-layout/clean-start-experiment.ru.md#входные-файлы) · [Открытия файлов координатора](../experiments/image-file-validation/evidence/image-file-validation.json)
 
 ### Справочники зон `serverlist.sev`
 
