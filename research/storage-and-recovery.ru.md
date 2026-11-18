@@ -42,6 +42,8 @@ WDB использует `open`, `pread`, `pwrite`, `ftruncate` и `fsync`. У �
 
 ## Контракты MariaDB
 
+Происхождение процедур и сравнение таблиц между выпусками описаны отдельно. [Исследование SQL](sql.ru.md)
+
 MySQL-интерфейс авторизации есть уже в доступном дереве `172source` (`1c425175`). Его `cnet/gauthd/Makefile:16` линкует `-lmysqlclient`, а `cnet/gauthd/gmysqlclient.cpp:104,147,361,395,420,450,501` показывает соединение через `mysql_real_connect`, проверку входа, учёт сессий и чтение прав. Оба дерева 1.7.6 сохраняют этот интерфейс. Извлечённые из `PWServer176.7z` `gauthd` и `licenseservice` совпали по SHA-256 с бинарниками VM. Оба требуют `libmariadb.so.3`, а отдельный сервер MariaDB 11.8.1 успешно принял обе сессии в сетевой пробе. Этого достаточно для подтверждения совместимости с раздачей. Официальный статус поддержки MariaDB разработчиками Perfect World остаётся открытым. [Отпечатки VM](evidence/fingerprints.tsv) · [Сетевая проба](../experiments/server-validation/evidence/sql-probe-ram.json) · [Документация MariaDB о совместимости с MySQL](https://mariadb.com/docs/release-notes/community-server/about/compatibility-and-differences/mariadb-vs-mysql-compatibility)
 
 На новой MariaDB 11.8.6 готовность SQL-сокета и пустые схемы позволили `licenseservice` открыть слушатель. Запрос к отсутствующей `users` завершил старт `gauthd` по `SIGUSR1`. После импорта `licenseservice.sql` оба процесса стартовали, а `pw176` осталась пустой и вызов `acquireuserpasswd` вернул ошибку 1305. После импорта `pw176.sql` проверены создание учётки и её поиск этими процедурами через SQL-учётку приложения. [Результат для пустых схем](../experiments/package-layout/clean-start-experiment.ru.md#mariadb)

@@ -1,0 +1,1748 @@
+{
+  "reference": {
+    "release": "1.7.6 Build 4311",
+    "archive": "Linear/PWServer176.7z",
+    "quest_locale": "ru",
+    "schemas": {
+      "pw176": {
+        "member": "root/sql/pw176.sql",
+        "bytes": 46212,
+        "sha256": "18d9207232091b7efdbe5bdf12260f8ecb6e470fa044f4376a6489ce42fdff33",
+        "crc32": "A19C9268",
+        "tables": [
+          "admin_users",
+          "adminuser",
+          "arena_players",
+          "arena_settings",
+          "arena_teams",
+          "auth",
+          "cdk",
+          "cdkexchangelog",
+          "echarts",
+          "elementitems",
+          "files",
+          "forbid",
+          "giftcardnew",
+          "giftcardrecord",
+          "gmpanel_users",
+          "iplimit",
+          "listfaction",
+          "listrolebrief",
+          "log_chat",
+          "log_main",
+          "login_log",
+          "online",
+          "pay",
+          "point",
+          "rewardpoints",
+          "roles",
+          "top",
+          "top_tasks",
+          "touchbuylist",
+          "touchmoney",
+          "usecashlog",
+          "usecashnow",
+          "users",
+          "uwebplayers",
+          "vipaward",
+          "vipcash",
+          "viptable",
+          "webshop",
+          "wshoplog"
+        ],
+        "procedures": [
+          "acquireuserpasswd",
+          "addForbid",
+          "addGM",
+          "addUserPriv",
+          "adduser",
+          "adduserpoint",
+          "changePasswd",
+          "changePasswd2",
+          "clearonlinerecords",
+          "delGM",
+          "delUserPriv",
+          "deleteTimeoutForbid",
+          "enableiplimit",
+          "lockuser",
+          "recordoffline",
+          "recordonline",
+          "remaintime",
+          "setiplimit",
+          "updateUserInfo",
+          "usecash"
+        ],
+        "functions": [],
+        "alters_applied": 55,
+        "table_definitions": {
+          "admin_users": {
+            "engine": "InnoDB",
+            "charset": "utf8mb4",
+            "collation": "utf8mb4_general_ci",
+            "columns_sha256": "d58ad13855494006debca67df87e46e091a1cb54b52936e33dd4fbe9d248c200",
+            "indexes_sha256": "66c292674ff334ff57c5e2d1212d4272e5d23f669d696ed1030300497006d8ef",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "e84edea4d2dbf83f6b9b46b3cc07f305de38b6a9a646f1dc46c807cf6d59da37"
+          },
+          "adminuser": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "656d6dde3db1b582333f0743efe7824ae840eed95b63aada4b13eb8fca48090d",
+            "indexes_sha256": "3b67aeeb23fc16f04705c4c056783d0912f33d0f42d9379bdb7b96445de6d249",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "arena_players": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "1e01941ca7e1865f74417153f0845dba6ee26b231508858649c5d8e69c8e97d3",
+            "indexes_sha256": "586d4fd6609edc876e4b7d6ab82007e710d93327adeaf6fce772573e7625fbf3",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "arena_settings": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "c6e7bcfd9924bfd4cefbbc79769b91778e5e7ab49a3a22b15d617ef505deda58",
+            "indexes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "arena_teams": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "43586fc847396155293af0ca21e20e7fef87246bcc092bf4139d3fde954e0ab9",
+            "indexes_sha256": "ba2f10711705be6c57541c8bd3f94646c2e0bf478588fcd2cd402ca73e9ec5ca",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "auth": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "5d5c4366e6a19622621b142c7844ae88b8d55f714e81c0de79c6e77eb7d45c32",
+            "indexes_sha256": "b71bcf1695f7ac71704e55be381a670d846cbe06dc09adfdf49bc69c67dda8f4",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "cdk": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "4790059b2ed2de46136b6f9f80379026534aa71a9640b97810414142c09f2e00",
+            "indexes_sha256": "3b67aeeb23fc16f04705c4c056783d0912f33d0f42d9379bdb7b96445de6d249",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "cdkexchangelog": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "b2d3bf72e213c1ebc3efb5b00b9bcaaffef5673263307693f3671290b49ad987",
+            "indexes_sha256": "3b67aeeb23fc16f04705c4c056783d0912f33d0f42d9379bdb7b96445de6d249",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "echarts": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "ef41f9387db5689c17a48e78e19b055594511533850469343187f6739ba15230",
+            "indexes_sha256": "3b67aeeb23fc16f04705c4c056783d0912f33d0f42d9379bdb7b96445de6d249",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "elementitems": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "ff173f53241055a5c0b61c6c651030be6ee835ff73d288389d2d5b3734885fa6",
+            "indexes_sha256": "5d1589044e99e5720cbcb35bf750e3931de0af63c384333b563748dddc0159d2",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "files": {
+            "engine": "MyISAM",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "df8b0b2eb167f72617507d0b6bbaf1a697bde97b9ee0a735b9e11dbaa0791f70",
+            "indexes_sha256": "3b67aeeb23fc16f04705c4c056783d0912f33d0f42d9379bdb7b96445de6d249",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "754a52d505f12d82bb5cc336248c30170d7996e59240200dcb0ec763fd0409f7"
+          },
+          "forbid": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "cf8f6fe899cbecb7ab8921608ad780bcc9c545f14f757f4175589aa04c362594",
+            "indexes_sha256": "8b8af48b67fc63338dee92a32ac0f00b448841dedf9ee123caf32c2f9152c24d",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "giftcardnew": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "daf99c3dfd4af57256f6ec13cbe51592f7ce9cd8b89fe02badd2b6fcfc921c01",
+            "indexes_sha256": "ac7e3f6e327fa53a4daea38cea7c1de70475317b1c600e73778515075a15d1ac",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "giftcardrecord": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "53078743b59a86face9825c978fe302bba43d77cd21d0918d150d7fdb306afd7",
+            "indexes_sha256": "8f2512b6edc6da139c8281efad3cf856c1325e131224a5034d0d6c2e37bc0f6f",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "gmpanel_users": {
+            "engine": "InnoDB",
+            "charset": "utf8mb4",
+            "collation": "utf8mb4_general_ci",
+            "columns_sha256": "3e97cd0f880ee8a6c5d225a2a254f49784ad9d652e1b87d4fb8be056b8272323",
+            "indexes_sha256": "66c292674ff334ff57c5e2d1212d4272e5d23f669d696ed1030300497006d8ef",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "e84edea4d2dbf83f6b9b46b3cc07f305de38b6a9a646f1dc46c807cf6d59da37"
+          },
+          "iplimit": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "250943933a42a3ca48167a9d62d1eadee4850e9c8127bfe23a8b0826856b8099",
+            "indexes_sha256": "61e3903de865015b75ac89a069854067182a576d987cb6fc1bb24e4b5f24ffca",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "listfaction": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "57b558552e1ae14eeb4a7757148cbbe76d0d0964cf2a0cb82fc3816e31d57aaf",
+            "indexes_sha256": "611de540e411e454b9f23e16bd580b3a4a10f695b6ce473586a7a53b575a2954",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "listrolebrief": {
+            "engine": "MyISAM",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "ea888d4806bc7caaaf87d7cd78d277d7a84c58d90bc2dadc045abe5196b63042",
+            "indexes_sha256": "004363a5a9b39053a915d8170383a5fad1c87dd7668da3add56f6635517c4f13",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "754a52d505f12d82bb5cc336248c30170d7996e59240200dcb0ec763fd0409f7"
+          },
+          "log_chat": {
+            "engine": "MyISAM",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "f21adb25bae621a35c176feacc4f1447cdaac3960878950b5a730be540325d83",
+            "indexes_sha256": "56d17a7220343f43bffee4cd5ae825624126699fc932dc8c1198fc2b348575fb",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "8a51254fa579d80f5d487c27cc5cac2aafddec07f8c3ac9ca91d63ea98cf675c"
+          },
+          "log_main": {
+            "engine": "MyISAM",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "c485adec32074e518921b164c96454992f462766997715a3843c2773e7cec40a",
+            "indexes_sha256": "e7369db00448f35e97803bca0efc1977839480cbfdb0a861ec74e34258de8687",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "8a51254fa579d80f5d487c27cc5cac2aafddec07f8c3ac9ca91d63ea98cf675c"
+          },
+          "login_log": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "9bae53b43d493f0f7100e1c21bbdf7a3fc4a3868cedc683932af868de037bacd",
+            "indexes_sha256": "1160f3e2642627beb77a04d3da38e5926992ffb57bc8169b4f21f8947f1de682",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "online": {
+            "engine": "MyISAM",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "88f172e85c97c9b4660a3cee7cb3d996793cc0db43f43ba5e5a3a7ac5d9633a1",
+            "indexes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "8a51254fa579d80f5d487c27cc5cac2aafddec07f8c3ac9ca91d63ea98cf675c"
+          },
+          "pay": {
+            "engine": "MyISAM",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "31e3d67ed71c318dcc5d1b2d2c4682564f794dcb843c0282724a4e3c3819cb3a",
+            "indexes_sha256": "3b67aeeb23fc16f04705c4c056783d0912f33d0f42d9379bdb7b96445de6d249",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "8a51254fa579d80f5d487c27cc5cac2aafddec07f8c3ac9ca91d63ea98cf675c"
+          },
+          "point": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "e94f1606e476d6379860a73ad09c3944603b979fc1e375446c2814f57d2a425f",
+            "indexes_sha256": "b3bf71bcce211c8243f150fd20448818cedfe5945279fe881e1025557453fdfe",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "rewardpoints": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "22cb8eb36732c16ccbd351a406879ab471e4f513a5512d492f7e37b91dd3f803",
+            "indexes_sha256": "004363a5a9b39053a915d8170383a5fad1c87dd7668da3add56f6635517c4f13",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "roles": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "80972e4fbe53ba091a389a968d3a984f06c162c5c9226560651a80702369892f",
+            "indexes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "top": {
+            "engine": "InnoDB",
+            "charset": "cp1251",
+            "collation": "cp1251_general_ci",
+            "columns_sha256": "3eca9ae7c33a818c21948099c5b021fccd4e57b0050b7b49a9d1efa46c8fcea4",
+            "indexes_sha256": "3fedcf6b0f233cba034aaa7bc4b2776c96480d2c16eb0b4209eb57d724fa26f9",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "13de7bf2b94904175b395e926adadf7979873d205be514e3a3ef0ec95407d053"
+          },
+          "top_tasks": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "649b09401fbbd8bd8c919a46b365dc4b939af409e9080e2b2d24bb22a675b03f",
+            "indexes_sha256": "aa3d5597ddb888fef839b91089c9cfe0d05f9858ca0edf7477615f111077c0bc",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "touchbuylist": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "3b642cdd1f8e8818bef85e2c58ea0b22aedfb8133158f3269d93645876dd4d02",
+            "indexes_sha256": "e50e8fc5aaf09a42ea5dbf1328ab869d9cc79246c49a0efb4e6db2f4ed930ea3",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "d130fac4e026eca3b3b777d0c78a3a593a83d9aa728383f4a2a515a169207ad0"
+          },
+          "touchmoney": {
+            "engine": "MyISAM",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "225e26edf5292f6113522a9e061c7a52508ad2c5046e4b4e97a0af6c54775707",
+            "indexes_sha256": "74ce6e8dfef900536834111da82eb480f82d6ade020b4f103905c21db51b6d5d",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "5bd4e729dd257bebe4113554660235b45a70149c7eb35d2347e606831ad50419"
+          },
+          "usecashlog": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "6f8ff594f71f453c9b8ad87d6138a0fb27c97bcad49ae20b6d26ff276b582dda",
+            "indexes_sha256": "e48b725b790b6453b02faef846fbaa6e6f3a7adabb51d6b4627b61c443d159b6",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "usecashnow": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "95080dc53c947328ba99d2945ed8234e7a0796961fd62596b3f8fc5ed3037821",
+            "indexes_sha256": "0737ecfd1286972a2a7d61eefa090d5afb3bc16b4889732e2fe86f511cbc3d28",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "users": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "e4dc3392f9f782267197ab7b7c5af755f6c54e054491826c8a2fe93ecba9d2a6",
+            "indexes_sha256": "6db716e3a796150c2b0b70f5ab7a3aa1569ae11c2057318d05d837f6bfc82775",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "uwebplayers": {
+            "engine": "MyISAM",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "5edcec1906de48f56cb031eeaf82fd58bb73603079fb4a196e361ec8148a10e7",
+            "indexes_sha256": "004363a5a9b39053a915d8170383a5fad1c87dd7668da3add56f6635517c4f13",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "754a52d505f12d82bb5cc336248c30170d7996e59240200dcb0ec763fd0409f7"
+          },
+          "vipaward": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "f6a35f65f56da15841dfb272b788483ee5ecd263daa87cb33767fb35dd9c118b",
+            "indexes_sha256": "aedf6b62074d81c253ba0f97a4c9865e9e7fc4d4564d07ad1f0936fa7a0fcadd",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "vipcash": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "d304226885c86f387eb0d0af5f63d124a76a7fb780179d9e1d8eda58e58dc8c7",
+            "indexes_sha256": "410b4c6861f04a99ad62a790460371c802ae854451d34ab6cf474b50de9a6851",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "viptable": {
+            "engine": "InnoDB",
+            "charset": "latin1",
+            "collation": "latin1_swedish_ci",
+            "columns_sha256": "de039e1ca1eacf8326bf2b5889d1e7d556a430189b9d55282e8c56452ff2290e",
+            "indexes_sha256": "b6fb8a267f3a86efca39031c3521e3687e19a485b7e63e8aed539ae7ecf68485",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "976f71c3b002b3fa07ae7e8383c9e68b5306821177af1af7e078e5562a1bf90f"
+          },
+          "webshop": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "c5356075ed3c1d32cb5e744c5251c0b9d4add6220d481c4e10ced6c245e4d91e",
+            "indexes_sha256": "3b67aeeb23fc16f04705c4c056783d0912f33d0f42d9379bdb7b96445de6d249",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          },
+          "wshoplog": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "bc725e6a38ab17c8b62c1dafa18eff18b07eaab62e3e3b56a93bea135f281983",
+            "indexes_sha256": "3b67aeeb23fc16f04705c4c056783d0912f33d0f42d9379bdb7b96445de6d249",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "042b0b3e7831b59af2d349a4c0e71e58d712f16665ac75d6aefbdcc76e1becee"
+          }
+        }
+      },
+      "licenseservice": {
+        "member": "root/sql/licenseservice.sql",
+        "bytes": 2784,
+        "sha256": "dbfa9789b976c992ba9c48423b02a6e0476da636c2e51b7d2479bbe3cb81ddc0",
+        "crc32": "0A241412",
+        "tables": [
+          "logs",
+          "users"
+        ],
+        "procedures": [],
+        "functions": [],
+        "alters_applied": 4,
+        "table_definitions": {
+          "logs": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "4cc8dfc1e8dbd42d4267c27477374604372ed3e31054890600fb9f7efec18e99",
+            "indexes_sha256": "4494a6fa11d3f91ad11a93400526d878bb044791935e3459ffcaf77869bcde67",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "446a34bff4b85994dad8890f2ff36c2c76d5149ffe0815d608c7438f7c60a0c1"
+          },
+          "users": {
+            "engine": "InnoDB",
+            "charset": "utf8mb3",
+            "collation": "utf8mb3_general_ci",
+            "columns_sha256": "314a4c8b214e5a92e0230e7bd91b03ceb69caa0be0df08c9b8d8e0fd7a5c43fe",
+            "indexes_sha256": "578d1e9839cb46bfb8edec0d1c0a9433b692652aeb7d8ed949c84cc9637ed116",
+            "constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "options_sha256": "446a34bff4b85994dad8890f2ff36c2c76d5149ffe0815d608c7438f7c60a0c1"
+          }
+        }
+      }
+    }
+  },
+  "methodology": {
+    "comparison": "Static comparison of provided SQL definitions",
+    "table_fields": [
+      "Column name and order",
+      "Column type",
+      "Nullability and defaults",
+      "AUTO_INCREMENT declaration",
+      "Primary and secondary index definitions",
+      "Engine",
+      "Character set and collation"
+    ],
+    "table_normalization": [
+      "Key additions and column changes in ALTER TABLE applied",
+      "Integer display widths removed",
+      "Integer literal defaults canonicalized",
+      "Legacy utf8 canonicalized to utf8mb3 with matching collation",
+      "Runtime AUTO_INCREMENT counters and comments ignored"
+    ],
+    "routine_normalization": [
+      "Parameter declaration and BEGIN/END-body tokens compared",
+      "Identifier quotes, case and whitespace normalized",
+      "INT/INTEGER normalized",
+      "Routine DEFINER, metadata attributes and delimiter ignored"
+    ],
+    "source_dates": "Public post or file commit; dumps have separate self-reported creation times when available.",
+    "current_procedures": "Names, parameters, characteristics and body fingerprints with DEFINER excluded.",
+    "current_tables": "Ordered columns, indexes, constraints and table options after applying ALTER TABLE. Runtime AUTO_INCREMENT counters are excluded."
+  },
+  "distributions": {
+    "talolan": {
+      "archive": "RageZone/talolan 1.7.6.zip",
+      "quest_locale": "ru",
+      "database_defaults": {
+        "pw176": {
+          "charset": "utf8mb4",
+          "collation": "utf8mb4_general_ci"
+        },
+        "licenseservice": {
+          "charset": "utf8mb4",
+          "collation": "utf8mb4_general_ci"
+        }
+      },
+      "schemas": {
+        "pw176": {
+          "member": "/root/sql/pw176.sql",
+          "bytes": 37956,
+          "sha256": "c8724ab5b4484c2278923001b55fb75b487e68f87c680d7b45f73c0ff9de8b28",
+          "crc32": "624D664D",
+          "functions": [],
+          "table_definitions_matching_reference": 39,
+          "procedure_definitions_matching_reference": 20
+        },
+        "licenseservice": {
+          "member": "/root/sql/licenseservice.sql",
+          "bytes": 33902,
+          "sha256": "e93e7cec14d5bc694b4c04826f14c9e043a68128006543782c3e5be645e46117",
+          "crc32": "2F175FB7",
+          "functions": [],
+          "table_definitions_matching_reference": 2,
+          "procedure_definitions_matching_reference": 0
+        }
+      }
+    },
+    "rutracker": {
+      "archive": "RuTracker/Perfect World v1.7.6 Build 4311/PWSERVER-1.7.6.7z",
+      "quest_locale": "ru",
+      "database_defaults": {
+        "pw176": {
+          "charset": "utf8mb4",
+          "collation": "utf8mb4_general_ci"
+        },
+        "licenseservice": {
+          "charset": "utf8mb4",
+          "collation": "utf8mb4_uca1400_ai_ci"
+        }
+      },
+      "schemas": {
+        "pw176": {
+          "member": "/root/sql/pw176.sql",
+          "bytes": 37956,
+          "sha256": "c8724ab5b4484c2278923001b55fb75b487e68f87c680d7b45f73c0ff9de8b28",
+          "crc32": "624D664D",
+          "functions": [],
+          "table_definitions_matching_reference": 39,
+          "procedure_definitions_matching_reference": 20
+        },
+        "licenseservice": {
+          "member": "/root/sql/licenseservice.sql",
+          "bytes": 33902,
+          "sha256": "9a13f0487d9f4d517ad2e760d22216f4802b2de13e2b63969638e37969633d12",
+          "crc32": "4E3D2D15",
+          "functions": [],
+          "table_definitions_matching_reference": 2,
+          "procedure_definitions_matching_reference": 0
+        }
+      }
+    },
+    "sranus_2025": {
+      "archive": "RageZone/pw_server_1.7.6_2025.gz",
+      "format": "tar",
+      "inventory_entries": 4924,
+      "quest_locale": "zh",
+      "schemas": null,
+      "nested_archive": "pwserver/gamed/config/a05/npcgen.rar",
+      "nested_archive_files": [
+        "npcgen.data"
+      ],
+      "binaries_matching_linear_sha256": {
+        "gauthd/gauthd": "573c0198dee480b892413df0a9c9fa9b5c57900f59b0f0e4da89a18668e015bd",
+        "licenseservice/licenseservice": "d0bd766311b829a88cb045d9ce6edd89829d9e3d005975822bdaf08bb32c7dce"
+      }
+    }
+  },
+  "historical_sql": [
+    {
+      "id": "rz-146-v70",
+      "citations": [
+        "https://forum.ragezone.com/threads/perfect-world-1-4-6-register-problem.942614/post-7678418"
+      ],
+      "published_on": "2013-07-04",
+      "context": "Perfect World 1.4.6 v70, release-user post",
+      "sha256_of_ddl_only_extract": "CDD4B0AFEE2E7E5FDCB5F44BBBD2E0D0F377A4579D5ED2D6046D3F09AE59D28D",
+      "table_count": 7,
+      "matching_tables": [
+        "auth",
+        "forbid",
+        "iplimit",
+        "point",
+        "usecashlog",
+        "usecashnow",
+        "users"
+      ],
+      "changed_shared_tables": [],
+      "tables_only_in_source": [],
+      "procedure_count": 19,
+      "matching_procedures": [
+        "acquireuserpasswd",
+        "addForbid",
+        "addGM",
+        "adduser",
+        "adduserpoint",
+        "addUserPriv",
+        "changePasswd",
+        "changePasswd2",
+        "clearonlinerecords",
+        "deleteTimeoutForbid",
+        "delUserPriv",
+        "enableiplimit",
+        "lockuser",
+        "remaintime",
+        "setiplimit",
+        "usecash"
+      ],
+      "changed_shared_procedures": [
+        {
+          "name": "recordoffline",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "extra_online_delete_in_build_4311_before_row_count"
+          ]
+        },
+        {
+          "name": "recordonline",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "extra_online_insert_in_build_4311_before_found_rows"
+          ]
+        },
+        {
+          "name": "updateUserInfo",
+          "signature_matches": false,
+          "body_matches": true,
+          "delta_labels": [
+            "build_4311_13_parameters_legacy_15",
+            "body_unchanged"
+          ]
+        }
+      ],
+      "procedures_only_in_source": [],
+      "procedures_only_in_4311": [
+        "delGM"
+      ]
+    },
+    {
+      "id": "rz-146-v63",
+      "citations": [
+        "https://forum.ragezone.com/threads/perfect-world-1-4-6-register-problem.942614/post-7678418"
+      ],
+      "published_on": "2013-07-04",
+      "context": "Perfect World 1.4.6 v63, release-user post",
+      "sha256_of_ddl_only_extract": "65CD08FD42D275CAE1B11D41D8CDAAD5A0AEA6311E4A391A36B626EC2EDE654A",
+      "table_count": 8,
+      "matching_tables": [
+        "auth",
+        "forbid",
+        "iplimit",
+        "point",
+        "usecashlog",
+        "usecashnow",
+        "users"
+      ],
+      "changed_shared_tables": [
+        {
+          "name": "roles",
+          "source_column_count": 16,
+          "build_4311_column_count": 16,
+          "common_column_order_matches": true,
+          "engine_matches": true,
+          "charset_and_collation_match": true,
+          "indexes_match": true,
+          "columns_only_in_source": [],
+          "columns_only_in_build_4311": [],
+          "columns_with_definition_differences": [
+            "role_name",
+            "faction_name"
+          ],
+          "indexes_only_in_source": [],
+          "indexes_only_in_build_4311": [],
+          "indexes_with_definition_differences": []
+        }
+      ],
+      "tables_only_in_source": [],
+      "procedure_count": 19,
+      "matching_procedures": [
+        "addForbid",
+        "addGM",
+        "adduser",
+        "adduserpoint",
+        "addUserPriv",
+        "changePasswd",
+        "changePasswd2",
+        "clearonlinerecords",
+        "deleteTimeoutForbid",
+        "delUserPriv",
+        "enableiplimit",
+        "lockuser",
+        "remaintime",
+        "setiplimit",
+        "usecash"
+      ],
+      "changed_shared_procedures": [
+        {
+          "name": "acquireuserpasswd",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "source_uses_transaction_temp_variable_and_hex_conversion",
+            "build_4311_direct_select"
+          ]
+        },
+        {
+          "name": "recordoffline",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "extra_online_delete_in_build_4311_before_row_count"
+          ]
+        },
+        {
+          "name": "recordonline",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "extra_online_insert_in_build_4311_before_found_rows"
+          ]
+        },
+        {
+          "name": "updateUserInfo",
+          "signature_matches": false,
+          "body_matches": true,
+          "delta_labels": [
+            "build_4311_13_parameters_legacy_15",
+            "body_unchanged"
+          ]
+        }
+      ],
+      "procedures_only_in_source": [],
+      "procedures_only_in_4311": [
+        "delGM"
+      ]
+    },
+    {
+      "id": "linear-155",
+      "archive": "Linear/PWServer155.7z",
+      "member": "home/sql/pw.sql",
+      "sha256": "d5f4a35eb7887da259fc1e7fa0ffe3cf9d220a2a10cc04d4f009910f3721eca5",
+      "table_count": 7,
+      "matching_tables": [
+        "auth",
+        "forbid",
+        "iplimit",
+        "point",
+        "usecashlog",
+        "usecashnow",
+        "users"
+      ],
+      "changed_shared_tables": [],
+      "tables_only_in_source": [],
+      "procedure_count": 19,
+      "matching_procedures": [
+        "acquireuserpasswd",
+        "addForbid",
+        "addGM",
+        "adduser",
+        "adduserpoint",
+        "addUserPriv",
+        "changePasswd",
+        "changePasswd2",
+        "clearonlinerecords",
+        "deleteTimeoutForbid",
+        "delUserPriv",
+        "enableiplimit",
+        "lockuser",
+        "remaintime",
+        "setiplimit",
+        "usecash"
+      ],
+      "changed_shared_procedures": [
+        {
+          "name": "recordoffline",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "extra_online_delete_in_build_4311_before_row_count"
+          ]
+        },
+        {
+          "name": "recordonline",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "extra_online_insert_in_build_4311_before_found_rows"
+          ]
+        },
+        {
+          "name": "updateUserInfo",
+          "signature_matches": false,
+          "body_matches": true,
+          "delta_labels": [
+            "build_4311_13_parameters_legacy_15",
+            "body_unchanged"
+          ]
+        }
+      ],
+      "procedures_only_in_source": [],
+      "procedures_only_in_4311": [
+        "delGM"
+      ]
+    },
+    {
+      "id": "magenik-2015-demo",
+      "citations": [
+        "https://github.com/magenik/perfect-world-webplatform/blob/87537b98931aea29468df1b8d34b2ee29fac1caa/.setup/demo.sql"
+      ],
+      "published_on": "2015-01-19",
+      "declared_dump_created_at": "2015-01-19 20:46:17",
+      "context": "Perfect World web-platform self-contained demo schema, MySQL 5.5.40",
+      "git_blob_sha1": "a9392d852a9a0cea49e9160ba848b20392ab5977",
+      "sha256": "0b19c054d7d3d2e2a1a3569e1fed963c117ce11c5f9f4000c3a383ed548212a9",
+      "table_count": 12,
+      "matching_tables": [
+        "auth",
+        "iplimit"
+      ],
+      "changed_shared_tables": [
+        {
+          "name": "forbid",
+          "source_column_count": 6,
+          "build_4311_column_count": 6,
+          "common_column_order_matches": true,
+          "engine_matches": true,
+          "charset_and_collation_match": true,
+          "indexes_match": true,
+          "columns_only_in_source": [],
+          "columns_only_in_build_4311": [],
+          "columns_with_definition_differences": [
+            "gmroleid"
+          ],
+          "indexes_only_in_source": [],
+          "indexes_only_in_build_4311": [],
+          "indexes_with_definition_differences": []
+        },
+        {
+          "name": "point",
+          "source_column_count": 8,
+          "build_4311_column_count": 8,
+          "common_column_order_matches": true,
+          "engine_matches": true,
+          "charset_and_collation_match": true,
+          "indexes_match": false,
+          "columns_only_in_source": [],
+          "columns_only_in_build_4311": [],
+          "columns_with_definition_differences": [
+            "uid",
+            "aid",
+            "time",
+            "zoneid",
+            "zonelocalid"
+          ],
+          "indexes_only_in_source": [
+            "point_aid_zoneid_index"
+          ],
+          "indexes_only_in_build_4311": [
+            "ix_point_aidzoneid"
+          ],
+          "indexes_with_definition_differences": []
+        },
+        {
+          "name": "roles",
+          "source_column_count": 17,
+          "build_4311_column_count": 16,
+          "common_column_order_matches": true,
+          "engine_matches": true,
+          "charset_and_collation_match": true,
+          "indexes_match": true,
+          "columns_only_in_source": [
+            "role_level2"
+          ],
+          "columns_only_in_build_4311": [],
+          "columns_with_definition_differences": [],
+          "indexes_only_in_source": [],
+          "indexes_only_in_build_4311": [],
+          "indexes_with_definition_differences": []
+        },
+        {
+          "name": "usecashlog",
+          "source_column_count": 9,
+          "build_4311_column_count": 9,
+          "common_column_order_matches": true,
+          "engine_matches": true,
+          "charset_and_collation_match": true,
+          "indexes_match": false,
+          "columns_only_in_source": [],
+          "columns_only_in_build_4311": [],
+          "columns_with_definition_differences": [
+            "sn"
+          ],
+          "indexes_only_in_source": [
+            "usecashlog_creatime_index",
+            "usecashlog_userid_zoneid_sn_index"
+          ],
+          "indexes_only_in_build_4311": [
+            "ix_usecashlog_creatime",
+            "ix_usecashlog_uzs"
+          ],
+          "indexes_with_definition_differences": []
+        },
+        {
+          "name": "usecashnow",
+          "source_column_count": 8,
+          "build_4311_column_count": 8,
+          "common_column_order_matches": true,
+          "engine_matches": true,
+          "charset_and_collation_match": true,
+          "indexes_match": false,
+          "columns_only_in_source": [],
+          "columns_only_in_build_4311": [],
+          "columns_with_definition_differences": [],
+          "indexes_only_in_source": [
+            "usecashnow_creatime_index",
+            "usecashnow_status_index"
+          ],
+          "indexes_only_in_build_4311": [
+            "ix_usecashnow_creatime",
+            "ix_usecashnow_status"
+          ],
+          "indexes_with_definition_differences": []
+        },
+        {
+          "name": "users",
+          "source_column_count": 37,
+          "build_4311_column_count": 19,
+          "common_column_order_matches": false,
+          "engine_matches": true,
+          "charset_and_collation_match": true,
+          "indexes_match": false,
+          "columns_only_in_source": [
+            "password",
+            "bio",
+            "dob",
+            "pic",
+            "country",
+            "state",
+            "postal",
+            "now_sn",
+            "permissions",
+            "activated",
+            "activation_code",
+            "activated_at",
+            "last_login",
+            "persist_code",
+            "reset_password_code",
+            "first_name",
+            "last_name",
+            "created_at",
+            "updated_at",
+            "deleted_at"
+          ],
+          "columns_only_in_build_4311": [
+            "postalcode",
+            "creatime"
+          ],
+          "columns_with_definition_differences": [
+            "id",
+            "mobilenumber",
+            "province",
+            "gender",
+            "city",
+            "address",
+            "phonenumber",
+            "qq"
+          ],
+          "indexes_only_in_source": [
+            "users_name_unique",
+            "users_email_unique",
+            "users_activation_code_index",
+            "users_reset_password_code_index"
+          ],
+          "indexes_only_in_build_4311": [
+            "ix_users_name",
+            "ix_users_creatime"
+          ],
+          "indexes_with_definition_differences": []
+        }
+      ],
+      "tables_only_in_source": [
+        "groups",
+        "migrations",
+        "throttle",
+        "users_groups"
+      ],
+      "procedure_count": 23,
+      "matching_procedures": [
+        "addForbid",
+        "addGM",
+        "addUserPriv",
+        "changePasswd2",
+        "clearonlinerecords",
+        "deleteTimeoutForbid",
+        "delUserPriv",
+        "enableiplimit",
+        "lockuser",
+        "remaintime",
+        "setiplimit",
+        "usecash"
+      ],
+      "changed_shared_procedures": [
+        {
+          "name": "acquireuserpasswd",
+          "signature_matches": true,
+          "body_matches": false
+        },
+        {
+          "name": "adduserpoint",
+          "signature_matches": true,
+          "body_matches": false
+        },
+        {
+          "name": "changePasswd",
+          "signature_matches": false,
+          "body_matches": false
+        },
+        {
+          "name": "recordoffline",
+          "signature_matches": true,
+          "body_matches": false
+        },
+        {
+          "name": "recordonline",
+          "signature_matches": true,
+          "body_matches": false
+        },
+        {
+          "name": "updateUserInfo",
+          "signature_matches": false,
+          "body_matches": true
+        }
+      ],
+      "procedures_only_in_source": [
+        "addaccount",
+        "addcash",
+        "addusecashnow",
+        "adduser_gamecp",
+        "usecash_good"
+      ],
+      "procedures_only_in_4311": [
+        "adduser",
+        "delGM"
+      ]
+    },
+    {
+      "id": "oss-155-2567",
+      "citations": [
+        "https://github.com/oss-perfectworld/perfectworld/blob/0c1439c8155108d4d368bcaeefc47de0134317ea/sql/db.sql",
+        "https://forum.ragezone.com/threads/perfect-world-server-1-5-5-in-docker-compose.1203681/"
+      ],
+      "published_on": "2022-02-23",
+      "context": "Third-party Docker deployment for Perfect World 1.5.5 build 2567",
+      "git_blob_sha1": "3d2abc8d73f7fd8ce3a18b81d4be037ee4b938a3",
+      "sha256": "3a6e1ed40ebefd45a90e0aab682ec33063171ffeef3e48c6ecb167caf68b7e9d",
+      "table_count": 8,
+      "matching_tables": [
+        "auth",
+        "forbid",
+        "iplimit",
+        "point",
+        "roles",
+        "usecashlog",
+        "usecashnow",
+        "users"
+      ],
+      "changed_shared_tables": [],
+      "tables_only_in_source": [],
+      "procedure_count": 19,
+      "matching_procedures": [
+        "acquireuserpasswd",
+        "addForbid",
+        "addGM",
+        "adduser",
+        "adduserpoint",
+        "addUserPriv",
+        "changePasswd",
+        "changePasswd2",
+        "clearonlinerecords",
+        "deleteTimeoutForbid",
+        "delUserPriv",
+        "enableiplimit",
+        "lockuser",
+        "remaintime",
+        "setiplimit",
+        "usecash"
+      ],
+      "changed_shared_procedures": [
+        {
+          "name": "recordoffline",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "extra_online_delete_in_build_4311_before_row_count"
+          ]
+        },
+        {
+          "name": "recordonline",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "extra_online_insert_in_build_4311_before_found_rows"
+          ]
+        },
+        {
+          "name": "updateUserInfo",
+          "signature_matches": false,
+          "body_matches": true,
+          "delta_labels": [
+            "build_4311_13_parameters_legacy_15",
+            "body_unchanged"
+          ]
+        }
+      ],
+      "procedures_only_in_source": [],
+      "procedures_only_in_4311": [
+        "delGM"
+      ]
+    },
+    {
+      "id": "hrace009-pw172-repo",
+      "citations": [
+        "https://github.com/hrace009/PW172v11x64/blob/fdb6773b31c5e4b9ccd24d9ff5723433be8281a4/sql/pw.sql",
+        "https://github.com/hrace009/PW172v11x64/blob/fdb6773b31c5e4b9ccd24d9ff5723433be8281a4/README.MD#L1"
+      ],
+      "published_on": "2024-10-29",
+      "context": "Repository labeled PW172v11x64; same-commit README identifies a 1.6.2 guide",
+      "git_blob_sha1": "83ba073a090eaeedd0079b6bac0b11beaf01a87a",
+      "table_count": 7,
+      "matching_tables": [
+        "auth",
+        "forbid",
+        "iplimit",
+        "point",
+        "usecashlog",
+        "usecashnow"
+      ],
+      "changed_shared_tables": [
+        {
+          "name": "users",
+          "source_column_count": 19,
+          "build_4311_column_count": 19,
+          "common_column_order_matches": true,
+          "engine_matches": true,
+          "charset_and_collation_match": true,
+          "indexes_match": true,
+          "columns_only_in_source": [],
+          "columns_only_in_build_4311": [],
+          "columns_with_definition_differences": [
+            "passwd"
+          ],
+          "indexes_only_in_source": [],
+          "indexes_only_in_build_4311": [],
+          "indexes_with_definition_differences": []
+        }
+      ],
+      "tables_only_in_source": [],
+      "procedure_count": 19,
+      "matching_procedures": [
+        "acquireuserpasswd",
+        "addForbid",
+        "addGM",
+        "adduser",
+        "adduserpoint",
+        "addUserPriv",
+        "changePasswd",
+        "changePasswd2",
+        "clearonlinerecords",
+        "deleteTimeoutForbid",
+        "delUserPriv",
+        "enableiplimit",
+        "lockuser",
+        "remaintime",
+        "setiplimit",
+        "usecash"
+      ],
+      "changed_shared_procedures": [
+        {
+          "name": "recordoffline",
+          "signature_matches": true,
+          "body_matches": false
+        },
+        {
+          "name": "recordonline",
+          "signature_matches": true,
+          "body_matches": false
+        },
+        {
+          "name": "updateUserInfo",
+          "signature_matches": false,
+          "body_matches": true
+        }
+      ],
+      "procedures_only_in_source": [],
+      "procedures_only_in_4311": [
+        "delGM"
+      ]
+    },
+    {
+      "id": "hoang-pwtools-pwa",
+      "citations": [
+        "https://github.com/hoangnguyent/pwtools/blob/8dd9ba34e02d07ea6d6c814a4ffd1b6a2a570024/pwa.sql",
+        "https://forum.ragezone.com/threads/share-script-to-install-game-server-automatically.1237305/"
+      ],
+      "published_on": "2024-11-25",
+      "declared_dump_created_at": "2021-04-30 19:47:57",
+      "context": "Separate PWTools installer SQL, MariaDB 10.3.27. Author demonstrated Vietnamese localization with game version 1.7.3; dump origin build unspecified.",
+      "git_blob_sha1": "dbe9ee524665b5865b90f054859fd8b38927805d",
+      "sha256": "a747f666bfe292d64589e501f9d54d376c080eac7783b19ea9c50f3babc8215a",
+      "table_count": 13,
+      "matching_tables": [
+        "auth",
+        "files",
+        "forbid",
+        "iplimit",
+        "online",
+        "point",
+        "roles",
+        "usecashlog",
+        "usecashnow",
+        "users",
+        "uwebplayers",
+        "webshop",
+        "wshoplog"
+      ],
+      "changed_shared_tables": [],
+      "tables_only_in_source": [],
+      "procedure_count": 20,
+      "matching_procedures": [
+        "acquireuserpasswd",
+        "addForbid",
+        "addGM",
+        "adduser",
+        "adduserpoint",
+        "addUserPriv",
+        "changePasswd",
+        "changePasswd2",
+        "clearonlinerecords",
+        "deleteTimeoutForbid",
+        "delGM",
+        "delUserPriv",
+        "enableiplimit",
+        "lockuser",
+        "recordoffline",
+        "recordonline",
+        "remaintime",
+        "setiplimit",
+        "updateUserInfo",
+        "usecash"
+      ],
+      "changed_shared_procedures": [],
+      "procedures_only_in_source": [],
+      "procedures_only_in_4311": []
+    },
+    {
+      "id": "shadowvzs-pwadmin-routines",
+      "citations": [
+        "https://github.com/shadowvzs/pwAdmin/blob/36d791811472b5bae825f1986886b428e0510625/SQL/PW.sql"
+      ],
+      "published_on": "2023-12-08",
+      "context": "PWAdmin community panel repository; file added in MariaDB and PHP 8 update",
+      "git_blob_sha1": "9baf357f9aedd382dd9542d063287c2b20db7b14",
+      "sha256": "c6294286f6bffa12231d6da56eed3f2bd094329072fdf2304f837f21983073a8",
+      "procedure_count": 20,
+      "matching_procedures": [
+        "addForbid",
+        "addGM",
+        "adduserpoint",
+        "addUserPriv",
+        "changePasswd",
+        "changePasswd2",
+        "deleteTimeoutForbid",
+        "delGM",
+        "delUserPriv",
+        "enableiplimit",
+        "lockuser",
+        "recordoffline",
+        "recordonline",
+        "remaintime",
+        "setiplimit",
+        "usecash"
+      ],
+      "changed_shared_procedures": [
+        {
+          "name": "acquireuserpasswd",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "source_uses_transaction_temp_variable_and_hex_conversion",
+            "build_4311_direct_select"
+          ]
+        },
+        {
+          "name": "adduser",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "different_initial_id"
+          ]
+        },
+        {
+          "name": "clearonlinerecords",
+          "signature_matches": true,
+          "body_matches": false,
+          "delta_labels": [
+            "extra_table_online_clear_in_source"
+          ]
+        },
+        {
+          "name": "updateUserInfo",
+          "signature_matches": false,
+          "body_matches": true,
+          "delta_labels": [
+            "build_4311_13_parameters_legacy_15",
+            "body_unchanged"
+          ]
+        }
+      ],
+      "procedures_only_in_source": [],
+      "procedures_only_in_4311": []
+    }
+  ],
+  "tables_in_4311_but_absent_from_pwtools": [
+    "admin_users",
+    "adminuser",
+    "arena_players",
+    "arena_settings",
+    "arena_teams",
+    "cdk",
+    "cdkexchangelog",
+    "echarts",
+    "elementitems",
+    "giftcardnew",
+    "giftcardrecord",
+    "gmpanel_users",
+    "listfaction",
+    "listrolebrief",
+    "log_chat",
+    "log_main",
+    "login_log",
+    "pay",
+    "rewardpoints",
+    "top",
+    "top_tasks",
+    "touchbuylist",
+    "touchmoney",
+    "vipaward",
+    "vipcash",
+    "viptable"
+  ],
+  "arena_ddl_in_sources": {
+    "same_file_sha256": "980dd4493bdcffc09c42e8bfbe1ac75baac9931a31f144bcd5d27a82186e7287",
+    "files": [
+      "RageZone/174.rar!/SOURCE/SourceServer174/cnet/gauthd/pw_arena.sql",
+      "RageZone/PW1.7.6Playerbots.rar!/PW1.7.6Playerbots/PW_178_SRC/cnet/gauthd/pw_arena.sql",
+      "https://github.com/huzeming/176source/blob/c0992a29/cnet/gauthd/pw_arena.sql"
+    ],
+    "matching_tables": [
+      "arena_players"
+    ],
+    "changed_shared_tables": {
+      "arena_teams": {
+        "source_columns": 25,
+        "build_4311_columns": 13,
+        "columns_only_in_source": [
+          "member1",
+          "member2",
+          "member3",
+          "member4",
+          "member5",
+          "member6",
+          "award1",
+          "award2",
+          "award3",
+          "award4",
+          "award5",
+          "award6",
+          "team3x3",
+          "team6x6"
+        ],
+        "columns_only_in_4311": [
+          "members",
+          "teams"
+        ],
+        "columns_with_different_defaults": [
+          "name"
+        ]
+      }
+    }
+  },
+  "legacy_dumps_in_both_vm_filesystems": [
+    {
+      "member": "/root/sql/old/pw.sql",
+      "bytes": 933430,
+      "sha256": "ab14b518faf0796353da62dd98213983849388087a59ff8093c85ba5bafcca07",
+      "crc32": "D2B92B50",
+      "tables": [
+        "logs",
+        "users"
+      ],
+      "procedures": [],
+      "functions": [],
+      "table_names_in_pw176": [
+        "users"
+      ],
+      "table_names_absent_in_pw176": [
+        "logs"
+      ]
+    },
+    {
+      "member": "/root/sql/old/wm.sql",
+      "bytes": 23581,
+      "sha256": "be2c150d310a673749a216abc6c6d49d5647a79359844b165cebf73b01ec27c2",
+      "crc32": "6992B73A",
+      "tables": [
+        "arena_players",
+        "arena_settings",
+        "arena_teams",
+        "auth",
+        "forbid",
+        "iplimit",
+        "point",
+        "roles",
+        "usecashlog",
+        "usecashnow",
+        "users"
+      ],
+      "procedures": [
+        "acquireuserpasswd",
+        "addForbid",
+        "addGM",
+        "addUserPriv",
+        "adduser",
+        "adduserpoint",
+        "changePasswd",
+        "changePasswd2",
+        "clearonlinerecords",
+        "delUserPriv",
+        "deleteTimeoutForbid",
+        "enableiplimit",
+        "lockuser",
+        "recordoffline",
+        "recordonline",
+        "remaintime",
+        "setiplimit",
+        "updateUserInfo",
+        "usecash"
+      ],
+      "functions": [],
+      "table_names_in_pw176": [
+        "arena_players",
+        "arena_settings",
+        "arena_teams",
+        "auth",
+        "forbid",
+        "iplimit",
+        "point",
+        "roles",
+        "usecashlog",
+        "usecashnow",
+        "users"
+      ],
+      "table_names_absent_in_pw176": []
+    },
+    {
+      "member": "/root/iweb/old/wm.sql",
+      "bytes": 58997,
+      "sha256": "b3d73ca500ed25cdfe389a9ddde4cd33f67d36e34526b3f401a5277c64f181de",
+      "crc32": "C2852AA6",
+      "tables": [
+        "adminuser",
+        "arena_players",
+        "arena_settings",
+        "arena_teams",
+        "auth",
+        "cdk",
+        "cdkexchangelog",
+        "draw_money_log",
+        "elementitems",
+        "forbid",
+        "iplimit",
+        "online",
+        "pay",
+        "point",
+        "pvprank",
+        "rewardpoints",
+        "roles",
+        "sale_item",
+        "sale_role",
+        "touchbuylist",
+        "touchmoney",
+        "trade_items_logs",
+        "trade_logs",
+        "translog",
+        "usecashlog",
+        "usecashnow",
+        "users",
+        "vipaward",
+        "vipcash",
+        "viptable"
+      ],
+      "procedures": [
+        "accounting",
+        "acquireusercharge",
+        "acquireuserpasswd",
+        "addForbid",
+        "addGM",
+        "addUserPriv",
+        "addcash",
+        "addmail",
+        "addpvprank",
+        "addtouchbuy",
+        "adduser",
+        "adduserpoint",
+        "addvip",
+        "changePasswd",
+        "changePasswd2",
+        "clearonlinerecords",
+        "delUserPriv",
+        "deleteTimeoutForbid",
+        "deletepvprank",
+        "enableiplimit",
+        "lockuser",
+        "recordoffline",
+        "recordonline",
+        "remaintime",
+        "setiplimit",
+        "updateUserInfo",
+        "usecash"
+      ],
+      "functions": [
+        "fn_varbintohexsubstring"
+      ],
+      "table_names_in_pw176": [
+        "adminuser",
+        "arena_players",
+        "arena_settings",
+        "arena_teams",
+        "auth",
+        "cdk",
+        "cdkexchangelog",
+        "elementitems",
+        "forbid",
+        "iplimit",
+        "online",
+        "pay",
+        "point",
+        "rewardpoints",
+        "roles",
+        "touchbuylist",
+        "touchmoney",
+        "usecashlog",
+        "usecashnow",
+        "users",
+        "vipaward",
+        "vipcash",
+        "viptable"
+      ],
+      "table_names_absent_in_pw176": [
+        "draw_money_log",
+        "pvprank",
+        "sale_item",
+        "sale_role",
+        "trade_items_logs",
+        "trade_logs",
+        "translog"
+      ]
+    }
+  ],
+  "procedure_sources": {
+    "java_registry": "Linear/PWServer155.7z!/etc/table.xml",
+    "native_call_sites": "https://github.com/huzeming/176source/blob/c0992a29/cnet/gauthd/gmysqlclient.cpp"
+  },
+  "procedures_4311": {
+    "acquireuserpasswd": {
+      "linear_4311_sql_line": 28,
+      "java_155_table_xml_line": 262,
+      "native_explicit_call_source_line": 369,
+      "normalized_signature_sha256": "106152a7437bdee031992911cdd8322edf873b54d6d7ef6af552168a481c1589",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "eb28577926de6f7909d97a74b82bb5d619aaad0535f4a932cda7303cde9e5860"
+    },
+    "addForbid": {
+      "linear_4311_sql_line": 32,
+      "java_155_table_xml_line": 349,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "5dd55be24a2982f48b00a74ca28f6ff1d3a0596ddb0df7c47cf962c71d2c1a38",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "ea889096a206753db41631617c65276ac34590d01083ddfc430f82ea14520282"
+    },
+    "addGM": {
+      "linear_4311_sql_line": 43,
+      "java_155_table_xml_line": null,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "355faf753e35d1f2d6acd00d91be898a45eab583691263ebfeb6ec0c255fdd4c",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "c1466cd388d87bf9bff461d8d41e26302807e41ceaa4650667aa30b25462ec8d"
+    },
+    "addUserPriv": {
+      "linear_4311_sql_line": 86,
+      "java_155_table_xml_line": 336,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "98dbf6a0b4f267fe9cfcceb6cd00b57ca252aba47a2c47b2de83fe62ccdc252b",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "0c04779eb5f4242505c15598ee98f515962f822d7ff28f3e2a65ea857fd2427b"
+    },
+    "adduser": {
+      "linear_4311_sql_line": 69,
+      "java_155_table_xml_line": 268,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "dfcba53831cd93e3cf50ea9e27c1f04db1ee68f39f15cc3b805cb8f37becf9fc",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "437b25b74dfd25a556364444a96ca5b8ef70bd22eebb8ab56c3ca51e3f1a551a"
+    },
+    "adduserpoint": {
+      "linear_4311_sql_line": 75,
+      "java_155_table_xml_line": 390,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "308dade4bcc26c8fec8f0608b333c5b1771a4d4f152a82ed8025043dea301e7e",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "c53a69af743a27aa47805844f15d2d4c46d643b2c6db5ed624a744274fa7abbc"
+    },
+    "changePasswd": {
+      "linear_4311_sql_line": 92,
+      "java_155_table_xml_line": 306,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "eed52bb6475c3e3a10ee24185997e26bbc01b2179ff6cdc9e9ab88cee72a814b",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "e208f1d121acef488dd2a4b1074f92cac05ecea3cdcb24a9c8b86496eeb111a1"
+    },
+    "changePasswd2": {
+      "linear_4311_sql_line": 98,
+      "java_155_table_xml_line": 311,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "9e3fac704bfafb0e37d465d6e275e86e7aa4828317b261c42d29839c238fc803",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "84cb1f1cfbef8b013db9e4a8cebde9e7fac55deabb030f661d44969e187d0382"
+    },
+    "clearonlinerecords": {
+      "linear_4311_sql_line": 104,
+      "java_155_table_xml_line": 362,
+      "native_explicit_call_source_line": 403,
+      "normalized_signature_sha256": "7830e0ba4c8495efe2b2c35bd05111db4bf8fdfb55b66ae9ab6ece646eba3991",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "937bd87dca82a5e04f3bad5fbfc05d5d79077d34d39deb6dd6c02b2878aef5e3"
+    },
+    "delGM": {
+      "linear_4311_sql_line": 116,
+      "java_155_table_xml_line": null,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "f8bb4fca8d5b1b49d6ea4ffbf3ec7d16694275f85e62c605a454def5cf7a1230",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "c0a23d5213e4232ee15c9d88d4fdccbbe7452dee89da4a271b0e168402c62d76"
+    },
+    "delUserPriv": {
+      "linear_4311_sql_line": 122,
+      "java_155_table_xml_line": 342,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "0ab5cca513175dcca0f41ab0f33f554c3b2f5122027714f1272c484d3167657b",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "926469094269ab59c2bbadef3886989aa5dd33bc9f5669cc1ec841411839ee6e"
+    },
+    "deleteTimeoutForbid": {
+      "linear_4311_sql_line": 110,
+      "java_155_table_xml_line": 358,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "f8bb4fca8d5b1b49d6ea4ffbf3ec7d16694275f85e62c605a454def5cf7a1230",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "6312c3bdb321fece073f0dfb697daa3d393bac6b2a012b31e973cd29b87f4e28"
+    },
+    "enableiplimit": {
+      "linear_4311_sql_line": 138,
+      "java_155_table_xml_line": 326,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "a23f335f843b63b68324b79f3e132ee802f6ab5b38dd195d11d48361d9af96fe",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "a06256b3c94f8138ffad3ef70260c52af845abc3d65affffcea39d5f97dc7911"
+    },
+    "lockuser": {
+      "linear_4311_sql_line": 149,
+      "java_155_table_xml_line": 331,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "485c0c8d45be5a50443dd8c422dae65fa7feeb5d386a6829826135b23ae0d338",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "80f2c5467d4d54f7b2a58dd0396d8c0adbb58c1f082999afcfaf06ef6ad723fa"
+    },
+    "recordoffline": {
+      "linear_4311_sql_line": 160,
+      "java_155_table_xml_line": 375,
+      "native_explicit_call_source_line": 458,
+      "normalized_signature_sha256": "8b8c66a6e3ad227cf0163a8c37a5177d3724d8f887a3153b9c4fe7f93ffb2b7e",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "14e6336a4704022bfe2dd34fadb3977e542aa3a9fc0d4fd46897491b0e0c5fae"
+    },
+    "recordonline": {
+      "linear_4311_sql_line": 172,
+      "java_155_table_xml_line": 367,
+      "native_explicit_call_source_line": 428,
+      "normalized_signature_sha256": "52bc9c26fa87c18dace9e87d9042d0c84e1b5353778bf61c904b13b7d55d744d",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "f85c1cb1543032ee2a4275dec12aa66469b6847065b3812129d519a34b9a73d5"
+    },
+    "remaintime": {
+      "linear_4311_sql_line": 195,
+      "java_155_table_xml_line": 383,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "6a62a3bf0296076efbb0e0568c76901bf8c656de4a6c9fea5644d599d1fe3831",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "e5feab5ef5c2a7d3507f824bad4d9da4a11769e6d429b91862761847353451c4"
+    },
+    "setiplimit": {
+      "linear_4311_sql_line": 219,
+      "java_155_table_xml_line": 316,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "0b005ba05f62afccf8cf461f064c070fe89c7db24b3709106365a021715731d1",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "5151237dbc397a044e165e1e881eb13374bab946f249c1fb7cfc94633061701e"
+    },
+    "updateUserInfo": {
+      "linear_4311_sql_line": 230,
+      "java_155_table_xml_line": 288,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "ae22794139cf14e98e574d82f5474ca5542786dc25917e15f75cd0f5e16eefae",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "b7f17ed2f4675c50d68df17ce4636e5e719aad0afcdf35df2ad56406406bc333"
+    },
+    "usecash": {
+      "linear_4311_sql_line": 236,
+      "java_155_table_xml_line": 396,
+      "native_explicit_call_source_line": null,
+      "normalized_signature_sha256": "c2371316affe29ae1b1ca020e432589851078864550526020d869cec562df02a",
+      "normalized_characteristics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "normalized_body_sha256": "42d3be6e04e5b4e1939d5cee174e5e990e52523577cbaeb4c0bef450d4ae4395"
+    }
+  }
+}
