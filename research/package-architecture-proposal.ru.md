@@ -73,13 +73,13 @@ flowchart BT
 
 Служба запускается из своего рабочего каталога внутри `binary`. По ожидаемому относительному пути лежит ссылка на соответствующий файл в `data` или `overlay`. Например, `binary/gamed/config/aipolicy.data` указывает на `data/gamed/config/aipolicy.data`, а `binary/gamed/gs.conf` — на `overlay/gamed/gs.conf`. Владение ссылками и порядок при совпадении путей ещё нужно выбрать. Рабочее состояние WDB и журналы размещаются в отдельных каталогах с правом записи.
 
-Для клиентов лицензирования с фиксированным путём `/home/license.conf` предусмотрен доступ к `/opt/pwserver/overlay/license.conf` по ожидаемому имени внутри службы. Кандидат для юнитов — `BindReadOnlyPaths=/opt/pwserver/overlay/license.conf:/home/license.conf`. [Подключение файлов в systemd](https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#BindPaths=)
+Клиенты лицензирования открывают фиксированный `/home/license.conf`. Для обычной установки по этому пути подходит симлинк на `/opt/pwserver/overlay/license.conf`. Если путь нужен только в файловом пространстве юнита, подходит `BindReadOnlyPaths=/opt/pwserver/overlay/license.conf:/home/license.conf`. [Подключение файлов в systemd](https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#BindPaths=)
 
 `/opt/pwserver/services` рассматривается как возможное место хранения файлов юнитов. При выборе этого варианта юниты нужно подключить из каталога поиска systemd. [Пути загрузки юнитов](https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html#Unit%20File%20Load%20Path)
 
-Проверка в WSL подтвердила запуск девяти служб и одновременную готовность `gs01` и `is61` из этой раскладки. Чтобы оставить три дерева только для чтения, в записываемое состояние направили `dbhome`, журналы, `gamed/foo` и `lualog.txt` служб `gauthd`, `gamedbd`, `gdeliveryd`. Для `foo` и `lualog.txt` на стенде заранее существовали файлы по целям симлинков.
+Проверка в WSL подтвердила запуск девяти служб и одновременную готовность `gs01` и `is61` из этой раскладки. Чтобы оставить три дерева только для чтения, в записываемое состояние направили `dbhome`, журналы, `gamed/foo` и `lualog.txt` служб `gauthd`, `gamedbd`, `gdeliveryd`. Для `foo` и `lualog.txt` на стенде заранее существовали файлы по целям симлинков. Архивный `gamed/foo` исключён из состава пакета: `gs` открывает пустой файл на запись при старте, поэтому для дерева только для чтения нужен записываемый путь.
 
-Для юнитов проверено подключение лицензии из `overlay` с `ProtectHome=tmpfs` и `BindReadOnlyPaths=`. При подготовке конфигов нужно обеспечить разные времена изменения `license.conf` и следующих за ним конфигов служб с точностью до секунды. При равных метках загрузчик `gauthd` пропустил чтение `gamesys.conf`. [Протокол прогона с фактическими путями](../experiments/package-layout/package-layout-experiment.ru.md)
+Симлинк лицензии проверен полным запуском служб и двух карт. Для юнитов отдельно проверено подключение лицензии из `overlay` с `ProtectHome=tmpfs` и `BindReadOnlyPaths=`. При подготовке конфигов нужно обеспечить разные времена изменения `license.conf` и следующих за ним конфигов служб с точностью до секунды. При равных метках загрузчик `gauthd` пропустил чтение `gamesys.conf`. [Протокол прогона с фактическими путями](../experiments/package-layout/package-layout-experiment.ru.md)
 
 ## Хост и контейнер
 
