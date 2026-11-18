@@ -1,0 +1,21 @@
+{
+  "build": "1.7.6 Build 4311",
+  "gs_sha256": "6a1886831f16c3f1f9a4ea3bff3b9bd422bf3938306f1946894776050d019b60",
+  "map": "is61",
+  "map_registered": true,
+  "players_connected": 0,
+  "map_seen_in_other_pid_namespace": false,
+  "map_seen_in_shared_pid_namespace": true,
+  "separate_mount_and_network_namespaces": true,
+  "matching_args_for_legacy_ps": "./gs is61 gs.conf gmserver.conf gsalias.conf",
+  "sender_uid_matches_map_uid": true,
+  "sender_cap_kill": false,
+  "kill_default_signal": "SIGTERM",
+  "map_exit_code": -15,
+  "map_visible_after_signal": false,
+  "get_role_base_over_ro_bind_mount": {
+    "retcode": 0,
+    "size": 835,
+    "sha256": "c74b9da8df36a7dc031a4f30ad592240fd269cf806f938da2529fc3bd04e4413"
+  }
+}
