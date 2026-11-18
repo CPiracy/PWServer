@@ -25,7 +25,7 @@
   "all_evidence_links_exist": true,
   "structural_probe_files_rehashed": 65,
   "inventory_manifest_hashes_verified": 4,
-  "pristine_wdb_startup_not_runtime_tested": true,
+  "pristine_wdb_startup_validated_in_wsl": true,
   "outputs": {
     "assessment.csv": {
       "sha256": "b2536dfdc6d9926a01aa26c40f79942f6a9dd834405e9e606781a76bd2cb80d3",

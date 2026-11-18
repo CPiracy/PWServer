@@ -35,6 +35,24 @@
 
 H176 вызывает `FirstStepInit` до выбора менеджера конкретной карты и перед ответвлением процессов при запуске нескольких алиасов одним вызовом. Затем `global_world_manager::Init` или `instance_world_manager::Init` рассчитывает `base_path` и читает ресурсы своего шаблона. Создание очередной копии внутри уже работающего instance GS на показанном пути берёт объект из `_planes_pool`. Оно отличается от холодного запуска нового GS, для которого снова нужны общие и локальные входы. В ELF 4311 есть ссылки на `base_path` из обоих менеджеров и на `NPCGenFile`, `CollisionFile`, `MapDespFile` из `MapResManager::Init`. Готовность маршрута карты определяется отдельно от удачного открытия этих файлов. Точки H176 — `cgame/gs/start.cpp:241–304`, `cgame/gs/mapresman.cpp:28–42,63–112,130–232` и `cgame/gs/instance/instance_manager.cpp:778–815`. [Наблюдения по картам 4311](maps.ru.md) · [Ревизии исходников](source-coverage.ru.md)
 
+### Магазины и составные наборы
+
+`gs` 4311 последовательно открывает три настроенных каталога магазина за один запуск. В ELF `globaldata_loadserver` вызывается по `0x115618e`, а три вызова `load_malldata` по `0x151df03`, `0x151df4d` и `0x151df97` заполняют разные коллекции. Во всех трёх холодных прогонах зарегистрированы открытия `gshop.data`, `gshop1.data` и `gshop2.data`. [Загрузчик H176](https://github.com/huzeming/176source/blob/c0992a29/cgame/gs/template/globaldataman.cpp#L228-L256) · [Контроль открытий](../experiments/image-file-validation/evidence/image-file-validation.json)
+
+| Файл в `gamed/config` | Записей | Назначение |
+| --- | ---: | --- |
+| `gshop.data` | 1 470 | Основной магазин. В 4311 `PlayerDoShopping` вызывает `GetPlayerMall`. |
+| `gshop1.data` | 190 | Магазин за дивиденды. `PlayerDoDividendShopping` вызывает `GetPlayerMall2` и `SpendDividend`. |
+| `gshop2.data` | 5 | Магазин за баллы Cash VIP. `PlayerDoCashVipShopping` вызывает `GetPlayerMall3` и `SpendCashVipScore`. |
+| `gshop3.data` | 18 | Клиентский каталог костюмов. В `elementclient_64.exe` функция `GlobalData_Load` передаёт все четыре пути одному загрузчику, обращение к `Data\gshop3.data` находится по RVA `0x29221f`. Штатный серверный профиль 4311 запущен без этого файла. |
+
+Числа записей получены разбором файлов проверенного RU-клиента, которые совпадают с комплектом сервера по SHA-256. При отборе серверной поставки используем три точных пути из `MallData`, `Mall2Data`, `Mall3Data`. При сборке совместимого клиентского патча сохраняем и `gshop3.data`. `gshop*.data` из `gamed/config/мусор` находятся вне этих путей. [Хэши комплектов](server-patching.ru.md#что-меняется-в-build-4311) · [Клиентский набор](client-server-sync.ru.md)
+
+Та же схема встречается у заданий и составных карт.
+
+- `tasks.data` и `dyn_tasks.data` через `QuestPackage` и `QuestPackage2`. В ELF `LoadTasksFromPack` вызывает оба загрузчика по `0x1560231` и `0x156027f`. Открытия обоих файлов видны в тех же холодных прогонах. Перевод базовых заданий выбирается отдельным путём `QuestPackage`.
+- Для составной карты `rand04` конфиг задаёт `base_path=random04/`, `mapres_type=maze` и `nPiece=64`. `MapResManager::Init` читает основной `npcgen.data`, затем загружает `npcgen/npcgen_1.data` … `npcgen/npcgen_64.data` в цикле. Основной вызов `CNPCGenMan::Load` в ELF 4311 находится по `0x11e88cf`, вызов для фрагментов по `0x11e89a2`. Состав из 65 файлов подтверждён архивом и кодом загрузчика для этой карты.
+
 ## Домены, WDB и античит
 
 | Путь | Подтверждённый потребитель и условие |
@@ -47,6 +65,31 @@ H176 вызывает `FirstStepInit` до выбора менеджера ко�
 | `gacd/gacd.xml`, `gacd/{charfont,charlib,hzfont}.dat` | В 4311 `main` передаёт `gacd.xml` в `ConfigManager::Init` в `0xeb2ad`. В коде также есть отдельный вызов `ConfigManager::Reload` с буфером XML в `0xad918`. В H176 `cnet/gacd/configmanager.cpp:15–54` старт читает файл, а обновление из буфера заново разбирает переданный XML. Три `.dat` не названы в активном XML, ELF или просмотренных исходниках загрузчиков. Назначение и использование этих файлов в проверенном режиме не подтверждены. |
 
 Значения `battlefield`, `is_central_ds` и `is_countrybattle_open` выбирают режимы. Имена `.sev` фиксированы в S172 `cnet/gdeliveryd/domaindataman.cpp:15–62`. Чтение доменов связано с указанными инициализациями. Ветка объявления группы зон может вызвать инициализацию повторно по S172 `cnet/gdeliveryd/announcezonegroup.hpp:17–31` и `cnet/gdeliveryd/countrybattleman.cpp:2795–2805`. У `gacd` предусмотрено отдельное обновление XML из входного буфера. [Ревизии исходников](source-coverage.ru.md) · [Инвентарь и признаки импорта WDB](storage-and-recovery.ru.md)
+
+### Территории в `gamed/config`
+
+Домены здесь обозначают игровые территории. В записях есть ID, имена, центры областей, вершины и треугольники контуров, соседи и параметры боёв. Клиентский `GlobalData_Load` ссылается на `Data\domain.data`, `Data\domain2.data` и `Data\domain2_cross.data` по RVA `0x2918be`, `0x291ce1` и `0x291cff`. Все три архивных файла разобраны до конца по структурам из `GitHub/MyAceEditor/PerfectWorld/DomainFile.cs:39–78`.
+
+| Путь в `gamed/config` | Содержимое |
+| --- | --- |
+| `domain.data` | 52 области карты территориальных войн. Есть награды, граф соседства и расписания. |
+| `domain2.data` | 42 области Битвы династий, две нации и две столицы. |
+| `domain2_cross.data` | 292 области межсерверной Битвы династий, четыре нации и четыре столицы. |
+
+В проверенном RU-клиенте соответствующие файлы содержат 52, 132 и 292 области. В `domain.data` совпали геометрия и соседи, а имена и расписание расходятся. В `domain2_cross.data` обнаружены различия только в полях имён. При подготовке клиента используем данные из согласованного клиентского набора. [Сверка доменов клиента и сервера](client-server-sync.ru.md#одноимённые-файлы-вне-патча)
+
+Для серверного локального профиля 4311 можно исключить три `gamed/config/domain*.data` и отдельный `gamed/config/domain2.sev`. Все четыре отсутствовали в контрольном чистом запуске с двумя зарегистрированными картами. В `gs` и его конфигах чтение этих путей не обнаружено. Для территориальных механик координатор открывает свои `gdeliveryd/domain.sev` и `gdeliveryd/domain2.sev`. `gdeliveryd/domain2_cross.sev` выбирается межсерверной веткой и сохраняется для поддержки этого профиля. [Чистый запуск](../experiments/package-layout/clean-start-experiment.ru.md#входные-файлы) · [Открытия файлов координатора](../experiments/image-file-validation/evidence/image-file-validation.json)
+
+### Справочники зон `serverlist.sev`
+
+Обе записи из Linear разобраны как последовательность пар `zoneid → имя зоны`. Формат записи состоит из 32-битного ID, 32-битной длины в кодовых единицах и имени UTF-16LE.
+
+| Путь | Содержимое | Загрузка в 4311 |
+| --- | --- | --- |
+| `gamed/config/serverlist.sev` | ID 1 — `Servidor`, 24 байта, CRC32 `477B042E`. | Можно исключить из серверного профиля. Без файла прошли предыдущие холодные старты и чистый старт с WDB с нуля. |
+| `gamedbd/serverlist.sev` | ID 1 — `天策`, 2 — `二区`, 3 — `跨服`, 36 байт, CRC32 `1D3DBAD6`. | Сохраняем в рабочем каталоге GameDB. `main` вызывает `LoadZoneNameConfig` по `0x25d7cb`. Контрольный запуск без этого файла завершился с кодом 1. |
+
+В S172 `cnet/gamedbd/abstractplayers.cpp:10–37` функция `GenerateCDSRoleName` добавляет имя исходной зоны к имени персонажа при межсерверном переносе. В обычном локальном профиле сам справочник также загружается при старте `gamedbd`. Адрес и порт подключения игрового клиента задаются отдельно в `patcher/server/serverlist.txt`. [Исходники и ревизии](source-coverage.ru.md) · [Контроль запуска GameDB](../experiments/package-layout/clean-start-experiment.ru.md#входные-файлы) · [Настройка клиента](rutracker-1.7.6-4311-usage.ru.md)
 
 ## Как проверить исключения из серверного комплекта
 

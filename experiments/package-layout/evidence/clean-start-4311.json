@@ -1,0 +1,317 @@
+{
+  "uid": 1000,
+  "gid": 65534,
+  "isolated_loopback": true,
+  "mariadb_version": "11.8.6-MariaDB-0+deb13u1 from Debian",
+  "sql": [
+    {
+      "case": "both_schemas_empty",
+      "before": {
+        "licenseservice": {
+          "tables": 0,
+          "routines": 0
+        },
+        "pw176": {
+          "tables": 0,
+          "routines": 0
+        }
+      },
+      "licenseservice": {
+        "ready": true,
+        "seconds": 0.01
+      },
+      "gauthd": {
+        "ready": false,
+        "exit": -10,
+        "observation": "empty-sql/gauthd exited with -10"
+      },
+      "connections": [
+        "licenseservice"
+      ],
+      "after": {
+        "licenseservice": {
+          "tables": 0,
+          "routines": 0
+        },
+        "pw176": {
+          "tables": 0,
+          "routines": 0
+        }
+      },
+      "lookups_of_users": 1
+    },
+    {
+      "case": "only_license_schema_imported",
+      "before": {
+        "licenseservice": {
+          "tables": 2,
+          "routines": 0
+        },
+        "pw176": {
+          "tables": 0,
+          "routines": 0
+        }
+      },
+      "licenseservice": {
+        "ready": true,
+        "seconds": 0.15
+      },
+      "gauthd": {
+        "ready": true,
+        "seconds": 0.15
+      },
+      "connections": [
+        "licenseservice",
+        "pw176"
+      ],
+      "after": {
+        "licenseservice": {
+          "tables": 2,
+          "routines": 0
+        },
+        "pw176": {
+          "tables": 0,
+          "routines": 0
+        }
+      },
+      "account_routine_missing_error_1305": true
+    },
+    {
+      "case": "both_schemas_imported",
+      "before": {
+        "licenseservice": {
+          "tables": 2,
+          "routines": 0
+        },
+        "pw176": {
+          "tables": 39,
+          "routines": 20
+        }
+      },
+      "accounts_before": 0,
+      "registered_account_lookup_via_tcp": true,
+      "accounts_after": 1,
+      "connections": [
+        "licenseservice",
+        "pw176"
+      ],
+      "after": {
+        "licenseservice": {
+          "tables": 2,
+          "routines": 0
+        },
+        "pw176": {
+          "tables": 39,
+          "routines": 20
+        }
+      }
+    }
+  ],
+  "wdb": {
+    "direct_missing_dbhome": {
+      "uniquenamed": {
+        "before": {
+          "dbhome": false,
+          "dbdata": false,
+          "dblogs": false,
+          "table_files": 0,
+          "clsconfig_bytes": null
+        },
+        "startup": {
+          "ready": true,
+          "seconds": 0.16
+        },
+        "stop": 0,
+        "after": {
+          "dbhome": true,
+          "dbdata": true,
+          "dblogs": true,
+          "table_files": 6,
+          "clsconfig_bytes": null
+        }
+      },
+      "gamedbd": {
+        "before": {
+          "dbhome": false,
+          "dbdata": false,
+          "dblogs": false,
+          "table_files": 0,
+          "clsconfig_bytes": null
+        },
+        "startup": {
+          "ready": true,
+          "seconds": 0.61
+        },
+        "stop": 0,
+        "after": {
+          "dbhome": true,
+          "dbdata": true,
+          "dblogs": true,
+          "table_files": 58,
+          "clsconfig_bytes": 102400
+        },
+        "class_template_imported": true
+      }
+    },
+    "dangling_dbhome_symlink": {
+      "uniquenamed": {
+        "before": {
+          "dbhome": false,
+          "dbdata": false,
+          "dblogs": false,
+          "table_files": 0,
+          "clsconfig_bytes": null
+        },
+        "startup": {
+          "ready": false,
+          "exit": -9,
+          "observation": "dangling/uniquenamed exited with -9"
+        },
+        "stop": -9,
+        "after": {
+          "dbhome": false,
+          "dbdata": false,
+          "dblogs": false,
+          "table_files": 0,
+          "clsconfig_bytes": null
+        }
+      },
+      "gamedbd": {
+        "before": {
+          "dbhome": false,
+          "dbdata": false,
+          "dblogs": false,
+          "table_files": 0,
+          "clsconfig_bytes": null
+        },
+        "startup": {
+          "ready": false,
+          "exit": -9,
+          "observation": "dangling/gamedbd exited with -9"
+        },
+        "stop": -9,
+        "after": {
+          "dbhome": false,
+          "dbdata": false,
+          "dblogs": false,
+          "table_files": 0,
+          "clsconfig_bytes": null
+        }
+      }
+    },
+    "empty_symlink_targets": {
+      "uniquenamed": {
+        "before": {
+          "dbhome": true,
+          "dbdata": false,
+          "dblogs": false,
+          "table_files": 0,
+          "clsconfig_bytes": null
+        },
+        "after": {
+          "dbhome": true,
+          "dbdata": true,
+          "dblogs": true,
+          "table_files": 6,
+          "clsconfig_bytes": null
+        }
+      },
+      "gamedbd": {
+        "before": {
+          "dbhome": true,
+          "dbdata": false,
+          "dblogs": false,
+          "table_files": 0,
+          "clsconfig_bytes": null
+        },
+        "after": {
+          "dbhome": true,
+          "dbdata": true,
+          "dblogs": true,
+          "table_files": 58,
+          "clsconfig_bytes": 102400
+        },
+        "class_template_imported": true
+      }
+    }
+  },
+  "gamedbd_without_serverlist": {
+    "ready": false,
+    "exit": 1,
+    "observation": "missing-serverlist/gamedbd exited with 1",
+    "stop": 1,
+    "error": "error initialize ZoneNameMap serverlist.sev"
+  },
+  "services": {
+    "licenseservice": true,
+    "logservice": true,
+    "uniquenamed": true,
+    "gauthd": true,
+    "gamedbd": true,
+    "gacd": true,
+    "gfactiond": true,
+    "gdeliveryd": true,
+    "glinkd": true
+  },
+  "resources_present": {
+    "gamed/config/gshop.data": true,
+    "gamed/config/gshop1.data": true,
+    "gamed/config/gshop2.data": true,
+    "gamed/config/gshop3.data": false,
+    "gamed/config/domain.data": false,
+    "gamed/config/domain2.data": false,
+    "gamed/config/domain2_cross.data": false,
+    "gamed/config/domain2.sev": false,
+    "gamed/config/serverlist.sev": false,
+    "gamedbd/serverlist.sev": true,
+    "gdeliveryd/domain.sev": true,
+    "gdeliveryd/domain2.sev": true,
+    "gdeliveryd/domain2_cross.sev": true,
+    "gamed/config/tasks.data": true,
+    "gamed/config/dyn_tasks.data": true
+  },
+  "maps": {
+    "gs01": {
+      "index": 1,
+      "worldtag": 1,
+      "listener": "/tmp/gssock_world1",
+      "peer_ports": [
+        11101,
+        29300,
+        29301,
+        29400,
+        29600
+      ],
+      "ready_s": 4.67
+    },
+    "is61": {
+      "index": 101,
+      "worldtag": 161,
+      "listener": "/tmp/gssock_is61",
+      "peer_ports": [
+        11101,
+        29300,
+        29301,
+        29400,
+        29600
+      ],
+      "ready_s": 7.33
+    }
+  },
+  "stops": {
+    "is61": -15,
+    "gs01": -15,
+    "glinkd": 0,
+    "gdeliveryd": 0,
+    "gfactiond": 0,
+    "gacd": 0,
+    "gamedbd": 0,
+    "gauthd": 0,
+    "uniquenamed": 0,
+    "logservice": 0,
+    "licenseservice": 0,
+    "mariadb": 0
+  },
+  "archive": "Linear/PWServer176.7z",
+  "build": 4311
+}
