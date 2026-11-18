@@ -1,0 +1,156 @@
+{
+  "build": 4311,
+  "network": "loopback",
+  "panel_started": false,
+  "mariadb_version": "11.8.6-MariaDB-0+deb13u1 from Debian",
+  "license_rows_before": {
+    "logs": 0,
+    "users": 1
+  },
+  "empty_pw176_with_routines": {
+    "pw176_total_tables": 39,
+    "pw176_nonempty_tables_before": {},
+    "pw176_objects": {
+      "procedures": 20,
+      "functions": 0,
+      "triggers": 0,
+      "events": 0
+    },
+    "services": {
+      "licenseservice": true,
+      "logservice": true,
+      "uniquenamed": true,
+      "gauthd": true,
+      "gamedbd": true,
+      "gacd": true,
+      "gfactiond": true,
+      "gdeliveryd": true,
+      "glinkd": true
+    },
+    "maps": {
+      "gs01": {
+        "index": 1,
+        "worldtag": 1,
+        "listener": "/tmp/gssock_world1",
+        "peer_ports": [
+          11101,
+          29300,
+          29301,
+          29400,
+          29600
+        ],
+        "ready_s": 4.34
+      },
+      "is61": {
+        "index": 101,
+        "worldtag": 161,
+        "listener": "/tmp/gssock_is61",
+        "peer_ports": [
+          11101,
+          29300,
+          29301,
+          29400,
+          29600
+        ],
+        "ready_s": 7.15
+      }
+    },
+    "native_calls": {
+      "clearonlinerecords": 1
+    },
+    "clearonlinerecords_mysql_codes": {
+      "0": 1
+    },
+    "all_running": true,
+    "pw176_nonempty_tables_after": {},
+    "stops": {
+      "is61": -15,
+      "gs01": -15,
+      "glinkd": 0,
+      "gdeliveryd": 0,
+      "gfactiond": 0,
+      "gacd": 0,
+      "gamedbd": 0,
+      "gauthd": 0,
+      "uniquenamed": 0,
+      "logservice": 0,
+      "licenseservice": 0
+    },
+    "missing_procedure_logged_by_gauthd": false
+  },
+  "empty_pw176_without_routines": {
+    "pw176_total_tables": 39,
+    "pw176_nonempty_tables_before": {},
+    "pw176_objects": {
+      "procedures": 0,
+      "functions": 0,
+      "triggers": 0,
+      "events": 0
+    },
+    "services": {
+      "licenseservice": true,
+      "logservice": true,
+      "uniquenamed": true,
+      "gauthd": true,
+      "gamedbd": true,
+      "gacd": true,
+      "gfactiond": true,
+      "gdeliveryd": true,
+      "glinkd": true
+    },
+    "native_calls": {
+      "clearonlinerecords": 1
+    },
+    "clearonlinerecords_mysql_codes": {
+      "1305": 1
+    },
+    "all_running": true,
+    "pw176_nonempty_tables_after": {},
+    "stops": {
+      "glinkd": 0,
+      "gdeliveryd": 0,
+      "gfactiond": 0,
+      "gacd": 0,
+      "gamedbd": 0,
+      "gauthd": 0,
+      "uniquenamed": 0,
+      "logservice": 0,
+      "licenseservice": 0
+    },
+    "missing_procedure_logged_by_gauthd": false
+  },
+  "empty_license_rows_before": {
+    "logs": 0,
+    "users": 0
+  },
+  "empty_license_tables": {
+    "pw176_total_tables": 39,
+    "pw176_nonempty_tables_before": {},
+    "pw176_objects": {
+      "procedures": 0,
+      "functions": 0,
+      "triggers": 0,
+      "events": 0
+    },
+    "services": {
+      "licenseservice": true
+    },
+    "startup_error": "gauthd exited with -10",
+    "stops": {
+      "gauthd": -10,
+      "licenseservice": 0
+    },
+    "missing_procedure_logged_by_gauthd": false
+  },
+  "empty_license_rows_after": {
+    "logs": 0,
+    "users": 0
+  },
+  "mariadb_stop": 0,
+  "explicit_call_names_in_gauthd_elf": [
+    "acquireuserpasswd",
+    "clearonlinerecords",
+    "recordonline",
+    "recordoffline"
+  ]
+}

@@ -37,6 +37,18 @@
 
 Исходные определения берём из дампов этой сборки. Для воспроизведения раздачи проверен полный однократный импорт. Для чистой поставки определения таблиц и процедур можно получить штатным экспортом `mariadb-dump --no-data --routines` на отдельной БД, а состав начальных записей определить отдельно. [Параметры экспорта](https://mariadb.com/docs/server/clients-and-utilities/backup-restore-and-import-clients/mariadb-dump)
 
+### Пустые таблицы и процедуры сервера
+
+В отдельном прогоне 4311 без панели из всех 39 таблиц `pw176` убрали начальные строки на одноразовом стенде. В исходном состоянии `licenseservice.users` содержала действующую запись, `licenseservice.logs` была пуста. Результат вызова `clearonlinerecords` получен из Performance Schema MariaDB. [Измерения](evidence/server-sql-contract-4311.json)
+
+| Условие | Результат |
+| --- | --- |
+| 39 пустых таблиц `pw176` и 20 штатных процедур | Все девять служб и карты `gs01` и `is61` готовы. Серверный `CALL clearonlinerecords` завершился с кодом 0. Таблицы `pw176` остались пустыми. |
+| Те же таблицы `pw176` после удаления процедур в стенде | Все девять служб открыли слушатели. Сервер отправил тот же `CALL` и получил код 1305. |
+| Дополнительно опустошены обе таблицы `licenseservice` | Служба лицензирования открыла порт, затем `gauthd` завершился по `SIGUSR1`. |
+
+В ELF 4311 у `gauthd` обнаружены четыре явных SQL-вызова. Это `acquireuserpasswd` для проверки учётки, `clearonlinerecords` при объявлении зоны, `recordonline` и `recordoffline` для учёта сессий. В H176 запуск `clearonlinerecords` привязан к обработчику `AnnounceZoneid`. Оба архивных дампа дают нулевые счётчики пользовательских функций, триггеров и событий. Проверка охватывает серверный запуск и регистрацию карт с пустой `pw176`. Полный минимум процедур и данных для игровых функций требует сценариев с учёткой. [Вызовы gauthd](https://github.com/huzeming/176source/blob/c0992a29/cnet/gauthd/gmysqlclient.cpp#L358-L465) · [Объявление зоны](https://github.com/huzeming/176source/blob/c0992a29/cnet/gauthd/announcezoneid.hpp#L22) · [Код 1305 MariaDB](https://mariadb.com/docs/server/reference/error-codes/mariadb-error-codes-1300-to-1399/e1305)
+
 ## Входные файлы
 
 Полный запуск прошёл без `gamed/config/gshop3.data`, `gamed/config/domain{,2,2_cross}.data`, `gamed/config/domain2.sev` и `gamed/config/serverlist.sev`. У координатора были доступны его `domain.sev`, `domain2.sev` и `domain2_cross.sev`. В контрольном запуске с уже созданной WDB убрали только `serverlist.sev` из рабочего каталога `gamedbd`. Процесс завершился с кодом 1 до открытия слушателя. [Разбор магазинов, территорий и зон](../../research/dynamic-resources.ru.md)
