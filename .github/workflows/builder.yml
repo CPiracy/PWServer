@@ -1,0 +1,30 @@
+name: Package Build Helper CI
+
+on:
+  push:
+    paths:
+      - ".github/workflows/builder.yml"
+      - "builder/**"
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Run linter
+        uses: astral-sh/ruff-action@v4.1.0
+        with:
+          src: builder
+          version-file: builder/uv.lock
+
+      - name: Check formatting
+        uses: astral-sh/ruff-action@v4.1.0
+        with:
+          src: builder
+          version-file: builder/uv.lock
+          args: format --check
