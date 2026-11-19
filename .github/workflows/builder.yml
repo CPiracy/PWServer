@@ -10,7 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  checks:
+  linter:
+    name: Lint and Formatting
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
