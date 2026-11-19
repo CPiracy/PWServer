@@ -68,6 +68,13 @@ uv run --project builder --locked pw-builder prepare-data server.7z \
 
 Typer выбран для команд, параметров и диалогов. Имена и синтаксис примеров не являются реализованным интерфейсом. [Команды Typer](https://typer.tiangolo.com/tutorial/commands/)
 
+### Просмотр отбора в `build config`
+
+- `--include` выводит выбранные файлы с источником, пакетом и путём назначения.
+- `--exclude` выводит исключённые файлы с источником и причиной исключения.
+
+Оба флага можно указать вместе. Просмотр применяет обычные правила отбора и выводит результат в консоль без записи конфига. С `--format json` результат идёт в stdout, а сообщения об ошибках — в stderr. При обычном запуске `build config` сохраняет JSON-конфиг.
+
 ## Вызов из debhelper
 
 В debian/rules можно задать команды перед шагом, после него либо заменить реализацию шага. Для подготовки файлов рассматривается override_dh_auto_install. Это действие во время сборки; preinst и postinst относятся к жизненному циклу уже устанавливаемого пакета. [Точки расширения dh](https://manpages.debian.org/bookworm/debhelper/dh.1.en.html#OVERRIDE_AND_HOOK_TARGETS)
@@ -104,9 +111,23 @@ Systemd и Bash используются как системные компон�
 
 На момент записи существует отдельная незакоммиченная Python-заготовка: она вызывает внешний 7-Zip и создаёт пустой макет. Её проверки в Windows и WSL и создание макета из 4 276 серверных путей не являются проверкой реального извлечения библиотекой или готовой DEB-сборки. Проект uv с Typer и вызов из debhelper ещё не реализованы.
 
+## Шаблоны для билдера и правила игнорирования
+
+- Для каркаса CLI подходит штатный шаблон `uv init`. В готовом репозитории `python-cli-template` можно посмотреть, как вместе настроены Typer, Ruff, pytest и GitHub Actions. [Шаблоны uv](https://docs.astral.sh/uv/concepts/projects/init/#applications), [репозитории-шаблоны GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), [пример CLI](https://github.com/st4rfox/python-cli-template)
+- Для Python и uv отправная точка — `Python.gitignore` из коллекции GitHub. Для билдера пригодятся правила для `.venv/`, `__pycache__/`, `.ruff_cache/` и `.pytest_cache/`. `uv.lock` храним в Git для воспроизводимых установок. [Коллекция GitHub](https://github.com/github/gitignore), [шаблон Python](https://github.com/github/gitignore/blob/main/Python.gitignore), [файл блокировки uv](https://docs.astral.sh/uv/guides/projects/#uvlock)
+- Для Bash правила зависят от того, какие журналы и временные файлы создают наши скрипты. В репозитории Bats есть пример исключений для отчётов и журналов тестов. [Файл игнорирования Bats](https://github.com/bats-core/bats-core/blob/master/.gitignore)
+- Для Debian можно сверить служебные файлы debhelper и каталоги подготовки пакетов с правилами проекта APT. Наши исключения привяжем к фактическим выходным путям сборки. [Файл игнорирования APT](https://github.com/Debian/apt/blob/main/.gitignore), [справочник `dh`](https://manpages.debian.org/trixie-backports/debhelper/dh.1.en.html)
+- Для Docker у Astral есть пример `.dockerignore`. Такой файл задаёт исключения из контекста сборки. Если Dockerfile устанавливает локально собранные DEB, их пути должны оставаться доступны для `COPY`. [Пример Astral](https://github.com/astral-sh/uv-docker-example/blob/main/.dockerignore), [правила Docker](https://docs.docker.com/build/concepts/context/#dockerignore-files)
+
+Собственные исключения составим по фактическим путям локального конфига билдера, исходных раздач и результатов сборки.
+
 ## Отдельный вопрос об исполняемом файле
 
 Поставка сборщика одним самостоятельным исполняемым файлом обсуждалась как вопрос, без решения переходить к реализации. uv build сам по себе такого файла не создаёт. Дополнительными инструментами могут быть PyInstaller или Nuitka; их можно запускать через uv. CPython — реализация Python, а Cython — отдельный инструмент перевода кода в C, который не выполняет автоматически полную упаковку зависимостей приложения. [PyInstaller](https://pyinstaller.org/en/stable/operating-mode.html), [Nuitka](https://nuitka.net/user-documentation/user-manual.html), [Cython](https://cython.readthedocs.io/en/latest/src/tutorial/embedding.html)
+
+Первая версия запускается через `uv run`. Команда сборщика использует одну точку входа Typer, которую сможет вызывать будущий упаковщик. Предлагаемые коды завершения CLI — `0` при успехе, `1` при ошибке подготовки и `2` при неверных аргументах. Для явного завершения с нужным кодом команды используют `typer.Exit(code=...)`. [Завершение команд Typer](https://typer.tiangolo.com/tutorial/terminating/), [коды завершения Click](https://click.palletsprojects.com/en/stable/exceptions/)
+
+Если появится исполняемый файл, проверим те же сценарии отдельным запуском этого файла и сравним коды с запуском через uv. При собственной обвязке CPython код операционной системе возвращает `main` запускателя через `return Py_RunMain();`. [Пример CPython](https://docs.python.org/3.13/c-api/init_config.html#c.Py_RunMain)
 
 ## Граница текущего сохранения
 
