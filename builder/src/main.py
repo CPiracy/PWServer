@@ -20,6 +20,9 @@ def config(
     output: Annotated[
         Path, typer.Option("--output", help="Output configuration file.")
     ] = Path("config.json"),
+    batch: Annotated[
+        bool, typer.Option("--batch", help="Non-interactive mode without prompting.")
+    ] = False,
     include: Annotated[
         bool, typer.Option("--include", help="Show included files.")
     ] = False,
