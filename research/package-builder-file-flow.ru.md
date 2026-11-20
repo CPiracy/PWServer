@@ -13,6 +13,8 @@ classDiagram
         +Path path
         +list_files() list~SourceFile~
         +get_file(path) SourceFile
+        +get_file_sha256(path) str
+        +extract_file(file, path) None
     }
 
     class DirectorySource
@@ -22,19 +24,19 @@ classDiagram
     class VmdkSource
 
     class SourceFile {
-        <<abstract>>
+        +__init__(source, path, link) None
         +AbstractSource source
-        +str path
-        +extract_to(target_path) None
+        +PurePath path
+        +Optional~SourceFile~ link
+        +str sha256
+        +extract(path) None
     }
 
-    class DirectorySourceFile
-    class SevenZipSourceFile
 
     class PackageFile {
         +SourceFile source_file
         +PurePosixPath destination
-        +extract_to(target_path) None
+        +extract(path) None
     }
 
     class ConfigBuilder {
@@ -63,11 +65,8 @@ classDiagram
     AbstractSource <|-- ZipSource
     AbstractSource <|-- TarSource
     AbstractSource <|-- VmdkSource
-    SourceFile <|-- DirectorySourceFile
-    SourceFile <|-- SevenZipSourceFile
     SourceFile <|-- PackageFile
-    DirectorySource ..> DirectorySourceFile : создаёт
-    SevenZipSource ..> SevenZipSourceFile : создаёт
+    AbstractSource ..> SourceFile : возвращает
     SourceFile --> AbstractSource : source
     PackageFile --> SourceFile : source_file
     Config o-- PackageFile : files
@@ -80,9 +79,11 @@ classDiagram
     SourceFactory ..> AbstractSource : создаёт
 ```
 
-`PackageFile` наследуется от абстрактного `SourceFile` и хранит ссылку `source_file` на исходный экземпляр. Свойства `source` и `path` возвращают значения этого экземпляра. Вызов `extract_to(target_path)` передаётся ему с тем же рабочим путём на диске. `destination` хранит назначение внутри пакета. Подготовка пакета преобразует это назначение в рабочий путь.
+`SourceFile` — общий класс для всех форматов. Адрес записи и цель ссылки имеют тип `PurePath`. Для файлов каталога ридер передаёт `Path`, для записей архива — `PurePosixPath`. Конструктор вычисляет адрес цели выражением `path.parent / link`. Свойство `link` получает следующий файл через `AbstractSource.get_file()`. Этот метод интерпретирует путь, включая `..`, по правилам источника. Хеширование и извлечение рекурсивно переходят к конечному файлу.
 
-`Config` хранит выбранные `PackageFile`. Метод `save` записывает в JSON абсолютный путь источника, путь записи и назначение. Метод `load` получает `SourceFactory`, создаёт один ридер на источник и восстанавливает записи через `AbstractSource.get_file(path)`.
+`PackageFile` наследуется от `SourceFile` и хранит ссылку `source_file` на исходный экземпляр. Свойства и вызов `extract(path)` делегируются исходному файлу. `destination` хранит назначение внутри пакета. Подготовка пакета преобразует это назначение в рабочий путь.
+
+`Config` хранит выбранные `PackageFile`. Метод `save` записывает в JSON строковые представления абсолютного пути источника, пути записи и назначения. Метод `load` получает `SourceFactory`, создаёт один ридер на источник и восстанавливает записи через `AbstractSource.get_file(path)`.
 
 `SourceFactory` живёт в `libs.sources` рядом с ридерами. `create(path: Path) -> AbstractSource` выбирает реализацию для каталога, 7z, ZIP, TAR или VMDK. Та же фабрика используется при создании и при загрузке конфига.
 
@@ -103,7 +104,7 @@ classDiagram
     direction LR
     class Config["config : Config"]
     class Selected["selected : PackageFile"]
-    class Entry["entry : SevenZipSourceFile"]
+    class Entry["entry : SourceFile"]
     class Archive["archive : SevenZipSource"]
 
     Selected : destination = /opt/pwserver/binary/gamed/gs
@@ -117,7 +118,7 @@ classDiagram
 
 ## Выбор паттернов
 
-- Адаптеры источника и исходного файла задают общие операции перечисления, восстановления записи и извлечения. Отдельные типы исходного файла оправданы, когда у них различается реализация `extract_to`. При одинаковом делегировании источнику достаточно общей реализации.
+- Адаптеры источника реализуют операции чтения для своих форматов. Общий `SourceFile` обращается к адаптеру по адресу записи.
 - `PackageFile` использует декоратор для `SourceFile`. Он добавляет назначение пакета и делегирует операции исходному экземпляру.
 - `SourceFactory` сосредоточивает выбор ридера в одном методе. Если понадобятся настройки чтения, например выбор раздела VMDK, их можно передать фабрике при создании.
-- Интерактивный режим и пресеты используют общий отбор `ConfigBuilder`. Способ выбора варианта можно передать как метод объекта.
+- Интерактивный режим и пресеты используют общий отбор `ConfigBuilder`. Способ выбора варианта можно передать как метод объекта. В `build config` флаг `--batch` предназначен для выбора вариантов без запросов пользователю.
