@@ -54,8 +54,8 @@ classDiagram
     class Config {
         +list~PackageFile~ files
         +save(path) None
-        +load(path, source_factory) Config$
-        +filter_config(package_filter) Config
+        +load(path) Config$
+        +filter(func) Config
     }
 
     class SourceFactory {
@@ -77,7 +77,7 @@ classDiagram
     ConfigBuilder --> SourceFactory : source_factory
     ConfigBuilder ..> Config : создаёт
     Config ..> SourceFactory : load
-    Config ..> AbstractSource : get_file
+    Config ..> SourceFile : восстанавливает по пути
     SourceFactory ..> AbstractSource : создаёт
 ```
 
@@ -85,9 +85,19 @@ classDiagram
 
 `get_file` возвращает `None`, если путь не указывает на подходящий файл. `AbstractSource` разрешает путь к ресурсу при создании. `DirectorySource` принимает существующие файлы внутри разрешённого корня и ссылки на них. Ошибки проверки пути передаются вызывающему коду.
 
-`PackageFile` наследуется от `SourceFile` и хранит ссылку `source_file` на исходный экземпляр. Свойства и вызов `extract(path)` делегируются исходному файлу. `destination` хранит назначение внутри пакета. Подготовка пакета преобразует это назначение в рабочий путь.
+`PackageFile` наследуется от `SourceFile` и хранит ссылку `source_file` на исходный экземпляр. Конструктор инициализирует унаследованные поля из исходного файла, включая сохранённый путь цели симлинка. Свойства наследуются от `SourceFile`. `destination` хранит относительное назначение внутри пакета. Метод `extract(path)` принимает каталог сервера. Например, для `destination` равного `gamed/gs` и каталога `/opt/pwserver/binary` итоговый путь будет `/opt/pwserver/binary/gamed/gs`.
 
-`Config` хранит выбранные `PackageFile`. Метод `save` записывает в JSON строковые представления абсолютного пути источника, пути записи и назначения. Метод `load` получает `SourceFactory`, создаёт один ридер на источник и восстанавливает записи через `AbstractSource.get_file(path)`.
+`Config` хранит выбранные `PackageFile`. В JSON ключ верхнего уровня задаёт путь источника. Внутри группы путь записи сопоставляется с относительным назначением в пакете.
+
+```json
+{
+  "path/to/archive.zip": {
+    "path/inside/gamed/gs": "gamed/gs"
+  }
+}
+```
+
+Метод `load(path)` создаёт `SourceFactory` и один ридер на источник, затем восстанавливает файлы по сохранённым путям. Если файл отсутствует в источнике, ошибка возникает при извлечении.
 
 `SourceFactory` живёт в `libs.sources` рядом с ридерами. `create(path: Path) -> AbstractSource` выбирает реализацию для каталога, 7z, ZIP, TAR или VMDK. Та же фабрика используется при создании и при загрузке конфига.
 
@@ -99,7 +109,7 @@ classDiagram
 
 `get_excluded_files() -> list[SourceFile]` возвращает копию списка исключённых последнего успешного построения. До первого построения список пуст. Следующее успешное построение заменяет список. CLI может использовать этот метод для вывода `--exclude`.
 
-`Config.filter_config(package_filter) -> Config` применяет предикат `PackageFile -> bool` и возвращает новый конфиг. В нём остаются ссылки на выбранные `PackageFile` в прежнем порядке. Это позволяет получить серверный конфиг и конфиг данных из одного общего.
+`Config.filter(func) -> Config` применяет предикат `PackageFile -> bool` и возвращает новый конфиг. В нём остаются ссылки на выбранные `PackageFile` в прежнем порядке. Это позволяет получить серверный конфиг и конфиг данных из одного общего.
 
 ## Пример связанных объектов
 
@@ -111,7 +121,7 @@ classDiagram
     class Entry["entry : SourceFile"]
     class Archive["archive : SevenZipSource"]
 
-    Selected : destination = /opt/pwserver/binary/gamed/gs
+    Selected : destination = gamed/gs
     Entry : path = pwserver/gamed/gs
     Archive : path = /archives/server.7z
 
@@ -123,6 +133,6 @@ classDiagram
 ## Выбор паттернов
 
 - Адаптеры источника реализуют операции чтения для своих форматов. Общий `SourceFile` обращается к адаптеру по адресу записи.
-- `PackageFile` использует декоратор для `SourceFile`. Он добавляет назначение пакета и делегирует операции исходному экземпляру.
+- `PackageFile` наследует свойства `SourceFile`, хранит ссылку на исходный файл и применяет назначение внутри пакета при извлечении.
 - `SourceFactory` сосредоточивает выбор ридера в одном методе. Если понадобятся настройки чтения, например выбор раздела VMDK, их можно передать фабрике при создании.
 - Интерактивный режим и пресеты используют общий отбор `ConfigBuilder`. Способ выбора варианта можно передать как метод объекта. В `build config` флаг `--batch` предназначен для выбора вариантов без запросов пользователю. SHA-256 вариантов вычисляется только непосредственно перед интерактивным запросом выбора.
