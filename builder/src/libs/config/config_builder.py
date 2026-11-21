@@ -1,3 +1,4 @@
+import re
 from collections import defaultdict
 from pathlib import Path, PurePath, PurePosixPath
 
@@ -21,6 +22,14 @@ class ConfigBuilder:
         "licenseservice",
         "logservice",
         "uniquenamed",
+    )
+    _PW_FILES = (
+        r"home/license\.conf",
+        r"[^/]*\.sql",
+    )
+    _PW_REGEX = (
+        re.compile(rf"(^|.*/)(?P<path>({'|'.join(_PW_DIRECTORIES)})/.+)"),
+        re.compile(rf"(^|.*/)(?P<path>{'|'.join(_PW_FILES)})"),
     )
 
     def __init__(self, paths: list[Path], *, batch: bool = False) -> None:
@@ -48,6 +57,11 @@ class ConfigBuilder:
 
     def _filter(self, path: PurePath) -> PurePosixPath | None:
         """Return a server path for an original source path, or None."""
+        posix = path.as_posix()
+        for regex in self._PW_REGEX:
+            match = regex.fullmatch(posix)
+            if match:
+                return PurePosixPath(match["path"])
         return None
 
     def _group(
@@ -60,5 +74,8 @@ class ConfigBuilder:
         self,
         group: list[SourceFile],
         destination: PurePosixPath,
-    ):
+    ) -> None:
         """Update the included and excluded lists for one destination."""
+        selected, *rejected = group
+        self.included.append(PackageFile(selected, destination))
+        self.excluded.extend(rejected)
