@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from .abstract_source import AbstractSource
+from .directory_source import DirectorySource
 
 
 class SourceFactory:
@@ -8,4 +9,6 @@ class SourceFactory:
 
     def create(self, path: Path) -> AbstractSource:
         """Create a source for the given path."""
-        raise NotImplementedError
+        if path.is_dir():
+            return DirectorySource(path)
+        raise NotImplementedError(f"No source reader for {path}")

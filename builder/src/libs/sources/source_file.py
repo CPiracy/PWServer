@@ -33,6 +33,14 @@ class SourceFile:
         return self.source.get_file(self._link) if self._link is not None else None
 
     @property
+    def mode(self) -> int:
+        """Return the file mode."""
+        link = self.link
+        if link is not None:
+            return link.mode
+        return self.source.get_file_mode(self.path)
+
+    @property
     def sha256(self) -> str:
         """Return the hexadecimal SHA-256 digest of the file contents."""
         link = self.link
