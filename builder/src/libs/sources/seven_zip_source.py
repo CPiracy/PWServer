@@ -2,7 +2,7 @@ from pathlib import Path, PurePath, PurePosixPath
 from posixpath import normpath
 
 from py7zr import SevenZipFile
-from py7zr.io import BytesIOFactory
+from py7zr.io import BytesIOFactory, HashIOFactory
 
 from .abstract_source import AbstractSource
 from .source_file import SourceFile
@@ -39,11 +39,19 @@ class SevenZipSource(AbstractSource):
 
     def get_file_sha256(self, path: PurePath) -> str:
         """Return the hexadecimal SHA-256 digest of the archive entry."""
-        raise NotImplementedError
+        name = path.as_posix()
+        factory = HashIOFactory()
+        with SevenZipFile(self.path, "r") as archive:
+            archive.extract(targets=[name], factory=factory)
+        return factory.get(name).read().hex()
 
     def extract_file(self, file: PurePath, path: Path) -> None:
         """Write the archive entry to the given filesystem path."""
-        raise NotImplementedError
+        name = file.as_posix()
+        with SevenZipFile(self.path, "r") as archive:
+            factory = BytesIOFactory(archive.getinfo(name).uncompressed)
+            archive.extract(targets=[name], factory=factory)
+        path.write_bytes(factory.get(name).read())
 
     def _filter_links(
         self, links: dict[PurePosixPath, PurePosixPath]

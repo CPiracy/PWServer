@@ -2,6 +2,7 @@ from pathlib import Path
 
 from .abstract_source import AbstractSource
 from .directory_source import DirectorySource
+from .seven_zip_source import SevenZipSource
 
 
 class SourceFactory:
@@ -11,4 +12,6 @@ class SourceFactory:
         """Create a source for the given path."""
         if path.is_dir():
             return DirectorySource(path)
+        if path.suffix.lower() == ".7z":
+            return SevenZipSource(path)
         raise NotImplementedError(f"No source reader for {path}")
