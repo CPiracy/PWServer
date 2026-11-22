@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Annotated
 
 import typer
+from rich.pager import SystemPager
 
 from src.libs.config.config_builder import ConfigBuilder
 from src.libs.config.package_file import PackageFile
@@ -14,6 +15,16 @@ app = typer.Typer(
     no_args_is_help=True,
     options_metavar="",
 )
+
+
+def _pagination(lines: list[str]) -> None:
+    """Print the styled preview through a pager when needed."""
+    text = "\n".join(lines)
+    terminal = sys.stdout.isatty()
+    if terminal and sys.stdin.isatty() and len(lines) > typer.get_terminal_size().lines:
+        SystemPager().show(text + "\n")
+    else:
+        typer.echo(text, nl=bool(lines), color=terminal)
 
 
 @app.command(options_metavar="")
@@ -34,10 +45,6 @@ def config(
     exclude: Annotated[
         bool, typer.Option("--exclude", help="Show excluded files.")
     ] = False,
-    color: Annotated[
-        bool,
-        typer.Option("--color", help="Force colorizing when output is redirected."),
-    ] = False,
 ) -> None:
     """Create a package build configuration."""
     builder = ConfigBuilder(sources, batch=batch)
@@ -53,16 +60,18 @@ def config(
     if exclude:
         files.extend(builder.excluded)
 
+    lines: list[str] = []
     files.sort(key=lambda file: (file.source.path, str(file.path)))
     for source, group in groupby(files, key=lambda file: file.source.path):
-        typer.echo(source)
+        lines.append(str(source))
         for file in group:
             if isinstance(file, PackageFile):
                 path = typer.style(file.path, fg=typer.colors.GREEN)
                 line = f"{path} -> {file.destination}"
             else:
                 line = typer.style(file.path, fg=typer.colors.RED)
-            typer.echo(f"  {line}", color=color or None)
+            lines.append(f"  {line}")
+    _pagination(lines)
 
 
 @app.callback()

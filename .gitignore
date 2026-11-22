@@ -3,3 +3,16 @@
 **/*.pyc
 
 .ruff_cache/
+
+*.torrent
+*.txt
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.*
+*.gz
+*.ova
+*.vmdk
+
+config.json
