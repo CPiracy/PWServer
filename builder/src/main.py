@@ -1,10 +1,13 @@
 import sys
+from itertools import groupby
 from pathlib import Path
 from typing import Annotated
 
 import typer
 
 from src.libs.config.config_builder import ConfigBuilder
+from src.libs.config.package_file import PackageFile
+from src.libs.sources.source_file import SourceFile
 
 app = typer.Typer(
     add_completion=False,
@@ -31,6 +34,10 @@ def config(
     exclude: Annotated[
         bool, typer.Option("--exclude", help="Show excluded files.")
     ] = False,
+    color: Annotated[
+        bool,
+        typer.Option("--color", help="Force colorizing when output is redirected."),
+    ] = False,
 ) -> None:
     """Create a package build configuration."""
     builder = ConfigBuilder(sources, batch=batch)
@@ -40,15 +47,22 @@ def config(
         result.save(output)
         return
 
+    files: list[SourceFile] = []
     if include:
-        typer.echo(f"Included files ({len(builder.included)})")
-        for file in builder.included:
-            typer.echo(f"  {file.path} -> {file.destination}")
-
+        files.extend(builder.included)
     if exclude:
-        typer.echo(f"Excluded files ({len(builder.excluded)})")
-        for file in builder.excluded:
-            typer.echo(f"  {file.path}")
+        files.extend(builder.excluded)
+
+    files.sort(key=lambda file: (file.source.path, str(file.path)))
+    for source, group in groupby(files, key=lambda file: file.source.path):
+        typer.echo(source)
+        for file in group:
+            if isinstance(file, PackageFile):
+                path = typer.style(file.path, fg=typer.colors.GREEN)
+                line = f"{path} -> {file.destination}"
+            else:
+                line = typer.style(file.path, fg=typer.colors.RED)
+            typer.echo(f"  {line}", color=color or None)
 
 
 @app.callback()
