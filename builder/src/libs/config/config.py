@@ -32,7 +32,8 @@ class Config:
         for source_path, entries in sources.items():
             source = source_factory.create(Path(source_path))
             for entry_path, destination in entries.items():
-                source_file = SourceFile(source, PurePath(entry_path))
+                entry = PurePath(entry_path)
+                source_file = source.get_file(entry) or SourceFile(source, entry)
                 files.append(PackageFile(source_file, PurePosixPath(destination)))
         return cls(files)
 
