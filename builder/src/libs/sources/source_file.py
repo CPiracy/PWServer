@@ -15,7 +15,7 @@ class SourceFile:
     ) -> None:
         self._source = source
         self._path = path
-        self._link = path.parent / link if link is not None else None
+        self._link = link
 
     @property
     def source(self) -> AbstractSource:

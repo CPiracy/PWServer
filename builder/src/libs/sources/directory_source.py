@@ -27,7 +27,7 @@ class DirectorySource(AbstractSource):
         entry = self.path / path
         if entry.is_file() and entry.resolve(strict=True).is_relative_to(self.path):
             if entry.is_symlink():
-                return SourceFile(self, entry, entry.readlink())
+                return SourceFile(self, entry, entry.parent / entry.readlink())
             return SourceFile(self, entry)
         return None
 
