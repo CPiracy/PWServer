@@ -42,13 +42,15 @@ classDiagram
     }
 
     class ConfigBuilder {
-        +SourceFactory source_factory
-        -tuple~Path~ source_paths
-        -list~SourceFile~ excluded_files
-        +__init__(source_paths, source_factory) None
-        +build_config() Config
-        +get_excluded_files() list~SourceFile~
-        -select_files(files_by_source) tuple
+        -tuple~Path~ paths
+        -bool batch
+        +list~PackageFile~ included
+        +list~SourceFile~ excluded
+        +__init__(paths, batch) None
+        +build() Config
+        -_filter(path) Optional~PurePosixPath~
+        -_group(filtered) dict
+        -_select(group, destination) None
     }
 
     class Config {
@@ -72,16 +74,16 @@ classDiagram
     SourceFile --> AbstractSource : source
     PackageFile --> SourceFile : source_file
     Config o-- PackageFile : files
-    ConfigBuilder o-- SourceFile : excluded_files
-    ConfigBuilder ..> PackageFile : создаёт при отборе
-    ConfigBuilder --> SourceFactory : source_factory
+    ConfigBuilder o-- SourceFile : excluded
+    ConfigBuilder o-- PackageFile : included
+    ConfigBuilder ..> SourceFactory : build
     ConfigBuilder ..> Config : создаёт
     Config ..> SourceFactory : load
     Config ..> SourceFile : восстанавливает по пути
     SourceFactory ..> AbstractSource : создаёт
 ```
 
-`SourceFile` — общий класс для всех форматов. Адрес записи и цель ссылки имеют тип `PurePath`. Для файлов каталога ридер передаёт `Path`, для записей архива — `PurePosixPath`. Конструктор вычисляет адрес цели выражением `path.parent / link`. Свойство `link` получает следующий файл через `AbstractSource.get_file()`. Этот метод интерпретирует путь, включая `..`, по правилам источника. Чтение режима, хеширование и извлечение рекурсивно переходят к конечному файлу. Свойство `mode` возвращает режим файла как целое число. Для `DirectorySource` это полное значение `st_mode`. При отборе исполняемых файлов билдер будет проверять один бит исполнения.
+`SourceFile` — общий класс для всех форматов. Адрес записи и цель ссылки имеют тип `PurePath`. Для файлов каталога ридер передаёт `Path`, для записей архива — `PurePosixPath`. Ридер передаёт в `SourceFile` готовую цель в пространстве имён источника. Свойство `link` получает следующий файл через `AbstractSource.get_file()` по сохранённому пути. Чтение режима, хеширование и извлечение рекурсивно переходят к конечному файлу. Свойство `mode` возвращает режим файла как целое число. Для `DirectorySource` это полное значение `st_mode`. При отборе исполняемых файлов билдер будет проверять один бит исполнения.
 
 `get_file` возвращает `None`, если путь не указывает на подходящий файл. `AbstractSource` разрешает путь к ресурсу при создании. `DirectorySource` принимает существующие файлы внутри разрешённого корня и ссылки на них. Ошибки проверки пути передаются вызывающему коду.
 
@@ -103,11 +105,15 @@ classDiagram
 
 ## Отбор и фильтрация конфига
 
-`ConfigBuilder(source_paths, source_factory)` принимает список путей к источникам и фиксирует их порядок на время жизни экземпляра. Другой набор путей получает свой экземпляр билдера.
+`ConfigBuilder(paths, *, batch: bool = False)` запоминает пути к источникам в порядке приоритета и режим выбора. Вызывающий код явно запускает `build() -> Config` один раз для каждого экземпляра.
 
-`ConfigBuilder.build_config() -> Config` открывает источники из сохранённого списка и передаёт файлы внутреннему методу отбора. Отбор определяет назначения, выбирает варианты и создаёт `PackageFile` для общего конфига. Исключённые `SourceFile` сохраняются в этом же экземпляре после успешного построения.
+`included` содержит выбранные `PackageFile`, `excluded` содержит исключённые `SourceFile`. CLI читает эти списки для `--include` и `--exclude`. `Config` использует список `included` этой сборки.
 
-`get_excluded_files() -> list[SourceFile]` возвращает копию списка исключённых последнего успешного построения. До первого построения список пуст. Следующее успешное построение заменяет список. CLI может использовать этот метод для вывода `--exclude`.
+`build()` открывает источники через `SourceFactory` и передаёт исходный `SourceFile.path` в `_filter(path)` напрямую. Путь относится к пространству имён источника. Например, абсолютный путь может указывать на файл внутри диска ВМ. `_filter` возвращает распознанный серверный путь или `None`.
+
+`_group(filtered)` получает кандидатов, собранных по распознанным путям, и возвращает группы с окончательными относительными назначениями. Например, варианты `aipolicy` образуют одну группу с назначением `gamed/config/aipolicy.data`.
+
+`_select(group, destination)` получает одну группу и её окончательный путь. Метод создаёт `PackageFile` для выбранных кандидатов и обновляет списки `included` и `excluded`.
 
 `Config.filter(func) -> Config` применяет предикат `PackageFile -> bool` и возвращает новый конфиг. В нём остаются ссылки на выбранные `PackageFile` в прежнем порядке. Это позволяет получить серверный конфиг и конфиг данных из одного общего.
 

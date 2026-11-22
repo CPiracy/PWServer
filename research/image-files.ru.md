@@ -40,6 +40,14 @@
 
 [Конфиг VM](evidence/config-keys.tsv) · [Как выбираются карты](maps.ru.md) · [Языковые варианты данных](server-locales.ru.md)
 
+### Водные карты `gs01`
+
+В `Linear/PWServer176.7z` проверены 4 276 записей файлов и ссылок под `root/pwserver/`. Иероглифы есть в двух путях. Это `都城实验.wmap` и `露录鲁脟脢碌脩茅.wmap` в `gamed/config/world/watermap/`. Они входят в группу из восьми `.wmap` с нечисловыми именами. У всех восьми размер 116 байт и SHA-256 `4e6444e28ff65016cdac2fc70387e9055ef50639a1d5e9dd9a00b12eadcbc7c0`. [Имена из оглавления Linear](evidence/distributions/path-encoding/linear-path-corrections.csv)
+
+Для `gs01` параметры `[Template] Root = ./config/` и `[World_gs01] base_path = world/` задают каталог `gamed/config/world/`. В `watermap/watermap.conf` указаны `Map Width = 8` и `Map Length = 11`. Статическая проверка оригинального `gamed/gs` Build 4311 подтвердила, что `CGlobalWaterAreaMap::Load(char const*)` (`0x1593382`) читает размеры, вычисляет номера клеток, формирует имена по шаблону `%d.wmap` и открывает каждый такой путь через `fopen`. [Отпечаток ELF](evidence/fingerprints.tsv) · [Соответствующий загрузчик в H176](https://github.com/huzeming/176source/blob/c0992a29c0848de4de139a8958ceb11edcf2d38b/cgame/gs/pathfinding/GlobalWaterAreaMap.cpp#L73-L132)
+
+Для штатного `gs01` в этой поставке сохраняем `watermap.conf` и `1.wmap`–`88.wmap`. Все 88 файлов есть в архиве. Восемь дополнительных `.wmap`, включая два с иероглифами, можно исключить при подготовке пакета Linear.
+
 ## Данные вне образа и системные входы
 
 - Смонтировать `gamedbd/dbhome` и `uniquenamed/dbhome` отдельными томами целиком. `[storagewdb]` задаёт `homedir`, пути к `dbdata` и `dblogs` внутри него и `backupdir`. При штатном `[gamedbd] noimportclsconfig=0` `gamedbd` импортирует `./clsconfig` в WDB через `system()` и `/bin/cp`. В системном слое нужны `/bin/sh` и `/bin/cp` даже при своей обвязке.
