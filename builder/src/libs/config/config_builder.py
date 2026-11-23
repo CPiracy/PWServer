@@ -25,7 +25,8 @@ class ConfigBuilder:
     )
     _PW_FILES = (
         r"home/license\.conf",
-        r"[^/]*\.sql",
+        r"licenseservice\.sql",
+        r"pw\d+\.sql",
     )
     _PW_REGEX = (
         re.compile(rf"(^|.*/)(?P<path>({'|'.join(_PW_DIRECTORIES)})/.+)"),
