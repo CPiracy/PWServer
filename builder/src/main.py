@@ -56,11 +56,11 @@ def config(
     ] = False,
     show: Annotated[
         list[str] | None,
-        typer.Option("--show", metavar="<GLOB>", help="Show matching preview paths."),
+        typer.Option("--show", help="Show matching preview paths."),
     ] = None,
     hide: Annotated[
         list[str] | None,
-        typer.Option("--hide", metavar="<GLOB>", help="Hide matching preview paths."),
+        typer.Option("--hide", help="Hide matching preview paths."),
     ] = None,
 ) -> None:
     """Create a package build configuration."""

@@ -2,6 +2,8 @@ import re
 from collections import defaultdict
 from pathlib import Path, PurePath, PurePosixPath
 
+import questionary
+
 from ..sources.source_factory import SourceFactory
 from ..sources.source_file import SourceFile
 from .config import Config
@@ -32,6 +34,15 @@ class ConfigBuilder:
         re.compile(rf"(^|.*/)(?P<path>({'|'.join(_PW_DIRECTORIES)})/.+)"),
         re.compile(rf"(^|.*/)(?P<path>{'|'.join(_PW_FILES)})"),
     )
+    _PW_GROUP_REGEX = re.compile(
+        r"(?P<prefix>(^|.*/)[A-Za-z]+)[^A-Za-z/.][^/.]*(?P<suffix>|\.data|\.conf)"
+    )
+    _PW_GROUP_EXCEPTIONS = (
+        re.compile(r"gamed/config/.+/npcgen_\d+\.data"),
+        re.compile(r"gamed/config/gshop\d+\.data"),
+        re.compile(r"gamed/config/domain2(_cross)?\.data"),
+        re.compile(r"gdeliveryd/domain\d+\.data"),
+    )
 
     def __init__(self, paths: list[Path], *, batch: bool = False) -> None:
         self._paths = tuple(paths)
@@ -52,8 +63,8 @@ class ConfigBuilder:
                     filtered[destination].append(file)
 
         grouped = self._group(filtered)
-        for destination, group in grouped.items():
-            self._select(group, destination)
+        for group in grouped.values():
+            self._select(group)
         return Config(self.included)
 
     def _filter(self, path: PurePath) -> PurePosixPath | None:
@@ -67,16 +78,40 @@ class ConfigBuilder:
 
     def _group(
         self, filtered: dict[PurePosixPath, list[SourceFile]]
-    ) -> dict[PurePosixPath, list[SourceFile]]:
-        """Group candidates by their final package destinations."""
-        return filtered
+    ) -> dict[PurePosixPath, list[PackageFile]]:
+        """Group candidates while retaining each original destination."""
+        grouped: dict[PurePosixPath, list[PackageFile]] = defaultdict(list)
+        for destination, files in filtered.items():
+            key = destination
+            posix = destination.as_posix()
+            match = self._PW_GROUP_REGEX.fullmatch(posix)
+            if match and not any(
+                regex.fullmatch(posix) for regex in self._PW_GROUP_EXCEPTIONS
+            ):
+                key = PurePosixPath(match["prefix"] + match["suffix"])
+            grouped[key].extend(PackageFile(file, destination) for file in files)
+        return grouped
 
-    def _select(
-        self,
-        group: list[SourceFile],
-        destination: PurePosixPath,
-    ) -> None:
-        """Update the included and excluded lists for one destination."""
-        selected, *rejected = group
-        self.included.append(PackageFile(selected, destination))
-        self.excluded.extend(rejected)
+    def _select(self, group: list[PackageFile]) -> None:
+        """Select a package file and exclude the other candidates."""
+        group.sort(key=lambda file: len(file.destination.name))
+        selected = group[0]
+        destination = selected.destination
+
+        if len(group) > 1 and not self._batch:
+            selected = questionary.select(
+                f"Choose a file for {destination}:",
+                choices=[
+                    questionary.Choice(
+                        file.path.name,
+                        value=file,
+                        description=file.source.path,
+                    )
+                    for file in group
+                ],
+                pointer=None,
+                style=questionary.Style([("highlighted", "reverse")]),
+            ).unsafe_ask()
+
+        self.included.append(PackageFile(selected.source_file, destination))
+        self.excluded.extend(file.source_file for file in group if file is not selected)
