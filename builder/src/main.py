@@ -1,6 +1,6 @@
 import sys
 from itertools import groupby
-from pathlib import Path
+from pathlib import Path, PurePath
 from typing import Annotated
 
 import typer
@@ -27,6 +27,15 @@ def _pagination(lines: list[str]) -> None:
         typer.echo(text, nl=bool(lines), color=terminal)
 
 
+def _glob(path: PurePath, mask: str) -> bool:
+    """Match a name glob or a full path glob."""
+    return (
+        path.full_match(mask, case_sensitive=True)
+        if "/" in mask
+        else path.match(mask, case_sensitive=True)
+    )
+
+
 @app.command(options_metavar="")
 def config(
     sources: Annotated[
@@ -45,6 +54,14 @@ def config(
     exclude: Annotated[
         bool, typer.Option("--exclude", help="Show excluded files.")
     ] = False,
+    show: Annotated[
+        list[str] | None,
+        typer.Option("--show", metavar="<GLOB>", help="Show matching preview paths."),
+    ] = None,
+    hide: Annotated[
+        list[str] | None,
+        typer.Option("--hide", metavar="<GLOB>", help="Hide matching preview paths."),
+    ] = None,
 ) -> None:
     """Create a package build configuration."""
     builder = ConfigBuilder(sources, batch=batch)
@@ -59,6 +76,13 @@ def config(
         files.extend(builder.included)
     if exclude:
         files.extend(builder.excluded)
+
+    if show:
+        files = [file for file in files if any(_glob(file.path, mask) for mask in show)]
+    if hide:
+        files = [
+            file for file in files if not any(_glob(file.path, mask) for mask in hide)
+        ]
 
     lines: list[str] = []
     files.sort(key=lambda file: (file.source.path, str(file.path)))
