@@ -35,6 +35,10 @@ class DirectorySource(AbstractSource):
         """Return the file mode from filesystem metadata."""
         return (self.path / path).stat().st_mode
 
+    def get_file_size(self, path: PurePath) -> int:
+        """Return the file size from filesystem metadata."""
+        return (self.path / path).stat().st_size
+
     def get_file_sha256(self, path: PurePath) -> str:
         """Return the hexadecimal SHA-256 digest of the file contents."""
         with (self.path / path).open("rb") as stream:

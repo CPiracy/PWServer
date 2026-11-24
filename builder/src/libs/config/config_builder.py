@@ -92,6 +92,10 @@ class ConfigBuilder:
             grouped[key].extend(PackageFile(file, destination) for file in files)
         return grouped
 
+    def _label(self, group: list[PackageFile]) -> dict[PackageFile, str]:
+        """Return menu labels for the package candidates."""
+        return {file: file.path.name for file in group}
+
     def _select(self, group: list[PackageFile]) -> None:
         """Select a package file and exclude the other candidates."""
         group.sort(key=lambda file: len(file.destination.name))
@@ -99,11 +103,12 @@ class ConfigBuilder:
         destination = selected.destination
 
         if len(group) > 1 and not self._batch:
+            labels = self._label(group)
             selected = questionary.select(
                 f"Choose a file for {destination}:",
                 choices=[
                     questionary.Choice(
-                        file.path.name,
+                        labels[file],
                         value=file,
                         description=file.source.path,
                     )

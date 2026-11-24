@@ -32,6 +32,10 @@ class AbstractSource(ABC):
         """Return the mode of the file at the given path."""
 
     @abstractmethod
+    def get_file_size(self, path: PurePath) -> int:
+        """Return the size of the file at the given path in bytes."""
+
+    @abstractmethod
     def get_file_sha256(self, path: PurePath) -> str:
         """Return the hexadecimal SHA-256 digest of the file at this path."""
 

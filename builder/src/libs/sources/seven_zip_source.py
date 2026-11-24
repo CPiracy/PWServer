@@ -13,12 +13,15 @@ class SevenZipSource(AbstractSource):
 
     def __init__(self, path: Path) -> None:
         super().__init__(path)
+        self._files: dict[PurePosixPath, int] = {}
+        self._sizes: dict[PurePosixPath, int] = {}
+
         with SevenZipFile(self.path, "r") as archive:
-            self._files = {
-                PurePosixPath(file.filename): file.posix_mode or 0
-                for file in archive.files
-                if file.is_file
-            }
+            for file in archive.files:
+                if file.is_file:
+                    entry = PurePosixPath(file.filename)
+                    self._files[entry] = file.posix_mode or 0
+                    self._sizes[entry] = file.uncompressed
             self._links = self._filter_links(self._read_links(archive))
 
     def list_files(self) -> list[SourceFile]:
@@ -36,6 +39,10 @@ class SevenZipSource(AbstractSource):
     def get_file_mode(self, path: PurePath) -> int:
         """Return the mode stored for the archive entry."""
         return self._files.get(PurePosixPath(path), 0)
+
+    def get_file_size(self, path: PurePath) -> int:
+        """Return the uncompressed size of the archive entry in bytes."""
+        return self._sizes.get(PurePosixPath(path), 0)
 
     def get_file_sha256(self, path: PurePath) -> str:
         """Return the hexadecimal SHA-256 digest of the archive entry."""

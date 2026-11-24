@@ -35,23 +35,23 @@ class SourceFile:
     @property
     def mode(self) -> int:
         """Return the file mode."""
-        link = self.link
-        if link is not None:
-            return link.mode
-        return self.source.get_file_mode(self.path)
+        return self.source.get_file_mode(self.resolve().path)
+
+    @property
+    def size(self) -> int:
+        """Return the file size in bytes."""
+        return self.source.get_file_size(self.resolve().path)
 
     @property
     def sha256(self) -> str:
         """Return the hexadecimal SHA-256 digest of the file contents."""
-        link = self.link
-        if link is not None:
-            return link.sha256
-        return self.source.get_file_sha256(self.path)
+        return self.source.get_file_sha256(self.resolve().path)
 
     def extract(self, path: Path) -> None:
         """Write the file to the given filesystem path."""
+        self.source.extract_file(self.resolve().path, path)
+
+    def resolve(self) -> SourceFile:
+        """Return the final file after following symbolic links."""
         link = self.link
-        if link is not None:
-            link.extract(path)
-        else:
-            self.source.extract_file(self.path, path)
+        return link.resolve() if link is not None else self
