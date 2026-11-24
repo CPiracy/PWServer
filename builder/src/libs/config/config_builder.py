@@ -44,9 +44,12 @@ class ConfigBuilder:
         re.compile(r"gdeliveryd/domain\d+\.data"),
     )
 
-    def __init__(self, paths: list[Path], *, batch: bool = False) -> None:
+    def __init__(
+        self, paths: list[Path], *, batch: bool = False, sha256: bool = False
+    ) -> None:
         self._paths = tuple(paths)
         self._batch = batch
+        self._sha256 = sha256
         self.included: list[PackageFile] = []
         self.excluded: list[SourceFile] = []
 
@@ -94,7 +97,35 @@ class ConfigBuilder:
 
     def _label(self, group: list[PackageFile]) -> dict[PackageFile, str]:
         """Return menu labels for the package candidates."""
-        return {file: file.path.name for file in group}
+        labels: dict[PackageFile, str] = {}
+        sizes: dict[int, PackageFile] = {}
+        hashes: dict[int, dict[str, PackageFile]] = {}
+
+        for file in group:
+            name = file.path.name
+            target = file.resolve()
+            if target is not file:
+                labels[file] = f"{name} (link to {target.path.name})"
+                continue
+
+            size = file.size
+            reference = sizes.setdefault(size, file)
+            if reference is file:
+                labels[file] = name
+                continue
+
+            labels[file] = f"{name} (size of {reference.path.name})"
+            if not self._sha256:
+                continue
+
+            if size not in hashes:
+                hashes[size] = {reference.sha256: reference}
+
+            copy = hashes[size].setdefault(file.sha256, file)
+            if copy is not file:
+                labels[file] = f"{name} (same as {copy.path.name})"
+
+        return labels
 
     def _select(self, group: list[PackageFile]) -> None:
         """Select a package file and exclude the other candidates."""

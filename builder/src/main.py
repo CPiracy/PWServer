@@ -48,6 +48,10 @@ def config(
     batch: Annotated[
         bool, typer.Option("--batch", help="Non-interactive mode without prompting.")
     ] = False,
+    sha256: Annotated[
+        bool,
+        typer.Option("--sha256", help="Compare SHA-256 hashes of equal-size files."),
+    ] = False,
     include: Annotated[
         bool, typer.Option("--include", help="Show included files.")
     ] = False,
@@ -64,7 +68,7 @@ def config(
     ] = None,
 ) -> None:
     """Create a package build configuration."""
-    builder = ConfigBuilder(sources, batch=batch)
+    builder = ConfigBuilder(sources, batch=batch, sha256=sha256)
     result = builder.build()
 
     if not (include or exclude):
