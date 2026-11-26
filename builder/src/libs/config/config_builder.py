@@ -51,16 +51,41 @@ class ConfigBuilder:
     )
     _PW_FILTER_LAYERS = (
         {
-            "rule": re.compile(rf"(.*/)?[^/]*\.({'|'.join(_PW_EXTENSIONS)})"),
-            "exceptions": (re.compile(r"(.*/)?[^/\.]*"),),
+            "rule": re.compile(rf".*\.({'|'.join(_PW_EXTENSIONS)})"),
+            "exceptions": (re.compile(r"(.*/)?[^/.]+"),),
         },
         {
             "rule": re.compile(r"[\N{NULL}-\N{DELETE}]+"),
             "exceptions": (),
         },
         {
-            "rule": re.compile(r"(?!(.*/)?dbhome/).*"),
+            "rule": re.compile(r"(?!(.*/)?(dbhome|backup)/).*"),
             "exceptions": (),
+        },
+        {
+            "rule": re.compile(r"(?!.*(report|log\.txt)$).*"),
+            "exceptions": (),
+        },
+        {
+            "rule": re.compile(r"(?!.*\.txt$).*"),
+            "exceptions": (re.compile(r"(.*/)?gdeliveryd/.*\.txt"),),
+        },
+        {
+            "rule": re.compile(r"(?!.*\.xml$).*"),
+            "exceptions": (re.compile(r"(.*/)?gacd/gacd\.xml"),),
+        },
+        {
+            "rule": re.compile(r"(?!(.*/)?gamed/config/.+/[^/.]+$).*"),
+            "exceptions": (),
+        },
+        {
+            "rule": re.compile(r"(?!(.*/)?gamed/config/.+/.*\.(data|sev)$).*"),
+            "exceptions": (
+                re.compile(r"(.*/)?gamed/config/.+/npcgen[^/]*\.data"),
+                re.compile(
+                    r"(.*/)?gamed/config/.+/(precinct|region|path|map_desp)\.sev"
+                ),
+            ),
         },
     )
     _PW_DESTINATION_REGEX = (
