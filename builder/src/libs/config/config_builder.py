@@ -13,6 +13,25 @@ from .package_file import PackageFile
 class ConfigBuilder:
     """Build a package configuration from ordered input sources."""
 
+    _PW_EXTENSIONS = (
+        "bht",
+        "clt",
+        "conf",
+        "dat",
+        "data",
+        "dhmap",
+        "hmap",
+        "lua",
+        "nmd",
+        "octr",
+        "rmap",
+        "sev",
+        "so",
+        "sql",
+        "txt",
+        "wmap",
+        "xml",
+    )
     _PW_DIRECTORIES = (
         "gacd",
         "gamed",
@@ -30,12 +49,26 @@ class ConfigBuilder:
         r"licenseservice\.sql",
         r"pw\d+\.sql",
     )
-    _PW_REGEX = (
-        re.compile(rf"(^|.*/)(?P<path>({'|'.join(_PW_DIRECTORIES)})/.+)"),
-        re.compile(rf"(^|.*/)(?P<path>{'|'.join(_PW_FILES)})"),
+    _PW_FILTER_LAYERS = (
+        {
+            "rule": re.compile(rf"(.*/)?[^/]*\.({'|'.join(_PW_EXTENSIONS)})"),
+            "exceptions": (re.compile(r"(.*/)?[^/\.]*"),),
+        },
+        {
+            "rule": re.compile(r"[\N{NULL}-\N{DELETE}]+"),
+            "exceptions": (),
+        },
+        {
+            "rule": re.compile(r"(?!(.*/)?dbhome/).*"),
+            "exceptions": (),
+        },
+    )
+    _PW_DESTINATION_REGEX = (
+        re.compile(rf"(.*/)?(?P<path>({'|'.join(_PW_DIRECTORIES)})/.+)"),
+        re.compile(rf"(.*/)?(?P<path>{'|'.join(_PW_FILES)})"),
     )
     _PW_GROUP_REGEX = re.compile(
-        r"(?P<prefix>(^|.*/)[A-Za-z]+)[^A-Za-z/.][^/.]*(?P<suffix>|\.data|\.conf)"
+        r"(?P<prefix>(.*/)?[A-Za-z]+)[^A-Za-z/.][^/.]*(?P<suffix>|\.data|\.conf)"
     )
     _PW_GROUP_EXCEPTIONS = (
         re.compile(r"gamed/config/.+/npcgen_\d+\.data"),
@@ -71,9 +104,15 @@ class ConfigBuilder:
         return Config(self.included)
 
     def _filter(self, path: PurePath) -> PurePosixPath | None:
-        """Return a server path for an original source path, or None."""
+        """Return an allowed server path, or None."""
         posix = path.as_posix()
-        for regex in self._PW_REGEX:
+        for layer in self._PW_FILTER_LAYERS:
+            if not layer["rule"].fullmatch(posix) and not any(
+                exception.fullmatch(posix) for exception in layer["exceptions"]
+            ):
+                return None
+
+        for regex in self._PW_DESTINATION_REGEX:
             match = regex.fullmatch(posix)
             if match:
                 return PurePosixPath(match["path"])
