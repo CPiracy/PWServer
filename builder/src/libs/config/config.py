@@ -5,9 +5,10 @@ from collections import defaultdict
 from collections.abc import Callable
 from pathlib import Path, PurePath, PurePosixPath
 
-from ..sources.source_factory import SourceFactory
-from ..sources.source_file import SourceFile
-from .package_file import PackageFile
+from ..source.abstract_source import AbstractSource
+from ..source.package_file import PackageFile
+from ..source.source_factory import SourceFactory
+from ..source.source_file import SourceFile
 
 
 class Config:
@@ -40,3 +41,11 @@ class Config:
     def filter(self, func: Callable[[PackageFile], bool]) -> Config:
         """Return a config with the matching package files in order."""
         return Config([file for file in self.files if func(file)])
+
+    def extract(self, path: Path) -> None:
+        """Extract the selected files to their destinations, grouped by source."""
+        sources: defaultdict[AbstractSource, list[PackageFile]] = defaultdict(list)
+        for file in self.files:
+            sources[file.source].append(file)
+        for source, files in sources.items():
+            source.extract_list(files, path)

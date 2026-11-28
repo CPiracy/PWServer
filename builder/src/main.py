@@ -7,8 +7,8 @@ import typer
 from rich.pager import SystemPager
 
 from src.libs.config.config_builder import ConfigBuilder
-from src.libs.config.package_file import PackageFile
-from src.libs.sources.source_file import SourceFile
+from src.libs.source.package_file import PackageFile
+from src.libs.source.source_file import SourceFile
 
 app = typer.Typer(
     add_completion=False,

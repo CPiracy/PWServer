@@ -1,6 +1,6 @@
 from pathlib import Path, PurePosixPath
 
-from ..sources.source_file import SourceFile
+from .source_file import SourceFile
 
 
 class PackageFile(SourceFile):

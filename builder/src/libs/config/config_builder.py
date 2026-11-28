@@ -4,10 +4,10 @@ from pathlib import Path, PurePath, PurePosixPath
 
 import questionary
 
-from ..sources.source_factory import SourceFactory
-from ..sources.source_file import SourceFile
+from ..source.package_file import PackageFile
+from ..source.source_factory import SourceFactory
+from ..source.source_file import SourceFile
 from .config import Config
-from .package_file import PackageFile
 
 
 class ConfigBuilder:

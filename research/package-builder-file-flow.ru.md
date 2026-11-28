@@ -16,6 +16,7 @@ classDiagram
         +get_file_mode(path) int
         +get_file_sha256(path) str
         +extract_file(file, path) None
+        +extract_list(files, path) None
     }
 
     class DirectorySource
@@ -58,6 +59,7 @@ classDiagram
         +save(path) None
         +load(path) Config$
         +filter(func) Config
+        +extract(path) None
     }
 
     class SourceFactory {
@@ -101,7 +103,9 @@ classDiagram
 
 Метод `load(path)` создаёт `SourceFactory` и один ридер на источник, затем восстанавливает файлы по сохранённым путям. Если файл отсутствует в источнике, ошибка возникает при извлечении.
 
-`SourceFactory` живёт в `libs.sources` рядом с ридерами. `create(path: Path) -> AbstractSource` выбирает реализацию для каталога, 7z, ZIP, TAR или VMDK. Та же фабрика используется при создании и при загрузке конфига.
+`Config.extract(path)` группирует выбранные `PackageFile` по источникам и передаёт каждую группу в `extract_list(files, path)`. Базовый метод вызывает `PackageFile.extract(path)` для каждого файла. `SevenZipSource` одним вызовом распаковывает выбранные записи во временный каталог внутри `path`, затем переносит их по `destination`. Временное дерево удаляется автоматически.
+
+`SourceFactory` живёт в `libs.source` рядом с ридерами. `create(path: Path) -> AbstractSource` выбирает реализацию для каталога, 7z, ZIP, TAR или VMDK. Та же фабрика используется при создании и при загрузке конфига.
 
 ## Отбор и фильтрация конфига
 

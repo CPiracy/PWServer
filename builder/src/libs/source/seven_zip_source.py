@@ -1,10 +1,13 @@
 from pathlib import Path, PurePath, PurePosixPath
 from posixpath import normpath
+from tempfile import TemporaryDirectory
 
 from py7zr import SevenZipFile
+from py7zr.helpers import get_sanitized_output_path
 from py7zr.io import BytesIOFactory, HashIOFactory
 
 from .abstract_source import AbstractSource
+from .package_file import PackageFile
 from .source_file import SourceFile
 
 
@@ -59,6 +62,20 @@ class SevenZipSource(AbstractSource):
             factory = BytesIOFactory(archive.getinfo(name).uncompressed)
             archive.extract(targets=[name], factory=factory)
         path.write_bytes(factory.get(name).read())
+
+    def extract_list(self, files: list[PackageFile], path: Path) -> None:
+        """Extract the selected archive members to their package destinations."""
+        path.mkdir(parents=True, exist_ok=True)
+        targets = [file.resolve().path.as_posix() for file in files]
+
+        with TemporaryDirectory(dir=path) as directory:
+            temp = Path(directory)
+            with SevenZipFile(self.path, "r") as archive:
+                archive.extract(temp, targets=targets)
+            for file, member in zip(files, targets, strict=True):
+                target = path / file.destination
+                target.parent.mkdir(parents=True, exist_ok=True)
+                get_sanitized_output_path(member, temp).replace(target)
 
     def _filter_links(
         self, links: dict[PurePosixPath, PurePosixPath]

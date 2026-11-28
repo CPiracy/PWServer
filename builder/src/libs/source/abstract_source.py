@@ -5,6 +5,7 @@ from pathlib import Path, PurePath
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from .package_file import PackageFile
     from .source_file import SourceFile
 
 
@@ -42,3 +43,8 @@ class AbstractSource(ABC):
     @abstractmethod
     def extract_file(self, file: PurePath, path: Path) -> None:
         """Write the source entry to the given filesystem path."""
+
+    def extract_list(self, files: list[PackageFile], path: Path) -> None:
+        """Extract the selected files under path."""
+        for file in files:
+            file.extract(path)
